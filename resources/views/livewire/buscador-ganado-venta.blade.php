@@ -1,7 +1,7 @@
 <div>
 
     <div class="modal fade" id="modalVentaG" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" wire:ignore.self data-backdrop="static">
-        <div class="modal-dialog" role="document" height="50%">
+        <div class="modal-dialog modal-lg"  role="document" height="50%">
             <div class="modal-content ">
                 <div class="modal-header text-center">
                     <h5 class="modal-title-center text-center" id="exampleModalLabel">BUSCAR GANADO
@@ -32,7 +32,7 @@
                             <tr>
 
                                 <td class="text-center" style="width: 10px;"><input wire:model="selected_ganadoventa" name="COD_REGISTRO_GANADO" type="radio" value="{{$ganado->COD_REGISTRO_GANADO}}" /></td>
-                                <td>{{ 'Nombre: '.$ganado->NOM_GANADO.' , Arete: '.$ganado->NUM_ARETE }}</td>
+                                <td>{{ 'Nombre: '.$ganado->NOM_GANADO.' , Arete: '.$ganado->NUM_ARETE.', Raza: '.$ganado->RAZ_GANADO.' Peso: '.$ganado->PES_ACTUAL.' kg'.', Lugar: '.$ganado->DIR_LUGAR.', Estado: '.$ganado->DET_ESTADO}}</td>
 
                             </tr>
 
@@ -46,7 +46,7 @@
 
                     <div class="d-flex justify-content-between">
 
-                        {{$ganados->links()}}
+                    
                     </div>
                 </div>
                 <div class="modal-footer text-center">

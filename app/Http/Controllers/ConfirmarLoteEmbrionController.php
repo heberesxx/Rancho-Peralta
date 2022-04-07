@@ -40,7 +40,7 @@ class ConfirmarLoteEmbrionController extends Controller
     public function store(Request $request)
     {
         $this->cliente->post('confirmarlote_embrion');
-        return redirect()->route('lotescompras_embrion.index')->with('success','Lote registrado');
+        return redirect()->route('lotescompras_embrion.index');
     }
 
     /**

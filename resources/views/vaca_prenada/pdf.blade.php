@@ -153,14 +153,11 @@
 <body>
     <header class="clearfix">
         <div id="logo">
-            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 150px; height:150px; border-radius:50%;">
+            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 100px; height:100px; border-radius:50%;">
         </div>
         <h1>Vacas Preñadas por Embrión</h1>
         <div id="project" class="clearfix">
-            <div>@foreach($parametros as $parametro)
-                {{$parametro->valor}}
-                @endforeach
-            </div>
+            
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
         </div>
@@ -173,13 +170,13 @@
         <table >
             <thead >
                 <tr>
-                    <th class="desc">Código </th>
+                    <th class="desc">Cód </th>
                     <th class="desc">Embrión</th>
-                    <th class="desc">Raza esperada</th>
-                    <th class="desc">Nombre</th>
+                    <th class="desc">Raza Esperada</th>
+                    <th class="desc">Detalles Vaca Preñada</th>
                     <th class="desc">Lugar</th>
-                    <th class="desc">Status Vaca Preñada</th>
-                    <th class="desc">Fecha de Parto</th>
+                    <th class="desc">Status  Preñada</th>
+                    <th class="desc">Fecha Parto</th>
                   
                 </tr>
             </thead>
@@ -189,7 +186,7 @@
                     <td class="desc">{{ $vacaprenadaembrion->COD_PRENADA_EMBRION }}</td>
                     <td class="desc">{{ $vacaprenadaembrion->COD_EMBRION }}</td>
                     <td class="desc">{{ $vacaprenadaembrion->RAZ_ESPERADA }}</td>
-                    <td class="desc">{{ $vacaprenadaembrion->NOM_GANADO}}</td>
+                    <td class="desc">{{'Nombre: '. $vacaprenadaembrion->NOM_GANADO.', Raza: '.$vacaprenadaembrion->RAZA.', Arete:   '.$vacaprenadaembrion->ARETE.', Color: '.$vacaprenadaembrion->COLOR}}</td>
                     <td class="desc">{{ $vacaprenadaembrion->DIR_LUGAR }}</td>
                     <td class="desc">{{ $vacaprenadaembrion->IND_PRENADA }}</td>
                     <td class="desc">{{\Carbon\Carbon::parse( $vacaprenadaembrion->FEC_PARIO)->format('d/m/Y') }}</td>

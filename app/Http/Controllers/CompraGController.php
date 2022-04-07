@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\DetalleCompra;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use  Barryvdh\DomPDF\Facade as PDF;
@@ -95,7 +97,7 @@ class CompraGController extends Controller
     {
         $request->validate (  rules: [
        
-            "NOMBRE"  => 'required|alpha|min:2|max:30',
+            "NOMBRE"  => 'required|min:2|max:50',
             "COLOR" =>  'required|alpha|min:2|max:30',
             "COD_ESTADO" =>  'required', 
             "LUGAR" => 'required',
@@ -111,6 +113,9 @@ class CompraGController extends Controller
         $this->cliente->post('insertarcompraganado', [
             'json' => $request->all()
         ]);
+        //$cod_Detalle = DetalleCompra::all()->last()->COD_DETALLE_COMPRA;
+
+        
 
         //Alert::success('Compra Registrada');
         

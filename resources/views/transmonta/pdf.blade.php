@@ -174,7 +174,7 @@
             <thead >
                 <tr>
                     <th class="desc">Código</th>
-                    <th class="desc">Vaca montada</th>
+                    <th  class="desc">Detalles Vaca Montada</th>
                     <th class="desc">Raza del Toro</th>
                     <th class="desc">Fecha de monta</th>
                     <th class="desc">Estado </th>
@@ -185,7 +185,7 @@
                 @foreach($transmontas as $transmonta)
                 <tr>
                     <td class="desc">{{ $transmonta->COD_MONTA }}</td>
-                    <td class="desc">{{ $transmonta->NOM_GANADO }}</td>
+                    <td class="desc">{{'Nombre: '. $transmonta->NOM_GANADO.', Raza: '.$transmonta->RAZA.', Arete: '.$transmonta->ARETE.', Color: '.$transmonta->COLOR}}</td>
                     <td class="desc">{{ $transmonta->RAZ_TORO_MONTA }}</td>
                     <td class="desc">{{\Carbon\Carbon::parse( $transmonta->FEC_MONTA)->format('d/m/Y') }}</td>
                     <td class="desc">{{ $transmonta->IND_FECUNDACION}}</td>

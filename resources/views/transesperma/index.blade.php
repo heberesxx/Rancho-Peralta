@@ -42,7 +42,7 @@
                             <span class="mr-2">Nueva Transferencia </span> <i class="fas fa-plus-square"></i>
                         </a>
                         
-                        <a href="{{route('transesperma.pdf')}}" class="btn btn-danger" style=" margin-left: 34%;" >
+                        <a href="{{route('transesperma.pdf')}}" class="btn btn-danger" style=" margin-left: 35%;" >
                             <span class="mr-2">PDF</span>
                         </a>
 
@@ -59,7 +59,7 @@
                                 <th class="text-center">Código</th>
                                 <th class="text-center">N° Pajilla</th>
                                 <th class="text-center">Toro Donador</th>
-                                <th class="text-center">Vaca Receptora</th>
+                                <th class="text-center">Detalles Vaca Receptora</th>
                                 <th class="text-center">Status Esperma</th>
                                 <th class="text-center">Fecha de Registro</th>
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
@@ -76,7 +76,7 @@
                                 <td class="text-center">{{ $transesperma->COD_TRANS_ESPERMA }}</td>
                                 <td class="text-center">{{ $transesperma->NUM_PAJILLA }}</td>
                                 <td class="text-center">{{ $transesperma->RAZ_TORO_DONADOR }}</td>
-                                <td class="text-center">{{ $transesperma->NOM_GANADO }}</td>
+                                <td class="text-center">{{'Nombre: '. $transesperma->NOM_GANADO.', Raza: '.$transesperma->RAZA.', Arete: '.$transesperma->ARETE.', Color: '.$transesperma->COLOR}}</td>
                                 <td class="text-center">{{ $transesperma->IND_FECUNDACION }}</td>
                                 <td class="text-center" style="width: 20%">{{\Carbon\Carbon::parse( $transesperma->FEC_REGISTRO)->format('d/m/Y') }}</td>
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
@@ -111,7 +111,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>
@@ -164,6 +164,7 @@
       "language": {
         "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
       },
+      "bSort": false,
       "autoWidth": false,
   "responsive": true,
             

@@ -173,24 +173,24 @@
         <table>
             <thead style="background-color: #e1e2f6;">
                 <tr>
-                    <th class="text-center">Código</th>
-                    <th class="">Raza vaca donadora</th>
-                    <th class="">Raza toro donadora</th>
-                    <th class="">Vaca Receptora</th>
-                    <th class="">Estado Embrion</th>
-                    <th class="">Fecha de Fecundación</th>
+                    <th class="desc">Código</th>
+                    <th class="desc">Raza Donadora</th>
+                    <th class="desc">Raza Donador</th>
+                    <th class="desc">Detalles Vaca Receptora</th>
+                    <th class="desc">Estado Embrion</th>
+                    <th class="desc">Fecha de Fecundación</th>
 
                 </tr>
             </thead>
             <tbody>
                 @foreach($transembriones as $transembrion)
                 <tr>
-                    <td class="text-center">{{ $transembrion->COD_TRANS_EMBRION }}</td>
-                    <td>{{ $transembrion->RAZ_VACA_DONADORA }}</td>
-                    <td>{{ $transembrion->RAZ_TORO_DONADOR }}</td>
-                    <td>{{ $transembrion->NOM_GANADO }}</td>
-                    <td>{{ $transembrion->IND_FECUNDACION }}</td>
-                    <td style="width: 20%">{{\Carbon\Carbon::parse( $transembrion->FEC_REGISTRO)->format('d/m/Y') }}</td>
+                    <td class="desc">{{ $transembrion->COD_TRANS_EMBRION }}</td>
+                    <td class="desc">{{ $transembrion->RAZ_VACA_DONADORA }}</td>
+                    <td class="desc">{{ $transembrion->RAZ_TORO_DONADOR }}</td>
+                    <td class="desc">{{'Nombre: '. $transembrion->NOM_GANADO.', Raza: '.$transembrion->RAZA.', Arete: '.$transembrion->ARETE.', Color: '.$transembrion->COLOR}}</td>
+                    <td class="desc">{{ $transembrion->IND_FECUNDACION }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $transembrion->FEC_REGISTRO)->format('d/m/Y') }}</td>
 
                 </tr>
                 @endforeach

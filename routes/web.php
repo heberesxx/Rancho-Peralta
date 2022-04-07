@@ -76,6 +76,7 @@ Route::group(attributes:['middleware'=>'auth'], routes:function(){
     Route::get('roles/pdf', [App\Http\Controllers\RolesController::class,'pdf'])->name('seguridad.roles.pdf');
     Route::get('usuarios/pdf', [App\Http\Controllers\UsuariosController::class,'pdf'])->name('seguridad.usuarios.pdf');
     Route::get('objetos/pdf', [App\Http\Controllers\ObjetosController::class,'pdf'])->name('seguridad.objetos.pdf');
+    Route::get('preguntas/pdf', [App\Http\Controllers\PreguntasController::class,'pdf'])->name('seguridad.preguntas.pdf');
     Route::get('parametros/pdf', [App\Http\Controllers\ParametrosController::class,'pdf'])->name('seguridad.parametros.pdf');
     Route::get('bitacoras/pdf', [App\Http\Controllers\VerBitacoraController::class,'pdf'])->name('seguridad.bitacora.pdf');
     Route::get('ventas/pdf', [App\Http\Controllers\VentasController::class,'pdf'])->name('ventas.pdf');

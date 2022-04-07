@@ -72,6 +72,19 @@ class RolesController extends Controller
         $permisos = Permission::whereIn('name', $request->permissions)->pluck('id');
         $rolCreado=Role::create($data);
         $rolCreado->permissions()->sync($permisos);
+
+        return redirect()->action(
+            ['App\Http\Controllers\BitacoraController@index'],
+            [
+                'tabla'        => 'ROLES',
+                'accion'       => 'INSERTAR',
+                'descripcion'  => 'SE INSERTÓ EL ROL: '.$request->name,
+                'ruta'         => 'roles.index',
+                'msj'          => 'Rol creado con éxito.',
+            
+            ]
+            
+        );
         return redirect()->route('roles.index')->with('info','Rol creado con éxito');
     }
 

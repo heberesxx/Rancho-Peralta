@@ -41,7 +41,7 @@
                             <span class="mr-2">Registrar Nacimiento</span> <i class="fas fa-plus-square"></i>
                         </a>
 
-                        <a href="{{route('nacimientos.pdf')}}" class="btn btn-danger center" style="margin-left: 480px;">
+                        <a href="{{route('nacimientos.pdf')}}" class="btn btn-danger center" style="margin-left: 35%;">
                             <span class="mr-2">PDF</span> 
                         </a>
                     </div>
@@ -54,8 +54,9 @@
                             <tr>
                                 <th class="text-center">Código</th>
               
-                                <th class="text-center">Nombre Ternero</th>
-                                <th class="text-center">Vaca que Parió</th>
+                                <th class="text-center">Detalles Ternero</th>
+                               
+                                <th class="text-center">Detalles Vaca Parto</th>
                                 <th class="text-center">Fecha Nacimiento</th>
                                 <!-- @can('EDITAR_NACIMIENTOS EMBRION')
                                 <th class="text-center">Editar</th>
@@ -69,8 +70,9 @@
                             <tr>
                                 <td class="text-center">{{$nacimiento->COD_NACIMIENTO_EMBRION}}</td>
                            
-                                <td class="text-center">{{$nacimiento->TERNERO}}</td>
-                                <td class="text-center">{{$nacimiento->NOM_GANADO}}</td>
+                                <td class="text-center">{{'Nombre: '.$nacimiento->TERNERO.', Arete: '.$nacimiento->ARETE_TERNERO.', Color: '.$nacimiento->COLOR_TERNERO}}</td>
+                              
+                                <td class="text-center">{{'Nombre: '.$nacimiento->NOM_GANADO.', Arete: '.$nacimiento->ARETE_VACA.', Color: '.$nacimiento->COLOR_GANADO}}</td>
                                 <td class="text-center">{{ \Carbon\Carbon::parse($nacimiento->FEC_NACIMIENTO)->format('d/m/Y')}}</td>
                                 <!-- @can('EDITAR_NACIMIENTOS EMBRION')
                                 <td class="text-center" colspan="2">
@@ -102,7 +104,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>
@@ -151,6 +153,7 @@
       "language": {
         "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
       },
+      "bSort": false,
       "autoWidth": false,
   "responsive": true,
             

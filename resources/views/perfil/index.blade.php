@@ -212,7 +212,7 @@
                                                                     <div class="col-lg-12">
                                                                         <div class="form-group">
                                                                             <label><span style="color: red;"></span>Respuesta:</label>
-                                                                            <input id="respuesta" class="form-control border-dark capitalize" type="text" name="respuesta" value="{{ $respuesta->respuesta }}" pattern="[A-Z]+" title="Las respuestas solo pueden ser en Mayúsculas sin espacios" autofocus>
+                                                                            <input id="respuesta" class="form-control border-dark capitalize" type="text" name="respuesta" value="{{ $respuesta->respuesta }}" pattern="[A-Z ]{2,254}" title="Las respuestas solo pueden ser en Mayúsculas" autofocus>
 
                                                                             @if ($errors->has('respuesta'))
                                                                             <div id="respuesta-error" class="error text-danger pl-3" for="respuesta" style="display: bock;">

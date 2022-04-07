@@ -4,13 +4,13 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>Ganado Registrado</title>
+    <title>Preguntas de Seguridad</title>
     <link rel="stylesheet" href="style.css" media="all" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Reporte de Clientes Registrados</title>
+    <title>Preguntas de Seguridad</title>
 
     <style type="text/css">
         .clearfix:after {
@@ -155,7 +155,7 @@
         <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 150px; height:150px; border-radius:50%;">
         </div>
-        <h1>Ganado Registrado</h1>
+        <h1>Preguntas de Seguridad</h1>
         <div id="project" class="clearfix">
             <div>@foreach($parametros as $parametro)
                 {{$parametro->valor}}
@@ -170,37 +170,32 @@
 
     <main>
 
-        <table>
-            <thead >
-                <tr>
-                    
-                    <th class="desc" > Arete </th>
-                    <th class="desc" > Nombre</th>
-                    <th class="desc" > Color </th>
-                    <th class="desc" >Lugar </th>
-                    <th class="desc" >Peso</th>
-                    <th class="desc" >Raza</th>
-                    <th class="desc" >Status</th>
-                    <th class="desc" >Sexo</th>
-                  
+        <table >
+            <thead style="background-color: #e1e2f6;">
+                <tr >
+                    <th class="desc">Código</th>
+                    <th class="desc">Pregunta</th>
+
                 </tr>
+
             </thead>
             <tbody>
-                @foreach($ganados as $ganado)
-                <tr>
-                 
-                    <td class="desc">{{ $ganado->NUM_ARETE }}</td>
-                    <td class="desc">{{ $ganado->NOM_GANADO }}</td>
-                    <td class="desc">{{ $ganado->CLR_GANADO }}</td>
-                    <td class="desc">{{ $ganado->DIR_LUGAR }}</td>
-                    <td class="desc">{{ $ganado->PES_ACTUAL }}</td>
-                    <td class="desc">{{ $ganado->RAZ_GANADO }}</td>
-                    <td class="desc">{{ $ganado->DET_ESTADO }}</td>
-                    <td class="desc">{{ $ganado->SEX_GANADO }}</td>
+                @php $i=1;@endphp
+                @foreach ($preguntas as $pregunta)
+                <tr >
+                    <td class="desc">{{ $pregunta->id }}</td>
+                    <td class="desc">{{ $pregunta->pregunta }} </td>
+
                 </tr>
+
+                @php $i++;@endphp
                 @endforeach
+
+
             </tbody>
         </table>
+        </table>
+
     </main>
     <footer>
         Invoice was created on a computer and is valid without the signature and seal.

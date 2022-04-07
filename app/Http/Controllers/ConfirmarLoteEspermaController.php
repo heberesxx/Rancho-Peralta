@@ -38,7 +38,7 @@ class ConfirmarLoteEspermaController extends Controller
     public function store(Request $request)
     {
         $this->cliente->post('confirmarlote_esperma');
-        return redirect()->route('lotescompras_esperma.index')->with('info','Lote registrado');
+        return redirect()->route('lotescompras_esperma.index');
     }
 
     /**

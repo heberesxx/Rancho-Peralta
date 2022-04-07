@@ -17,7 +17,7 @@
 @section('content')
 <div class="container-fluid ">
     @if (session('info'))
-    <div class="alert alert-success text-center text-dark" role="alert">
+    <div class="alert alert-success text-center " role="alert">
         <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
         <strong>{{ session('info') }}</strong>
     </div>
@@ -56,7 +56,7 @@
                             <div class="col-lg-4">
                                 <div class="form-group">
                                     <label><span style="color: red;"> * </span>Fecha de Vencimiento</label>
-                                    <input id="FEC_VENCIMIENTO" class="form-control border-dark" placeholder="Ingrese la cantidad comprada..." type="date" min="{{date('Y-m-d');}}" step="30" name="FEC_VENCIMIENTO" value="{{old('FEC_VENCIMIENTO')}}" autofocus>
+                                    <input id="FEC_VENCIMIENTO" class="form-control border-dark" placeholder="Ingrese la cantidad comprada..." type="date" min="{{date('Y-m-d');}}"  name="FEC_VENCIMIENTO" value="{{old('FEC_VENCIMIENTO')}}" autofocus>
                                     @if ($errors->has('FEC_VENCIMIENTO'))
                                     <div id="FEC_VENCIMIENTO-error" class="error text-danger pl-3" for="FEC_VENCIMIENTO" style="display: bock;">
                                         <strong>
@@ -286,7 +286,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

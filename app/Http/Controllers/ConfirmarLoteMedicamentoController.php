@@ -39,7 +39,7 @@ class ConfirmarLoteMedicamentoController extends Controller
     public function store(Request $request)
     {
         $this->cliente->post('confirmarlote_medicamento');
-        return redirect()->route('medicamento.index')->with('info','Lote Registrado');
+        return redirect()->route('medicamento.index');
     }
 
     /**

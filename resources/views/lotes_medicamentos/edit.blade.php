@@ -35,20 +35,20 @@
                     <table id="TB" class="table table-bordered table-hover US">
                         <thead style="background-color: #e1e2f6;">
                             <tr>
-                                <th>Lote</th>
-                                <th>Medicamento</th>
-                                <th>Cantidad Comprada</th>
-                                <th>Unidades Disponibles</th>
+                                <th class="text-center">Lote</th>
+                                <th class="text-center">Medicamento</th>
+                                <th class="text-center">Cantidad Comprada</th>
+                                <th class="text-center">Unidades Disponibles</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($lotes as $lote)
                             <tr>
-                                <td>{{$lote->COD_COMPRA_MEDICAMENTO }}</td>
-                                <td>{{ $lote->MEDICAMENTO }}</td>
-                                <td>{{$lote->CANTIDAD}}</td>
-                                <td>{{$lote->UNI_DISPONIBLES}}</td>
+                                <td class="text-center">{{$lote->COD_COMPRA_MEDICAMENTO }}</td>
+                                <td class="text-center">{{ $lote->MEDICAMENTO }}</td>
+                                <td class="text-center">{{$lote->CANTIDAD}}</td>
+                                <td class="text-center">{{$lote->UNI_DISPONIBLES}}</td>
 
 
 
@@ -73,7 +73,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

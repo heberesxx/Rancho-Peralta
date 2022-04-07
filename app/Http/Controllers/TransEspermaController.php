@@ -76,7 +76,7 @@ class TransEspermaController extends Controller
             "detalle_esperma" => 'required', 
         ]);
         $this->cliente->post('registrar-transferencia-esperma',['json'=> $request->all()]);
-        return redirect()->route('transesperma.index')->with('info','Tranferencia de esperma registrada');
+        return redirect()->route('transesperma.index')->with('info','Tranferencia de Esperma Registrada');
     }
 
     /**
@@ -120,7 +120,7 @@ class TransEspermaController extends Controller
         $this->cliente->put('actualizar-transferencia-esperma/'. $id, ['json' => $request->all()
     ]);
 
-    return redirect()->route('transesperma.index')->with('edit','Transferencia de esperma actualizada');
+    return redirect()->route('transesperma.index')->with('edit','Transferencia de Rsperma Actualizada');
     }
 
     /**

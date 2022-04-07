@@ -16,21 +16,19 @@ class BuscadorClientes extends Component
 
     public function render()
     {
-        $clientes=Clientes::where('PRI_NOMBRE', 'like', '%' . $this->buscador . '%')->where('IND_COMERCIAL', '=', 'ACTIVO')
-        ->orderBy('PRI_NOMBRE')->paginate(10);
-;        ;
+        $clientes = Clientes::where('PRI_NOMBRE', 'like', '%' . $this->buscador . '%')->where('IND_COMERCIAL', '=', 'ACTIVO')
+            ->orderBy('PRI_NOMBRE')->paginate(10);
         return view('livewire.buscador-clientes')->with('clientes', $clientes);
     }
 
     public function seleccionar()
     {
-        
+
         if ($this->selected_cliente !== null) {
             //dd(Proveedores::all());
             $this->cliente = Clientes::find($this->selected_cliente);
-            $this->nombre = $this->cliente->PRI_NOMBRE. ' ' .$this->cliente->PRI_APELLIDO;
-           // dd($this->producto_live);
+            $this->nombre = $this->cliente->PRI_NOMBRE . ' ' . $this->cliente->PRI_APELLIDO;
+            // dd($this->producto_live);
         }
     }
-
 }

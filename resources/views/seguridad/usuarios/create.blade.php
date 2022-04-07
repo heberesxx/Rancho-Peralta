@@ -46,7 +46,7 @@
             @csrf()
 
             <div class="card-body">
-                <h6><span style="color: rgb(20, 20, 20);"> * Campos  obligatorios </span></h6>
+                <h6><span style="color: rgb(20, 20, 20);"> *  </span>Campos  obligatorios</h6>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -104,13 +104,13 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label><span style="color: red;"></span> Fecha de Vencimiento</label>
+                            <label><span style="color: red;">*</span> Fecha de Vencimiento</label>
                             <input name="fecha_vencimiento" placeholder="" id="fecha_vencimiento" class="form-control" type='date' min="{{date('Y-m-d');}}" max="">
                         </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-5">
                         <div class="form-group">
-                            <label><span style="color: red;"></span>Rol</label> <i class="fa fa-chalkboard-user" style="margin-left: 10px;"></i>
+                            <label><span style="color: red;">*</span>Rol</label> <i class="fa fa-chalkboard-user" style="margin-left: 10px;"></i>
                             <select name="roles" id="roles" class="custom-select">
                                 <option value="" selected disabled>Seleccione el Rol</option>
 
@@ -166,7 +166,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

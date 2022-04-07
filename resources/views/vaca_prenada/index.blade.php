@@ -56,7 +56,7 @@
                                     <th class="text-center">Código </th>
                                     <th class="text-center">Embrión</th>
                                     <th class="text-center">Raza esperada</th>
-                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Detalles Vaca Preñada</th>
                                     <th class="text-center">Lugar</th>
                                     <th class="text-center">Estado Preñada</th>
                                     <th class="text-center">Fecha de Parto</th>
@@ -74,7 +74,10 @@
                                     <td class="text-center">{{ $vacaprenadaembrion->COD_PRENADA_EMBRION }}</td>
                                     <td class="text-center">{{ $vacaprenadaembrion->COD_EMBRION }}</td>
                                     <td class="text-center">{{ $vacaprenadaembrion->RAZ_ESPERADA }}</td>
-                                    <td class="text-center">{{ $vacaprenadaembrion->NOM_GANADO}}</td>
+                                    <td class="text-center">{{'Nombre: '. $vacaprenadaembrion->NOM_GANADO.', Raza: '.$vacaprenadaembrion->RAZA.', Arete: '.$vacaprenadaembrion->ARETE.', Color: '.$vacaprenadaembrion->COLOR}}</td>
+                                    
+                                    
+                                   
                                     <td class="text-center">{{ $vacaprenadaembrion->DIR_LUGAR }}</td>
                                     <td class="text-center">{{ $vacaprenadaembrion->IND_PRENADA }}</td>
                                     <td class="text-center">{{\Carbon\Carbon::parse( $vacaprenadaembrion->FEC_PARIO)->format('d/m/Y') }}</td>
@@ -111,7 +114,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>
@@ -161,6 +164,7 @@
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
+            "bSort": false,
             "autoWidth": false,
             "responsive": true,
 

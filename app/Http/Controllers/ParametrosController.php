@@ -65,7 +65,7 @@ class ParametrosController extends Controller
        return redirect()->action(
         ['App\Http\Controllers\BitacoraController@index'],
         [
-            'tabla'        => 'parametros',
+            'tabla'        => 'PARAMETROS',
             'accion'       => 'INSERTAR',
             'descripcion'  => 'SE INSERTÓ EL PARAMÉTRO: '.$request->parametro,
             'ruta'         => 'parametros.index',

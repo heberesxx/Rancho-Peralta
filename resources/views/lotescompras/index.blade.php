@@ -46,19 +46,19 @@
                     <div class="box-header">
 
                         <a href="{{route('compras.create')}}" class="btn btn-info ">
-                            <span class="mr-2">Comprar ganado</span> <i class="fas fa-plus-square"></i>
+                            <span class="mr-2">Comprar ganado</span> <i class="fas  fa-cart-plus"></i>
                         </a>
                         <a href="{{route('proveedores.create')}}" class="btn btn-info ">
                             <span class="mr-2">Registrar proveedor </span> <i class="fas fa-plus-square"></i>
                         </a>
 
                         <a href="{{route('compras.index')}}" class="btn btn-info ">
-                            <span class="mr-2">Ver Detalles de Compras </span> <i class="fas fa-eye"></i>
+                            <span class="mr-2">Ver Todas las Compras </span> <i class="fas fa-eye"></i>
                         </a>
 
 
 
-                        <a href="{{route('lotescompras.pdf')}}" class="btn btn-danger" style=" margin-left: 5%;">
+                        <a href="{{route('lotescompras.pdf')}}" class="btn btn-danger" style=" margin-left: 6%;">
                             <span class="mr-2">PDF</span>
                         </a>
 

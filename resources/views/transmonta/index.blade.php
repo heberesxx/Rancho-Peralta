@@ -44,7 +44,7 @@
                             <span class="mr-2">Nueva Monta</span> <i class="fas fa-plus-square"></i>
                         </a>
 
-                        <a href="{{route('transmonta.pdf')}}" class="btn btn-danger " style=" margin-left: 37%;" >
+                        <a href="{{route('transmonta.pdf')}}" class="btn btn-danger " style=" margin-left: 38%;" >
                             <span class="mr-2">PDF</span>
                         </a> 
                     </div>
@@ -58,7 +58,7 @@
                         <thead style="background-color: #e1e2f6;">
                             <tr>
                                 <th class="text-center">Código</th>
-                                <th  class="text-center">Vaca montada</th>
+                                <th  class="text-center">Detalles Vaca Montada</th>
                                 <th  class="text-center">Raza del Toro</th>
                                 <th  class="text-center">Fecha de monta</th>
                                 <th  class="text-center">Estado </th>
@@ -74,7 +74,7 @@
                             @foreach($transmontas as $transmonta)
                             <tr>
                                 <td class="text-center">{{ $transmonta->COD_MONTA }}</td>
-                                <td class="text-center">{{ $transmonta->NOM_GANADO }}</td>
+                                <td class="text-center">{{'Nombre: '. $transmonta->NOM_GANADO.', Raza: '.$transmonta->RAZA.', Arete: '.$transmonta->ARETE.', Color: '.$transmonta->COLOR}}</td>
                                 <td class="text-center">{{ $transmonta->RAZ_TORO_MONTA }}</td>
                                 <td class="text-center">{{\Carbon\Carbon::parse( $transmonta->FEC_MONTA)->format('d/m/Y') }}</td>
                                 <td class="text-center">{{ $transmonta->IND_FECUNDACION}}</td>
@@ -111,7 +111,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>
@@ -164,6 +164,7 @@
       "language": {
         "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
       },
+      "bSort": false,
       "autoWidth": false,
   "responsive": true,
             

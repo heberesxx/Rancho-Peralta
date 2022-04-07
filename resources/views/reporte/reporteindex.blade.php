@@ -35,7 +35,7 @@
 										<label><span style="color: red;"> * </span>Tipo Reporte</label>
 										<select class="custom-select" name="reporte">
 											<option value="" selected disabled>Seleccione un Tipo</option>
-											<option value="1">Producción Leche</option>
+										
 											<option value="2">Compras de Ganado</option>
 											<option value="3">Compras de Embriones</option>
 											<option value="4">Compras de Esperma</option>
@@ -83,7 +83,7 @@
 							<div class="row">
 
 								<div class="col-lg-6">
-									<button type="submit" class="btn btn-block btn-primary btn-block" data-toggle="modal" data-target="">Generar</button>
+									<button type="submit" class="btn btn-block btn-primary btn-block" data-toggle="modal" data-target="">Generar  PDF</button>
 
 								</div>
 								<div class="col-lg-6">

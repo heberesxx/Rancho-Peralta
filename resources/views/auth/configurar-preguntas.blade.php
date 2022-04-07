@@ -35,7 +35,7 @@
                     </br>
                     <div>
                         <x-jet-label for="respuesta" value="{{ __('Respuesta') }}" />
-                        <x-jet-input id="respuesta" class="block mt-1 w-full" type="text" name="respuesta" :value="old('respuesta')" required autofocus pattern="[A-Z ]{2,191}" />
+                        <x-jet-input id="respuesta" class="block mt-1 w-full" type="text" name="respuesta" :value="old('respuesta')" required autofocus pattern="[A-Z ]{2,254}" title="Las respuestas solo pueden ser en Mayúsculas" />
                         </br>
                         <strong class="text-yellow-500"><span style="color: red;"> * </span>Ingrese su respuesta solo en mayúsculas</STRong>
 

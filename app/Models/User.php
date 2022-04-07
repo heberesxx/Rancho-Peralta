@@ -33,7 +33,8 @@ class User extends Authenticatable
         'email',
         'password',
         'username',
-        'fecha_vencimiento'
+        'fecha_vencimiento',
+        'estado'
     ];
 
     /**

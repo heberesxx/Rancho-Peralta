@@ -18,9 +18,9 @@
         @method('PUT')
         <div class="card-body">
             <div class="row">
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <div class="form-group">
-                        <label><span style="color: red;"> * </span>Cod Estado</label>
+                        <label><span style="color: red;">  </span>Código Estado</label>
                         <input name="COD_ESTADO" placeholder="" id="COD_ESTADO" class="form-control border-dark" disabled type="text" value="{{($estado->COD_ESTADO)}}">
                         @if ($errors->has('COD_ESTADO'))
                         <div id="COD_ESTADO-error" class="error text-danger pl-3" for="COD_ESTADO" style="display: bock;">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label><span style="color: red;"> * </span>Estado</label>
+                        <label><span style="color: red;">  </span>Estado</label>
                         <input name="DET_ESTADO" placeholder="" id="DET_ESTADO" class="form-control border-dark" type="text" value="{{($estado->DET_ESTADO)}}">
                         @if ($errors->has('DET_ESTADO'))
                         <div id="DET_ESTADO-error" class="error text-danger pl-3" for="DET_ESTADO" style="display: bock;">
@@ -44,10 +44,10 @@
                         @endif
                     </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-4">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Descripción del Estado</label>
-                        <textarea id="descripcion_estado" class="form-control border-dark " rows="1" type="text" name="descripcion_estado" value="" autofocus>{{$estado->DESCRIPCION_ESTADO}}</textarea>
+                        <textarea id="descripcion_estado" class="form-control border-dark " rows="2" type="text" name="descripcion_estado" value="" autofocus>{{$estado->DESCRIPCION_ESTADO}}</textarea>
                         @if ($errors->has('descripcion_estado'))
                         <div id="descripcion_estado-error" class="error text-danger pl-3" for="descripcion_estado" style="display: bock;">
                             <strong>
@@ -102,7 +102,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

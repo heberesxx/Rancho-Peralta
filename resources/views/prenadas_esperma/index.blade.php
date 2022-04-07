@@ -60,9 +60,10 @@
                                     <th class="text-center">Código</th>
                                     <th class="text-center">Número de Pajilla</th>
                                     <th class="text-center">Raza Donador</th>
-                                    <th class="text-center">Nombre</th>
+                                    <th class="text-center">Detalle Vaca Preñada</th>
+                                    
                                     <th class="text-center">Lugar</th>
-                                    <th class="text-center">Estado Parto</th>
+                                    <th class="text-center">Status Preñada</th>
                                     <th class="text-center">Fecha de Parto</th>
                                     
                                     @can('EDITAR_PRENADAS ESPERMA')
@@ -79,7 +80,8 @@
                                     <td class="text-center">{{ $vacaprenadaesperma->COD_PRENADA_ESPERMA }}</td>
                                     <td class="text-center">{{ $vacaprenadaesperma->NUM_PAJILLA }}</td>
                                     <td class="text-center">{{ $vacaprenadaesperma->RAZ_TORO_DONADOR }}</td>
-                                    <td class="text-center">{{ $vacaprenadaesperma->NOM_GANADO}}</td>
+                                    <td class="text-center">{{'Nombre: '. $vacaprenadaesperma->NOM_GANADO.', Raza: '.$vacaprenadaesperma->RAZA.', Arete: '.$vacaprenadaesperma->ARETE.', Color: '.$vacaprenadaesperma->COLOR}}</td>
+                                   
                                     <td class="text-center">{{ $vacaprenadaesperma->DIR_LUGAR }}</td>
                                     <td class="text-center">{{ $vacaprenadaesperma->IND_PRENADA }}</td>
                                     <td class="text-center">{{\Carbon\Carbon::parse($vacaprenadaesperma->FEC_PARIO)->format('d/m/Y')}}</td>
@@ -117,7 +119,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>
@@ -168,6 +170,7 @@
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
+            "bSort": false,
             "autoWidth": false,
             "responsive": true,
 

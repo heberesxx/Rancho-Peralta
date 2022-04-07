@@ -45,7 +45,7 @@
                             <span class="mr-2">Nueva Transferencia</span> <i class="fas fa-plus-square"></i>
                         </a>
 
-                        <a href="{{route('transembriones.pdf')}}" class="btn btn-danger" style=" margin-left: 34%;" >
+                        <a href="{{route('transembriones.pdf')}}" class="btn btn-danger" style=" margin-left: 35%;" >
                             <span class="mr-2">PDF</span>
                         </a>
                     </div>
@@ -62,7 +62,7 @@
                                 <th class="text-center">Código</th>
                                 <th class="text-center">Raza Vaca Donadora</th>
                                 <th class="text-center">Raza Toro Donador</th>
-                                <th class="text-center">Vaca Receptora</th>
+                                <th class="text-center">Detalles Vaca Receptora</th>
                                 <th class="text-center">Estado Embrión</th>
                                 <th class="text-center">Fecha de Fecundación</th>
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
@@ -79,7 +79,7 @@
                                 <td class="text-center">{{ $transembrion->COD_TRANS_EMBRION }}</td>
                                 <td class="text-center">{{ $transembrion->RAZ_VACA_DONADORA }}</td>
                                 <td class="text-center">{{ $transembrion->RAZ_TORO_DONADOR }}</td>
-                                <td class="text-center">{{ $transembrion->NOM_GANADO }}</td>
+                                <td class="text-center">{{'Nombre: '. $transembrion->NOM_GANADO.', Raza: '.$transembrion->RAZA.', Arete: '.$transembrion->ARETE.', Color: '.$transembrion->COLOR}}</td>
                                 <td class="text-center">{{ $transembrion->IND_FECUNDACION }}</td>
                                 <td class="text-center" style="width: 20%">{{\Carbon\Carbon::parse( $transembrion->FEC_REGISTRO)->format('d/m/Y') }}</td>
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
@@ -115,7 +115,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>
@@ -166,6 +166,7 @@
       "language": {
         "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
       },
+      "bSort": false,
       "autoWidth": false,
   "responsive": true,
             

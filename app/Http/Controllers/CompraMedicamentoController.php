@@ -81,7 +81,7 @@ class CompraMedicamentoController extends Controller
             'json' => $request->all()
         ]);
 
-        return redirect()->route('lote_medicamento.create')->with('info','Compra Registrada');
+        return redirect()->route('lote_medicamento.create')->with('info','Item Agregado');
     }
 
     /**

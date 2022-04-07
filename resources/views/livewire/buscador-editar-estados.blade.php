@@ -67,7 +67,7 @@
                 @endphp
                 <input id="COD_ESTADO" class="form-control border-dark" hidden placeholder="Ingrese la cantidad comprada..." type="text" name="COD_ESTADO" value="{{$selected_estado}}" autofocus>
                 
-                <input id="status" class="form-control border-dark" placeholder="Busque un estado..." type="text" name="status" value="{{$nombre}}" value="{{old('status')}}" onkeypress="return false" autofocus>
+                <input id="status" class="form-control border-dark" placeholder="Busque un estado..." type="text" name="status" value="{{$nombre}}" value="{{old('status')}}" onkeypress="return false" autofocus> &nbsp;
                 <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalEstados"> <i class="fas fa-search"></i></button>
             </div>
             @if ($errors->has('status'))

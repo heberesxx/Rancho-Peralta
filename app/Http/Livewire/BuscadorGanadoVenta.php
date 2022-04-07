@@ -20,7 +20,7 @@ class BuscadorGanadoVenta extends Component
 
     public function render()
     {
-        $ganados=Ganado::where('NOM_GANADO','like','%'.$this->buscador. '%')->where('COD_ESTADO', '<>','51')->where('COD_ESTADO', '<>','5')->where('COD_ESTADO', '<>','8')->orderBy('COD_REGISTRO_GANADO')->paginate(7);
+        $ganados = DB::select('select * from ganado_general_ventas');
         //DD($ganados);
         return view('livewire.buscador-ganado-venta')->with('ganados', $ganados);
 

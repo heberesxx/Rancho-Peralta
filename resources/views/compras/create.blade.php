@@ -47,7 +47,8 @@
 					<form action="{{ route('lotescompras.store') }}" method="post">
 						@csrf()
 						<div class="card-body md-6">
-							<h6><span style="color: black;"> * Campos obligatorios </span></h6>
+						
+							<h6><span style="color: red;"> * </span>Campos obligatorios </h6>
 
 							<div class="row">
 
@@ -99,7 +100,7 @@
 
 
 					<div class="col-md-12">
-
+					<h6><strong>Recuerde que para poder agregar ganado a su lista de compras, tiene que generar un lote. </strong> </h6>
 						<h6 class="text-center">Detalles del lote en proceso</h6>
 						<table id="TB" class="table table-bordered table-hover US">
 							<thead style="background-color: #e1e2f6;">
@@ -220,6 +221,7 @@
 
 							<form action="{{ route('compras.store') }}" method="post">
 								@csrf()
+								
 								<h6><span style="color: red;">* </span> Campos obligatorios </h6>
 								<div class="row">
 

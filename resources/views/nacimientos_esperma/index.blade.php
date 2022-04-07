@@ -46,7 +46,7 @@
                         <a href="{{route('nacimientos_esperma.create')}}" class="btn btn-info">
                             <span class="mr-2">Registrar Nacimiento</span> <i class="fas fa-plus-square"></i>
                         </a>
-                        <a href="{{route('nacimientos_esperma.pdf')}}" class="btn btn-danger center" style="margin-left: 480px;">
+                        <a href="{{route('nacimientos_esperma.pdf')}}" class="btn btn-danger center" style="margin-left: 35%;">
                             <span class="mr-2">PDF</span>
                         </a>
                     </div>
@@ -58,9 +58,8 @@
                         <thead style="background-color: #e1e2f6;">
                             <tr>
                                 <th class="text-center">Código</th>
-
-                                <th class="text-center">Nombre Ternero</th>
-                                <th class="text-center">Nombre Vaca</th>
+                                <th class="text-center">Detalles Ternero</th>
+                                <th class="text-center">Detalles Vaca Parto</th>
                                 <th class="text-center">Fecha Nacimiento</th>
                                 <!-- @can('EDITAR_NACIMIENTOS ESPERMA')
                                 <th class="text-center">Editar</th>
@@ -73,9 +72,8 @@
                             @foreach($nacimientosesperma as $nacimientoesperma)
                             <tr>
                                 <td class="text-center">{{$nacimientoesperma->COD_NACIMIENTO_ESPERMA}}</td>
-
-                                <td class="text-center">{{$nacimientoesperma->TERNERO}}</td>
-                                <td class="text-center">{{$nacimientoesperma->NOM_GANADO}}</td>
+                                <td class="text-center">{{'Nombre: '.$nacimientoesperma->TERNERO.', Arete: '.$nacimientoesperma->ARETE_TERNERO.', Color: '.$nacimientoesperma->COLOR_TERNERO}}</td>
+                                <td class="text-center">{{'Nombre: '.$nacimientoesperma->NOM_GANADO.', Arete: '.$nacimientoesperma->ARETE_VACA.', Color: '.$nacimientoesperma->COLOR_GANADO}}</td>
                                 <td class="text-center">{{ \Carbon\Carbon::parse($nacimientoesperma->FEC_NACIMIENTO)->format('d/m/Y')}}</td>
                                 <!-- @can('EDITAR_NACIMIENTOS ESPERMA')
                                 <td class="text-center" colspan="2">
@@ -107,7 +105,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>
@@ -156,6 +154,7 @@
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
+            "bSort": false,
             "autoWidth": false,
             "responsive": true,
 

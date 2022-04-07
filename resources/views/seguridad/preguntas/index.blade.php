@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Pregutas de usuario</h1>
+                <h1>Pregutas de Seguridad</h1>
             </div>
             <div class="col-sm-6">
 
@@ -37,6 +37,9 @@
 
                         <a href="{{route('preguntas.create')}}" class="btn btn-info">
                             <span class="mr-2">Crear Pregunta </span> <i class="fas fa-plus-square"></i>
+                        </a>
+                        <a href="{{route('seguridad.preguntas.pdf')}}" class="btn btn-danger center" style=" margin-left: 35.5%;">
+                            <span class="mr-2">PDF</span> 
                         </a>
 
                     </div>
@@ -97,7 +100,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

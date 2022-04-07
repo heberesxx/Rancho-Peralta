@@ -170,15 +170,15 @@
 
     <main>
 
-        <table >
-            <thead >
+        <table>
+            <thead>
                 <tr>
                     <th class="desc">Código Nacimiento</th>
-                   
-                    <th class="desc">Nombre Ternero</th>
-                    <th class="desc">Vaca que Parió</th>
+
+                    <th class="desc">Detalles Ternero</th>
+                    <th class="desc">Detalles Vaca Parto</th>
                     <th class="desc">Fecha Nacimiento</th>
-                  
+
                 </tr>
             </thead>
 
@@ -187,10 +187,11 @@
                 @foreach($nacimientos as $nacimiento)
                 <tr>
                     <td class="desc">{{$nacimiento->COD_NACIMIENTO_EMBRION}}</td>
-                    <td class="desc">{{$nacimiento->TERNERO}}</td>
-                    <td class="desc">{{$nacimiento->NOM_GANADO}}</td>
+                    <td class="desc">{{'Nombre: '.$nacimiento->TERNERO.', Arete: '.$nacimiento->ARETE_TERNERO.', Color: '.$nacimiento->COLOR_TERNERO}}</td>
+
+                    <td class="desc">{{'Nombre: '.$nacimiento->NOM_GANADO.', Arete: '.$nacimiento->ARETE_VACA.', Color: '.$nacimiento->COLOR_GANADO}}</td>
                     <td class="desc">{{ \Carbon\Carbon::parse($nacimiento->FEC_NACIMIENTO)->format('d/m/Y')}}</td>
-                   
+
                 </tr>
                 @endforeach
 

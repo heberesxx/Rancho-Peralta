@@ -134,8 +134,8 @@ class EstadosController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate(rules: [
-            "DET_ESTADO" => 'nullable|min:2|max:30|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
-            "descripcion_estado" => 'nullable|max:150|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
+            "DET_ESTADO" => 'required|min:2|max:30|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
+            "descripcion_estado" => 'required|max:150|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
             "STATUS" => 'required',
         ]);
 

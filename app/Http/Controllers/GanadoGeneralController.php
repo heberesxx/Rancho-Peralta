@@ -147,28 +147,25 @@ class GanadoGeneralController extends Controller
         $request->validate (  rules: [
             "nombre_ganado"  => 'alpha|min:2|max:30',
             'NUM_ARETE' => "numeric|digits_between:1,3",
-            "color" =>  '|alpha|min:2|max:30',
+            "color" =>  'min:2|max:30',
+           
             
  
             
         ]);
         
-        //dd($request);
         
         $existe= Ganado::where('NUM_ARETE','=',$request->NUM_ARETE)
         ->where('COD_REGISTRO_GANADO','<>',$id)->get();
-       
+
         if(count($existe)){
         return back()->with('NUM_ARETE','El campo número de arete, ya está en uso');
         }
-        
 
-       
-        
-       
         $this->cliente->put('actualizarganado/'. $id, ['json' => $request->all()
         ]);
 
+ 
         return redirect()->route('ganado.index')->with('edit','Ganado Editado');
     }
 

@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row mb-2">
         <div class="col-sm-6">
-            <h1>Nueva compra de esperma</h1>
+            <h1>Nueva Compra de Esperma</h1>
         </div>
         <div class="col-sm-6">
 
@@ -237,7 +237,7 @@
 
                                     <div class="col-lg-5">
                                         <div class="form-group">
-                                            <label><span style="color: red;">*</span>Raza del donador</label>
+                                            <label><span style="color: red;">*</span>Raza del Donador</label>
                                             <input id="RAZ_TORO_DONADOR" class="form-control border-dark" type="text" name="RAZ_TORO_DONADOR" value="{{old('RAZ_TORO_DONADOR')}}" autofocus>
 
                                             @if ($errors->has('RAZ_TORO_DONADOR'))
@@ -251,7 +251,7 @@
                                     </div>
                                     <div class="col-lg-4">
                                         <div class="form-group">
-                                            <label>Nombre del donador</label>
+                                            <label>Nombre del Donador</label>
                                             <input id="NOM_TORO_DONADOR" class="form-control border-dark"  type="text" name="NOM_TORO_DONADOR" value="{{old('NOM_TORO_DONADOR')}}" autofocus>
 
                                             @if ($errors->has('NOM_TORO_DONADOR'))
@@ -341,7 +341,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

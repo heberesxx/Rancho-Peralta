@@ -102,6 +102,31 @@
                         </div>
 
                     </div>
+                    <div class="col-lg-4">
+
+                        <div class="form-group">
+                            <label><span style="color: red;"></span>Estado</label>
+                            <select name="estado" id="roles" class="custom-select">
+                                @if($usuario->estado == 0)
+                                <option value="0">INACTIVO</option>
+                                @endif
+                                @if($usuario->estado == 1)
+                                <option value="0">ACTIVO</option>
+                                @endif
+                                @if($usuario->estado == 2)
+                                <option value="0">BLOQUEADO</option>
+                                @endif
+                                <option value="0">INACTIVO</option>
+                                <option value="1">ACTIVO</option>
+                                <option value="2">BLOQUEADO</option>
+                                
+                                
+                               
+                               
+                            </select>
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -131,7 +156,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

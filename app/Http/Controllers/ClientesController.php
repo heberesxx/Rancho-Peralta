@@ -82,8 +82,8 @@ class ClientesController extends Controller
     
     {
         $request->validate (  rules: [
-            "primer_nombre" => 'required|alpha|min:2|max:30', 
-            "primer_apellido" => 'required|alpha|min:2|max:30',
+            "primer_nombre" => 'required|min:2|max:50', 
+            "primer_apellido" => 'required|min:2|max:50',
             "ID_CLIENTE" => 'required|numeric|digits_between:13,15|unique:tbl_mp_clientes',
             "numero_area" => 'required|numeric|digits_between:2,4|',
             "NUM_CELULAR" => 'required|numeric|digits_between:7,10|unique:tbl_mp_telefonos_clientes',
@@ -162,10 +162,10 @@ class ClientesController extends Controller
             "primer_nombre" => 'alpha|min:2|max:30', 
             "primer_apellido" => 'alpha|min:2|max:30',
             "ID_CLIENTE" =>"required|numeric|digits_between:13,15",
-            "numero_area" => 'nullable|numeric|digits_between:2,4|',
-            "NUM_CELULAR" => 'nullable|numeric|digits_between:7,10',
+            "numero_area" => 'required|numeric|digits_between:2,4|',
+            "NUM_CELULAR" => 'required|numeric|digits_between:7,10',
             "numero_telefono" => 'nullable|numeric|digits_between:7,10',
-            "direccion"=>'nullable|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)|max:255'
+            "direccion"=>'required|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)|max:255'
             
         ]);
        

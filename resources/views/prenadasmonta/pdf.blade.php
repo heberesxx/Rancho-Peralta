@@ -178,19 +178,19 @@
                     <th class="desc">Lugar</th>
                     <th class="desc">Raza Toro</th>
                     <th class="desc">Status </th>
-                    <th class="desc">Fecha de fecundación</th>
+                    <th class="desc">Fecha de Parto</th>
                     
                 </tr>
             </thead>
             <tbody>
                 @foreach($vacasprenadasmonta as $vacaprenadamonta)
                 <tr>
-                    <td class="desc">{{ $vacaprenadamonta->COD_PRENADA_MONTA }}</td>
+                    <td class="desc">{{ $vacaprenadamonta->COD_PRENADA_MONTA}}</td>
                     <td class="desc">{{ $vacaprenadamonta->NOM_GANADO}}</td>
                     <td class="desc">{{ $vacaprenadamonta->DIR_LUGAR }}</td>
                     <td class="desc">{{ $vacaprenadamonta->RAZ_TORO_MONTA }}</td>
                     <td class="desc">{{ $vacaprenadamonta->IND_PRENADA }}</td>
-                    <td class="desc">{{\Carbon\Carbon::parse( $vacaprenadamonta->FEC_REGISTRO)->format('d/m/Y') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $vacaprenadamonta->FEC_PARIO)->format('d/m/Y') }}</td>
                    
                 </tr>
                 @endforeach

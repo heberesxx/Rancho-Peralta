@@ -41,7 +41,7 @@
                         </a>
 
                         <a href="{{route('lote_medicamento.create')}}" class="btn btn-info">
-                            <span class="mr-2">Añadir Lote de Medicamento </span> <i class="fas fa-plus-square"></i>
+                            <span class="mr-2">Añadir Lote de Medicamento </span> <i class="fas fa-cart-plus"></i>
                         </a>
                         <a href="{{route('verlotes_medicamentos.index')}}" class="btn btn-info">
                             <span class="mr-2">Ver Lotes Agregados </span> <i class="fas fa-eye"></i>
@@ -66,7 +66,7 @@
                                     <th class="text-center">Cantidad</th>
                                     <th class="text-center">Reorden</th>
                                     <th class="text-center">Avisos</th>
-                                    <th class="text-center">Fecha Registro</th>
+                                    <th class="text-center"> Registro</th>
                                     <th class="text-center">Acción</th>
 
                                 </tr>
@@ -117,7 +117,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

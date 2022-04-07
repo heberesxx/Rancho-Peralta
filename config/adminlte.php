@@ -18,6 +18,7 @@ return [
     'title' => '',
     'title_prefix' => '',
     'title_postfix' => '| Rancho Peralta',
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -237,7 +238,7 @@ return [
             'text'    => 'Mantenimiento',
             
             'icon'    => 'fas fa-cogs fa-fw',
-            'can'         => 'VER_PREGUNTAS',
+            'can'  => 'VER_ESTADOS GANADO',
             'submenu' => [
                 
             
@@ -252,14 +253,14 @@ return [
                 [
                     'text' => 'Lugares',
                     'url'  => 'lugares',
-                    'icon' => 'fa fa-map',
+                    'icon' => 'fa fa-map-marker',
                     'can'  => 'VER_LUGARES'
                 ],
                 [
                     'text' => 'Razas Ganado',
                     'url'  => 'razas',
-                    'icon' => 'fa fa-map'
-                    //'can'  => 'VER_LUGARES'
+                    'icon' => 'fa fa-map',
+                    'can'  => 'VER_RAZAS'
                 ],
                 
 
@@ -319,9 +320,18 @@ return [
                     
                 ],
                 [
-                    'text'        => 'Backup',
+                    'text'        => 'Backup ',
                     'url'         => '/backup',
                     'icon'        => 'fas fa-database',
+                    'can'         => 'VER_BACKUP'
+                  
+                    
+                ],
+                [
+                    'text'        => 'Restore',
+                    'url'         => '/restore',
+                    'icon'        => 'fa fa-undo',
+                    'can'         => 'VER_RESTORE'
                   
                     
                 ],
@@ -396,12 +406,12 @@ return [
                     'icon' => 'fas fa-edit',
                     'can'  => 'VER_GANADO'
                 ],
-                [
-                    'text' => 'Ganado Muerto',
-                    'url'  => 'ganado_muerto',
-                    'icon' => 'fa fa-crosshairs',
+               // [
+                 //   'text' => 'Ganado Muerto',
+                   // 'url'  => 'ganado_muerto',
+                    //'icon' => 'fa fa-crosshairs',
                    
-                ],
+               // ],
                 
 
                 [
@@ -513,6 +523,7 @@ return [
             'text'    => 'Reportes',
             'url'     => 'reportes',
             'icon' => 'fas fa-chart-pie',
+            'can' =>'VER_REPORTES'
            // 'submenu' => [
               //  [
                 //    'text' => 'Reportes Ventas',

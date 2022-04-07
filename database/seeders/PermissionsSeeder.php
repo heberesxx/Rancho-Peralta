@@ -43,7 +43,9 @@ class PermissionsSeeder extends Seeder
        // Permission::create(['name'  =>  'VER_INVENTARIO MEDICAMENTOS']);
        // Permission::create(['name'  =>  'VER_ORDEN TRABAJO']);
        // Permission::create(['name'  =>  'VER_REPORTES']);
-       Permission::create(['name'  =>  'VER_GANADO']);
+       //Permission::create(['name'  =>  'VER_GANADO']);
+    
+     //  Permission::create(['name'  =>  'VER_RESTORE']);
 
        // Permission::create(['name'  =>  'INSERTAR_ESTADOS GANADO']);
        // Permission::create(['name'  =>  'INSERTAR_LUGARES']);
@@ -71,7 +73,9 @@ class PermissionsSeeder extends Seeder
        // Permission::create(['name'  =>  'INSERTAR_INVENTARIO MEDICAMENTOS']);
        // Permission::create(['name'  =>  'INSERTAR_ORDEN TRABAJO']);
        // Permission::create(['name'  =>  'INSERTAR_REPORTES']);
-       Permission::create(['name'  =>  'INSERTAR_GANADO']);
+      // Permission::create(['name'  =>  'INSERTAR_GANADO']);
+     
+      Permission::create(['name'  =>  'INSERTAR_RESTORE']);
         
        // Permission::create(['name'  =>  'EDITAR_ESTADOS GANADO']);
        // Permission::create(['name'  =>  'EDITAR_LUGARES']);
@@ -102,7 +106,7 @@ class PermissionsSeeder extends Seeder
        // Permission::create(['name'  =>  'EDITAR_INVENTARIO MEDICAMENTOS']);
        // Permission::create(['name'  =>  'EDITAR_ORDEN TRABAJO']);
        // Permission::create(['name'  =>  'EDITAR_REPORTES']);
-       Permission::create(['name'  =>  'EDITAR_GANADO']);
+       //Permission::create(['name'  =>  'EDITAR_GANADO']);
 
        // Permission::create(['name'  =>  'ELIMINAR_ESTADOS GANADO']);
        // Permission::create(['name'  =>  'ELIMINAR_LUGARES']);
@@ -133,7 +137,7 @@ class PermissionsSeeder extends Seeder
        // Permission::create(['name'  =>  'ELIMINAR_INVENTARIO MEDICAMENTOS']);
        // Permission::create(['name'  =>  'ELIMINAR_ORDEN TRABAJO']);
        // Permission::create(['name'  =>  'ELIMINAR_REPORTES']);
-       Permission::create(['name'  =>  'ELIMINAR_GANADO']);
+       //Permission::create(['name'  =>  'ELIMINAR_GANADO']);
         
         
     }

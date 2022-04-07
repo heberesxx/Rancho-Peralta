@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Registrar Ganado')
+@section('title', 'Ganado Registrado')
 @CAN('VER_GANADO')
 @section('content_header')
 
@@ -65,6 +65,7 @@
                                 <th  class="text-center">Raza</th>
                                 <th  class="text-center">Estado</th>
                                 <th  class="text-center">Sexo</th>
+                                <th  class="text-center">Edad</th>
                                 @CAN('EDITAR_GANADO')
                                 <th  class="text-center" style="width: 10%">Editar</th>
                                 @ENDCAN
@@ -83,6 +84,13 @@
                                 <td class="text-center">{{ $ganado->RAZ_GANADO }}</td>
                                 <td class="text-center">{{ $ganado->DET_ESTADO }}</td>
                                 <td class="text-center">{{ $ganado->SEX_GANADO }}</td>
+                                @if($ganado->MESES > 12)
+                                <td class="text-center">{{ $ganado->ANIOS.' años'}}</td>
+                                @elseif($ganado->DIAS > 31)
+                                <td class="text-center">{{$ganado->MESES.' meses'}}</td>
+                                @else
+                                <td class="text-center">{{ $ganado->DIAS.' días'}}</td>
+                                @endif
                                 @CAN('EDITAR_GANADO')
                                 <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href=" {{ url('ganado/' .$ganado->COD_REGISTRO_GANADO . '/edit') }}">Editar</a></td>
                                 @ENDCAN
@@ -110,7 +118,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

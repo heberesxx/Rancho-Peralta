@@ -120,9 +120,9 @@ class RazasController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate(rules: [
-            "NOM_RAZA" => 'nullable|min:2|max:30',
+            "NOM_RAZA" => 'required|min:2|max:30',
             "DET_RAZA" => 'max:150',
-            "IND_RAZA"=>'nullable'
+            "IND_RAZA"=>'required'
 
         ]);
         $data = [

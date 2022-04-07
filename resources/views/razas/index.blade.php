@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Razas Ganado')
-
+@CAN('VER_RAZAS')
 @section('content_header')
 
 <section class="content-header">
@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-               
+            @CAN('INSERTAR_RAZAS')
                 <div class="card-header">
 
                     <div class="box-header">
@@ -51,6 +51,7 @@
                     </div>
 
                 </div>
+            @ENDCAN
               
                 <div class="card-body">
                     <table id="TB" class="table table-bordered table-hover US">
@@ -60,8 +61,9 @@
                                 <th class="text-center"> Raza </th>
                                 <th class="text-center"> Detalle Raza </th>
                                 <th class="text-center"> Status </th>
+                                @CAN('EDITAR_RAZAS')
                                 <th class="text-center" style="width: 10%">Editar</th>
-                                
+                                @ENDCAN
 
 
                             </tr>
@@ -75,9 +77,9 @@
                                 <td class="text-center">{{ $raza->IND_RAZA}}</td>
 
                                
-
+                                @CAN('EDITAR_RAZAS')
                                 <td class="text-center" style="width: 10%;"><a class="btn btn-warning"  href="{{ route('razas.edit', $raza->COD_RAZA) }}">Editar</a></td>
-                               
+                               @ENDCAN
                             </tr>
                             @endforeach
                         </tbody>
@@ -89,7 +91,23 @@
     </div>
 </div>
 @stop
+@else
+@section('content')
+<div class="content-wrapper">
+    <div class="error-page">
+        <h2 class="headline text-warning"> 403</h2>
+        <div class="error-content">
+            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+            <p>
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+            </p>
 
+        </div>
+
+    </div>
+</div>
+@stop
+@endcan
 
 
 

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Graficos')
+@section('title', 'Dashboard')
 
 @section('content_header')
 <div class="container-fluid">
@@ -21,14 +21,17 @@
 <div class="container mt-5">
     <div class="row">
 
-        <div class="col">
-
-            <div id="container">
-
-            </div>
+        <div class="col-12 col-md-6 col-lg-6 mt-2">
+        <canvas id="chart_ganado" height="200"></canvas>
 
 
         </div>
+        <div class="col-12 col-md-6 col-lg-6 mt-2">
+        <canvas id="chart_ganado2" height="200"></canvas>
+
+
+        </div>
+       
     </div>
 </div>
 
@@ -46,6 +49,103 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+
+<script>
+    var machos = <?php echo $machos;?>;
+    var hembras = <?php echo $hembras;?>;
+    var vacas_paridas = <?php echo $vacas_paridas;?>;
+    var vacas_prenadas = <?php echo $vacas_prenadas;?>;
+    var vacas_sincronizadas = <?php echo $vacas_sincronizadas;?>;
+    var vacas_recienparidas = <?php echo $vacas_recienparidas;?>;
+
+console.log(machos.lenght);
+const ctx = document.getElementById('chart_ganado').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ['Hembras', 'Machos'],
+        datasets: [{
+            label: '# of Votes',
+            data:[hembras,machos],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title:{
+            display:true,
+            text:"Ganado por género",
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+const ctx2 = document.getElementById('chart_ganado2').getContext('2d');
+const myChart2 = new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+        labels: ['Paridas', 'Preñadas','Sincronizadas','Recien Paridas'],
+        datasets: [{
+            label: '# of Votes',
+            data:[vacas_paridas,vacas_prenadas,vacas_sincronizadas,vacas_recienparidas],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+      'rgb(255, 205, 86)',
+      'rgb(201, 203, 207)',
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title:{
+            display:true,
+            text:"Vacas según su estado",
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+const ctx3 = document.getElementById('chart_ganado3').getContext('2d');
+const myChart3 = new Chart(ctx3, {
+    type: 'bar',
+    data: {
+        labels: ['Hembras', 'Machos'],
+        datasets: [{
+            label: '# of Votes',
+            data:[hembras,machos],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+      'rgb(54, 162, 235)',
+            ],
+            borderWidth: 1
+        }],
+        
+    },
+    options: {
+        title:{
+            display:true,
+            text:"Ganado por género",
+        },
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+</script>
+
 
 
 

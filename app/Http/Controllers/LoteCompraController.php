@@ -22,6 +22,7 @@ class LoteCompraController extends Controller
     public function index()
     {
         $lotes = DB::select('select * from detalles_lotes');
+        
         return view('lotescompras.index')->with('lotes', $lotes);
     }
 

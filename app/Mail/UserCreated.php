@@ -7,11 +7,15 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use App\Models\Parametro;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
-class UserCreated extends Mailable
+class UserCreated extends Mailable 
 {
     use Queueable, SerializesModels;
-    public $subject="PROYECTO RANCHO USUARIO REGISTRADO";
+    public $subject="Rancho Peralta, Usuario Registrado";
     /**
      * Create a new message instance.
      *
@@ -29,7 +33,9 @@ class UserCreated extends Mailable
      */
     public function build(Request $request)
     {
+
+        $parametros = DB::select('select *  from parametros where parametro = "VENCIMIENTO_ENLACE"');
         
-        return $this->view('seguridad.usuarios.email-usuario')->with(['username'=>$request->username,'password'=>$request->password]);
+        return $this->view('seguridad.usuarios.email-usuario')->with(['username'=>$request->username,'password'=>$request->password,'parametros' =>$parametros]);
     }
 }

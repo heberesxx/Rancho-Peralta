@@ -63,8 +63,8 @@ class ProveedoresController extends Controller
     public function store(Request $request)
     {
         $request->validate (  rules: [
-            "primer_nombre" => 'required|alpha|min:2|max:30',
-            "primer_apellido" => 'required|alpha|min:2|max:30',
+            "primer_nombre" => 'required|min:2|max:30',
+            "primer_apellido" => 'required|min:2|max:30',
             "id_proveedor" => 'required|numeric:min:13|numeric:max:15|unique:tbl_mp_proveedores',
             "numero_area" => 'required|numeric|digits_between:2,4|',
             "NUM_CELULAR" => 'required|numeric|digits_between:7,10|unique:tbl_mp_telefono_proveedores',

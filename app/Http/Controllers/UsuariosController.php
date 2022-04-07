@@ -156,7 +156,8 @@ class UsuariosController extends Controller
             'username' =>'required|string|max:255|min:4',"unique:users,username,{$id}",new Uppercase(),
             'email' => 'required|string|max:255|email|',"unique:users,email,{$id}",
             'fecha_vencimiento'=> ['required'] ,
-            'roles'=> ['required'] 
+            'roles'=> ['required'] ,
+            'estado'=> ['required'] 
         ]);
         $usuario    = User::find($id);
         

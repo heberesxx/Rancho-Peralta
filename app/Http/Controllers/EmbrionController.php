@@ -94,14 +94,14 @@ class EmbrionController extends Controller
                 'accion'       => 'INSERTAR',
                 'descripcion'  => 'SE COMPRÓ PARA RAZA ESPERADA: ' . $request->raza_esperada,
                 'ruta'         => 'embrion.create',
-                'msj'          => 'Item agregado.',
+                'msj'          => 'Item Agregado',
 
             ]
 
         );
 
 
-        return redirect()->route('embrion.create')->with('info','Item agregado');
+        return redirect()->route('embrion.create');
     }
 
     /**

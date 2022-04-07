@@ -176,7 +176,7 @@
                     <th class="desc">Código</th>
                     <th class="desc">N° pajilla</th>
                     <th class="desc">Toro Donadorr</th>
-                    <th class="desc">Vaca Receptora</th>
+                    <th class="desc">Detalles Vaca Receptora</th>
                     <th class="desc">Status Esperma</th>
                     <th class="desc">Fecha de Registro</th>
 
@@ -188,7 +188,7 @@
                     <td class="desc">{{ $transesperma->COD_TRANS_ESPERMA }}</td>
                     <td class="desc">{{ $transesperma->NUM_PAJILLA }}</td>
                     <td class="desc">{{ $transesperma->RAZ_TORO_DONADOR }}</td>
-                    <td class="desc">{{ $transesperma->NOM_GANADO }}</td>
+                    <td class="desc">{{'Nombre: '. $transesperma->NOM_GANADO.', Raza: '.$transesperma->RAZA.', Arete: '.$transesperma->ARETE.', Color: '.$transesperma->COLOR}}</td>
                     <td class="desc">{{ $transesperma->IND_FECUNDACION }}</td>
                     <td class="desc">{{\Carbon\Carbon::parse( $transesperma->FEC_REGISTRO)->format('d/m/Y') }}</td>
 

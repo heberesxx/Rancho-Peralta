@@ -38,7 +38,7 @@ class ConfirmarLoteVenta extends Controller
     public function store(Request $request)
     {
         $this->cliente->post('confirmarlote_venta');
-        return redirect()->route('lotesventa.index')->with('info','Lote registrado');
+        return redirect()->route('lotesventa.index');
     }
 
     /**

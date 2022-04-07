@@ -20,7 +20,7 @@
 
     <div class="card card-info">
         <div class="card-header">
-
+            <h3 class="card-title"></h3>
         </div>
 
         <form action=" {{ url('ganado', $ganado->COD_REGISTRO_GANADO) }} " method="post">
@@ -28,29 +28,30 @@
             @method('PUT')
             <div class="card-body">
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"></span>Código Registro</label>
-                            <input name="COD_GANADO" placeholder="" id="COD_GANADO" class="form-control border-dark" type="text" value="{{ $ganado->COD_REGISTRO_GANADO }}" disabled>
+                            <input name="COD_REGISTRO_GANADO" placeholder="" id="COD_GANADO" class="form-control border-dark" type="text" value="{{ $ganado->COD_REGISTRO_GANADO }}" disabled>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-2">
+                    <div class="col-lg-1">
                         <div class="form-group">
-                            <label><span style="color: red;"> </span>Número de Arete</label>
+                            <label><span style="color: red;"> </span>Arete</label>
                             <input id="NUM_ARETE" class="form-control border-dark" placeholder="Ingrese el número de arete" type="text" value="{{ $ganado->NUM_ARETE }}" name="NUM_ARETE" :value="old('NUM_ARETE')" autofocus>
 
                             @if (session('NUM_ARETE'))
-                        <div id="NUM_ARETE-error" class="error text-danger pl-3" for="NUM_ARETE" style="display: bock;">
-                            <strong>
-                                {{session('NUM_ARETE') }}
-                            </strong>
-                        </div>
-                        @endif
+                            <div id="NUM_ARETE-error" class="error text-danger pl-3" for="NUM_ARETE" style="display: bock;">
+                                <strong>
+                                    {{session('NUM_ARETE') }}
+                                </strong>
+                            </div>
+                            @endif
                         </div>
                     </div>
-                    <div class="col-3">
+
+                    <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Nombre:</label>
                             <input id="nombre_ganado" class="form-control border-dark capitalize" type="text" name="nombre_ganado" value="{{ $ganado->NOM_GANADO }}" autofocus>
@@ -64,7 +65,7 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Color:</label>
                             <input id="color_ganado" class="form-control border-dark" placeholder="Ingrese el color_ganado del ganado..." type="text" name="color_ganado" value="{{ $ganado->CLR_GANADO }}" autofocus>
@@ -78,14 +79,9 @@
                             @endif
                         </div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-lg-2">
                         <div class="form-group">
-                            @livewire('buscador-razas',['codigo_raza'=>$ganado->COD_RAZA,'detalle'=>$ganado->RAZ_GANADO])
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <div class="form-group">
-                            <label><span style="color: red;"> * </span>Sexo:</label>
+                            <label><span style="color: red;"> </span>Sexo:</label>
                             <select id="sexo_ganado" class="form-control border-dark" type="text" name="sexo_ganado" value="{{ $ganado->SEX_GANADO }}" autofocus>
                                 <option selected disabled> Seleccione un sexo </option>
                                 <option value="MACHO" {{ $ganado->SEX_GANADO== "MACHO"  ? 'selected' : '' }}>MACHO</option>
@@ -99,17 +95,66 @@
                             </div>
                             @endif
                         </div>
-
                     </div>
+                   
+                    <div class="col-lg-1">
+                        <div class="form-group">
+
+                            <label><span style="color: red;"></span>PESO (kg):</label>
+                            <input id="peso" class="form-control border-dark" placeholder="Ingrese el peso actual del ganado en kg..." type="text" name="peso" value="{{ $ganado->PES_ACTUAL }}" :value="old('peso')" autofocus>
+                            @if ($errors->has('peso'))
+                            <div id="peso-error" class="error text-danger pl-3" for="peso" style="display: bock;">
+                                <strong>
+                                    {{ $errors->first('peso') }}
+                                </strong>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+
+                        <div class="form-group">
+
+                            <label><span style="color: red;"></span>FIERRO</label>
+                            <input id="fierro" class="form-control border-dark trasnformacion1" placeholder="Ingrese el fierro del ganado" type="text" name="fierro" :value="old('fierro')" autofocus value="{{ $ganado->FIE_GANADO }}">
+                            @if ($errors->has('fierro'))
+                            <div id="fierro-error" class="error text-danger pl-3" for="fierro" style="display: bock;">
+                                <strong>
+                                    {{ $errors->first('fierro') }}
+                                </strong>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="row">
-                    <div class="col-3">
+                <div class="col-lg-2">
+                        <div class="form-group">
+                            <label><span style="color: red;"></span> Fecha de Nacimiento</label>
+                            <input name="fecha_nacimiento" placeholder="" id="fecha_nacimiento" class="form-control datepicker" max="{{ date('Y-m-d') }}" type='date'  value="{{ \carbon\Carbon::parse($ganado->FEC_NACIMIENTO)->format('Y-m-d') }}">
+                            @if ($errors->has('fecha_nacimiento'))
+                            <div id="fecha_nacimiento-error" class="error text-danger pl-3" for="fecha_nacimiento" style="display: bock;">
+                                <strong>
+                                    {{ $errors->first('fecha_nacimiento') }}
+                                </strong>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            @livewire('buscador-razas',['codigo_raza'=>$ganado->COD_RAZA,'detalle'=>$ganado->RAZ_GANADO])
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
                         <div class="form-group">
                             @livewire('buscador-editar-estados',['codigo_estado'=>$ganado->COD_ESTADO,'detalle'=>$ganado->DET_ESTADO])
 
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"> </span>LUGAR:</label>
                             <select class="form-control border-dark" name="lugar" id="lugar" class="form-control border-dark" type="text" :value="old('lugar')">
@@ -128,43 +173,12 @@
                             </div>
                             @endif
                         </div>
-
-
-
-                    </div>
-
-                    <div class="col-3">
-                        <div class="form-group">
-
-                            <label><span style="color: red;"></span>PESO (kg):</label>
-                            <input id="peso" class="form-control border-dark" placeholder="Ingrese el peso actual del ganado en kg..." type="text" name="peso" value="{{ $ganado->PES_ACTUAL }}" :value="old('peso')" autofocus>
-                            @if ($errors->has('peso'))
-                            <div id="peso-error" class="error text-danger pl-3" for="peso" style="display: bock;">
-                                <strong>
-                                    {{ $errors->first('peso') }}
-                                </strong>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
-                    <div class="col-3">
-
-                        <div class="form-group">
-
-                            <label><span style="color: red;"></span>FIERRO</label>
-                            <input id="fierro" class="form-control border-dark trasnformacion1" placeholder="Ingrese el fierro del ganado" type="text" name="fierro" :value="old('fierro')" autofocus value="{{ $ganado->FIE_GANADO }}">
-                            @if ($errors->has('fierro'))
-                            <div id="fierro-error" class="error text-danger pl-3" for="fierro" style="display: bock;">
-                                <strong>
-                                    {{ $errors->first('fierro') }}
-                                </strong>
-                            </div>
-                            @endif
-                        </div>
-
-
                     </div>
                 </div>
+
+
+
+
                 <div class="row">
                     <div class="col-sm-6 ">
                         <a href="{{ route('ganado.index') }}" class="btn btn-danger w-100">Cancelar <i class="fa fa-times-circle ml-2"></i>
@@ -190,7 +204,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>

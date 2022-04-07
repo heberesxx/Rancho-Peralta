@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use  Barryvdh\DomPDF\Facade as PDF;
 use App\Models\Pregunta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class PreguntasController extends Controller
 {
@@ -16,9 +18,20 @@ class PreguntasController extends Controller
     public function index()
     {
         $preguntas = Pregunta::all();
-        return view('seguridad.preguntas.index')->with('preguntas',$preguntas);
+        return view('seguridad.preguntas.index')->with('preguntas', $preguntas);
     }
+
+    public function pdf()
+    {
+       $preguntas = Pregunta::all();
+        $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
     
+        $pdf = PDF::loadView('seguridad.preguntas.pdf',['preguntas'=>$preguntas],['parametros' =>$parametros]);
+        return $pdf->stream();
+       
+      // return view('clientes.pdf')->with('personas', $clientes);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +40,6 @@ class PreguntasController extends Controller
     public function create()
     {
         return view('seguridad.preguntas.create');
-        
     }
 
     /**
@@ -49,7 +61,22 @@ class PreguntasController extends Controller
 
         Pregunta::create($data);
 
-        return redirect()->route('preguntas.index')->with('info','Pregunta creada con éxito.');
+
+
+        return redirect()->action(
+            ['App\Http\Controllers\BitacoraController@index'],
+            [
+                'tabla'        => 'PREGUNTAS',
+                'accion'       => 'INSERTAR',
+                'descripcion'  => 'SE INSERTÓ LA PREGUNTA: ' . $request->pregunta,
+                'ruta'         => 'preguntas.index',
+                'msj'          => 'Pregunta creada',
+
+            ]
+
+        );
+
+        return redirect()->route('preguntas.index')->with('info', 'Pregunta creada.');
     }
 
     /**
@@ -72,7 +99,7 @@ class PreguntasController extends Controller
     public function edit($id)
     {
         $pregunta = Pregunta::find($id);
-        return view('seguridad.preguntas.edit')->with('pregunta',$pregunta);
+        return view('seguridad.preguntas.edit')->with('pregunta', $pregunta);
     }
 
     /**
@@ -96,8 +123,7 @@ class PreguntasController extends Controller
         $pregunta   =   Pregunta::find($id);
         $pregunta->update($data);
 
-        return redirect()->route('preguntas.index')->with('info','Pregunta actualizada con éxito.');
-
+        return redirect()->route('preguntas.index')->with('info', 'Pregunta actualizada con éxito.');
     }
 
     /**

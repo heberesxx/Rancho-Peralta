@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Backup')
-
+@CAN('VER_BACKUP')
 @section('content_header')
 <div class="container-fluid">
   <div class="row mb-2">
@@ -18,7 +18,7 @@
 @section('content')
 
 @if (session('info'))
-    <div class="alert alert-success alert-dismissible mt-2 text-dark" role="alert">
+    <div class="alert alert-success text-center mt-2 " role="alert">
         <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
         <strong>{{session('info')}}</strong>
     </div>
@@ -28,11 +28,7 @@
     <!-- /.col (left) -->
     <div class="col-md-4">
       <div class="card card-primary">
-        <div class="card-header">
-        <strong>
-              <h4 style="text-align: center;"><i>Crear Backup</i></h4>
-            </strong>
-        </div>
+       
 
         <div class="card-body" > 
 
@@ -51,5 +47,31 @@
       <!-- /.container-fluid -->
     
     
+
+@stop
+@else
+@section('content')
+<div class="content-wrapper">
+    <div class="error-page">
+        <h2 class="headline text-warning"> 403</h2>
+        <div class="error-content">
+            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+            <p>
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
+            </p>
+
+        </div>
+
+    </div>
+</div>
+@stop
+@endcan
+
+@section('footer')
+
+<strong>Copyright &copy; 2022 <a href="#">UNAH</a>.</strong> Todos los derechos reservados.
+<div class="float-right d-none d-sm-inline-block">
+    <b>Version</b> 1.0.0
+</div>
 
 @stop

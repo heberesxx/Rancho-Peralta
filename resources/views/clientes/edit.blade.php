@@ -103,7 +103,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"></span> Fecha de Nacimiento</label>
-                            <input name="fecha_nacimiento" placeholder="" id="fecha_nacimiento" class="form-control datepicker" type='date' max="{{date('Y-m-d');}}" value="{{$fecha}}">
+                            <input name="fecha_nacimiento" placeholder="" id="fecha_nacimiento" class="form-control datepicker" type='date'  value="{{$fecha}}" max="{{ date('Y-m-d') }}">
 
                             @if ($errors->has('fecha_nacimiento'))
                             <div id="fecha_nacimiento-error" class="error text-danger pl-3" for="fecha_nacimiento" style="display: bock;">
@@ -204,7 +204,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

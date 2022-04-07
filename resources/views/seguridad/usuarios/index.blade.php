@@ -47,7 +47,7 @@
                             <span class="mr-2">Registrar Usuario</span> <i class="fas fa-plus-square"></i>
                         </a>
                         <a href="{{route('seguridad.usuarios.pdf')}}" class="btn btn-danger center" style=" margin-left: 35.2%;">
-                            <span class="mr-2">PDF</span> 
+                            <span class="mr-2">PDF</span>
                         </a>
 
                     </div>
@@ -82,10 +82,10 @@
                                 <td>{{\Carbon\Carbon::parse ($usuario->created_at)->format('d/m/Y') }}</td>
                                 @if($usuario->estado == 1)
                                 <td class="text-success"> ACTIVO</td>
-                                @else 
+                                @elseif($usuario->estado == 0)
                                 <td class="text-danger">INACTIVO</td>
-                                
-                            
+                                @else
+                                <td class="text-info">BLOQUEADO</td>
                                 @endif
                                 <td>@if(!empty($usuario->getRoleNames()))
                                     @foreach($usuario->getRoleNames() as $rolNombre)
@@ -97,15 +97,15 @@
                                 <td width="100">
 
                                     <form action="{{route('usuarios.destroy', $usuario->id)}}" method="POST">
-                                       
+
                                         <a href="{{route('usuarios.edit', $usuario->id)}}" class="btn btn-warning btn-sm fa fa-edit "></a>
-                                       
+
                                         @csrf
                                         @method('DELETE')
-                                        
+
                                         <button type="submit" class=" btn btn-danger btn-sm  fa fa-times-circle"></button>
                                         <!-- <button type="submit" class="btn  btn-success btn-sm fas fa-check-circle"></button> -->
-                                        
+
                                     </form>
                                 </td>
                                 @endcan
@@ -133,7 +133,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>
@@ -160,7 +160,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset ('vendors/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
- 
+
 @stop
 
 @section('js')
@@ -178,29 +178,29 @@
 
 
 <script>
-  $(document).ready(function() {
-    $('#TB').DataTable({
-      "language": {
-        "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-      },
-      "autoWidth": false,
-  "responsive": true,
-            
-      dom: '<"pt-2 row" <"col-xl mt-2"l><"col-xl text-center"B><"col-xl text-right mt-2 "f>> <"row"rti<"col"><p>>',
-      buttons: [
+    $(document).ready(function() {
+        $('#TB').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            },
+            "autoWidth": false,
+            "responsive": true,
 
-        {
-          extend: 'print',
-          text: 'Imprimir',
-          className: 'btn btn-secondary glyphicon glyphicon-duplicate'
-        },
-        {
-          extend: 'excel',
-          className: 'btn btn-success glyphicon glyphicon-duplicate'
-        }
-      ]
+            dom: '<"pt-2 row" <"col-xl mt-2"l><"col-xl text-center"B><"col-xl text-right mt-2 "f>> <"row"rti<"col"><p>>',
+            buttons: [
+
+                {
+                    extend: 'print',
+                    text: 'Imprimir',
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                },
+                {
+                    extend: 'excel',
+                    className: 'btn btn-success glyphicon glyphicon-duplicate'
+                }
+            ]
+        });
     });
-  });
 </script>
 </script>
 @stop

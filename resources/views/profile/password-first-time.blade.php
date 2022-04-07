@@ -35,7 +35,7 @@
 
                             @if ($actualizada)
                             <div class="alert alert-success input-group-prepend" role="alert">
-                                Se ha cambiado su contraseña, <a href="{{url('dashboard')}}" class="alert-link">entrar al sistema.</a>.
+                                Se ha cambiado su contraseña, <a href="{{url('/')}}" class="alert-link">entrar al sistema.</a>.
                             </div>
 
                             @endif

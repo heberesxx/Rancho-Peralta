@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Lotes Registrados')
+@section('title', 'Lotes de Venta')
 @can('VER_OBJETOS')
 @section('content_header')
 <section class="content-header">
@@ -70,7 +70,9 @@
                                 <th class="text-center" style="width:20%;">Cliente</th>
                                 <th class="text-center" style="width:20%;">Cantidad Vendida</th>
                                 <th class="text-center" style="width:auto;">Precio Total (L)</th>
+                                <th class="text-center" style="width:auto;">Estado Lote</th>
                                 <th class="text-center" style="width:auto;">Ver detalle</th>
+                                
 
                             </tr>
                         </thead>
@@ -83,6 +85,7 @@
                                 <td class="text-center" style="width:20%;">{{ $lote->CLIENTE }}</td>
                                 <td class="text-center" style="width:auto;">{{ $lote->CAN_TOTAL }}</td>
                                 <td  style="text-align: right;">{{ $lote->TOTAL_PRECIO }}</td>
+                                <td  style="text-align: right;">{{ $lote->STATUS_LOTE }}</td>
                                 <td class="text-center"><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href="{{ url('ventas/' .$lote->COD_VENTA . '/edit') }}"></a></td>
                             </tr>
 
@@ -107,7 +110,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

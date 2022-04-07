@@ -73,7 +73,7 @@ class TranferenciaEmbrionesController extends Controller
         ]);
         
         $this->cliente->post('registrar-transferencia-embrion',['json'=> $request->all()]);
-        return redirect()->route('transembriones.index')->with('info','Tranferencia de embrión registrada');
+        return redirect()->route('transembriones.index')->with('info','Tranferencia de Embrión Registrada');
     }
 
     /**
@@ -120,7 +120,7 @@ class TranferenciaEmbrionesController extends Controller
         $this->cliente->put('actualizar-transferencia-embrion/'. $id, ['json' => $request->all()
     ]);
 
-    return redirect()->route('transembriones.index')->with('edit','Transferencia de embrión actualizada');
+    return redirect()->route('transembriones.index')->with('edit','Transferencia de Embrión Actualizada');
     }
 
     /**

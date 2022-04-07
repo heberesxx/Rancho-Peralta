@@ -63,10 +63,12 @@
                         <thead style="background-color: #e1e2f6;">
                             <tr>
                                 <th class="text-center"> Código</th>
+                                <th class="text-center">Fecha de Venta</th>
+                                <th class="text-center">Cliente</th>
+                                
                                 <th class="text-center">Ganado Vendido</th>
                                 <th class="text-center">Precio (L)</th>
-                                <th class="text-center">Cliente</th>
-                                <th class="text-center">Fecha de Venta</th>
+                                
                                 @can('ELIMINAR_VENTAS')
                                 <th class="text-center">Eliminar </th>
                                 @ENDCAN
@@ -76,10 +78,12 @@
                             @foreach($ventas as $ventas)
                             <tr>
                                 <td class="text-center" style="width: 10%">{{ $ventas->COD_VENTA }}</td>
+                                <td class="text-center">{{\Carbon\Carbon::parse($ventas->FEC_REGISTRO)->format('d/m/Y')}}</td>
+                                <td class="text-center">{{ $ventas->CLIENTE}}</td>
+                               
                                 <td class="text-center">{{ $ventas->NOM_GANADO}}</td>
                                 <td style="text-align: right;"> {{ $ventas->PRE_VENTA }}</td>
-                                <td class="text-center">{{ $ventas->CLIENTE}}</td>
-                                <td class="text-center">{{\Carbon\Carbon::parse($ventas->FEC_REGISTRO)->format('d/m/Y')}}</td>
+                               
                                 @can('ELIMINAR_VENTAS')
                                 <td>
                                     <!-- boton de eliminar -->
@@ -116,7 +120,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

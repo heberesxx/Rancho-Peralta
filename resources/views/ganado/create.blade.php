@@ -41,7 +41,7 @@
                     <div class="col-lg-1">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Arete:</label>
-                            <input id="NUM_ARETE" class="form-control border-dark"  type="text" name="NUM_ARETE" value="{{old('NUM_ARETE')}}" autofocus>
+                            <input id="NUM_ARETE" class="form-control border-dark"  type="text"  placeholder="# Arete"  name="NUM_ARETE" value="{{old('NUM_ARETE')}}" autofocus>
 
                             @if ($errors->has('NUM_ARETE'))
                             <div id="NUM_ARETE-error" class="error text-danger pl-3" for="NUM_ARETE" style="display: bock;">
@@ -55,7 +55,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Nombre:</label>
-                            <input id="nombre_ganado" class="form-control border-dark capitalize" placeholder="Nombre" type="text" name="nombre_ganado" value="{{old('nombre_ganado')}}" autofocus>
+                            <input id="nombre_ganado" class="form-control border-dark capitalize" placeholder="Nombre Ganado" type="text" name="nombre_ganado" value="{{old('nombre_ganado')}}" autofocus>
 
                             @if ($errors->has('nombre_ganado'))
                             <div id="nombre_ganado-error" class="error text-danger pl-3" for="nombre_ganado" style="display: bock;">
@@ -69,7 +69,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Color:</label>
-                            <input id="color" class="form-control border-dark" placeholder="Color del ganado" type="text" name="color" value="{{old('color')}}" pattern="[[A-Za-z ]+" title="Este campo solo acepta letras" autofocus>
+                            <input id="color" class="form-control border-dark" placeholder="Color del Ganado" type="text" name="color" value="{{old('color')}}" pattern="[[A-Za-z ]+" title="Este campo solo acepta letras" autofocus>
 
                             @if ($errors->has('color'))
                             <div id="color-error" class="error text-danger pl-3" for="color" style="display: bock;">
@@ -101,7 +101,7 @@
                     <div class="col-lg-1">
                         <div class="form-group">
                             <label><span style="color: red;"></span>Peso (kg):</label>
-                            <input id="peso" class="form-control border-dark" placeholder="Peso actual en kg..." type="text" name="peso" value="{{old('peso')}}" autofocus>
+                            <input id="peso" class="form-control border-dark" placeholder="Peso" type="text" name="peso" value="{{old('peso')}}" autofocus>
 
                             @if ($errors->has('peso'))
                             <div id="peso-error" class="error text-danger pl-3" for="peso" style="display: bock;">
@@ -129,6 +129,19 @@
 
                 </div>
                 <div class="row">
+                <div class="col-lg-2">
+                        <div class="form-group">
+                            <label><span style="color: red;"></span> Fecha de Nacimiento</label>
+                            <input name="fecha_nacimiento" placeholder="" id="fecha_nacimiento" class="form-control datepicker" max="{{ date('Y-m-d') }}" type='date'  >
+                            @if ($errors->has('fecha_nacimiento'))
+                            <div id="fecha_nacimiento-error" class="error text-danger pl-3" for="fecha_nacimiento" style="display: bock;">
+                                <strong>
+                                    {{ $errors->first('fecha_nacimiento') }}
+                                </strong>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
                     <div class="col-lg-4">
                         <div class="form-group">
 
@@ -146,7 +159,7 @@
                    
 
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Lugar:</label>
                             <select name="lugar" class="form-control border-dark" id="lugar" class="form-control border-dark" type="text" name="lugar" value="{{old('lugar')}}" autofocus>
@@ -194,7 +207,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
             </p>
 
         </div>

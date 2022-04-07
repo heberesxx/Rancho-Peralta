@@ -59,7 +59,7 @@ class ProduccionLeche_controller extends Controller
 
         $request->validate(rules: [
             "COD_REGISTRO_GANADO" => "required",
-            "PRD_LITROS" => "required|numeric",
+            "PRD_LITROS" => 'required|numeric|gt:0|digits_between:1,3',
             "FEC_ORDEÑO" => "required|date",
             "DIA_LACTANCIA"=> "nullable|numeric",
             "OBS_REGISTRO"=>'nullable|max:200'
@@ -67,7 +67,7 @@ class ProduccionLeche_controller extends Controller
         ]);
 
         $this->cliente->post('insertarleche', ['json' => $request->all()]);
-        return redirect()->route('produccion_leche.index')->with('info', ' Registro ingresado.');;
+        return redirect()->route('produccion_leche.index')->with('info', ' Registro Ingresado.');;
     }
 
     /**

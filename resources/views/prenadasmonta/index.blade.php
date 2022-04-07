@@ -53,8 +53,8 @@
                         <thead style="background-color: #e1e2f6;">
                             <tr>
                                 <th class="text-center">Código</th>
-
-                                <th class="text-center">Nombre</th>
+                                <th class="text-center">Detalles Vaca Preñada</th>
+                                
                                 <th class="text-center">Lugar</th>
                                 <th class="text-center">Raza Toro</th>
                                 <th class="text-center">Status Vaca Preñada</th>
@@ -71,7 +71,8 @@
                             @foreach($vacasprenadasmonta as $vacaprenadamonta)
                             <tr>
                                 <td class="text-center">{{ $vacaprenadamonta->COD_PRENADA_MONTA }}</td>
-                                <td class="text-center">{{ $vacaprenadamonta->NOM_GANADO}}</td>
+                                <td class="text-center">{{'Nombre: '. $vacaprenadamonta->NOM_GANADO.', Raza: '.$vacaprenadamonta->RAZA.', Arete: '.$vacaprenadamonta->ARETE.', Color: '.$vacaprenadamonta->COLOR}}</td>
+  
                                 <td class="text-center">{{ $vacaprenadamonta->DIR_LUGAR }}</td>
                                 <td class="text-center">{{ $vacaprenadamonta->RAZ_TORO_MONTA }}</td>
                                 <td class="text-center">{{ $vacaprenadamonta->IND_PRENADA }}</td>
@@ -107,7 +108,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-                No podemos mostrar esta página porque no tienes permisos, si deseas ingresar pide permisos al administrador.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>
@@ -159,17 +160,14 @@
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
+            "bSort": false,
             "autoWidth": false,
             "responsive": true,
 
             dom: '<"pt-2 row" <"col-xl mt-2"l><"col-xl text-center"B><"col-xl text-right mt-2 "f>> <"row"rti<"col"><p>>',
             buttons: [
 
-                {
-                    extend: 'pdf',
-                    className: 'btn btn-danger glyphicon glyphicon-duplicate',
-
-                },
+               
                 {
                     extend: 'print',
                     text: 'Imprimir',
