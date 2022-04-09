@@ -118,7 +118,7 @@
 								@foreach($compras as $compras)
 								<tr>
 									<td>{{$i }}</td>
-									<td>{{'Nombre: '.$compras->NOM_GANADO.', Color: '.$compras->CLR_GANADO.', Raza: '.$compras->NOM_RAZA.', Sexo: '.$compras->SEX_GANADO.', Peso: '.$compras->PES_ACTUAL.', Fierro: '.$compras->FIE_GANADO.
+									<td>{{'Nombre: '.$compras->NOM_GANADO.', Color: '.$compras->CLR_GANADO.', Raza: '.$compras->NOM_RAZA.', Sexo: '.$compras->SEX_GANADO.', Peso(kg): '.$compras->PES_ACTUAL.', Fierro: '.$compras->FIE_GANADO.
 										', Status: '.$compras->DET_ESTADO.', Lugar: '.$compras->DIR_LUGAR.', Status compra: '.$compras->STATUS}}</td>
 									<td>{{$compras->PRE_GANADO }}</td>
 

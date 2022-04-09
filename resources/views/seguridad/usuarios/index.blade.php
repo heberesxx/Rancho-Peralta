@@ -72,10 +72,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php $i=1;@endphp
+                         
                             @foreach ($usuarios as $usuario)
                             <tr class="text-center">
-                                <td>{{$i}}</td>
+                                <td>{{$usuario->id}}</td>
                                 <td>{{ $usuario->name }}</td>
                                 <td>{{ $usuario->username }}</td>
                                 <td>{{ $usuario->email }}</td>
@@ -110,7 +110,7 @@
                                 </td>
                                 @endcan
                             </tr>
-                            @php $i++;@endphp
+                           
                             @endforeach
 
 

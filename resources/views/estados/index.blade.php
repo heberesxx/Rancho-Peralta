@@ -58,8 +58,10 @@
                                 <th class="text-center"> Estado </th>
                                 <th class="text-center"> Descripción </th>
                                 <th class="text-center"> Status </th>
-                             
+                                <th class="text-center"> Creado Por </th>
                                 <th class="text-center"> Fecha Creación </th>
+                                <th class="text-center"> Actualizado Por </th>
+                                
                                 <th class="text-center"> Fecha Actualización </th>
                                
                                 @CAN('EDITAR_ESTADOS GANADO')
@@ -78,9 +80,12 @@
                                 <td class="text-center" >{{ $estado->DET_ESTADO }}</td>
                                 <td class="text-center" >{{ $estado->DESCRIPCION_ESTADO}}</td>
                                 <td class="text-center" >{{ $estado->STATUS}}</td>
+                                <td class="text-center" >{{ $estado->Creado_Por}}</td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $estado->created_at)->format('d-m-Y H:i:s') }}</td>
+                                <td class="text-center" >{{ $estado->Actualizado_Por}}</td>
                              
-                                <td class="text-center" >{{\Carbon\Carbon::parse( $estado->created_at)->format('d-m-Y') }}</td>
-                                <td class="text-center" >{{\Carbon\Carbon::parse( $estado->updated_at)->format('d-m-Y') }}</td>
+                                
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $estado->updated_at)->format('d-m-Y H:i:s') }}</td>
 
                                 @CAN('EDITAR_ESTADOS GANADO')
                                 <td class="text-center"  style="width: 10%;"><a class="btn btn-warning" href="{{ route('estados.edit', $estado->COD_ESTADO) }}"> Editar</a></td>

@@ -12,7 +12,11 @@
     <div class="card-header">
         <h4 class="text-center">Editar Estado</h4>
     </div>
-   
+    <style type="text/css">
+        .transformacion1 {
+            text-transform: uppercase;
+        }
+    </style>
     <form action="{{route('estados.update',$estado->COD_ESTADO)}}" method="post">
         @csrf()
         @method('PUT')
@@ -20,8 +24,8 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label><span style="color: red;">  </span>Código Estado</label>
-                        <input name="COD_ESTADO" placeholder="" id="COD_ESTADO" class="form-control border-dark" disabled type="text" value="{{($estado->COD_ESTADO)}}">
+                        <label><span style="color: red;"> </span>Código Estado</label>
+                        <input name="COD_ESTADO" placeholder="" id="COD_ESTADO" class="form-control border-dark" disabled type="text"  value="{{($estado->COD_ESTADO)}}">
                         @if ($errors->has('COD_ESTADO'))
                         <div id="COD_ESTADO-error" class="error text-danger pl-3" for="COD_ESTADO" style="display: bock;">
                             <strong>
@@ -33,8 +37,8 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label><span style="color: red;">  </span>Estado</label>
-                        <input name="DET_ESTADO" placeholder="" id="DET_ESTADO" class="form-control border-dark" type="text" value="{{($estado->DET_ESTADO)}}">
+                        <label><span style="color: red;"> </span>Estado</label>
+                        <input name="DET_ESTADO" style="text-transform: uppercase;" placeholder="" id="DET_ESTADO" class="form-control border-dark" type="text" maxlength="150" minlength="2" title="30 carácteres como máximo y 2 como mínimo" value="{{($estado->DET_ESTADO)}}">
                         @if ($errors->has('DET_ESTADO'))
                         <div id="DET_ESTADO-error" class="error text-danger pl-3" for="DET_ESTADO" style="display: bock;">
                             <strong>
@@ -47,7 +51,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Descripción del Estado</label>
-                        <textarea id="descripcion_estado" class="form-control border-dark " rows="2" type="text" name="descripcion_estado" value="" autofocus>{{$estado->DESCRIPCION_ESTADO}}</textarea>
+                        <textarea id="descripcion_estado" class="form-control border-dark " rows="2" type="text" name="descripcion_estado" maxlength="150"  title="Este campo solo acepta 150 carácteres como máximo"  value="" autofocus>{{$estado->DESCRIPCION_ESTADO}}</textarea>
                         @if ($errors->has('descripcion_estado'))
                         <div id="descripcion_estado-error" class="error text-danger pl-3" for="descripcion_estado" style="display: bock;">
                             <strong>
@@ -90,7 +94,7 @@
             </div>
         </div>
     </form>
-   
+
 
 </div>
 @stop
@@ -102,7 +106,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>

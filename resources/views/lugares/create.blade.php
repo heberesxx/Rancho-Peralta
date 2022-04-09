@@ -16,6 +16,11 @@
 @stop
 @section('content')
 <div class="card card-primary">
+<style type="text/css">
+    .transformacion1 {
+        text-transform: uppercase;
+    }
+</style>
     <div class="card-header">
         <h3 class="card-title">Datos Generales</h3>
 
@@ -30,7 +35,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> * </span>Lugar</label>
-                        <input name="DIR_LUGAR" placeholder="" id="DIR_LUGAR" class="form-control" type="text">
+                        <input name="DIR_LUGAR" placeholder="" id="DIR_LUGAR" class="form-control" type="text" style="text-transform: uppercase;" value="{{old('DIR_LUGAR')}}" maxlength="30" minlength="2" title="30 carácteres como máximo y 2 como mínimo" pattern="[A-Z ]" >
                         @if ($errors->has('DIR_LUGAR'))
                         <div id="DIR_LUGAR-error" class="error text-danger pl-3" for="DIR_LUGAR" style="display: bock;">
                             <strong>
@@ -44,7 +49,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Dirección exacta</label>
-                        <textarea name="ubicacion_exacta" placeholder="" id="ubicacion_exacta" class="form-control" rows="1"></textarea>
+                        <textarea name="ubicacion_exacta" placeholder="" id="ubicacion_exacta" class="form-control" rows="2" maxlength="150"  title="Este campo solo acepta 150 carácteres como máximo"></textarea>
                         @if ($errors->has('ubicacion_exacta'))
                         <div id="ubicacion_exacta-error" class="error text-danger pl-3" for="ubicacion_exacta" style="display: bock;">
                             <strong>

@@ -83,7 +83,7 @@ class EmbrionController extends Controller
             "precio_embrion" => 'required|numeric|gt:0',
             "vaca_donadora"=>'nullable|alpha|max:30',
             "toro_donador"=>'nullable|alpha|max:30',
-            "observacion_compra"=>'nullable|max:200'
+            "observacion_compra"=>'nullable|max:150'
 
         ]);
         $this->cliente->post('insertarcompraembrion', [

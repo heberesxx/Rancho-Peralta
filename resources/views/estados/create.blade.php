@@ -16,6 +16,11 @@
 @stop
 @section('content')
 <div class="card card-primary">
+<style type="text/css">
+    .transformacion1 {
+        text-transform: uppercase;
+    }
+</style>
     <div class="card-header">
         <h3 class="card-title">Datos Generales</h3>
 
@@ -30,7 +35,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> * </span>Estado</label>
-                        <input name="DET_ESTADO" placeholder="" id="DET_ESTADO" class="form-control" type="text" value="{{ old('DET_ESTADO') }}">
+                        <input name="DET_ESTADO" placeholder="" style="text-transform: uppercase;" value="{{old('DET_ESTADO')}}" id="DET_ESTADO" maxlength="30" minlength="2" title="30 carácteres como máximo y 2 como mínimo" class="form-control" type="text" value="{{ old('DET_ESTADO') }}">
                         @if ($errors->has('DET_ESTADO'))
                         <div id="DET_ESTADO-error" class="error text-danger pl-3" for="DET_ESTADO" style="display: bock;">
                             <strong>
@@ -44,7 +49,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Descripción del Estado</label>
-                        <textarea name="descripcion_estado" placeholder="" id="descripcion_estado" class="form-control" rows="1" value="{{ old('descripcion_estado')}}"></textarea>
+                        <textarea name="descripcion_estado" placeholder="" id="descripcion_estado"  maxlength="150"  title="Este campo solo acepta 150 carácteres como máximo" class="form-control" rows="1" value="{{ old('descripcion_estado')}}"></textarea>
                         @if ($errors->has('descripcion_estado'))
                         <div id="descripcion_estado-error" class="error text-danger pl-3" for="descripcion_estado" style="display: bock;">
                             <strong>

@@ -102,7 +102,7 @@ class CompraGController extends Controller
             "COD_ESTADO" =>  'required', 
             "LUGAR" => 'required',
             "SEXO" =>  'required', 
-            "PRECIO" =>  'required|numeric|gt:0|digits_between:3,8',     
+            "PRECIO" =>  'required|numeric|gt:0',     
             "PESO" =>  'nullable|numeric|gt:0',  
             "FIERRO"  => 'nullable|alpha|min:2|max:3',
             "COD_RAZA"  => 'nullable',

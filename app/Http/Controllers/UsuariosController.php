@@ -16,6 +16,7 @@ use Laravel\Fortify\Rules\Password;
 use Spatie\Permission\Models\Permission;
 use App\Rules\Uppercase;
 use  Barryvdh\DomPDF\Facade as PDF;
+use Illuminate\Support\MessageBag;
 
 
 class UsuariosController extends Controller
@@ -156,13 +157,32 @@ class UsuariosController extends Controller
         
         $request->validate ([
             'name' => ['required','string','max:255'],
-            'username' =>'required|string|max:255|min:4',"unique:users,username,{$id}",new Uppercase(),
-            'email' => 'required|string|max:255|email|',"unique:users,email,{$id}",
+            'username' =>'required|string|max:255|min:4',new Uppercase(),
+            'email' => 'required|string|max:255',
             'fecha_vencimiento'=> ['required'] ,
             'roles'=> ['required'] ,
             'estado'=> ['required'] 
         ]);
         $usuario    = User::find($id);
+
+        $existe= User::where('email','=',$request->email)
+        ->where('id','<>',$id)->get();
+        if(count($existe)){
+            $errors = new MessageBag();
+            $errors->add('email','Esta dirección de correo ya está en uso.');
+        return back()->with('errors',$errors);
+        }
+
+        
+        $existe= User::where('username','=',$request->username)
+        ->where('id','<>',$id)->get();
+        if(count($existe)){
+            $errors = new MessageBag();
+            $errors->add('username','Este nombre de usuario, ya está en uso.');
+        return back()->with('errors',$errors);
+        }
+
+
         
         $originales=$usuario->getOriginal();
         $usuario->update($request->all());
@@ -179,6 +199,8 @@ class UsuariosController extends Controller
                        $campo=" CAMBIO EN EL CAMPO NOMBRE  ";
                     }elseif ($key=="email") {
                         $campo=" CAMBIO EN EL CAMPO CORREO  ";
+                    }elseif ($key=="estado") { 
+                        $campo=" CAMBIO EN EL CAMPO ESTADO  ";
                     }elseif ($key=="username") {
                         $campo=" CAMBIO EN EL CAMPO NOMBRE DE USUARIO ";
                     }elseif ($key=="fecha_vencimiento") {

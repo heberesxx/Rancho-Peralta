@@ -68,101 +68,12 @@
 
                                 </div>
                             </div>
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label><span style="color: red;"></span>Rol</label>
-                                    <input class="form-control border-dark" placeholder="FEC_COMPRA" name="FEC_COMPRA" id="FEC_COMPRA" type="text" value="{{ $perfil->rol}}" max="{{ date('Y-m-d') }}" disabled>
-
-                                </div>
-                            </div>
+                            
 
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <label><span style="color: red;"></span>Fecha de Vencimiento</label>
-                                    <input class="form-control border-dark" placeholder="FEC_COMPRA" name="FEC_COMPRA" id="FEC_COMPRA" type="date" value="{{ $perfil->fecha_vencimiento}}" max="{{ date('Y-m-d') }}" disabled>
+                        
 
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-lg-12">
-                                    <a style="width: 475%;" class="btn btn-warning" data-toggle="modal" data-target="#EditarUsuario{{$perfil->id}}">Editar</a>
-                                    <div class="modal fade" rol="dialog" id="EditarUsuario{{$perfil->id}}">
-                                        <div class="modal-dialog ">
-                                            <div class="modal-content">
-
-                                                <div class="modal-header">
-                                                    <h3 class="">Editar Usuario</h3>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="{{route('perfil.update',$perfil->id)}}" method="post">
-                                                        @csrf()
-                                                        @method('PUT')
-                                                        <div class="card-body">
-                                                            <div class="row">
-                                                                <div class="col-lg-12">
-                                                                    <div class="form-group">
-                                                                        <label><span style="color: red;"></span>Nombre:</label>
-                                                                        <input id="name" class="form-control border-dark capitalize" type="text" name="name" value="{{ $perfil->name }}" autofocus>
-
-                                                                        @if ($errors->has('name'))
-                                                                        <div id="name-error" class="error text-danger pl-3" for="name" style="display: bock;">
-                                                                            <strong>
-                                                                                {{$errors -> first('name')}}
-                                                                            </strong>
-                                                                        </div>
-                                                                        @endif
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-12">
-                                                                    <div class="form-group">
-                                                                        <label><span style="color: red;"></span>Correo:</label>
-                                                                        <input id="email" class="form-control border-dark capitalize" type="email" name="email" value="{{ $perfil->email}}" autofocus>
-
-                                                                        @if ($errors->has('email'))
-                                                                        <div id="email-error" class="error text-danger pl-3" for="email" style="display: bock;">
-                                                                            <strong>
-                                                                                {{$errors -> first('email')}}
-                                                                            </strong>
-                                                                        </div>
-                                                                        @endif
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-
-
-                                                            <div class="row">
-
-
-                                                                <div class="col-6">
-                                                                    <button type="button" class="btn btn-danger btn-block" data-dismiss="modal"><i class="fas fa-times-circle"></i> Cancelar</button>
-                                                                </div>
-                                                                <div class="col-6">
-                                                                    <button type="submit" class="btn btn-block btn-primary btn-block" data-toggle="modal" data-target="">Actualizar</button>
-
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </form>
-
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         @endforeach
                     </div>
@@ -208,11 +119,16 @@
                                                             @csrf()
                                                             @method('PUT')
                                                             <div class="card-body">
+                                                                <style type="text/css">
+                                                                    .transformacion1 {
+                                                                        text-transform: uppercase;
+                                                                    }
+                                                                </style>
                                                                 <div class="row">
                                                                     <div class="col-lg-12">
                                                                         <div class="form-group">
                                                                             <label><span style="color: red;"></span>Respuesta:</label>
-                                                                            <input id="respuesta" class="form-control border-dark capitalize" type="text" name="respuesta" value="{{ $respuesta->respuesta }}" pattern="[A-Z ]{2,254}" title="Las respuestas solo pueden ser en Mayúsculas" autofocus>
+                                                                            <input id="respuesta" class="form-control border-dark capitalize" style="text-transform: uppercase;" type="text" name="respuesta" value="{{ $respuesta->respuesta }}" pattern="[A-Z ]{2,254}" title="Las respuestas solo pueden ser en Mayúsculas" autofocus>
 
                                                                             @if ($errors->has('respuesta'))
                                                                             <div id="respuesta-error" class="error text-danger pl-3" for="respuesta" style="display: bock;">

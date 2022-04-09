@@ -27,7 +27,7 @@ class EstadosController extends Controller
      */
     public function index()
     {
-        $estados = Estados::all();
+        $estados = DB::select('select * from estados_ganado');
         $usuarios = User::all();
         return view('estados.index')->with('estados', $estados)->with('usuarios',$usuarios);
     }

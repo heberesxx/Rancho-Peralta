@@ -56,7 +56,7 @@
                                 <div class="col-lg-2-5">
                                     <div class="form-group">
                                         <label><span style="color: red;"> * </span>Fecha de compra</label>
-                                        <input class="form-control border-dark" placeholder="FEC_COMPRA" name="FEC_COMPRA" id="FEC_COMPRA" type="date"  value="{{ date('Y-m-d') }}" max="{{ date('Y-m-d') }}" requerid>
+                                        <input class="form-control border-dark" placeholder="FEC_COMPRA" name="FEC_COMPRA" id="FEC_COMPRA" type="date" value="{{ date('Y-m-d') }}" max="{{ date('Y-m-d') }}" requerid>
                                         @if ($errors->has('FEC_COMPRA'))
                                         <div id="FEC_COMPRA-error" class="error text-danger pl-3" for="FEC_COMPRA" style="display: bock;">
                                             <strong>
@@ -184,7 +184,7 @@
                                         <td>{{\Carbon\Carbon::parse($lote->FECHA)->format('d-m-Y')}}</td>
                                         <td>{{$lote->NOMBRE}}</td>
                                         <td>{{$lote->CANTIDAD}}</td>
-                                        <td style="text-align: right;" >{{$lote->TOTAL}}</td>
+                                        <td style="text-align: right;">{{$lote->TOTAL}}</td>
                                         <td>
                                             <a type="submit" class=" btn btn-danger btn-sm  " href=" {{ url('lotescompras_esperma/' .$lote->COD_COMPRA_ESPERMA . '/edit') }}">Cancelar Lote
 
@@ -223,7 +223,7 @@
                                     <div class="col-lg-3">
                                         <div class="form-group">
                                             <label><span style="color: red;"> * </span>N° Pajilla:</label>
-                                            <input id="NUM_PAJILLA" class="form-control border-dark"  type="number" min="1" name="NUM_PAJILLA" value="{{old('NUM_PAJILLA')}}" autofocus>
+                                            <input id="NUM_PAJILLA" class="form-control border-dark" type="number" min="1" name="NUM_PAJILLA" value="{{old('NUM_PAJILLA')}}" autofocus>
 
                                             @if ($errors->has('NUM_PAJILLA'))
                                             <div id="NUM_PAJILLA-error" class="error text-danger pl-3" for="NUM_PAJILLA" style="display: bock;">
@@ -237,8 +237,13 @@
 
                                     <div class="col-lg-5">
                                         <div class="form-group">
+                                            <style type="text/css">
+                                                .transformacion1 {
+                                                    text-transform: uppercase;
+                                                }
+                                            </style>
                                             <label><span style="color: red;">*</span>Raza del Donador</label>
-                                            <input id="RAZ_TORO_DONADOR" class="form-control border-dark" type="text" name="RAZ_TORO_DONADOR" value="{{old('RAZ_TORO_DONADOR')}}" autofocus>
+                                            <input id="RAZ_TORO_DONADOR" class="form-control border-dark" type="text" name="RAZ_TORO_DONADOR" style="text-transform: uppercase;" value="{{old('RAZ_TORO_DONADOR')}}" autofocus>
 
                                             @if ($errors->has('RAZ_TORO_DONADOR'))
                                             <div id="RAZ_TORO_DONADOR-error" class="error text-danger pl-3" for="RAZ_TORO_DONADOR" style="display: bock;">
@@ -252,7 +257,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Nombre del Donador</label>
-                                            <input id="NOM_TORO_DONADOR" class="form-control border-dark"  type="text" name="NOM_TORO_DONADOR" value="{{old('NOM_TORO_DONADOR')}}" autofocus>
+                                            <input id="NOM_TORO_DONADOR" class="form-control border-dark" type="text" name="NOM_TORO_DONADOR" value="{{old('NOM_TORO_DONADOR')}}" autofocus>
 
                                             @if ($errors->has('NOM_TORO_DONADOR'))
                                             <div id="NOM_TORO_DONADOR-error" class="error text-danger pl-3" for="NOM_TORO_DONADOR" style="display: bock;">
@@ -341,7 +346,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>
@@ -385,15 +390,15 @@
 
 
 <script>
-	$(document).ready(function() {
-		$('#TB').DataTable({
-			"language": {
-				"url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-			},
-			"autoWidth": false,
-			"responsive": true,
-		});
-	});
+    $(document).ready(function() {
+        $('#TB').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+            },
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
 </script>
 </script>
 @stop

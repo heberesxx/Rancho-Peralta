@@ -26,6 +26,11 @@
         content: '$';
     }
 </style>
+<style type="text/css">
+    .transformacion1 {
+        text-transform: uppercase;
+    }
+</style>
 
 @section('content')
 <div class="container-fluid ">
@@ -55,7 +60,7 @@
                                 <div class="col-lg-2-5">
                                     <div class="form-group">
                                         <label><span style="color: red;"> * </span>Fecha de compra</label>
-                                        <input class="form-control border-dark" placeholder="FEC_COMPRA" name="FEC_COMPRA" id="FEC_COMPRA" type="date"  value="{{ date('Y-m-d') }}" max="{{ date('Y-m-d') }}" requerid>
+                                        <input class="form-control border-dark" placeholder="FEC_COMPRA" name="FEC_COMPRA" id="FEC_COMPRA" type="date" value="{{ date('Y-m-d') }}" max="{{ date('Y-m-d') }}" requerid>
                                         @if ($errors->has('FEC_COMPRA'))
                                         <div id="FEC_COMPRA-error" class="error text-danger pl-3" for="FEC_COMPRA" style="display: bock;">
                                             <strong>
@@ -183,7 +188,7 @@
                                         <td>{{\Carbon\Carbon::parse($lote->FECHA)->format('d-m-Y')}}</td>
                                         <td>{{$lote->NOMBRE}}</td>
                                         <td>{{$lote->CANTIDAD}}</td>
-                                        <td style="text-align: right;" >{{$lote->TOTAL}}</td>
+                                        <td style="text-align: right;">{{$lote->TOTAL}}</td>
                                         <td>
                                             <a type="submit" class=" btn btn-danger btn-sm  " href=" {{ url('lotescompras_embrion/' .$lote->COD_COMPRA_EMBRION . '/edit') }}">Cancelar Lote
 
@@ -224,7 +229,7 @@
                                         <div class="form-group">
 
                                             <label><span style="color: red;"> *</span>Raza Esperada:</label>
-                                            <input id="raza_esperada" class="form-control border-dark" placeholder="Raza esperada" type="text" name="raza_esperada" value="{{old('raza_esperada')}}" autofocus>
+                                            <input id="raza_esperada" style="text-transform: uppercase;" class="form-control border-dark" type="text" name="raza_esperada" value="{{old('raza_esperada')}}" autofocus>
 
                                             @if ($errors->has('raza_esperada'))
                                             <div id="raza_esperada-error" class="error text-danger pl-3" for="raza_esperada" style="display: bock;">
@@ -239,7 +244,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label><span style="color: red;"> </span>Nombre Donadora</label>
-                                            <input id="vaca_donadora" class="form-control border-dark" placeholder="Nombre vaca donadora" type="text" name="vaca_donadora" value="{{old('vaca_donadora')}}" autofocus>
+                                            <input id="vaca_donadora" class="form-control border-dark" type="text" name="vaca_donadora" value="{{old('vaca_donadora')}}" autofocus>
 
                                             @if ($errors->has('vaca_donadora'))
                                             <div id="vaca_donadora-error" class="error text-danger pl-3" for="vaca_donadora" style="display: bock;">
@@ -253,7 +258,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label><span style="color: red;">*</span>Raza Donadora</label>
-                                            <input id="raza_donadora" class="form-control border-dark" placeholder="Raza donadora" type="text" name="raza_donadora" value="{{old('raza_donadora')}}" autofocus>
+                                            <input id="raza_donadora" style="text-transform: uppercase;" class="form-control border-dark" type="text" name="raza_donadora" value="{{old('raza_donadora')}}" autofocus>
 
                                             @if ($errors->has('raza_donadora'))
                                             <div id="raza_donadora-error" class="error text-danger pl-3" for="raza_donadora" style="display: bock;">
@@ -269,7 +274,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label><span style="color: red;">*</span>Raza Donador</label>
-                                            <input id="raza_donador" class="form-control border-dark" placeholder="Raza donador" type="text" name="raza_donador" value="{{old('raza_donador')}}" autofocus>
+                                            <input id="raza_donador" style="text-transform: uppercase;" class="form-control border-dark" type="text" name="raza_donador" value="{{old('raza_donador')}}" autofocus>
 
                                             @if ($errors->has('raza_donador'))
                                             <div id="raza_donador-error" class="error text-danger pl-3" for="raza_donador" style="display: bock;">
@@ -283,7 +288,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Nombre Donador</label>
-                                            <input id="toro_donador" class="form-control border-dark" placeholder="Nombre toro donador" type="text" name="toro_donador" value="{{old('toro_donador')}}" autofocus>
+                                            <input id="toro_donador" class="form-control border-dark" type="text" name="toro_donador" value="{{old('toro_donador')}}" autofocus>
 
                                             @if ($errors->has('toro_donador'))
                                             <div id="toro_donador-error" class="error text-danger pl-3" for="toro_donador" style="display: bock;">
@@ -297,7 +302,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label><span style="color: red;"> * </span>Precio (L)</label>
-                                            <input id="precio_embrion" class="form-control border-dark" style="text-align: right;"   type="number" step="0.01"  name="precio_embrion" value="{{old('precio_embrion')}}" autofocus>
+                                            <input id="precio_embrion" class="form-control border-dark" style="text-align: right;" type="number" step="0.01" name="precio_embrion" value="{{old('precio_embrion')}}" autofocus>
 
                                             @if ($errors->has('precio_embrion'))
                                             <div id="precio_embrion-error" class="error text-danger pl-3" for="precio_embrion" style="display: bock;">
@@ -313,13 +318,20 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label><span style="color: red;"> </span>Fecha Registro</label>
-                                            <input class="form-control" placeholder="Fecha registro" name="FEC_REGISTRO" type="date" value="{{date('Y-m-d')}}" requerid>
+                                            <input class="form-control border-dark" placeholder="Fecha registro" name="FEC_REGISTRO" type="date" value="{{date('Y-m-d')}}" requerid>
                                         </div>
                                     </div>
                                     <div class="col-lg-8">
                                         <div class="form-group">
+                                            <script type="text/javascript">
+                                                function onChangeTest(textbox) {
+                                                    alert("Value is " + textbox.value + "\n" + "Old Value is " + textbox.oldvalue);
+                                                }
+                                            </script>
+
+                                            
                                             <label>Observaciones</label>
-                                            <textarea name="observacion_compra" id="observacion_compra" rows="3" class="form-control"></textarea>
+                                            <textarea name="observacion_compra" id="observacion_compra" rows="3" class="form-control border-dark" {{old('observacion_compra')}} maxlength="150" title="Solo se permiten 150 carácteres como máximo"></textarea>
                                             @if ($errors->has('observacion_compra'))
                                             <div id="observacion_compra-error" class="error text-danger pl-3" for="observacion_compra" style="display: bock;">
                                                 <strong>
@@ -370,7 +382,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>
