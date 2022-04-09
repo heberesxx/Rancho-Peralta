@@ -86,7 +86,7 @@
                                     <td>{{$medicamento->CAN_DISPONIBLE}}</td>
                                     <td>{{$medicamento->CAN_REORDEN}}</td>
                                     @if($medicamento->CAN_REORDEN <= $medicamento->CAN_DISPONIBLE)
-                                        <td class="text-center text-success"><strong>{{'Todo Correcto'}}</td>
+                                        <td class="text-center text-success"><strong>{{'Normal'}}</td>
                                         @else
                                         <td class="text-center text-danger" style="width:auto;"></i><strong>{{ 'Adquirir más'}}</strong> </td>
 
