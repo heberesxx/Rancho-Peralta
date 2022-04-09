@@ -15,5 +15,7 @@ class Estados extends Model
         'DET_ESTADO',
         'DESCRIPCION_ESTADO',
         'STATUS',
+        'Creado_Por',
+    'Actualizado_Por'
     ];
 }

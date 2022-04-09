@@ -22,7 +22,7 @@ class LugaresController extends Controller
      */
     public function index()
     {
-        $lugares = Lugares::all();
+        $lugares = DB::select('select* from lugares_ganado');
         return view('lugares.index')->with('lugares', $lugares);
     }
 
@@ -30,8 +30,10 @@ class LugaresController extends Controller
     {
        $lugares = Lugares::all();
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('lugares.pdf',['lugares'=>$lugares],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('lugares.pdf',['lugares'=>$lugares],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);

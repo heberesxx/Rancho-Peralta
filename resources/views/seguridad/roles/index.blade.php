@@ -56,6 +56,8 @@
                             <tr class="text-center">
                                 <th scope="col" width="100">Código</th>
                                 <th>Nombre del Rol</th>
+                                <th>Fecha Creación</th>
+                                <th>Fecha Actualización</th>
                                 @can('ELIMINAR_ROLES')
                                 <th width="300">Opciones</th>
                                 @ENDCAN
@@ -68,6 +70,9 @@
                             <tr class="text-center">
                                 <td>{{ $i }}</td>
                                 <td>{{ $rol->name }} </td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $rol->created_at)->format('d-m-Y') }}</td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $rol->updated_at)->format('d-m-Y') }}</td>
+
                                 <!-- <td class="text-danger">INACTIVO</td> -->
                                 @can('ELIMINAR_ROLES')
                                 <td width="100">

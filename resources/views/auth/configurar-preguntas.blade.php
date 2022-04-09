@@ -2,6 +2,11 @@
     <x-guest-layout>
         <x-jet-authentication-card>
             <div class="card-body">
+            <style type="text/css">
+                    .transformacion1 {
+                        text-transform: uppercase;
+                    }
+                </style>
                 <form action="{{url("/configurar-pregunta")}}" method="get">
                     <x-slot name="logo">
                         <x-jet-authentication-card-logo />
@@ -35,9 +40,9 @@
                     </br>
                     <div>
                         <x-jet-label for="respuesta" value="{{ __('Respuesta') }}" />
-                        <x-jet-input id="respuesta" class="block mt-1 w-full" type="text" name="respuesta" :value="old('respuesta')" required autofocus pattern="[A-Z ]{2,254}" title="Las respuestas solo pueden ser en Mayúsculas" />
+                        <x-jet-input id="respuesta" class="block mt-1 w-full" type="text" name="respuesta" :value="old('respuesta')"  style="text-transform: uppercase;"  required autofocus pattern="[A-Z ]{2,254}" title="Las respuestas solo pueden ser en Mayúsculas" />
                         </br>
-                        <strong class="text-yellow-500"><span style="color: red;"> * </span>Ingrese su respuesta solo en mayúsculas</STRong>
+                       
 
                     </div></br>
 
@@ -49,7 +54,7 @@
                     px-4 m-2 text-bg text-gray-100 transition-colors
                     duration-150 bg-gray-700 rounded-lg
                     focus:shadow-outline hover:bg-gray-800" type="submit" >Guardar</button> -->
-                        <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 150px; border-color:#2F76DB;">
+                        <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 100%; border-color:#2F76DB;">
                             Guardar
                         </x-jet-button>
                     </div>

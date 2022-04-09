@@ -33,8 +33,11 @@ class GanadoGeneralController extends Controller
     {
        $ganados = DB::select('select * from ganado_general');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('ganado.pdf',['ganados'=>$ganados],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+
+        $pdf = PDF::loadView('ganado.pdf',['ganados'=>$ganados],['usuarios' =>$usuarios]);
+
+      
 
         return $pdf->stream();
        

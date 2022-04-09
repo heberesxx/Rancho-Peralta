@@ -38,7 +38,11 @@ class ProveedoresController extends Controller
     {
        $proveedores = DB::select('select * from proveedores_registrados');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-        $pdf = PDF::loadView('proveedores.pdf',['proveedores'=>$proveedores],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+      
+        $pdf = PDF::loadView('proveedores.pdf',['proveedores'=>$proveedores],['usuarios' =>$usuarios]
+
+      );
 
         return $pdf->stream();
        

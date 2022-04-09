@@ -33,8 +33,10 @@ class TransMontaController extends Controller
     {
         $transmontas = DB::select('select * from monta');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('transmonta.pdf',['transmontas'=>$transmontas],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('transmonta.pdf',['transmontas'=>$transmontas],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);

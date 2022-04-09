@@ -45,6 +45,7 @@
 
         #logo img {
             width: 90px;
+            float: center;
         }
 
         h1 {
@@ -153,13 +154,15 @@
 <body>
     <header class="clearfix">
         <div id="logo">
-            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 150px; height:150px; border-radius:50%;">
+            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Usuarios del Sistema</h1>
         <div id="project" class="clearfix">
-            <div>@foreach($parametros as $parametro)
-                {{$parametro->valor}}
-                @endforeach
+            <div>
+                <p>Generado para el usuario:@foreach($usuariosd as $usuariod)
+                    {{$usuariod->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -172,40 +175,40 @@
 
         <table>
             <thead>
-                <tr >
-                    <th >Id </th>
-                    <th >Nombre</th>
-                    <th >Usuario</th>
-                    <th class="desc">Correo del Usuario</th>
-                    <th class="desc" >Fecha de Creación</th>
-                    <th >Estado</th>
-                    <th class="desc" >Rol</th>
+                <tr>
+                    <th class="desc">Id </th>
+                    <th class="desc">Nombre</th>
+                    <th class="desc">Usuario</th>
+                    <th class="desc">Email</th>
+
+                    <th class="desc">Estado</th>
+                    <th class="desc">Rol</th>
+                    <th scope="col">Fecha de Creación</th>
+
 
                 </tr>
             </thead>
             <tbody>
-               
+
                 @foreach ($usuarios as $usuario)
-                <tr >
-                    <td >{{$usuario->id }}</td>
+                <tr>
+                    <td class="desc">{{$usuario->id }}</td>
                     <td class="desc">{{ $usuario->name }}</td>
-                    <td >{{ $usuario->username }}</td>
-                    <td class="desc" >{{ $usuario->email }}</td>
-                    <td class="desc">{{\Carbon\Carbon::parse ($usuario->created_at)->format('d/m/Y') }}</td>
-                    @if($usuario->estado)
-                    <td  > ACTIVO</td>
+                    <td class="desc">{{ $usuario->username }}</td>
+                    <td class="desc">{{ $usuario->email }}</td>
+
+                    @if($usuario->estado == 1)
+                    <td class="text-success"> ACTIVO</td>
+                    @elseif($usuario->estado == 0)
+                    <td class="text-danger">INACTIVO</td>
                     @else
-                    <td  >INACTIVO</td>
+                    <td class="text-info">BLOQUEADO</td>
                     @endif
-                    <td class="desc" >@if(!empty($usuario->getRoleNames()))
-                        @foreach($usuario->getRoleNames() as $rolNombre)
-                      {{ $rolNombre }}
-                        @endforeach
-                        @endif
-                    </td>
+                    <td class="desc">{{$usuario->rol}}</td>
+                    <td>{{\Carbon\Carbon::parse ($usuario->creacion)->format('d/m/Y') }}</td>
 
                 </tr>
-              
+
                 @endforeach
 
 

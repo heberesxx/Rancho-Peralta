@@ -60,6 +60,10 @@
                                 <th class="text-center"> Lugar </th>
                                 <th class="text-center"> Dirección Exacta </th>
                                 <th class="text-center"> Status </th>
+                                <th class="text-center"> Creado Por </th>
+                                <th class="text-center"> Actualizado Por </th>
+                                <th class="text-center"> Fecha Creación </th>
+                                <th class="text-center"> Fecha Actualización </th>
                                 @CAN('EDITAR_LUGARES')
                                 <th class="text-center" style="width: 10%">Editar</th>
                                 @ENDCAN
@@ -75,6 +79,10 @@
                                 <td class="text-center">{{ $lugar->DIR_LUGAR }}</td>
                                 <td class="text-center">{{ $lugar->UBI_EXACTA}}</td>
                                 <td class="text-center">{{ $lugar->STATUS}}</td>
+                                <td class="text-center" >{{ $lugar->Creado_Por}}</td>
+                                <td class="text-center" >{{ $lugar->Actualizado_Por}}</td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $lugar->created_at)->format('d-m-Y') }}</td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $lugar->updated_at)->format('d-m-Y') }}</td>
                                 @CAN('EDITAR_LUGARES')
 
                                 <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{ route('lugares.edit', $lugar->COD_LUGAR) }}">Editar</a></td>

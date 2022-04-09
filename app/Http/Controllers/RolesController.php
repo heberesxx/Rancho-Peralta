@@ -42,8 +42,10 @@ class RolesController extends Controller
     {
        $roles = Rol::all();
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('seguridad.roles.pdf',['roles'=>$roles],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('seguridad.roles.pdf',['roles'=>$roles],['usuarios' =>$usuarios]);
+
+      
 
         return $pdf->stream();
        

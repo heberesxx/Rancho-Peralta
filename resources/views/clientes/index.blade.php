@@ -47,7 +47,7 @@
                             <span class="mr-2">Registrar Cliente</span> <i class="fas fa-plus-square"></i>
                         </a>
                     
-                        <a href="{{route('clientes.pdf')}}" class="btn btn-danger text-center" style=" margin-left: 35%;">
+                        <a href="{{route('clientes.pdf')}}" class="btn btn-danger text-center" style=" margin-left: 36%;">
                             <span class="mr-2">PDF</span> 
                         </a>
 

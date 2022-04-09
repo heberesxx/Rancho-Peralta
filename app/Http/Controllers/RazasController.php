@@ -32,8 +32,11 @@ class RazasController extends Controller
     {
        $razas = Razas::all();
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('razas.pdf',['razas'=>$razas],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+      
+        $pdf = PDF::loadView('razas.pdf',['razas'=>$razas],['usuarios' =>$usuarios]);
+
+      
 
         return $pdf->stream();
        
@@ -67,6 +70,7 @@ class RazasController extends Controller
         $data = [
             'NOM_RAZA' => $request->NOM_RAZA,
             'DET_RAZA' => $request->DET_RAZA,
+            'Creado_Por' => Auth()->user()->id,
 
         ];
         Razas::create($data);
@@ -129,6 +133,7 @@ class RazasController extends Controller
             'NOM_RAZA' => $request->NOM_RAZA,
             'DET_RAZA' => $request->DET_RAZA,
             'IND_RAZA' => $request->IND_RAZA,
+            'Actualizado_Por' => Auth()->user()->id,
 
         ];
 

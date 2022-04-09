@@ -81,7 +81,7 @@ class LoginController extends Controller
 
                     Auth::login($user);
                     return view('profile.password-first-time')->with('actualizada', 'smon');
-                    return view('auth.login')->with('actualizada', 'Contraseña Actualizada');
+                    return view('auth.login')->with('status', 'Contraseña Cambiada con Éxito.');
                 }
             }
             return back()->with('igual_anterior', 'La contraseña debe ser distinta a la actual.');
@@ -179,7 +179,7 @@ class LoginController extends Controller
             return redirect()->route('inicio')->with('status', 'Contraseña Cambiada con Éxito.');
         }
 
-        return back()->with('mensaje', 'Las contraseñas deben ser iguales');
+        return back()->with('mensaje', 'Las contraseñas no coinciden');
     }
 
     

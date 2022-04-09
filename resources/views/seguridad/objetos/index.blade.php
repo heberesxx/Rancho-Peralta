@@ -57,6 +57,8 @@
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col">Status</th>
+                                <th class="text-center"> Fecha Creación </th>
+                                <th class="text-center"> Fecha Actualización </th>
                                 @can('EDITAR_OBJETOS')
                                 <th width="100">Opciones</th>
                                 @endcan
@@ -74,6 +76,8 @@
                                 <td>{{$objeto->objeto}}</td>
                                 <td>{{$objeto->Descripcion}}</td>
                                 <td>{{$objeto->status}}</td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $objeto->created_at)->format('d-m-Y') }}</td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $objeto->updated_at)->format('d-m-Y') }}</td>
                                 @can('EDITAR_OBJETOS')
                                 <td width="100">
 

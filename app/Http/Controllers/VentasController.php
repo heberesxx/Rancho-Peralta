@@ -37,8 +37,10 @@ class VentasController extends Controller
     {
         $ventas = DB::select('select * from detalle_de_ventas');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('ventas.pdf',['ventas'=>$ventas],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('ventas.pdf',['ventas'=>$ventas],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);

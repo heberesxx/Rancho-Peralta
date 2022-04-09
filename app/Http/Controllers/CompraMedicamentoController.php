@@ -30,7 +30,10 @@ class CompraMedicamentoController extends Controller
     {
        $ComprarMedicamentos = DB::select('select * from comp_medicamento');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-        $pdf = PDF::loadView('compra_medicamento.pdf',['ComprarMedicamentos'=>$ComprarMedicamentos],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('compra_medicamento.pdf',['ComprarMedicamentos'=>$ComprarMedicamentos],['usuarios' =>$usuarios]);
+
+      
 
         return $pdf->stream();
        

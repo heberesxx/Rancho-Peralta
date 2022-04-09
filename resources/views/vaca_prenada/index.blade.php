@@ -75,12 +75,9 @@
                                     <td class="text-center">{{ $vacaprenadaembrion->COD_EMBRION }}</td>
                                     <td class="text-center">{{ $vacaprenadaembrion->RAZ_ESPERADA }}</td>
                                     <td class="text-center">{{'Nombre: '. $vacaprenadaembrion->NOM_GANADO.', Raza: '.$vacaprenadaembrion->RAZA.', Arete: '.$vacaprenadaembrion->ARETE.', Color: '.$vacaprenadaembrion->COLOR}}</td>
-                                    
-                                    
-                                   
                                     <td class="text-center">{{ $vacaprenadaembrion->DIR_LUGAR }}</td>
                                     <td class="text-center">{{ $vacaprenadaembrion->IND_PRENADA }}</td>
-                                    <td class="text-center">{{\Carbon\Carbon::parse( $vacaprenadaembrion->FEC_PARIO)->format('d/m/Y') }}</td>
+                                    <td class="text-center">{{ $vacaprenadaembrion->FEC_PARIO}}</td>
                                     @can('EDITAR_PRENADAS EMBRION')
                                     <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('vaca_prenada/' . $vacaprenadaembrion->COD_PRENADA_EMBRION . '/edit')}}">Editar</a>
                                     </td>

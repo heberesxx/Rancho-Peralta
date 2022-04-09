@@ -34,8 +34,12 @@ class espermaController extends Controller
     {
         $esperma = DB::select('select * from compras_esperma');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('esperma.pdf',['esperma'=>$esperma],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+      
+
+        $pdf = PDF::loadView('esperma.pdf',['esperma'=>$esperma],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);

@@ -12,5 +12,6 @@ class Objeto extends Model
     protected $fillable = [
         'objeto',
         'Descripcion',
-        'Creado_Por',];
+        'Creado_Por',
+    'Actualizado_Por'];
 }

@@ -35,8 +35,10 @@ class NacimientosController extends Controller
     {
        $nacimientos = DB::select('select * from nacimientos_embrion');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('nacimientos.pdf',['nacimientos'=>$nacimientos],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('nacimientos.pdf',['nacimientos'=>$nacimientos],['usuarios' =>$usuarios]);
+
+      
 
         return $pdf->stream();
        

@@ -28,8 +28,10 @@ class LoteCompraEspermaController extends Controller
     {
         $lotes = DB::select('select * from detalles_lotes_esperma');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('lotescompras_esperma.pdf',['lotes'=>$lotes],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('lotescompras_esperma.pdf',['lotes'=>$lotes],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);

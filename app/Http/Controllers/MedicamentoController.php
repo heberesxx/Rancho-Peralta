@@ -35,8 +35,10 @@ class MedicamentoController extends Controller
     {
         $medicamentos = Medicamento::all();
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('medicamento.pdf',['medicamentos'=>$medicamentos],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('medicamento.pdf',['medicamentos'=>$medicamentos],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);

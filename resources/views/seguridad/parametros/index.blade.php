@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="card-body">
-                    <table id="TB" class="table table-striped table-bordered table-condensed table-hover" cellspacing="0" cellpadding="0" width="100%">
+                    <table id="TB" class="table table-bordered table-hover US">
                         <thead style="background-color: #e1e2f6;">
                             <tr class="text-center">
                                 <th scope="col" width="30">Código</th>
@@ -147,7 +147,6 @@
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.7.0/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
-
 
 <script>
     $(document).ready(function() {

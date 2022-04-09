@@ -7,7 +7,8 @@
         <div class="card-body">
 
             <div class="mb-3">
-                {{ __('¿Olvidaste tu contraseña? No hay problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace de restablecimiento de contraseña que le permitirá elegir una nueva.') }}
+                <h5 class="text-success text-center">¿Olvidaste tu contraseña?</h5>
+                <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Ingresa tu dirección de correo electrónico para enviarte en enlace de restablecimiento.</p>
             </div>
 
             @if (session('status'))
@@ -26,18 +27,20 @@
                     <x-jet-input type="email" name="email" :value="old('email')" required autofocus />
                 </div>
 
-                <div class="mb-0">
-                    <div class="d-flex justify-content-end">
-                        <div>
-                            <a class="btn btn-default btn-flat float-right " style="background-color: #D9D7C7;" href="{{ route('login') }}">
-                               
-                                CANCELAR
-                            </a> &nbsp; &nbsp; &nbsp;
-                            <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 250px; border-color:#2F76DB;">
-                                {{ __('Enviar enlace al correo') }}
-                            </x-jet-button>
-                        </div>
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <a class="btn btn-default btn-flat w-100 " style="background-color: #D9D7C7; width: 40%;" href="{{ route('login') }}">
+
+                            CANCELAR
+                        </a>
                     </div>
+                    <div class="col-lg-6">
+                        <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 50%; border-color:#2F76DB;" class="w-100">
+                            ENVIAR
+                        </x-jet-button>
+                    </div>
+
                 </div>
 
 

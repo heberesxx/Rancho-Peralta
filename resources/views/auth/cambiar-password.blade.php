@@ -22,11 +22,7 @@
                     </span>
                     <!-- Show password icon -->
                 </div>
-                @if (session('mensaje'))
-                <div>
-                    <span class="text text-danger"> {{session('mensaje')}}</span>
-                </div>
-                @endif
+               
 
                 <div class="mt-4">
                     <x-jet-label id="password" for="password_confirmation" value="{{ __('Confirmar Contraseña') }}" />
@@ -37,20 +33,26 @@
                         <i class="fa fa-eye" style="font-size: 20px;" aria-hidden="true" id="ojo" onclick="myFunction()"></i>
                     </span>
                 </div>
+                @if (session('mensaje'))
+                <div>
+                    <strong><span class="text text-danger"> {{session('mensaje')}}</span></strong>
+                </div>
+                @endif
                 <br>
-                <div class="mb-0">
-                    <div class="d-flex justify-content-end">
-                        <div>
-                            <a class="btn btn-default btn-flat float-right " style="background-color: #D9D7C7;" href="{{ route('login') }}">
+                <div class="row">
 
-                                CANCELAR
-                            </a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 250px; border-color:#2F76DB;">
-                                Restablecer Contraseña
-                            </x-jet-button>
-                        </div>
+                    <div class="col-lg-6">
+                        <a class="btn btn-default btn-flat w-100 " style="background-color: #D9D7C7; width: 40%;" href="{{ route('login') }}">
 
+                            CANCELAR
+                        </a>
                     </div>
+                    <div class="col-lg-6">
+                        <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 50%; border-color:#2F76DB;" class="w-100">
+                            ACEPTAR
+                        </x-jet-button>
+                    </div>
+
                 </div>
             </form>
         </div>
@@ -71,6 +73,7 @@
         </script>
         <script>
             var estado = false;
+
             function myFunction() {
                 if (estado) {
                     document.getElementById("password_confirmation").setAttribute("type", "password");

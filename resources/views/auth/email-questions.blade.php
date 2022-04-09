@@ -9,17 +9,14 @@
                         <x-jet-authentication-card-logo />
                     </x-slot>
                     <h5 class="text text-success text-center">¿Olvidaste tu Contraseña?</h5>
-                    <div>
-                        <h5 class="text  text-center">Ingrese los siguientes datos para ayudarle a recuperarla.</h5>
 
-                    </div>
 
                     <div class="col">
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="block">
                                     <x-jet-label for="usuario" class="text-xl" value="{{ __('Usuario:') }}" />
-                                    <x-jet-input id="usuario" class="block mt-1 w-full" type="text" name="usuario" value="{{old('usuario')}}"  maxlength="30" pattern="[A-Z0-9]{3,30}" required autofocus />
+                                    <x-jet-input id="usuario" class="block mt-1 w-full" type="text" name="usuario" value="{{old('usuario')}}" maxlength="30" pattern="[A-Z0-9]{3,30}" title="Entre 3 y 30 carácteres en mayúsculas, sin espacios ni caracteres especiales" required autofocus />
                                     @if (session('mensaje'))
                                     <div>
                                         <span class="error text-lg text-yellow-400"> **{{ session('mensaje') }}</span>
@@ -64,20 +61,22 @@
 
                         @endif
 
-                        <div class="mb-0">
-                            <div class="d-flex justify-content-end">
-                                <div>
-                                    <a class="btn btn-default btn-flat float-right " style="background-color: #D9D7C7;" href="{{ route('login') }}">
-                                       
-                                        CANCELAR
-                                    </a> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                    <x-jet-button  style="background-color: #2F76DB; background:#2F76DB ; width: 240px; border-color:#2F76DB;">
-                                        Recuperar Contraseña
-                                    </x-jet-button>
-                                </div>
+                        <div class="row">
 
+                            <div class="col-lg-6">
+                                <a class="btn btn-default btn-flat w-100 " style="background-color: #D9D7C7; width: 40%;" href="{{ route('login') }}">
+
+                                    CANCELAR
+                                </a>
                             </div>
+                            <div  class="col-lg-6">
+                                <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 50%; border-color:#2F76DB;" class="w-100">
+                                    ACEPTAR
+                                </x-jet-button>
+                            </div>
+
                         </div>
+                    </div>
 
 
 

@@ -22,8 +22,10 @@ class BitaController extends Controller
     {
        $bitacoras = DB::select('select * from bitacora');
        $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('seguridad.bitacora.pdf',['bitacoras'=>$bitacoras],['parametros' =>$parametros]);
+       $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('seguridad.bitacora.pdf',['bitacoras'=>$bitacoras],['usuarios' =>$usuarios]);
+
+      
         $pdf->SetPaper('carta','landscape');
         return $pdf->stream();
        

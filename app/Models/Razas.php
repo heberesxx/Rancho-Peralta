@@ -16,6 +16,8 @@ class Razas extends Model
         'NOM_RAZA',
         'DET_RAZA',
         'IND_RAZA',
+        'Creado_Por',
+    'Actualizado_Por'
     ];
     
 }

@@ -13,5 +13,6 @@ class Parametro extends Model
     protected $fillable = [
     'parametro',
     'valor',
-    'Creado_Por',];
+    'Creado_Por',
+'Modificado_Por'];
 }

@@ -24,8 +24,10 @@ class ParametrosController extends Controller
     {
        $objetos = Parametro::all();
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('seguridad.parametros.pdf',['objetos'=>$objetos],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('seguridad.parametros.pdf',['objetos'=>$objetos],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);
@@ -115,6 +117,13 @@ class ParametrosController extends Controller
             'parametro' => "required|unique:parametros,parametro,{$id}",
             'valor'     => "required",
         ]);
+        $data = [
+            'parametro'        =>  $request->parametro,
+            'valor'   =>  $request->valor,
+           
+            'Actualizado_Por' => Auth()->user()->id,
+        ];
+
 
         $parametro  = Parametro::find($id);
 

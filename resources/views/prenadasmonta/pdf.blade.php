@@ -43,8 +43,9 @@
 
         }
 
-        #logo img {
+         #logo img {
             width: 90px;
+            float: center;
         }
 
         h1 {
@@ -152,14 +153,14 @@
 
 <body>
     <header class="clearfix">
-        <div id="logo">
-            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 150px; height:150px; border-radius:50%;">
+       <div id="logo">
+            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Vacas Preñadas por Monta de Toros</h1>
         <div id="project" class="clearfix">
-            <div>@foreach($parametros as $parametro)
-                {{$parametro->valor}}
-                @endforeach
+            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+                {{$usuario->name}}
+                @endforeach</p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -190,7 +191,7 @@
                     <td class="desc">{{ $vacaprenadamonta->DIR_LUGAR }}</td>
                     <td class="desc">{{ $vacaprenadamonta->RAZ_TORO_MONTA }}</td>
                     <td class="desc">{{ $vacaprenadamonta->IND_PRENADA }}</td>
-                    <td class="desc">{{\Carbon\Carbon::parse( $vacaprenadamonta->FEC_PARIO)->format('d/m/Y') }}</td>
+                    <td class="desc">{{ $vacaprenadamonta->FEC_PARIO }}</td>
                    
                 </tr>
                 @endforeach

@@ -31,8 +31,11 @@ class TransEspermaController extends Controller
     {
         $transespermas = DB::select('select * from transf_esperma');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
     
-        $pdf = PDF::loadView('transesperma.pdf',['transespermas'=>$transespermas],['parametros' =>$parametros]);
+        $pdf = PDF::loadView('transesperma.pdf',['transespermas'=>$transespermas],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);

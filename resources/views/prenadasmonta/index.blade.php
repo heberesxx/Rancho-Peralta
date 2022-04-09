@@ -76,7 +76,7 @@
                                 <td class="text-center">{{ $vacaprenadamonta->DIR_LUGAR }}</td>
                                 <td class="text-center">{{ $vacaprenadamonta->RAZ_TORO_MONTA }}</td>
                                 <td class="text-center">{{ $vacaprenadamonta->IND_PRENADA }}</td>
-                                <td class="text-center">{{\Carbon\Carbon::parse( $vacaprenadamonta->FEC_PARIO)->format('d/m/Y') }}</td>
+                                <td class="text-center">{{ $vacaprenadamonta->FEC_PARIO }}</td>
                                 @can('EDITAR_PRENADAS MONTA')
                                 <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('prenadasmonta/' . $vacaprenadamonta->COD_PRENADA_MONTA . '/edit')}}">Editar</a></td>
                                 @ENDCAN

@@ -34,8 +34,8 @@ class PrenadaMontaController extends Controller
     {
         $vacasprenadasmonta = DB::select('select * from vacas_prenadas_monta');
          $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-
-        $pdf = PDF::loadView('prenadasmonta.pdf', ['vacasprenadasmonta' => $vacasprenadasmonta], ['parametros' => $parametros]);
+         $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('prenadasmonta.pdf', ['vacasprenadasmonta' => $vacasprenadasmonta], ['parametros' => $parametros],['usuarios' =>$usuarios]);
         return $pdf->stream();
 
         // return view('clientes.pdf')->with('personas', $clientes);

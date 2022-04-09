@@ -84,7 +84,7 @@
                                    
                                     <td class="text-center">{{ $vacaprenadaesperma->DIR_LUGAR }}</td>
                                     <td class="text-center">{{ $vacaprenadaesperma->IND_PRENADA }}</td>
-                                    <td class="text-center">{{\Carbon\Carbon::parse($vacaprenadaesperma->FEC_PARIO)->format('d/m/Y')}}</td>
+                                    <td class="text-center">{{$vacaprenadaesperma->FEC_PARIO}}</td>
                                  
                                     @can('EDITAR_PRENADAS ESPERMA')
                                     <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('prenadas_esperma/' . $vacaprenadaesperma->COD_PRENADA_ESPERMA . '/edit')}}">Editar</a>

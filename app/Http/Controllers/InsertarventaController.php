@@ -36,8 +36,11 @@ class InsertarventaController extends Controller
     {
         $lotes = DB::select('select * from detalles_lotes_ventas');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
     
-        $pdf = PDF::loadView('lotesventa.pdf',['lotes'=>$lotes],['parametros' =>$parametros]);
+        $pdf = PDF::loadView('lotesventa.pdf',['lotes'=>$lotes],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);

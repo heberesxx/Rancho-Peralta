@@ -2,6 +2,11 @@
     <x-guest-layout>
         <x-jet-authentication-card>
             <div class="card-body">
+                <style type="text/css">
+                    .transformacion1 {
+                        text-transform: uppercase;
+                    }
+                </style>
                 <x-slot name="logo">
                     <x-jet-authentication-card-logo />
                 </x-slot>
@@ -40,7 +45,7 @@
                 <br>
                 <div>
                     <x-jet-label for="respuesta" value="{{ __('Respuesta') }}" />
-                    <x-jet-input wire:model="respuesta" id="respuesta" class="block mt-1 w-full" type="text" name="respuesta" :value="old('respuesta')" pattern="[A-Z ]{2,191}" maxlength="191" required autofocus />
+                    <x-jet-input wire:model="respuesta" id="respuesta" class="block mt-1 w-full" type="text" name="respuesta" style="text-transform: uppercase;" :value="old('respuesta')" pattern="[A-Z ]{2,191}" title="Las respuestas tienen que estar en mayúsculas" maxlength="191" required autofocus />
 
                     @if (session('mensaje'))
                     <div>
@@ -52,19 +57,20 @@
                 </div>
                 <br>
 
-                <div class="mb-0">
-                    <div class="d-flex justify-content-end">
-                        <div>
-                            <a class="btn btn-default btn-flat float-right " style="background-color: #D9D7C7;" href="{{ route('login') }}">
-                                
-                                CANCELAR 
-                            </a>&nbsp; &nbsp; &nbsp;
-                            <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 260px; border-color:#2F76DB;">
-                                Restablecer Contraseña
-                            </x-jet-button>
-                        </div>
+                <div class="row">
 
+                    <div class="col-lg-6">
+                        <a class="btn btn-default btn-flat w-100 " style="background-color: #D9D7C7; width: 40%;" href="{{ route('login') }}">
+
+                            CANCELAR
+                        </a>
                     </div>
+                    <div class="col-lg-6">
+                        <x-jet-button style="background-color: #2F76DB; background:#2F76DB ; width: 50%; border-color:#2F76DB;" class="w-100">
+                            ACEPTAR
+                        </x-jet-button>
+                    </div>
+
                 </div>
                 @endif
 

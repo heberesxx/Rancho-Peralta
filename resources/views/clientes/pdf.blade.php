@@ -43,8 +43,9 @@
           
         }
 
-        #logo img {
+         #logo img {
             width: 90px;
+            float: center;
         }
 
         h1 {
@@ -152,14 +153,14 @@
 
 <body>
     <header class="clearfix">
-        <div id="logo">
-            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 150px; height:150px; border-radius:50%;">
+       <div id="logo">
+            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Clientes Registrados</h1>
         <div id="project" class="clearfix">
-            <div>@foreach($parametros as $parametro)
-                {{$parametro->valor}}
-                @endforeach
+            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+                {{$usuario->name}}
+                @endforeach</p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 

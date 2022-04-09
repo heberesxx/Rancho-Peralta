@@ -45,6 +45,7 @@
 
         #logo img {
             width: 90px;
+            float: center;
         }
 
         h1 {
@@ -153,11 +154,11 @@
 <body>
     <header class="clearfix">
         <div id="logo">
-            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 100px; height:100px; border-radius:50%;">
+            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Vacas Preñadas por Embrión</h1>
         <div id="project" class="clearfix">
-            
+
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
         </div>
@@ -167,17 +168,17 @@
 
     <main>
 
-        <table >
-            <thead >
+        <table>
+            <thead>
                 <tr>
                     <th class="desc">Cód </th>
                     <th class="desc">Embrión</th>
                     <th class="desc">Raza Esperada</th>
                     <th class="desc">Detalles Vaca Preñada</th>
                     <th class="desc">Lugar</th>
-                    <th class="desc">Status  Preñada</th>
+                    <th class="desc">Status Preñada</th>
                     <th class="desc">Fecha Parto</th>
-                  
+
                 </tr>
             </thead>
             <tbody>
@@ -188,9 +189,11 @@
                     <td class="desc">{{ $vacaprenadaembrion->RAZ_ESPERADA }}</td>
                     <td class="desc">{{'Nombre: '. $vacaprenadaembrion->NOM_GANADO.', Raza: '.$vacaprenadaembrion->RAZA.', Arete:   '.$vacaprenadaembrion->ARETE.', Color: '.$vacaprenadaembrion->COLOR}}</td>
                     <td class="desc">{{ $vacaprenadaembrion->DIR_LUGAR }}</td>
-                    <td class="desc">{{ $vacaprenadaembrion->IND_PRENADA }}</td>
-                    <td class="desc">{{\Carbon\Carbon::parse( $vacaprenadaembrion->FEC_PARIO)->format('d/m/Y') }}</td>
                     
+                    <td class="desc">{{ $vacaprenadaembrion->IND_PRENADA }}</td>
+                 
+                    <td class="desc">{{ $vacaprenadaembrion->FEC_PARIO}}</td>
+
                 </tr>
                 @endforeach
             </tbody>

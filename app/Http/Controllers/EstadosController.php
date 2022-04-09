@@ -9,6 +9,7 @@ use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\DB;
 use App\Models\Estados;
 use  App\Http\Controller\BitacoraController;
+use App\Models\User;
 use  Barryvdh\DomPDF\Facade as PDF;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -27,15 +28,17 @@ class EstadosController extends Controller
     public function index()
     {
         $estados = Estados::all();
-        return view('estados.index')->with('estados', $estados);
+        $usuarios = User::all();
+        return view('estados.index')->with('estados', $estados)->with('usuarios',$usuarios);
     }
 
     public function pdf()
     {
         $estados = Estados::all();
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
 
-        $pdf = PDF::loadView('estados.pdf', ['estados' => $estados], ['parametros' => $parametros]);
+        $pdf = PDF::loadView('estados.pdf', ['estados' => $estados],['usuarios' =>$usuarios]);
         return $pdf->stream();
 
         // return view('clientes.pdf')->with('personas', $clientes);
@@ -69,6 +72,7 @@ class EstadosController extends Controller
         $data = [
             'DET_ESTADO' => $request->DET_ESTADO,
             'DESCRIPCION_ESTADO' => $request->descripcion_estado,
+            'Creado_Por' => Auth()->user()->id,
 
         ];
         
@@ -143,6 +147,7 @@ class EstadosController extends Controller
             'DET_ESTADO' => $request->DET_ESTADO,
             'DESCRIPCION_ESTADO' => $request->descripcion_estado,
             'STATUS' => $request->STATUS,
+            'Actualizado_Por' => Auth()->user()->id,
 
         ];
 

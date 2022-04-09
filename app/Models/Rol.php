@@ -11,5 +11,6 @@ class Rol extends Model
     Protected $table = "roles";
 
     protected $fillable = [
-        'name',];
+        'name',
+    ];
 }

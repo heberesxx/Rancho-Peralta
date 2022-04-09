@@ -40,9 +40,10 @@ class ClientesController extends Controller
     {
        $personas = DB::select('select * from clientes_registrados');
        $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+       $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
       
     
-        $pdf = PDF::loadView('clientes.pdf',['personas'=>$personas],['parametros' =>$parametros]);
+        $pdf = PDF::loadView('clientes.pdf',['personas'=>$personas],['usuarios' =>$usuarios]);
 
         return $pdf->stream();
        

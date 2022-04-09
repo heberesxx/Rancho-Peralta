@@ -38,10 +38,13 @@ class UsuariosController extends Controller
 
     public function pdf()
     {
-        $usuarios = User::all();
+        $usuarios = DB::select('select * from usuarios');
          $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+         $usuariosd = DB::select('select * from users where id = ?', [Auth()->user()->id]);
      
-         $pdf = PDF::loadView('seguridad.usuarios.pdf',['usuarios'=>$usuarios],['parametros' =>$parametros]);
+         $pdf = PDF::loadView('seguridad.usuarios.pdf',['usuarios'=>$usuarios],['usuariosd' =>$usuariosd]);
+
+      
          $pdf->SetPaper('carta','landscape');
  
          return $pdf->stream();

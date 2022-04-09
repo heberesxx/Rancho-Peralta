@@ -61,6 +61,8 @@
                                 <th class="text-center"> Raza </th>
                                 <th class="text-center"> Detalle Raza </th>
                                 <th class="text-center"> Status </th>
+                                <th class="text-center"> Fecha Creación </th>
+                                <th class="text-center"> Fecha Actualización </th>
                                 @CAN('EDITAR_RAZAS')
                                 <th class="text-center" style="width: 10%">Editar</th>
                                 @ENDCAN
@@ -75,7 +77,8 @@
                                 <td class="text-center">{{ $raza->NOM_RAZA }}</td>
                                 <td class="text-center">{{ $raza->DET_RAZA}}</td>
                                 <td class="text-center">{{ $raza->IND_RAZA}}</td>
-
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $raza->created_at)->format('d-m-Y') }}</td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $raza->updated_at)->format('d-m-Y') }}</td>
                                
                                 @CAN('EDITAR_RAZAS')
                                 <td class="text-center" style="width: 10%;"><a class="btn btn-warning"  href="{{ route('razas.edit', $raza->COD_RAZA) }}">Editar</a></td>

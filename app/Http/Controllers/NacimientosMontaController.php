@@ -32,8 +32,11 @@ class NacimientosMontaController extends Controller
     {
        $nacimientosmonta = DB::select('select * from nacimientos_monta');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
     
-        $pdf = PDF::loadView('nacimientos_monta.pdf',['nacimientosmonta'=>$nacimientosmonta],['parametros' =>$parametros]);
+        $pdf = PDF::loadView('nacimientos_monta.pdf',['nacimientosmonta'=>$nacimientosmonta],['usuarios' =>$usuarios]);
+
+      
 
         return $pdf->stream();
        

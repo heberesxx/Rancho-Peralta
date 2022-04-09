@@ -25,8 +25,10 @@ class ObjetosController extends Controller
     {
        $objetos = Objeto::all();
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-    
-        $pdf = PDF::loadView('seguridad.objetos.pdf',['objetos'=>$objetos],['parametros' =>$parametros]);
+        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+        $pdf = PDF::loadView('seguridad.objetos.pdf',['objetos'=>$objetos],['usuarios' =>$usuarios]);
+
+      
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);
@@ -119,11 +121,17 @@ class ObjetosController extends Controller
             "status" =>"nullable"
         ]);
 
+        $data = [
+            'objeto'        =>  $request->objeto,
+            'Descripcion'   =>  $request->Descripcion,
+            'status'   =>  $request->status,
+            'Actualizado_Por' => Auth()->user()->id,
+        ];
 
         $objeto  = Objeto::find($id);
 
         $originales = $objeto->getOriginal();
-        $objeto->update($request->all());
+        $objeto->update($data);
         $cambios = $objeto->getChanges();
 
         //dd($cambios);

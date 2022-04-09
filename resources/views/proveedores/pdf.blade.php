@@ -4,13 +4,13 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>Example 1</title>
+    <title>Reporte de Proveedores Registrados</title>
     <link rel="stylesheet" href="style.css" media="all" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Reporte de Clientes Registrados</title>
+    <title>Reporte de Proveedores Registrados</title>
 
     <style type="text/css">
         .clearfix:after {
@@ -43,8 +43,9 @@
           
         }
 
-        #logo img {
+         #logo img {
             width: 90px;
+            float: center;
         }
 
         h1 {
@@ -152,14 +153,14 @@
 
 <body>
     <header class="clearfix">
-        <div id="logo">
-            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 150px; height:150px; border-radius:50%;">
+       <div id="logo">
+            <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Proveedores Registrados</h1>
         <div id="project" class="clearfix">
-            <div>@foreach($parametros as $parametro)
-                {{$parametro->valor}}
-                @endforeach
+            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+                {{$usuario->name}}
+                @endforeach</p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -173,13 +174,13 @@
         <table>
             <thead>
                 <tr>
-                    <th >Código </th>
-                    <th  >Nombre</th>
-                    <th >Apellido</th>
+                    <th class="desc"  >Código </th>
+                    <th  class="desc" >Nombre</th>
+                    <th  class="desc" >Apellido</th>
                     <th class="desc" >Dirección</th>
-                    <th> Área</th>
-                    <th>Celular</th>
-                    <th >Status </th>
+                    <th class="desc" > Área</th>
+                    <th class="desc" >Celular</th>
+                    <th class="desc"  >Status </th>
 
                 </tr>
             </thead>
@@ -187,13 +188,13 @@
 
                 @foreach($proveedores as $proveedor)
                 <tr>
-                    <td > {{ $proveedor->COD_PROVEEDOR }}</td>
-                    <td >{{ $proveedor->PRI_NOMBRE }}</td>
-                    <td >{{ $proveedor->PRI_APELLIDO }}</td>
-                    <td class="desc">{{ $proveedor->DET_DIRECCION }}</td>
-                    <td >{{ $proveedor->NUM_AREA }}</td>
-                    <td >{{ $proveedor->NUM_CELULAR }}</td>
-                    <td >{{ $proveedor->IND_COMERCIAL }}</td>
+                    <td class="desc"  > {{ $proveedor->COD_PROVEEDOR }}</td>
+                    <td class="desc"  >{{ $proveedor->PRI_NOMBRE }}</td>
+                    <td class="desc"  >{{ $proveedor->PRI_APELLIDO }}</td>
+                    <td class="desc"  >{{ $proveedor->DET_DIRECCION }}</td>
+                    <td class="desc"  >{{ $proveedor->NUM_AREA }}</td>
+                    <td class="desc"  >{{ $proveedor->NUM_CELULAR }}</td>
+                    <td class="desc"  >{{ $proveedor->IND_COMERCIAL }}</td>
                 </tr>
 
                 @endforeach
