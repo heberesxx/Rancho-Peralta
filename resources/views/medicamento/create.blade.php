@@ -66,7 +66,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Aplicar vía:</label>
-                            <textarea name="ADM_MEDICAMENTO" id="ADM_MEDICAMENTO" rows="2" placeholder="Describa la vía de aplicación..." class="form-control border-dark" value="{{old('ADM_MEDICAMENTO')}}"></textarea>
+                            <textarea name="ADM_MEDICAMENTO" id="ADM_MEDICAMENTO" rows="2" placeholder="Describa la vía de aplicación..." class="form-control border-dark" value="{{old('ADM_MEDICAMENTO')}}">{{old('ADM_MEDICAMENTO')}}</textarea>
 
                             @if ($errors->has('ADM_MEDICAMENTO'))
                             <div id="ADM_MEDICAMENTO-error" class="error text-danger pl-3" for="ADM_MEDICAMENTO" style="display: bock;">
@@ -85,7 +85,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Tratamiento:</label>
-                            <textarea name="TRA_MEDICAMENTO" id="TRA_MEDICAMENTO" rows="2" placeholder="Describa el tratamiento..." class="form-control border-dark" value="{{old('TRA_MEDICAMENTO')}}"></textarea>
+                            <textarea name="TRA_MEDICAMENTO" id="TRA_MEDICAMENTO" rows="2" placeholder="Describa el tratamiento..." class="form-control border-dark" value="{{old('TRA_MEDICAMENTO')}}">{{old('TRA_MEDICAMENTO')}}</textarea>
 
                             @if ($errors->has('TRA_MEDICAMENTO'))
                             <div id="TRA_MEDICAMENTO-error" class="error text-danger pl-3" for="TRA_MEDICAMENTO" style="display: bock;">
@@ -100,7 +100,7 @@
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Dosis:</label>
-                            <textarea name="DOS_MEDICAMENTO" id="DOS_MEDICAMENTO" rows="2" placeholder="Describa la dosis..." value="{{old('DOS_MEDICAMENTO')}}" class="form-control border-dark"></textarea>
+                            <textarea name="DOS_MEDICAMENTO" id="DOS_MEDICAMENTO" rows="2" placeholder="Describa la dosis..." value="{{old('DOS_MEDICAMENTO')}}" class="form-control border-dark">{{old('DOS_MEDICAMENTO')}}</textarea>
 
                             @if ($errors->has('CAN_REORDEN'))
                             <div id="DOS_MEDICAMENTO-error" class="error text-danger pl-3" for="DOS_MEDICAMENTO" style="display: bock;">

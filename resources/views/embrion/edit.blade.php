@@ -54,7 +54,7 @@
 									<tr>
 									
 										<td class="text-center">{{ $lote->COD_COMPRA_EMBRION}}</td>
-										<td class="text-center">{{\Carbon\Carbon::parse( $lote->FEC_COMPRA)->format('d/m/Y') }}</td>
+										<td class="text-center">{{\Carbon\Carbon::parse( $lote->FEC_COMPRA)->format('d-m-Y') }}</td>
 										<td class="text-center">{{ $lote->PROVEEDOR }}</td>
 										<td class="text-center">{{ $lote->RAZ_ESPERADA }}</td>
 										<td class="text-center">{{ $lote->RAZ_VACA_DONADORA }}</td>

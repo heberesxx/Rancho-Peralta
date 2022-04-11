@@ -40,7 +40,9 @@
                         <a href="{{route('estados.create')}}" class="btn btn-info ">
                             <span class="mr-2">Agregar Estado</span> <i class="fas fa-plus-square"></i>
                         </a>
-                        <a href="{{route('estados.pdf')}}" class="btn btn-danger center" style=" margin-left: 36%;">
+                        <a href="{{route('estados.pdf')}}" class="btn btn-danger center" target="_blank"
+
+      style=" margin-left: 36%;">
                             <span class="mr-2">PDF</span>
                         </a>
 

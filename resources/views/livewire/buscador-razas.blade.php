@@ -67,7 +67,7 @@
             @endphp
             <input id="COD_RAZA" class="form-control border-dark" hidden placeholder="Ingrese la cantidad comprada..." type="text" name="COD_RAZA" value="{{$selected_raza}}" autofocus>
 
-            <input id="nombre_raza" class="form-control border-dark" placeholder="Busque una raza activa..." type="text" name="nombre_raza" value="{{$nombre}}" value="{{old('nombre_raza')}}" onkeypress="return false" autofocus>&nbsp;
+            <input id="nombre_raza" class="form-control border-dark" placeholder="Busque una raza activa..." type="text" name="nombre_raza" value="{{$nombre}}"  onkeypress="return false" autofocus>&nbsp;
             <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalRazas"> <i class="fas fa-search"></i></button> 
         </div>
         @if ($errors->has('nombre_raza'))

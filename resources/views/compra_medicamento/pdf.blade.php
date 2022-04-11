@@ -158,7 +158,9 @@
         </div>
         <h1>Ganado Registrado</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -196,8 +198,8 @@
                     <td class="desc">{{$ComprarMedicamento->NOM_MEDICAMENTO}}</td>
                     <td>{{$ComprarMedicamento->CAN_MEDICAMENTO}}</td>
                     <td>{{$ComprarMedicamento->PRE_UNITARIO}}</td>
-                    <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_VENCIMIENTO)->format('d/m/Y')}}</td>
-                    <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_COMPRA)->format('d/m/Y')}}</td>
+                    <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_VENCIMIENTO)->format('d-m-Y')}}</td>
+                    <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_COMPRA)->format('d-m-Y')}}</td>
                     <td>{{$ComprarMedicamento->PERSONA}}</td>
                   
 

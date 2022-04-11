@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\InvoicesExport;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
 use App\Models\Ganado;
+use App\Invoice;
+use App\Exports\GanadoExport;
 use  Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GanadoGeneralController extends Controller
 {
@@ -68,6 +72,10 @@ class GanadoGeneralController extends Controller
 
     }
 
+    public function export() 
+    {
+        return Excel::download(new GanadoExport, 'ganado.xlsx');
+    }
     /**
      * Store a newly created resource in storage.
      *

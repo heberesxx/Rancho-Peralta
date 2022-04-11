@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use  Barryvdh\DomPDF\Facade as PDF;
+Use Illuminate\Support\Facades\DB;
 
 class ProduccionLeche_controller extends Controller
 {
@@ -47,6 +49,19 @@ class ProduccionLeche_controller extends Controller
         return view('produccion_leche.create', ['datos' => $datos]);
     }
 
+    public function pdf()
+    {
+       $produccion_leches = DB::select('select * from produccion');
+       $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+      
+    
+        $pdf = PDF::loadView('produccion_leche.pdf',['produccion_leches'=>$produccion_leches],['usuarios' =>$usuarios]);
+
+        return $pdf->stream();
+       
+      // return view('clientes.pdf')->with('personas', $clientes);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -59,7 +74,7 @@ class ProduccionLeche_controller extends Controller
 
         $request->validate(rules: [
             "COD_REGISTRO_GANADO" => "required",
-            "PRD_LITROS" => 'required|numeric|gt:0|digits_between:1,3',
+            "PRD_LITROS" => 'required|numeric|gt:0',
             "FEC_ORDEÑO" => "required|date",
             "DIA_LACTANCIA"=> "nullable|numeric",
             "OBS_REGISTRO"=>'nullable|max:200'

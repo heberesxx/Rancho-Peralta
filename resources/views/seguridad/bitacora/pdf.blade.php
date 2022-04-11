@@ -162,7 +162,9 @@
         </div>
         <h1>Bitácora Rancho Peralta</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>

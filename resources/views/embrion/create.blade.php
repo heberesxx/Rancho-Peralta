@@ -331,7 +331,7 @@
 
                                             
                                             <label>Observaciones</label>
-                                            <textarea name="observacion_compra" id="observacion_compra" rows="3" class="form-control border-dark" {{old('observacion_compra')}} maxlength="150" title="Solo se permiten 150 carácteres como máximo"></textarea>
+                                            <textarea name="observacion_compra" id="observacion_compra" rows="3" class="form-control border-dark" {{old('observacion_compra')}} maxlength="150" title="Solo se permiten 150 carácteres como máximo">{{old('observacion_compra')}}</textarea>
                                             @if ($errors->has('observacion_compra'))
                                             <div id="observacion_compra-error" class="error text-danger pl-3" for="observacion_compra" style="display: bock;">
                                                 <strong>

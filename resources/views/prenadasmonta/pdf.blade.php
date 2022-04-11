@@ -158,7 +158,9 @@
         </div>
         <h1>Vacas Preñadas por Monta de Toros</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -175,7 +177,7 @@
             <thead >
                 <tr>
                     <th class="desc">Código</th>
-                    <th class="desc">Nombre</th>
+                    <th class="desc">Detalles Vaca Preñada</th>
                     <th class="desc">Lugar</th>
                     <th class="desc">Raza Toro</th>
                     <th class="desc">Status </th>
@@ -187,7 +189,7 @@
                 @foreach($vacasprenadasmonta as $vacaprenadamonta)
                 <tr>
                     <td class="desc">{{ $vacaprenadamonta->COD_PRENADA_MONTA}}</td>
-                    <td class="desc">{{ $vacaprenadamonta->NOM_GANADO}}</td>
+                    <td class="desc">{{'Nombre: '. $vacaprenadamonta->NOM_GANADO.', Raza: '.$vacaprenadamonta->RAZA.', Arete: '.$vacaprenadamonta->ARETE.', Color: '.$vacaprenadamonta->COLOR.', Edad: '.$vacaprenadamonta->EDAD_GANADO.' años'}}</td>
                     <td class="desc">{{ $vacaprenadamonta->DIR_LUGAR }}</td>
                     <td class="desc">{{ $vacaprenadamonta->RAZ_TORO_MONTA }}</td>
                     <td class="desc">{{ $vacaprenadamonta->IND_PRENADA }}</td>

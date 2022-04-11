@@ -158,7 +158,9 @@
         </div>
         <h1>Nacimientos por Embriones</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -190,8 +192,8 @@
                     <td class="desc">{{$nacimiento->COD_NACIMIENTO_EMBRION}}</td>
                     <td class="desc">{{'Nombre: '.$nacimiento->TERNERO.', Arete: '.$nacimiento->ARETE_TERNERO.', Color: '.$nacimiento->COLOR_TERNERO}}</td>
 
-                    <td class="desc">{{'Nombre: '.$nacimiento->NOM_GANADO.', Arete: '.$nacimiento->ARETE_VACA.', Color: '.$nacimiento->COLOR_GANADO}}</td>
-                    <td class="desc">{{ \Carbon\Carbon::parse($nacimiento->FEC_NACIMIENTO)->format('d/m/Y')}}</td>
+                    <td class="desc">{{'Nombre: '.$nacimiento->NOM_GANADO.', Arete: '.$nacimiento->ARETE_VACA.', Color: '.$nacimiento->COLOR_GANADO.', Edad: '.$nacimiento->EDAD_GANADO.' años'}}</td>
+                    <td class="desc">{{ \Carbon\Carbon::parse($nacimiento->FEC_NACIMIENTO)->format('d-m-Y')}}</td>
 
                 </tr>
                 @endforeach

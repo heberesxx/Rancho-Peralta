@@ -83,7 +83,7 @@
 							<div class="row">
 
 								<div class="col-lg-6">
-									<button type="submit" class="btn btn-block btn-primary btn-block" data-toggle="modal" data-target="">Generar  PDF</button>
+									<button type="submit" class="btn btn-block btn-primary btn-block"  target="_blank" data-toggle="modal" data-target="">Generar  PDF</button>
 
 								</div>
 								<div class="col-lg-6">

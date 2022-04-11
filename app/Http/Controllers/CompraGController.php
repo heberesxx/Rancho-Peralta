@@ -39,7 +39,7 @@ class CompraGController extends Controller
        $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
     
-        $pdf = PDF::loadView('compras.pdf',['compras'=>$compras],['parametros' =>$parametros]);
+        $pdf = PDF::loadView('compras.pdf',['compras'=>$compras],['usuarios' =>$usuarios]);
 
         return $pdf->stream();
        

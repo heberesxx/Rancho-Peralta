@@ -12,7 +12,12 @@
     <div class="card-header">
         <h4 class="text-center">Editar Lugar</h4>
     </div>
-    
+    <style type="text/css">
+        .transformacion1 {
+            text-transform: uppercase;
+        }
+    </style>
+
     <form action="{{route('lugares.update',$lugar->COD_LUGAR)}}" method="post">
         @csrf()
         @method('PUT')
@@ -20,7 +25,7 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label><span style="color: red;">  </span>Código Lugar</label>
+                        <label><span style="color: red;"> </span>Código Lugar</label>
                         <input name="COD_LUGAR" placeholder="" id="COD_LUGAR" class="form-control border-dark" disabled type="text" value="{{($lugar->COD_LUGAR)}}">
                         @if ($errors->has('COD_LUGAR'))
                         <div id="COD_LUGAR-error" class="error text-danger pl-3" for="COD_LUGAR" style="display: bock;">
@@ -34,7 +39,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Lugar</label>
-                        <input name="DIR_LUGAR" placeholder="" id="DIR_LUGAR" class="form-control border-dark" type="text" value="{{($lugar->DIR_LUGAR)}}">
+                        <input name="DIR_LUGAR" placeholder="" id="DIR_LUGAR" class="form-control border-dark" type="text" style="text-transform: uppercase;" maxlength="30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" pattern="[A-Z ]" value="{{($lugar->DIR_LUGAR)}}">
                         @if ($errors->has('DIR_LUGAR'))
                         <div id="DIR_LUGAR-error" class="error text-danger pl-3" for="DIR_LUGAR" style="display: bock;">
                             <strong>
@@ -47,7 +52,7 @@
                 <div class="col-sm-5">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Ubicación exacta</label>
-                        <textarea  name="UBI_EXACTA"  id="UBI_EXACTA"  rows ="2"class="form-control border-dark "  type="text" value="{{$lugar->UBI_EXACTA}}" autofocus>{{$lugar->UBI_EXACTA}}</textarea>
+                        <textarea name="UBI_EXACTA" id="UBI_EXACTA" rows="2" class="form-control border-dark " type="text" value="{{$lugar->UBI_EXACTA}}" autofocus>{{$lugar->UBI_EXACTA}}</textarea>
                         @if ($errors->has('UBI_EXACTA'))
                         <div id="UBI_EXACTA-error" class="error text-danger pl-3" for="UBI_EXACTA" style="display: bock;">
                             <strong>
@@ -90,7 +95,7 @@
             </div>
         </div>
     </form>
-  
+
 
 </div>
 @stop
@@ -102,7 +107,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>

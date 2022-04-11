@@ -279,7 +279,7 @@
 
                                         <div class="form-group">
                                             <label>Observaciones</label>
-                                            <textarea name="OBS_COMPRA_ESPERMA" id="OBS_COMPRA_ESPERMA" rows="2" class="form-control"></textarea>
+                                            <textarea name="OBS_COMPRA_ESPERMA" id="OBS_COMPRA_ESPERMA" rows="2" class="form-control">{{old('OBS_COMPRA_ESPERMA')}}</textarea>
                                             @if ($errors->has('OBS_COMPRA_ESPERMA'))
                                             <div id="OBS_COMPRA_ESPERMA-error" class="error text-danger pl-3" for="OBS_COMPRA_ESPERMA" style="display: bock;">
                                                 <strong>

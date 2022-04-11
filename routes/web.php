@@ -80,6 +80,8 @@ Route::group(attributes:['middleware'=>'auth'], routes:function(){
     Route::get('parametros/pdf', [App\Http\Controllers\ParametrosController::class,'pdf'])->name('seguridad.parametros.pdf');
     Route::get('bitacoras/pdf', [App\Http\Controllers\VerBitacoraController::class,'pdf'])->name('seguridad.bitacora.pdf');
     Route::get('ventas/pdf', [App\Http\Controllers\VentasController::class,'pdf'])->name('ventas.pdf');
+    Route::get('orden_trabajo/pdf', [App\Http\Controllers\OrdenTrabajoController::class,'pdf'])->name('orden_trabajo.pdf');
+    Route::get('produccion_leche/pdf', [App\Http\Controllers\ProduccionLeche_controller::class,'pdf'])->name('produccion_leche.pdf');
     Route::get('embrion/pdf', [App\Http\Controllers\EmbrionController::class,'pdf'])->name('embrion.pdf');
     Route::get('esperma/pdf', [App\Http\Controllers\espermaController::class,'pdf'])->name('esperma.pdf');
     Route::get('medicamento/pdf', [App\Http\Controllers\MedicamentoController::class,'pdf'])->name('medicamento.pdf');
@@ -87,7 +89,9 @@ Route::group(attributes:['middleware'=>'auth'], routes:function(){
     Route::get('restore/', [App\Http\Controllers\RestoreController::class,'index'])->name('restore');
     Route::get('backup/create', [App\Http\Controllers\BackupDatabaseController::class,'backup'])->name('backup.create');
     Route::get('restore/{id}', [App\Http\Controllers\RestoreController::class,'restore'])->name('restore.create');
-  
+    Route::get('exportar/ganado/', [GanadoGeneralController::class, 'export'])->name('exportar.ganado');
+    Route::get('exportar/clientes/', [ClientesController::class, 'export'])->name('exportar.clientes');
+
     Route::get('lotesventa/pdf', [App\Http\Controllers\InsertarventaController::class,'pdf'])->name('lotesventa.pdf');
     Route::get('lotescompras/pdf', [App\Http\Controllers\LoteCompraController::class,'pdf'])->name('lotescompras.pdf');
     Route::get('lotescompras_esperma/pdf', [App\Http\Controllers\LoteCompraEspermaController::class,'pdf'])->name('lotescompras_esperma.pdf');

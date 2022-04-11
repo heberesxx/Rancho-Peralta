@@ -158,7 +158,9 @@
         </div>
         <h1>Detalles de Compras de Embriones</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -195,7 +197,7 @@
                 <tr>
 
                     <td class="desc">{{ $embrion->COD_COMPRA_EMBRION}}</td>
-                    <td class="desc">{{\Carbon\Carbon::parse( $embrion->FEC_COMPRA)->format('d/m/Y') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $embrion->FEC_COMPRA)->format('d-m-Y') }}</td>
                     <td class="desc">{{ $embrion->PROVEEDOR }}</td>
                     <td class="desc">{{ $embrion->RAZ_ESPERADA }}</td>
                     <td class="desc">{{ $embrion->RAZ_VACA_DONADORA }}</td>

@@ -38,68 +38,69 @@
                 <div class="card-header">
 
 
-                    <div class="box-header text-center">
+                    <div class="box-header">
 
 
 
-                        <a href="{{route('vaca_prenada.pdf')}}" class="btn btn-danger glyphicon glyphicon-duplicate center">
+                        <a href="{{route('vaca_prenada.pdf')}}" class="btn btn-danger glyphicon glyphicon-duplicate center" style=" margin-left: 48%;"target="_blank">
                             <span class="mr-2">PDF</span>
                         </a>
 
                     </div>
-                    <div class="card-body">
+                </div>
+                <div class="card-body">
 
 
-                        <table id="TB" class="table table-bordered table-hover US">
-                            <thead style="background-color: #e1e2f6;">
-                                <tr>
-                                    <th class="text-center">Código </th>
-                                    <th class="text-center">Embrión</th>
-                                    <th class="text-center">Raza esperada</th>
-                                    <th class="text-center">Detalles Vaca Preñada</th>
-                                    <th class="text-center">Lugar</th>
-                                    <th class="text-center">Estado Preñada</th>
-                                    <th class="text-center">Fecha de Parto</th>
-                                    @can('EDITAR_PRENADAS EMBRION')
-                                    <th class="text-center" style="width: 10%">Editar</th>
-                                    @ENDCAN
-                                    @can('ELIMINAR_PRENADAS EMBRION')
-                                    <th class="text-center" style="width: 10%">Borrar</th>
-                                    @ENDCAN
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($vacasprenadasesembriones as $vacaprenadaembrion)
-                                <tr>
-                                    <td class="text-center">{{ $vacaprenadaembrion->COD_PRENADA_EMBRION }}</td>
-                                    <td class="text-center">{{ $vacaprenadaembrion->COD_EMBRION }}</td>
-                                    <td class="text-center">{{ $vacaprenadaembrion->RAZ_ESPERADA }}</td>
-                                    <td class="text-center">{{'Nombre: '. $vacaprenadaembrion->NOM_GANADO.', Raza: '.$vacaprenadaembrion->RAZA.', Arete: '.$vacaprenadaembrion->ARETE.', Color: '.$vacaprenadaembrion->COLOR}}</td>
-                                    <td class="text-center">{{ $vacaprenadaembrion->DIR_LUGAR }}</td>
-                                    <td class="text-center">{{ $vacaprenadaembrion->IND_PRENADA }}</td>
-                                    <td class="text-center">{{ $vacaprenadaembrion->FEC_PARIO}}</td>
-                                    @can('EDITAR_PRENADAS EMBRION')
-                                    <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('vaca_prenada/' . $vacaprenadaembrion->COD_PRENADA_EMBRION . '/edit')}}">Editar</a>
-                                    </td>
-                                    @ENDCAN
-                                    @can('ELIMINAR_PRENADAS EMBRION')
-                                    <td class="text-center" style="width: 10%;">
+                    <table id="TB" class="table table-bordered table-hover US">
+                        <thead style="background-color: #e1e2f6;">
+                            <tr>
+                                <th class="text-center">Código </th>
+                                <th class="text-center">Embrión</th>
+                                <th class="text-center">Raza esperada</th>
+                                <th class="text-center">Detalles Vaca Preñada</th>
+                                <th class="text-center">Lugar</th>
+                                <th class="text-center">Estado Preñada</th>
+                                <th class="text-center">Fecha de Parto</th>
+                                @can('EDITAR_PRENADAS EMBRION')
+                                <th class="text-center" style="width: 10%">Editar</th>
+                                @ENDCAN
+                                @can('ELIMINAR_PRENADAS EMBRION')
+                                <th class="text-center" style="width: 10%">Borrar</th>
+                                @ENDCAN
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($vacasprenadasesembriones as $vacaprenadaembrion)
+                            <tr>
+                                <td class="text-center">{{ $vacaprenadaembrion->COD_PRENADA_EMBRION }}</td>
+                                <td class="text-center">{{ $vacaprenadaembrion->COD_EMBRION }}</td>
+                                <td class="text-center">{{ $vacaprenadaembrion->RAZ_ESPERADA }}</td>
+                                <td class="text-center">{{'Nombre: '. $vacaprenadaembrion->NOM_GANADO.', Raza: '.$vacaprenadaembrion->RAZA.', Arete: '.$vacaprenadaembrion->ARETE.', Color: '.$vacaprenadaembrion->COLOR.', Edad: '.$vacaprenadaembrion->EDAD_GANADO.' años'}}</td>
+                                <td class="text-center">{{ $vacaprenadaembrion->DIR_LUGAR }}</td>
+                                <td class="text-center">{{ $vacaprenadaembrion->IND_PRENADA }}</td>
+                                <td class="text-center">{{ $vacaprenadaembrion->FEC_PARIO}}</td>
+                                @can('EDITAR_PRENADAS EMBRION')
+                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('vaca_prenada/' . $vacaprenadaembrion->COD_PRENADA_EMBRION . '/edit')}}">Editar</a>
+                                </td>
+                                @ENDCAN
+                                @can('ELIMINAR_PRENADAS EMBRION')
+                                <td class="text-center" style="width: 10%;">
 
-                                        <input class="btn btn-danger" type="submit" value="Eliminar" />
+                                    <input class="btn btn-danger" type="submit" value="Eliminar" />
 
-                                    </td>
-                                    @ENDCAN
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </td>
+                                @ENDCAN
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 @stop
@@ -111,7 +112,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>
@@ -155,29 +156,119 @@
 <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 
 
+<script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.1.1/js/buttons.html5.styles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.1.1/js/buttons.html5.styles.templates.min.js"></script>
+
 <script>
     $(document).ready(function() {
         $('#TB').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+
             },
             "bSort": false,
             "autoWidth": false,
             "responsive": true,
-
             dom: '<"pt-2 row" <"col-xl mt-2"l><"col-xl text-center"B><"col-xl text-right mt-2 "f>> <"row"rti<"col"><p>>',
-            buttons: [
+            buttons: {
+                dom: {
+                    button: {
 
-                {
-                    extend: 'print',
-                    text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                        className: 'btn'
+
+                    }
                 },
-                {
-                    extend: 'excel',
-                    className: 'btn btn-success glyphicon glyphicon-duplicate'
-                }
-            ]
+                buttons: [{
+
+                        extend: 'print',
+                        text: 'Imprimir',
+                        className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    },
+                    {
+                        extend: "excel",
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4,5,6]
+                        },
+                        text: 'Excel',
+                        className: 'btn btn-success',
+
+
+                        // 1 - ejemplo básico - uso de templates pre-definidos
+                        //definimos los parametros al exportar a excel
+
+                        excelStyles: {
+                            template: "header_blue", // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
+                        },
+
+
+                        // 2 - estilos a una fila   
+
+                        excelStyles: { // Add an excelStyles definition
+                            cells: "2",
+                            // adonde se aplicaran los estilos (fila 2)
+                            style: { // The style block
+                                font: { // Style the font
+                                    name: "Arial", // Font name
+                                    size: "12", // Font size
+                                    color: "FFFFFF", // Font Color
+                                    b: true,
+                                   // negrita SI
+                                },
+                                fill: { // Estilo de relleno (background)
+                                    pattern: { // tipo de rellero (pattern or gradient)
+                                        color: "ff7961", // color de fondo de la fila
+                                    }
+                                }
+                            }
+                        },
+
+
+
+                     
+
+
+                        // ejemplo para IMPRIMIR
+
+                        pageStyle: {
+                            sheetPr: {
+                                pageSetUpPr: {
+                                    fitToPage: 1 // Fit the printing to the page
+                                }
+                            },
+                            printOptions: {
+                                horizontalCentered: true,
+                                verticalCentered: true,
+                            },
+                            pageSetup: {
+                                orientation: "landscape", // Orientacion
+                                paperSize: "9", // Tamaño del papel (1 = Legal, 9 = A4)
+                                fitToWidth: "1", // Ajustar al ancho de la página
+                                fitToHeight: "0", // Ajustar al alto de la página
+                            },
+                            pageMargins: {
+                                left: "0.2",
+                                right: "0.2",
+                                top: "0.4",
+                                bottom: "0.4",
+                                header: "0",
+                                footer: "0",
+                            },
+                            repeatHeading: true, // Repeat the heading row at the top of each page
+                            repeatCol: 'A:A', // Repeat column A (for pages wider than a single printed page)
+                        },
+                        excelStyles: {
+                            template: 'blue_gray_medium', // Add a template style as well if you like
+                        }
+
+                    }
+                ]
+
+            }
+
+
+
+
+
         });
     });
 </script>

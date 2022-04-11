@@ -33,8 +33,8 @@ class LoginController extends Controller
                     return view('auth.configurar-preguntas')->with('preguntas', $preguntas);
                 }
 
-                $ganado_hembra = Ganado::where('SEX_GANADO','=','HEMBRA')->get();
-                $ganado_macho = Ganado::where('SEX_GANADO','=','MACHO')->get();
+                $ganado_hembra = DB::select('select * from ganado_general where SEX_GANADO = "HEMBRA"');
+                $ganado_macho = DB::select('select * from ganado_general where SEX_GANADO = "MACHO"');
                 $vacas_paridas = Ganado::where('COD_ESTADO','=','2')->get();
                 $vacas_prenadas = Ganado::where('COD_ESTADO','=','1')->get();
                 $vacas_sincronizadas = Ganado::where('COD_ESTADO','=','4')->get();

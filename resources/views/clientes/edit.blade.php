@@ -12,7 +12,19 @@
     </div>
 </div>
 @stop
+<style type="text/css">
+    .transformacion1 {
+        text-transform: capitalize;
+    }
 
+    .transformacion2 {
+        text-transform: uppercase;
+    }
+
+    .transformacion3 {
+        text-transform: lowercase;
+    }
+</style>
 @section('content')
 
 <div class="container-fluid col-md-11">
@@ -51,8 +63,8 @@
                 <div class="row">
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label><span style="color: red;"> </span>Primer Nombre</label>
-                            <input id="primer_nombre" class="form-control border-dark transformacion2" placeholder="Ingrese el primer nombre del cliente..." type="text" name="primer_nombre" value="{{$persona->PRI_NOMBRE}}" autofocus>
+                            <label><span style="color: red;"> </span>Nombres</label>
+                            <input id="primer_nombre" class="form-control border-dark transformacion1" placeholder="nombres del cliente" type="text" name="primer_nombre" value="{{$persona->PRI_NOMBRE}}" minlength="2" maxlength="50" pattern="[A-Za-zÀ-ÿ ]{2,50}" title="Este campo solo puede contener letras y espacios" autofocus>
 
                             @if ($errors->has('primer_nombre'))
                             <div id="primer_nombre-error" class="error text-danger pl-3" for="primer_nombre" style="display: bock;">
@@ -65,8 +77,8 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label><span style="color: red;"> </span> Primer Apellido</label>
-                            <input id="primer_apellido" class="form-control border-dark transformacion2" placeholder="Ingrese el primer apellido del cliente..." type="text" name="primer_apellido" value="{{$persona->PRI_APELLIDO}}" autofocus>
+                            <label><span style="color: red;"> </span> Apellidos</label>
+                            <input id="primer_apellido" class="form-control border-dark transformacion1" placeholder="apellidos del cliente" type="text" name="primer_apellido" value="{{$persona->PRI_APELLIDO}}" minlength="2" maxlength="50" pattern="[A-Za-zÀ-ÿ ]{2,50}" title="Este campo solo puede contener letras y espacios" autofocus>
 
                             @if ($errors->has('primer_apellido'))
                             <div id="primer_apellido-error" class="error text-danger pl-3" for="primer_apellido" style="display: bock;">
@@ -79,8 +91,8 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label> <span style="color: red;"> </span> DNI Cliente</label> <i class="fa fa-id-card" style="margin-left: 10px;"></i>
-                            <input id="ID_CLIENTE" class="form-control border-dark " placeholder="Ingrese el número de identificación, sin guiones..." «nbsp» type="" name="ID_CLIENTE" value="{{$persona->ID_CLIENTE}}" autofocus>
+                            <label> <span style="color: red;"> </span> DNI Cliente</label> 
+                            <input id="ID_CLIENTE" class="form-control border-dark " placeholder="ID del Cliente, sin Guiones" «nbsp» type="" name="ID_CLIENTE" value="{{$persona->ID_CLIENTE}}"   maxlength="15" minlength="13" title="Máximo 15 dígitos, mínimos 13. Solo números, sin espacios ni guíones"   onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autofocus>
                             @if ($errors->has('ID_CLIENTE'))
                             <div id="ID_CLIENTE-error" class="error text-danger pl-3" for="ID_CLIENTE" style="display: bock;">
                                 <strong>
@@ -119,7 +131,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"></span>Núm Área</label>
-                            <input id="numero_area" class="form-control border-dark" placeholder="Ingrese su número de número de área..." type="text" name="numero_area" value="{{$persona->NUM_AREA}}" autofocus>
+                            <input id="numero_area" class="form-control border-dark" placeholder="Número Área del Cliente" maxlength="4"  type="text" name="numero_area" value="{{$persona->NUM_AREA}}" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autofocus>
 
                             @if ($errors->has('numero_area'))
                             <div id="numero_area-error" class="error text-danger pl-3" for="numero_area" style="display: bock;">
@@ -133,7 +145,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"></span> Celular</label>
-                            <input id="NUM_CELULAR" class="form-control border-dark" placeholder="Ingrese su número de número de celular..." type="text" name="NUM_CELULAR" value="{{($persona->NUM_CELULAR)}}" autofocus>
+                            <input id="NUM_CELULAR" class="form-control border-dark" placeholder="Número de Celular del Cliente" type="text" name="NUM_CELULAR" minlength="7" maxlength="10"  value="{{($persona->NUM_CELULAR)}}" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autofocus>
 
                             @if ($errors->has('NUM_CELULAR'))
                             <div id="NUM_CELULAR-error" class="error text-danger pl-3" for="NUM_CELULAR" style="display: bock;">
@@ -146,8 +158,8 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label><span style="color: red;"></span>Teléfono</label> <i class="fa fa-blender-phone" style="margin-left: 10px;"></i>
-                            <input id="numero_telefono" class="form-control border-dark" placeholder="Ingrese el número de teléfono del cliente..." type="text" name="numero_telefono" value="{{($persona->NUM_TELEFONO)}}" autofocus>
+                            <label><span style="color: red;"></span>Teléfono</label> 
+                            <input id="numero_telefono" class="form-control border-dark" placeholder="Número de Teléfono del Cliente"  type="text" name="numero_telefono" minlength="7" maxlength="10"   value="{{($persona->NUM_TELEFONO)}}" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"autofocus>
                             @if ($errors->has('numero_telefono'))
                             <div id="numero_telefono-error" class="error text-danger pl-3" for="numero_telefono" style="display: bock;">
                                 <strong>

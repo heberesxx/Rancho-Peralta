@@ -38,11 +38,9 @@ class ProveedoresController extends Controller
     {
        $proveedores = DB::select('select * from proveedores_registrados');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
-        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+         $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
       
-        $pdf = PDF::loadView('proveedores.pdf',['proveedores'=>$proveedores],['usuarios' =>$usuarios]
-
-      );
+        $pdf = PDF::loadView('proveedores.pdf',['proveedores'=>$proveedores],['usuarios' =>$usuarios]);
 
         return $pdf->stream();
        
@@ -132,13 +130,13 @@ class ProveedoresController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate (  rules: [
-            "primer_nombre" => 'nullable|alpha|min:2|max:30', 
-            "primer_apellido" => 'nullable|alpha|min:2|max:30',
-            "ID_PROVEEDOR" => 'nullable|numeric|digits_between:13,15|',
-            "numero_area" => 'nullable|numeric|digits_between:2,4|',
-            "NUM_CELULAR" => 'nullable|numeric|digits_between:7,10',
+            "primer_nombre" => 'required|min:3|max:50', 
+            "primer_apellido" => 'required|min:3|max:50',
+            "ID_PROVEEDOR" => 'required|numeric|digits_between:13,15|',
+            "NUM_AREA" => 'required|numeric|digits_between:2,4|',
+            "NUM_CELULAR" => 'required|numeric|digits_between:7,10',
             "numero_telefono" => 'nullable|numeric|digits_between:7,10',
-            "direccion"=>'nullable|max:255'
+            "DET_DIRECCION"=>'nullable|max:255'
             
             
         ]);

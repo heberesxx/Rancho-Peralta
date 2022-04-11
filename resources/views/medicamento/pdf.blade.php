@@ -158,7 +158,9 @@
         </div>
         <h1>Medicamentos Registrados</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -174,7 +176,7 @@
         <table >
             <thead >
                 <tr>
-                    <th class="desc">Código</th>
+                    <th class="desc">Cód</th>
                     <th class="desc">Nombre</th>
                     <th class="desc">Administración</th>
                     <th class="desc">Tratamiento</th>

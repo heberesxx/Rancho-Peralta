@@ -81,7 +81,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"></span> Observaciones</label>
-                            <textarea name="OBS_REGISTRO" id="OBS_REGISTRO" rows="2" class="form-control" value="{{ old('OBS_REGISTRO') }}"></textarea>
+                            <textarea name="OBS_REGISTRO" id="OBS_REGISTRO" rows="2" class="form-control" value="{{ old('OBS_REGISTRO') }}">{{old('OBS_REGISTRO')}}</textarea>
                             @if ($errors->has('OBS_REGISTRO'))
                             <div id="OBS_REGISTRO-error" class="error text-danger pl-3" for="OBS_REGISTRO" style="display: bock;">
                                 <strong>

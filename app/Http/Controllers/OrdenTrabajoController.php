@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Medicamento;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
+use  Barryvdh\DomPDF\Facade as PDF;
+Use Illuminate\Support\Facades\DB;
 
 class OrdenTrabajoController extends Controller
 {
@@ -36,6 +38,19 @@ class OrdenTrabajoController extends Controller
         ['medicamentos' => json_decode($cuerpo2)]);
     }
 
+
+    public function pdf()
+    {
+       $ordenesT = DB::select('select * from orden_trabajo');
+       $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
+      
+    
+        $pdf = PDF::loadView('orden_trabajo.pdf',['ordenesT'=>$ordenesT],['usuarios' =>$usuarios]);
+
+        return $pdf->stream();
+       
+      // return view('clientes.pdf')->with('personas', $clientes);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -104,7 +119,9 @@ class OrdenTrabajoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $respuesta = $this->cliente->get('ver_orden/' . $id);
+        $cuerpo = $respuesta->getBody();
+        return view('orden_trabajo.edit', ['ordenesT' => json_decode($cuerpo)]);
     }
 
     /**

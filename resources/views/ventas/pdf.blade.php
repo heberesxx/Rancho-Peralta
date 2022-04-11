@@ -158,7 +158,9 @@
         </div>
         <h1>Detalles de Venta de Ganado</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -194,7 +196,7 @@
                 @foreach($ventas as $ventas)
                 <tr>
                     <td class="desc" style="width: 10%">{{ $ventas->COD_VENTA }}</td>
-                    <td th class="desc">{{\Carbon\Carbon::parse($ventas->FEC_REGISTRO)->format('d/m/Y')}}</td>
+                    <td th class="desc">{{\Carbon\Carbon::parse($ventas->FEC_REGISTRO)->format('d-m-Y')}}</td>
                     <td th class="desc">{{ $ventas->CLIENTE}}</td>
                     <td class="desc" style="width: 10%"> {{ $ventas->PRE_VENTA }}</td>
                     <td th class="desc">{{ $ventas->NOM_GANADO}}</td>

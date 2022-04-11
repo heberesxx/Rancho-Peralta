@@ -158,7 +158,9 @@
         </div>
         <h1>Detalles de las compras de Ganado</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -191,7 +193,7 @@
                 @foreach($compras as $compras)
                 <tr>
                     <td class="desc" >{{ $compras->COD_COMPRA_GANADO }}</td>
-                    <td class="desc" >{{\Carbon\Carbon::parse( $compras->FEC_COMPRA)->format('d/m/Y') }}</td>
+                    <td class="desc" >{{\Carbon\Carbon::parse( $compras->FEC_COMPRA)->format('d-m-Y') }}</td>
                     <td class="desc" >{{ $compras->PROVEEDOR}}</td>
             
                     <td class="desc" >{{ $compras->NOM_GANADO }}</td>

@@ -4,13 +4,13 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>Montas de Toros</title>
+    <title>Producción de Leche</title>
     <link rel="stylesheet" href="style.css" media="all" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Montas de Toros</title>
+    <title>Producción de Leche</title>
 
     <style type="text/css">
         .clearfix:after {
@@ -43,7 +43,7 @@
 
         }
 
-         #logo img {
+        #logo img {
             width: 90px;
             float: center;
         }
@@ -153,16 +153,18 @@
 
 <body>
     <header class="clearfix">
-       <div id="logo">
+        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
-        <h1>Montas de Toros</h1>
+        <h1>Producción de Leche </h1>
         <div id="project" class="clearfix">
-            <div><p>Generado por:
+            <div>
+                <p>Generado por:
 
-      @foreach($usuarios as $usuario)
-                {{$usuario->name}}
-                @endforeach</p>
+                    @foreach($usuarios as $usuario)
+                    {{$usuario->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -174,30 +176,33 @@
     <main>
 
         <table>
-            <thead >
+            <thead>
                 <tr>
-                    <th class="desc">Código</th>
-                    <th  class="desc">Detalles Vaca Montada</th>
-                    <th class="desc">Raza del Toro</th>
-                    <th class="desc">Fecha de monta</th>
-                    <th class="desc">Estado </th>
-                   
+                    <th class="desc">Registro</th>
+                    <th class="desc">Fecha de Ordeño</th>
+                    <th class="desc">Vaca Ordeñada</th>
+
+                    <th class="desc">Día de Lactancia </th>
+                    <th class="desc">Producción (lts) </th>
+                    <th class="desc">Observaciones </th>
+
                 </tr>
             </thead>
             <tbody>
-                @foreach($transmontas as $transmonta)
+                @foreach($produccion_leches as $produccion_leche)
                 <tr>
-                    <td class="desc">{{ $transmonta->COD_MONTA }}</td>
-                    <td class="desc">{{'Nombre: '. $transmonta->NOM_GANADO.', Raza: '.$transmonta->RAZA.', Arete: '.$transmonta->ARETE.', Color: '.$transmonta->COLOR.', Edad: '.$transmonta->EDAD_GANADO.' años'}}</td>
-                    <td class="desc">{{ $transmonta->RAZ_TORO_MONTA }}</td>
-                    <td class="desc">{{\Carbon\Carbon::parse( $transmonta->FEC_MONTA)->format('d-m-Y') }}</td>
-                    <td class="desc">{{ $transmonta->IND_FECUNDACION}}</td>
-                   
+                    <td class="desc" style="width: 10%">{{ $produccion_leche->COD_REGISTRO_LECHE }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse($produccion_leche->FEC_ORDENIO)->format('d-m-Y')}}</td>
+                    <td class="desc">{{'Nombre: '.$produccion_leche->NOM_GANADO.', Arete: '.$produccion_leche->ARETE.', Color: '.$produccion_leche->COLOR.', Edad: '.$produccion_leche->EDAD_GANADO.' años'}}</td>
+
+                    <td class="desc" style="width: 10%">{{ $produccion_leche->DIA_LACTANCIA }}</td>
+                    <td class="desc" style="width: 10%">{{ $produccion_leche->PRD_LITROS }}</td>
+                    <td class="desc">{{ $produccion_leche->OBS_REGISTRO }}</td>
+
                 </tr>
                 @endforeach
             </tbody>
         </table>
-
 
     </main>
     <footer>

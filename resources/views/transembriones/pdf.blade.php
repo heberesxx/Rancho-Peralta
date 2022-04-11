@@ -158,7 +158,9 @@
         </div>
         <h1>Transferencias de Embriones</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -189,9 +191,9 @@
                     <td class="desc">{{ $transembrion->COD_TRANS_EMBRION }}</td>
                     <td class="desc">{{ $transembrion->RAZ_VACA_DONADORA }}</td>
                     <td class="desc">{{ $transembrion->RAZ_TORO_DONADOR }}</td>
-                    <td class="desc">{{'Nombre: '. $transembrion->NOM_GANADO.', Raza: '.$transembrion->RAZA.', Arete: '.$transembrion->ARETE.', Color: '.$transembrion->COLOR}}</td>
+                    <td class="desc">{{'Nombre: '. $transembrion->NOM_GANADO.', Raza: '.$transembrion->RAZA.', Arete: '.$transembrion->ARETE.', Color: '.$transembrion->COLOR.', Edad: '.$transembrion->EDAD_GANADO.' años'}}</td>
                     <td class="desc">{{ $transembrion->IND_FECUNDACION }}</td>
-                    <td class="desc">{{\Carbon\Carbon::parse( $transembrion->FEC_REGISTRO)->format('d/m/Y') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $transembrion->FEC_REGISTRO)->format('d-m-Y') }}</td>
 
                 </tr>
                 @endforeach

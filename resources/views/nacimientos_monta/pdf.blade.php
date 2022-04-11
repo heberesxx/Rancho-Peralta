@@ -158,7 +158,9 @@
         </div>
         <h1>Nacimientos por Monta</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -175,8 +177,8 @@
             <thead >
                 <tr>
                     <th class="desc">Código Nacimiento</th>
-                    <th class="desc">Nombre Vaca</th>
                     <th class="desc">Nombre Ternero</th>
+                    <th class="desc">Detalles Vaca Parto</th>
                     <th class="desc">Fecha Nacimiento</th>
                    
             </thead>
@@ -186,9 +188,9 @@
                 @foreach($nacimientosmonta as $nacimientomonta)
                 <tr>
                     <td class="desc">{{$nacimientomonta->COD_NACIMIENTO_MONTA}}</td>
-                    <td class="desc">{{$nacimientomonta->NOM_GANADO}}</td>
-                    <td class="desc">{{$nacimientomonta->TERNERO}}</td>
-                    <td class="desc">{{ \Carbon\Carbon::parse($nacimientomonta->FEC_NACIMIENTO)->format('d/m/Y')}}</td>
+                    <td class="desc">{{'Nombre: '.$nacimientomonta->TERNERO.', Arete: '.$nacimientomonta->ARETE_TERNERO.', Color: '.$nacimientomonta->COLOR_TERNERO}}</td>
+                    <td class="desc">{{'Nombre: '.$nacimientomonta->NOM_GANADO.', Arete: '.$nacimientomonta->ARETE_VACA.', Color: '.$nacimientomonta->COLOR_GANADO.', Edad: '.$nacimientomonta->EDAD_GANADO.' años'}}</td>
+                    <td class="desc">{{ \Carbon\Carbon::parse($nacimientomonta->FEC_NACIMIENTO)->format('d-m-Y')}}</td>
                    
                 </tr>
                 @endforeach

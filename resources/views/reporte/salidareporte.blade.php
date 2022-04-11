@@ -155,7 +155,7 @@
 					<td>{{ $dato->COD_REGISTRO_GANADO}}</td>
 					<td>{{ $dato->DIA_LACTANCIA}}</td>
 					<td>{{ $dato->PRD_LITROS}}</td>
-					<td>{{ \Carbon\Carbon::parse($dato->FEC_ORDENIO)->format('d/m/Y')}}</td>
+					<td>{{ \Carbon\Carbon::parse($dato->FEC_ORDENIO)->format('d-m-Y')}}</td>
 				</tr>
 
 

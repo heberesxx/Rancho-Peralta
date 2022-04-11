@@ -187,7 +187,7 @@
                     <td class="desc">{{ $vacaprenadaembrion->COD_PRENADA_EMBRION }}</td>
                     <td class="desc">{{ $vacaprenadaembrion->COD_EMBRION }}</td>
                     <td class="desc">{{ $vacaprenadaembrion->RAZ_ESPERADA }}</td>
-                    <td class="desc">{{'Nombre: '. $vacaprenadaembrion->NOM_GANADO.', Raza: '.$vacaprenadaembrion->RAZA.', Arete:   '.$vacaprenadaembrion->ARETE.', Color: '.$vacaprenadaembrion->COLOR}}</td>
+                    <td class="desc">{{'Nombre: '.$vacaprenadaembrion->NOM_GANADO.', Raza: '.$vacaprenadaembrion->RAZA.', Arete:  '.$vacaprenadaembrion->ARETE.', Color: '.$vacaprenadaembrion->COLOR.', Edad: '.$vacaprenadaembrion->EDAD_GANADO.' años'}}</td>
                     <td class="desc">{{ $vacaprenadaembrion->DIR_LUGAR }}</td>
                     
                     <td class="desc">{{ $vacaprenadaembrion->IND_PRENADA }}</td>

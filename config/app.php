@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         ZanySoft\Zip\ZipServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
  
 
         /*
@@ -250,6 +251,7 @@ return [
         'PDF' => Barryvdh\DomPDF\ServiceProvider::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Zip' => ZanySoft\Zip\ZipFacade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         
 
     

@@ -158,7 +158,9 @@
         </div>
         <h1>Vacas Preñadas por Esperma</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -177,7 +179,7 @@
                     <th class="desc">Código</th>
                     <th class="desc">Pajilla</th>
                     <th class="desc">Raza  Donador</th>
-                    <th class="desc">Nombre</th>
+                    <th class="desc">Detalle Vaca Preñada</th>
                     <th class="desc">Lugar</th>
                     <th class="desc">Status</th>
                     <th class="desc">Fecha de Parto</th>
@@ -190,7 +192,7 @@
                     <td class="desc">{{ $vacaprenadaesperma->COD_PRENADA_ESPERMA }}</td>
                     <td class="desc">{{ $vacaprenadaesperma->NUM_PAJILLA }}</td>
                     <td class="desc">{{ $vacaprenadaesperma->RAZ_TORO_DONADOR }}</td>
-                    <td class="desc">{{ $vacaprenadaesperma->NOM_GANADO}}</td>
+                    <td class="desc">{{'Nombre: '. $vacaprenadaesperma->NOM_GANADO.', Raza: '.$vacaprenadaesperma->RAZA.', Arete: '.$vacaprenadaesperma->ARETE.', Color: '.$vacaprenadaesperma->COLOR.', Edad: '.$vacaprenadaesperma->EDAD_GANADO.' años'}}</td>
                     <td class="desc">{{ $vacaprenadaesperma->DIR_LUGAR }}</td>
                     <td class="desc">{{ $vacaprenadaesperma->IND_PRENADA }}</td>
                     <td class="desc">{{ $vacaprenadaesperma->FEC_PARIO }}</td>

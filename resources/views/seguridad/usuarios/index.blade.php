@@ -46,7 +46,9 @@
                         <a href="{{route('usuarios.create')}}" class="btn btn-info">
                             <span class="mr-2">Registrar Usuario</span> <i class="fas fa-plus-square"></i>
                         </a>
-                        <a href="{{route('seguridad.usuarios.pdf')}}" class="btn btn-danger center" style=" margin-left: 35.2%;">
+                        <a href="{{route('seguridad.usuarios.pdf')}}" class="btn btn-danger center" target="_blank"
+
+      style=" margin-left: 35.2%;">
                             <span class="mr-2">PDF</span>
                         </a>
 
@@ -79,7 +81,7 @@
                                 <td>{{ $usuario->name }}</td>
                                 <td>{{ $usuario->username }}</td>
                                 <td>{{ $usuario->email }}</td>
-                                <td>{{\Carbon\Carbon::parse ($usuario->created_at)->format('d/m/Y') }}</td>
+                                <td>{{\Carbon\Carbon::parse ($usuario->created_at)->format('d-m-Y') }}</td>
                                 @if($usuario->estado == 1)
                                 <td class="text-success"> ACTIVO</td>
                                 @elseif($usuario->estado == 0)

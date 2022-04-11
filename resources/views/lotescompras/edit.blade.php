@@ -22,7 +22,7 @@
                 @foreach($lotes as $lote)
                 <tr>
                     <td>{{$lote->COD_COMPRA_GANADO }}</td>
-                    <td>{{\Carbon\Carbon::parse( $lote->FEC_COMPRA)->format('d/m/Y') }}</td>
+                    <td>{{\Carbon\Carbon::parse( $lote->FEC_COMPRA)->format('d-m-Y') }}</td>
                     <td>{{ $lote->PROVEEDOR}}</td>
 
                     <td>{{ $lote->NOM_GANADO }}</td>

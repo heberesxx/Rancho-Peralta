@@ -44,7 +44,9 @@
                             <span class="mr-2">Agregar Lugar</span> <i class="fas fa-plus-square"></i>
                         </a>
 
-                        <a href="{{route('lugares.pdf')}}" class="btn btn-danger center" style=" margin-left: 37.5%;">
+                        <a href="{{route('lugares.pdf')}}" class="btn btn-danger center" target="_blank"
+
+      style=" margin-left: 37.5%;">
                             <span class="mr-2">PDF</span> 
                         </a>
 

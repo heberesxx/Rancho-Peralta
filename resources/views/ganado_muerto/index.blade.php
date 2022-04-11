@@ -41,7 +41,9 @@
                     <div class="box-header">
 
 
-                        <a  class="btn btn-danger center" style="margin-left: 480px;">
+                        <a  class="btn btn-danger center"
+
+      style="margin-left: 480px;">
                             <span class="mr-2">PDF</span> 
                         </a>
                         
@@ -77,7 +79,7 @@
                             @foreach($ganados_muerto as $ganado)
                             <tr>
                                 <td class="text-center">{{ $ganado->COD_MUERTE }}</td>
-                                <td class="text-center">{{\Carbon\Carbon::parse( $ganado->FEC_REGISTRO_MUERTE)->format('d/m/Y') }}</td>
+                                <td class="text-center">{{\Carbon\Carbon::parse( $ganado->FEC_REGISTRO_MUERTE)->format('d-m-Y') }}</td>
                                 <td class="text-center">{{ $ganado->NUM_ARETE }}</td>
                                 <td class="text-center">{{ $ganado->NOM_GANADO }}</td>
                                 <td class="text-center">{{ $ganado->CLR_GANADO }}</td>

@@ -158,7 +158,9 @@
         </div>
         <h1>Nacimientos por Esperma</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado para el usuario:@foreach($usuarios as $usuario)
+            <div><p>Generado por:
+
+      @foreach($usuarios as $usuario)
                 {{$usuario->name}}
                 @endforeach</p>
             </div>
@@ -176,8 +178,8 @@
                 <tr>
                     <th class="desc">Código Nacimiento</th>
 
-                    <th class="desc">Nombre Ternero</th>
-                    <th class="desc">Nombre Vaca</th>
+                    <th class="desc">Detalles Ternero</th>
+                    <th class="desc">Detalles Vaca Parto</th>
                     <th class="desc">Fecha Nacimiento</th>
 
                 </tr>
@@ -189,9 +191,9 @@
                 <tr>
                     <td class="desc">{{$nacimientoesperma->COD_NACIMIENTO_ESPERMA}}</td>
 
-                    <td class="desc">{{$nacimientoesperma->TERNERO}}</td>
-                    <td class="desc">{{$nacimientoesperma->NOM_GANADO}}</td>
-                    <td class="desc">{{ \Carbon\Carbon::parse($nacimientoesperma->FEC_NACIMIENTO)->format('d/m/Y')}}</td>
+                    <td class="desc">{{'Nombre: '.$nacimientoesperma->TERNERO.', Arete: '.$nacimientoesperma->ARETE_TERNERO.', Color: '.$nacimientoesperma->COLOR_TERNERO}}</td>
+                    <td class="desc">{{'Nombre: '.$nacimientoesperma->NOM_GANADO.', Arete: '.$nacimientoesperma->ARETE_VACA.', Color: '.$nacimientoesperma->COLOR_GANADO.', Edad: '.$nacimientoesperma->EDAD_GANADO.' años'}}</td>
+                    <td class="desc">{{ \Carbon\Carbon::parse($nacimientoesperma->FEC_NACIMIENTO)->format('d-m-Y')}}</td>
 
                 </tr>
                 @endforeach

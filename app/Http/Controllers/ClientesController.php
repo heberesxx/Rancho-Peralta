@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
 use  Barryvdh\DomPDF\Facade as PDF;
 use RealRashid\SweetAlert\Facades\Alert;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ClientesExport;
 
 class ClientesController extends Controller
 {
@@ -60,6 +62,11 @@ class ClientesController extends Controller
          return $pdf->stream();
 
     }
+
+    public function export() 
+    {
+        return Excel::download(new ClientesExport, 'clientes.xlsx');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -83,8 +90,8 @@ class ClientesController extends Controller
     
     {
         $request->validate (  rules: [
-            "primer_nombre" => 'required|min:2|max:50', 
-            "primer_apellido" => 'required|min:2|max:50',
+            "primer_nombre" => 'required|min:3|max:50', 
+            "primer_apellido" => 'required|min:3|max:50',
             "ID_CLIENTE" => 'required|numeric|digits_between:13,15|unique:tbl_mp_clientes',
             "numero_area" => 'required|numeric|digits_between:2,4|',
             "NUM_CELULAR" => 'required|numeric|digits_between:7,10|unique:tbl_mp_telefonos_clientes',
@@ -160,8 +167,8 @@ class ClientesController extends Controller
         
         $request->validate (  rules: [
             "COD_CLIENTE" => 'nullable',
-            "primer_nombre" => 'alpha|min:2|max:30', 
-            "primer_apellido" => 'alpha|min:2|max:30',
+            "primer_nombre" => 'required|min:3|max:50', 
+            "primer_apellido" => 'required|min:3|max:50',
             "ID_CLIENTE" =>"required|numeric|digits_between:13,15",
             "numero_area" => 'required|numeric|digits_between:2,4|',
             "NUM_CELULAR" => 'required|numeric|digits_between:7,10',

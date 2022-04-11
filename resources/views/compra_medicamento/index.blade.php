@@ -43,7 +43,9 @@
             <a href="{{route('proveedores.create')}}" class="btn btn-info">
               <span class="mr-2">Agregar proveedor</span> <i class="fas fa-plus-square"></i>
             </a>
-            <a href="{{route('compra_medicamento.pdf')}}" class="btn btn-danger center" style="margin-left: 280px;">
+            <a href="{{route('compra_medicamento.pdf')}}" class="btn btn-danger center" target="_blank"
+
+      style="margin-left: 280px;">
               <span class="mr-2">PDF</span>
             </a>
 
@@ -79,10 +81,10 @@
                   <td>{{$ComprarMedicamento->NOM_MEDICAMENTO}}</td>
                   <td>{{$ComprarMedicamento->CAN_MEDICAMENTO}}</td>
                   <td>{{$ComprarMedicamento->PRE_UNITARIO}}</td>
-                  <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_VENCIMIENTO)->format('d/m/Y')}}</td>
-                  <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_COMPRA)->format('d/m/Y')}}</td>
+                  <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_VENCIMIENTO)->format('d-m-Y')}}</td>
+                  <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_COMPRA)->format('d-m-Y')}}</td>
                   <td>{{$ComprarMedicamento->PERSONA}}</td>
-                  <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_REGISTRO)->format('d/m/Y')}}</td>
+                  <td>{{\Carbon\Carbon::parse($ComprarMedicamento->FEC_REGISTRO)->format('d-m-Y')}}</td>
 
 
                 </tr>

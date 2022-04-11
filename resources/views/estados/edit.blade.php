@@ -38,7 +38,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Estado</label>
-                        <input name="DET_ESTADO" style="text-transform: uppercase;" placeholder="" id="DET_ESTADO" class="form-control border-dark" type="text" maxlength="150" minlength="2" title="30 carácteres como máximo y 2 como mínimo" value="{{($estado->DET_ESTADO)}}">
+                        <input name="DET_ESTADO" style="text-transform: uppercase;" placeholder="" id="DET_ESTADO" class="form-control border-dark" type="text" maxlength="150" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" value="{{($estado->DET_ESTADO)}}">
                         @if ($errors->has('DET_ESTADO'))
                         <div id="DET_ESTADO-error" class="error text-danger pl-3" for="DET_ESTADO" style="display: bock;">
                             <strong>

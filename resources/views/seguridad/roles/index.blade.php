@@ -40,7 +40,9 @@
                         <a href="{{route('roles.create')}}" class="btn btn-info">
                             <span class="mr-2">Añadir Rol</span> <i class="fas fa-plus-square"></i>
                         </a>
-                        <a href="{{route('seguridad.roles.pdf')}}" class="btn btn-danger center" style=" margin-left: 38%;">
+                        <a href="{{route('seguridad.roles.pdf')}}" class="btn btn-danger center" target="_blank"
+
+      style=" margin-left: 38%;">
                             <span class="mr-2">PDF</span> 
                         </a>
 

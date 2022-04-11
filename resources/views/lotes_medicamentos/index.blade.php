@@ -47,8 +47,8 @@
                             @foreach($lotes as $lote)
                             <tr>
                                 <td class="text-center" style="width:auto;">{{$lote->COD_COMPRA_MEDICAMENTO }}</td>
-                                <td class="text-center" style="width:auto;">{{\Carbon\Carbon::parse( $lote->FEC_LOTE)->format('d/m/Y') }}</td>
-                                <td class="text-center" style="width:auto;">{{\Carbon\Carbon::parse( $lote->FEC_VENCIMIENTO)->format('d/m/Y') }}</td>
+                                <td class="text-center" style="width:auto;">{{\Carbon\Carbon::parse( $lote->FEC_LOTE)->format('d-m-Y') }}</td>
+                                <td class="text-center" style="width:auto;">{{\Carbon\Carbon::parse( $lote->FEC_VENCIMIENTO)->format('d-m-Y') }}</td>
                                 <td class="text-center" style="width:auto;">{{ $lote->CANTIDAD }}</td>
                                 @if($lote->DIAS_VENCIMIENTO < 30)
                                 <td class="text-center text-danger" style="width:auto;"><i class="fa fa-exclamation"></i><strong>{{ ' Este lote vence en : '.$lote->DIAS_VENCIMIENTO.' días'}}</strong> </td> 

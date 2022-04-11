@@ -58,7 +58,7 @@
                             @foreach($ventas as $ventas)
                             <tr>
                                 <td class="text-center" style="width: 10%">{{ $ventas->COD_VENTA }}</td>
-                                <td class="text-center">{{\Carbon\Carbon::parse($ventas->FEC_REGISTRO)->format('d/m/Y')}}</td>
+                                <td class="text-center">{{\Carbon\Carbon::parse($ventas->FEC_REGISTRO)->format('d-m-Y')}}</td>
                                 <td class="text-center">{{ $ventas->CLIENTE}}</td>
                                 <td class="text-center">{{ $ventas->NOM_GANADO}}</td>
                                 <td style="text-align: right;"> {{ $ventas->PRE_VENTA }}</td>

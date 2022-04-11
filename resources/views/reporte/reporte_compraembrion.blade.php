@@ -40,6 +40,7 @@
 
 		#logo {
 			text-align: center;
+			float: center;
 
 		}
 
@@ -151,22 +152,19 @@
 
 
 <body>
-	<header class="clearfix">
+<header class="clearfix">
 		<div id="logo">
-			<img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 150px; height:150px; border-radius:50%;">
+			<img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
 		</div>
-		<h1>Compras de Embriones</h1>
+		<h1>Compra de Embriones</h1>
 		<div id="project" class="clearfix">
-			<div>@foreach($parametros as $parametro)
-				{{$parametro->valor}}
-				@endforeach
-			</div>
-			<div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
+
+			<div>{{'Desde: '.\Carbon\Carbon::parse($parametros[1] )->format('d-m-Y')}}</div>
+			<div>{{'Hasta: '.\Carbon\Carbon::parse($parametros[2] )->format('d-m-Y')}}</div>
 
 		</div>
 
 	</header>
-
 
 	<main>
 
@@ -192,7 +190,7 @@
 				<tr>
 				
 					<td class="desc">{{ $dato->LOTE}}</td>
-					<td class="desc">{{ \Carbon\Carbon::parse($dato->FEC_COMPRA)->format('d/m/Y')}}</td>
+					<td class="desc">{{ \Carbon\Carbon::parse($dato->FEC_COMPRA)->format('d-m-Y')}}</td>
 					<td class="desc">{{ $dato->PROVEEDOR}}</td>
 					<td class="desc">{{ $dato->PRECIO}}</td>
 					<td class="desc">{{ $dato->RAZA}}</td>

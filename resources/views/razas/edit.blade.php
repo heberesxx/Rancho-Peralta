@@ -34,7 +34,7 @@
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label><span style="color: red;">  </span>Nombre Raza</label>
-                        <input name="NOM_RAZA" placeholder="" id="NOM_RAZA" class="form-control border-dark" type="text" value="{{($raza->NOM_RAZA)}}">
+                        <input name="NOM_RAZA" placeholder="" id="NOM_RAZA" class="form-control border-dark"  maxlength="150" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo"type="text" value="{{($raza->NOM_RAZA)}}">
                         @if ($errors->has('NOM_RAZA'))
                         <div id="NOM_RAZA-error" class="error text-danger pl-3" for="NOM_RAZA" style="display: bock;">
                             <strong>

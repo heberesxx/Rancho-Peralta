@@ -16,6 +16,11 @@
 @stop
 @section('content')
 <div class="card card-primary">
+    <style type="text/css">
+        .transformacion1 {
+            text-transform: uppercase;
+        }
+    </style>
     <div class="card-header">
         <h3 class="card-title">Datos Generales</h3>
 
@@ -31,7 +36,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> * </span>Nombre Raza</label>
-                        <input name="NOM_RAZA" placeholder="" id="NOM_RAZA" class="form-control" type="text">
+                        <input name="NOM_RAZA" placeholder="" id="NOM_RAZA" class="form-control" type="text" maxlength="30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" pattern="[A-Z ]">
                         @if ($errors->has('NOM_RAZA'))
                         <div id="NOM_RAZA-error" class="error text-danger pl-3" for="NOM_RAZA" style="display: bock;">
                             <strong>
@@ -45,7 +50,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Descripció Raza</label>
-                        <textarea name="DET_RAZA" placeholder="" id="DET_RAZA" class="form-control" rows="1"></textarea>
+                        <textarea name="DET_RAZA" placeholder="" id="DET_RAZA" class="form-control" rows="1">{{old('DET_RAZA')}}</textarea>
                         @if ($errors->has('DET_RAZA'))
                         <div id="DET_RAZA-error" class="error text-danger pl-3" for="DET_RAZA" style="display: bock;">
                             <strong>

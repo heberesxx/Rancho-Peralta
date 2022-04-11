@@ -159,7 +159,9 @@
         <h1>Usuarios del Sistema</h1>
         <div id="project" class="clearfix">
             <div>
-                <p>Generado para el usuario:@foreach($usuariosd as $usuariod)
+                <p>Generado por:
+
+      @foreach($usuariosd as $usuariod)
                     {{$usuariod->name}}
                     @endforeach
                 </p>
@@ -205,7 +207,7 @@
                     <td class="text-info">BLOQUEADO</td>
                     @endif
                     <td class="desc">{{$usuario->rol}}</td>
-                    <td>{{\Carbon\Carbon::parse ($usuario->creacion)->format('d/m/Y') }}</td>
+                    <td>{{\Carbon\Carbon::parse ($usuario->creacion)->format('d-m-Y') }}</td>
 
                 </tr>
 

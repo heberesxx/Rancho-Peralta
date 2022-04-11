@@ -54,8 +54,8 @@
 
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label><span style="color: red;">*</span> Primer Nombre</label>
-                            <input id="primer_nombre" class="form-control border-dark transformacion1" placeholder="primer nombre del cliente" type="text" name="primer_nombre" value="{{ old('primer_nombre') }}" minlength="2" maxlength="50" pattern="[A-Za-z ]{2,50}" title="Este campo solo puede contener letras y espacios"autofocus>
+                            <label><span style="color: red;">*</span>Nombres</label>
+                            <input id="primer_nombre" class="form-control border-dark transformacion1" placeholder="nombres del cliente" type="text" name="primer_nombre" value="{{ old('primer_nombre') }}" minlength="2" maxlength="50" pattern="[A-Za-zÀ-ÿ ]{2,50}" title="Este campo solo puede contener letras y espacios"autofocus>
 
                             @if ($errors->has('primer_nombre'))
                             <div id="primer_nombre-error" class="error text-danger pl-3" for="primer_nombre" style="display: bock;">
@@ -68,8 +68,8 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
-                            <label><span style="color: red;">*</span> Primer Apellido</label>
-                            <input id="primer_apellido" class="form-control border-dark transformacion1" placeholder="primer apellido del cliente" type="text" name="primer_apellido" value="{{ old('primer_apellido') }}" autofocus>
+                            <label><span style="color: red;">*</span>Apellidos</label>
+                            <input id="primer_apellido" class="form-control border-dark transformacion1" placeholder="apellidos del cliente" type="text" name="primer_apellido"  minlength="2" maxlength="50" pattern="[A-Za-zÀ-ÿ ]{2,50}" title="Este campo solo puede contener letras y espacios" value="{{ old('primer_apellido') }}" autofocus>
 
                             @if ($errors->has('primer_apellido'))
                             <div id="primer_apellido-error" class="error text-danger pl-3" for="primer_apellido" style="display: bock;">
@@ -83,8 +83,9 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="form-group">
+                            
                             <label> <span style="color: red;">*</span>DNI Cliente</label>
-                            <input id="ID_CLIENTE" class="form-control border-dark " placeholder="ID del Cliente, sin Guiones" «nbsp» type="" name="ID_CLIENTE" value="{{ old('ID_CLIENTE') }}" autofocus>
+                            <input id="ID_CLIENTE" class="form-control border-dark " placeholder="ID del Cliente, sin Guiones" maxlength="15" minlength="13" title="Máximo 15 dígitos, mínimos 13. Solo números, sin espacios ni guíones" type="" title="Este campo solo puede contener números, sin espacios ni guiones" name="ID_CLIENTE" value="{{ old('ID_CLIENTE') }}" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autofocus>
 
                             @if ($errors->has('ID_CLIENTE'))
                             <div id="ID_CLIENTE-error" class="error text-danger pl-3" for="ID_CLIENTE" style="display: bock;">
@@ -126,7 +127,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"> *</span>Número de Área</label>
-                            <input id="numero_area" class="form-control border-dark" placeholder="Número Área del Cliente" type="text" name="numero_area" value="{{ old('numero_area') }}" autofocus>
+                            <input id="numero_area" class="form-control border-dark" placeholder="Número Área del Cliente" type="text" name="numero_area" value="{{ old('numero_area') }}"  maxlength="4" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autofocus>
 
                             @if ($errors->has('numero_area'))
                             <div id="numero_area-error" class="error text-danger pl-3" for="numero_area" style="display: bock;">
@@ -141,7 +142,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"> *</span> Celular</label>
-                            <input id="NUM_CELULAR" class="form-control border-dark " placeholder="Número de Celular del Cliente" type="text" name="NUM_CELULAR" value="{{ old('NUM_CELULAR') }}" autofocus>
+                            <input id="NUM_CELULAR" class="form-control border-dark " placeholder="Número de Celular del Cliente" type="text" minlength="7" maxlength="10"  title="Este campo debe ser un número entre 7 y 10 dígitos" name="NUM_CELULAR" value="{{ old('NUM_CELULAR') }}" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"autofocus>
 
                             @if ($errors->has('NUM_CELULAR'))
                             <div id="NUM_CELULAR-error" class="error text-danger pl-3" for="NUM_CELULAR" style="display: bock;">
@@ -157,7 +158,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"></span>Teléfono</label>
-                            <input id="numero_telefono" class="form-control border-dark" placeholder="Número de Teléfono del Cliente" type="text" name="numero_telefono" :value="{{ old('numero_telefono') }}" autofocus>
+                            <input id="numero_telefono" class="form-control border-dark" placeholder="Número de Teléfono del Cliente" type="text" name="numero_telefono" :value="{{ old('numero_telefono') }}" minlength="7" maxlength="10"  title="Este campo debe ser un número entre 7 y 10 dígitos" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autofocus>
                             @if ($errors->has('numero_telefono'))
                             <div id="numero_telefono-error" class="error text-danger pl-3" for="numero_telefono" style="display: bock;">
                                 <strong>
@@ -171,7 +172,7 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label><span style="color: red;"></span>Dirección</label>
-                            <textarea name="direccion" id="direccion" rows="3" class="form-control border-dark" id="direccion" class="form-control border-dark" placeholder="Dirección del Cliente"  maxlength="250" type="text" name="direccion" old('direccion') min="5" max="200"></textarea>
+                            <textarea name="direccion" id="direccion" rows="3" class="form-control border-dark" id="direccion" class="form-control border-dark" placeholder="Dirección del Cliente"  maxlength="250" type="text" name="direccion" maxlength="200">{{old('direccion')}}</textarea>
                             @if ($errors->has('direccion'))
                             <div id="direccion-error" class="error text-danger pl-3" for="direccion" style="display: bock;">
                                 <strong>

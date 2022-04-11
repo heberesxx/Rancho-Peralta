@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Lotes Registrados')
+@section('title', 'Salidas Medicamento')
 
 @section('content_header')
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Detalles del Lote</h1>
+                <h1>Detalles de las Salidas</h1>
             </div>
             <div class="col-sm-6">
 
@@ -26,42 +26,32 @@
                 <div class="card-header">
                     <div class="card-header">
 
-                        <a href="{{route('lotescompras_esperma.index')}}" class="btn btn-info ">
-                            <span class="mr-2">Página principal Compras de Esperma</span>
+                        <a href="{{route('medicamento.index')}}" class="btn btn-info "> <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;
+                            <span class="mr-2">Página principal de Medicamentos</span>
                         </a>
 
                     </div>
 
+
                     <table id="TB" class="table table-bordered table-hover US">
                         <thead style="background-color: #e1e2f6;">
                             <tr>
-                                <th class="text-center">Lote</th>
-                                <th class="text-center">Fecha Registro</th>
-                                <th class="text-center">Proveedor</th>
-                                <th class="text-center">N° Pajilla</th>
-                                <th class="text-center">Raza Donador</th>
-                                <th class="text-center">Precio (L)</th>
-                                <th class="text-center">Observación</th>
-                                <th class="text-center">Raza Donador</th>
-                                <th class="text-center">Estado de Esperma</th>
+                                <th class="text-center">Código Orden </th>
 
+                                <th class="text-center">Cantidad Sacada</th>
+                                <th class="text-center">Fecha Registro</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach($lotes as $lote)
-                            <tr>
-                                <td class="text-center">{{  $lote->COD_COMPRA_ESPERMA }}</td>
-                                <td class="text-center">{{\Carbon\Carbon::parse(  $lote->FEC_COMPRA)->format('d-m-Y') }}</td>
-                                <td class="text-center">{{  $lote->PROVEEDOR}}</td>
-                                <td class="text-center">{{  $lote->NUM_PAJILLA}}</td>
-                                <td class="text-center">{{ $lote->RAZ_TORO_DONADOR}}</td>
-                                <td style="text-align: right;">{{  $lote->PRE_ESPERMA }}</td>
-                                <td class="text-center">{{  $lote->OBS_COMPRA_ESPERMA }}</td>
-                                <td class="text-center">{{  $lote->RAZ_TORO_DONADOR }}</td>
-                                <td class="text-center">{{  $lote->IND_ESPERMA }}</td>
 
-                            </tr>
-                            @endforeach
+                        <tbody>
+                            @foreach($ordenesT as $ordenT)
+                            <tr>
+                                <td class="text-center">{{$ordenT->COD_ORDENT}}</td>
+
+                                <td class="text-center">{{$ordenT->CAN_MEDICAMENTO}}</td>
+                                <td class="text-center">{{ \Carbon\Carbon::parse($ordenT->FEC_REGISTRO)->format('d-m-Y')}}</td>
+                                @endforeach
+
                         </tbody>
                     </table>
                 </div>
@@ -80,7 +70,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>
@@ -130,6 +120,7 @@
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
+            "bSort": false,
             "autoWidth": false,
             "responsive": true,
 

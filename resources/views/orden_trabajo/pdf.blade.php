@@ -4,13 +4,13 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>Montas de Toros</title>
+    <title>Ordenes de Trabajo</title>
     <link rel="stylesheet" href="style.css" media="all" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Montas de Toros</title>
+    <title>Ordenes de Trabajo</title>
 
     <style type="text/css">
         .clearfix:after {
@@ -43,7 +43,7 @@
 
         }
 
-         #logo img {
+        #logo img {
             width: 90px;
             float: center;
         }
@@ -153,16 +153,18 @@
 
 <body>
     <header class="clearfix">
-       <div id="logo">
+        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
-        <h1>Montas de Toros</h1>
+        <h1>Clientes Registrados</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado por:
+            <div>
+                <p>Generado por:
 
-      @foreach($usuarios as $usuario)
-                {{$usuario->name}}
-                @endforeach</p>
+                    @foreach($usuarios as $usuario)
+                    {{$usuario->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -173,31 +175,27 @@
 
     <main>
 
-        <table>
-            <thead >
+        <table >
+            <thead>
                 <tr>
-                    <th class="desc">Código</th>
-                    <th  class="desc">Detalles Vaca Montada</th>
-                    <th class="desc">Raza del Toro</th>
-                    <th class="desc">Fecha de monta</th>
-                    <th class="desc">Estado </th>
-                   
+                    <th class="desc">Código </th>
+                    <th class="desc">Medicamento</th>
+                    <th class="desc">Cantidad</th>
+                    <th class="desc">Fecha Registro</th>
                 </tr>
             </thead>
+
             <tbody>
-                @foreach($transmontas as $transmonta)
+                @foreach($ordenesT as $ordenT)
                 <tr>
-                    <td class="desc">{{ $transmonta->COD_MONTA }}</td>
-                    <td class="desc">{{'Nombre: '. $transmonta->NOM_GANADO.', Raza: '.$transmonta->RAZA.', Arete: '.$transmonta->ARETE.', Color: '.$transmonta->COLOR.', Edad: '.$transmonta->EDAD_GANADO.' años'}}</td>
-                    <td class="desc">{{ $transmonta->RAZ_TORO_MONTA }}</td>
-                    <td class="desc">{{\Carbon\Carbon::parse( $transmonta->FEC_MONTA)->format('d-m-Y') }}</td>
-                    <td class="desc">{{ $transmonta->IND_FECUNDACION}}</td>
-                   
-                </tr>
-                @endforeach
+                    <td class="desc">{{$ordenT->COD_ORDENT}}</td>
+                    <td class="desc">{{$ordenT->NOM_MEDICAMENTO}}</td>
+                    <td class="desc">{{$ordenT->CAN_MEDICAMENTO}}</td>
+                    <td class="desc">{{ \Carbon\Carbon::parse($ordenT->FEC_REGISTRO)->format('d-m-Y')}}</td>
+                    @endforeach
+
             </tbody>
         </table>
-
 
     </main>
     <footer>

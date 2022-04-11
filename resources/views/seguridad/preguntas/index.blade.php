@@ -38,7 +38,9 @@
                         <a href="{{route('preguntas.create')}}" class="btn btn-info">
                             <span class="mr-2">Crear Pregunta </span> <i class="fas fa-plus-square"></i>
                         </a>
-                        <a href="{{route('seguridad.preguntas.pdf')}}" class="btn btn-danger center" style=" margin-left: 35.5%;">
+                        <a href="{{route('seguridad.preguntas.pdf')}}" class="btn btn-danger center" target="_blank"
+
+      style=" margin-left: 35.5%;">
                             <span class="mr-2">PDF</span> 
                         </a>
 
