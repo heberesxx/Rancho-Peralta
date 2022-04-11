@@ -120,7 +120,20 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4">
+                <div class="col-lg-2">
+                        <div class="form-group">
+                            <label><span style="color: red;"></span> Fecha de Nacimiento</label>
+                            <input name="FEC_NACIMIENTO" placeholder="" id="FEC_NACIMIENTO" class="form-control border-dark" id="fecha" type='date' min="2015-01-01" max="{{date('Y-m-d');}}" value="{{old('FEC_NACIMIENTO')}}">
+                            @if ($errors->has('FEC_NACIMIENTO'))
+                            <div id="FEC_NACIMIENTO-error" class="error text-danger pl-3" for="FEC_NACIMIENTO" style="display: bock;">
+                                <strong>
+                                    {{$errors -> first('FEC_NACIMIENTO')}}
+                                </strong>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
                         <div class="form-group">
 
                             @livewire('buscador-razas')
@@ -128,7 +141,7 @@
 
                     </div>
 
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <div class="form-group">
                             @livewire('buscador-estados')
                         </div>
@@ -160,19 +173,7 @@
                             @livewire('buscador-prenadas-esperma')
                         </div>
                     </div>
-                    <div class="col-lg-2">
-                        <div class="form-group">
-                            <label><span style="color: red;"></span> Fecha de Nacimiento</label>
-                            <input name="FEC_NACIMIENTO" placeholder="" id="FEC_NACIMIENTO" class="form-control border-dark" id="fecha" type='date' min="2015-01-01" max="{{date('Y-m-d');}}" value="{{old('FEC_NACIMIENTO')}}">
-                            @if ($errors->has('FEC_NACIMIENTO'))
-                            <div id="FEC_NACIMIENTO-error" class="error text-danger pl-3" for="FEC_NACIMIENTO" style="display: bock;">
-                                <strong>
-                                    {{$errors -> first('FEC_NACIMIENTO')}}
-                                </strong>
-                            </div>
-                            @endif
-                        </div>
-                    </div>
+                    
                 </div>
 
 

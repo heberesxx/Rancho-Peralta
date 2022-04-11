@@ -35,7 +35,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> * </span>Lugar</label>
-                        <input name="DIR_LUGAR" placeholder="" id="DIR_LUGAR" class="form-control" type="text" style="text-transform: uppercase;" value="{{old('DIR_LUGAR')}}" maxlength="30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" pattern="[A-Z ]" >
+                        <input name="DIR_LUGAR" placeholder="" id="DIR_LUGAR" class="form-control" type="text" style="text-transform: uppercase;" value="{{old('DIR_LUGAR')}}" maxlength="30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" onkeydown="return /[A-Z, ]/i.test(event.key)">
                         @if ($errors->has('DIR_LUGAR'))
                         <div id="DIR_LUGAR-error" class="error text-danger pl-3" for="DIR_LUGAR" style="display: bock;">
                             <strong>

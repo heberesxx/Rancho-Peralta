@@ -36,7 +36,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> * </span>Nombre Raza</label>
-                        <input name="NOM_RAZA" placeholder="" id="NOM_RAZA" class="form-control" type="text" maxlength="30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" pattern="[A-Z ]">
+                        <input name="NOM_RAZA" placeholder="" id="NOM_RAZA" class="form-control"    type="text" maxlength="30" minlength="2" title="Este campo solo permite letras mayúsculas,30 carácteres como máximo y 2 como mínimo" onkeydown="return /[A-Z, ]/i.test(event.key)">
                         @if ($errors->has('NOM_RAZA'))
                         <div id="NOM_RAZA-error" class="error text-danger pl-3" for="NOM_RAZA" style="display: bock;">
                             <strong>

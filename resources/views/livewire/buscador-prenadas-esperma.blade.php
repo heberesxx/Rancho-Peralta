@@ -54,7 +54,7 @@
         <div class="input-group-prepend">
             <input id="COD_PRENADA_ESPERMA" class="form-control border-dark" hidden placeholder="Ingrese la cantidad comprada..." type="text" name="COD_PRENADA_ESPERMA" value="{{$selected_vacaspe}}" autofocus>
  
-            <input id="vaca-prenada" class="form-control border-dark" placeholder="Busque la vaca..." type="text" name="vaca-prenada" value="{{$nombre}}" value="{{old('vaca-prenada')}}" onkeypress="return false" autofocus> &nbsp;
+            <input id="vaca-prenada" class="form-control border-dark" placeholder="Busque la vaca que lo parió..." type="text" name="vaca-prenada" value="{{$nombre}}" value="{{old('vaca-prenada')}}" onkeypress="return false" autofocus> &nbsp;
             <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalVacape"> <i class="fas fa-search"></i></button>
         </div>
         @if ($errors->has('vaca-prenada'))

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Estados;
 use  App\Http\Controller\BitacoraController;
 use App\Models\User;
+use App\Rules\Uppercase;
 use  Barryvdh\DomPDF\Facade as PDF;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -34,7 +35,7 @@ class EstadosController extends Controller
 
     public function pdf()
     {
-        $estados = Estados::all();
+        $estados = DB::select('select * from estados_ganado');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
         $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
 
@@ -63,7 +64,7 @@ class EstadosController extends Controller
     public function store(Request $request)
     {
         $request->validate(rules: [
-            "DET_ESTADO" => 'required|min:2|max:30|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)||unique:tbl_mg_estado_ganado',
+            "DET_ESTADO" => ["required","min:2","max:30","regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)","unique:tbl_mg_estado_ganado", new Uppercase()],
             "descripcion_estado" => 'nullable|max:150',
 
 
@@ -138,8 +139,8 @@ class EstadosController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate(rules: [
-            "DET_ESTADO" => 'required|min:2|max:30|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
-            "descripcion_estado" => 'required|max:150|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
+            "DET_ESTADO" => ["required","min:2","max:30", new Uppercase()] ,
+            "descripcion_estado" => 'nullable|max:150|regex:([a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+)',
             "STATUS" => 'required',
         ]);
 

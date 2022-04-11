@@ -43,7 +43,7 @@
 
         }
 
-         #logo img {
+        #logo img {
             width: 90px;
             float: center;
         }
@@ -153,16 +153,18 @@
 
 <body>
     <header class="clearfix">
-       <div id="logo">
+        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Objetos del Sistema</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado por:
+            <div>
+                <p>Generado por:
 
-      @foreach($usuarios as $usuario)
-                {{$usuario->name}}
-                @endforeach</p>
+                    @foreach($usuarios as $usuario)
+                    {{$usuario->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -174,12 +176,14 @@
     <main>
 
         <table>
-            <thead >
-                <tr >
-                    <th >N° </th>
+            <thead>
+                <tr>
+                    <th>N° </th>
                     <th class="desc">Nombre</th>
                     <th class="desc">Descripción</th>
                     <th class="desc">Status</th>
+                    <th class="desc"> Fecha Creación </th>
+                    <th class="desc"> Fecha Actualización </th>
 
                 </tr>
 
@@ -188,14 +192,15 @@
 
                 @php $i=1;@endphp
                 @foreach($objetos as $objeto)
-                <tr class="text-center">
+                <tr >
                     <td>
                         {{$i}}
                     </td>
                     <td class="desc">{{$objeto->objeto}}</td>
                     <td class="desc">{{$objeto->Descripcion}}</td>
                     <td class="desc">{{$objeto->status}}</td>
-                    
+                    <td class="desc">{{\Carbon\Carbon::parse( $objeto->created_at)->format('d-m-Y H:i:s') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $objeto->updated_at)->format('d-m-Y H:i:s') }}</td>
 
                 </tr>
                 @php $i++;@endphp

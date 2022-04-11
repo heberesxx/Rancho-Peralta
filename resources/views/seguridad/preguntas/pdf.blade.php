@@ -43,7 +43,7 @@
 
         }
 
-         #logo img {
+        #logo img {
             width: 90px;
             float: center;
         }
@@ -153,16 +153,18 @@
 
 <body>
     <header class="clearfix">
-       <div id="logo">
+        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Preguntas de Seguridad</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado por:
+            <div>
+                <p>Generado por:
 
-      @foreach($usuarios as $usuario)
-                {{$usuario->name}}
-                @endforeach</p>
+                    @foreach($usuarios as $usuario)
+                    {{$usuario->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -173,11 +175,13 @@
 
     <main>
 
-        <table >
+        <table>
             <thead style="background-color: #e1e2f6;">
-                <tr >
+                <tr>
                     <th class="desc">Código</th>
                     <th class="desc">Pregunta</th>
+                    <th class="desc"> Fecha Creación </th>
+                    <th class="desc"> Fecha Actualización </th>
 
                 </tr>
 
@@ -185,9 +189,11 @@
             <tbody>
                 @php $i=1;@endphp
                 @foreach ($preguntas as $pregunta)
-                <tr >
+                <tr>
                     <td class="desc">{{ $pregunta->id }}</td>
                     <td class="desc">{{ $pregunta->pregunta }} </td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $pregunta->created_at)->format('d-m-Y H:i:s') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $pregunta->updated_at)->format('d-m-Y H:i:s') }}</td>
 
                 </tr>
 

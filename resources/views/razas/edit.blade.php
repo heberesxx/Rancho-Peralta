@@ -7,21 +7,25 @@
 @stop
 
 @section('content')
-
+<style type="text/css">
+    .transformacion1 {
+        text-transform: uppercase;
+    }
+</style>
 <div class="card card-info">
     <div class="card-header">
         <h4 class="text-center">Editar Raza</h4>
     </div>
 
-    <form  action="{{route('razas.update',$raza->COD_RAZA)}}" method="post">
+    <form action="{{route('razas.update',$raza->COD_RAZA)}}" method="post">
         @csrf()
         @method('PUT')
         <div class="card-body">
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label><span style="color: red;">  </span>Código Raza</label>
-                        <input name="COD_RAZA" placeholder="" id="COD_RAZA" class="form-control border-dark" disabled type="text" value="{{($raza->COD_RAZA)}}">
+                        <label><span style="color: red;"> </span>Código Raza</label>
+                        <input name="COD_RAZA" placeholder="" id="COD_RAZA" class="form-control border-dark" disabled type="text" value="{{($raza->COD_RAZA)}}" onkeydown="return /[A-Z, ]/i.test(event.key)">
                         @if ($errors->has('COD_RAZA'))
                         <div id="COD_RAZA-error" class="error text-danger pl-3" for="COD_RAZA" style="display: bock;">
                             <strong>
@@ -33,8 +37,8 @@
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label><span style="color: red;">  </span>Nombre Raza</label>
-                        <input name="NOM_RAZA" placeholder="" id="NOM_RAZA" class="form-control border-dark"  maxlength="150" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo"type="text" value="{{($raza->NOM_RAZA)}}">
+                        <label><span style="color: red;"> </span>Nombre Raza</label>
+                        <input name="NOM_RAZA" placeholder="" id="NOM_RAZA" class="form-control border-dark"   maxlength="150" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" type="text" value="{{($raza->NOM_RAZA)}}" onkeydown="return /[A-Z, ]/i.test(event.key)">
                         @if ($errors->has('NOM_RAZA'))
                         <div id="NOM_RAZA-error" class="error text-danger pl-3" for="NOM_RAZA" style="display: bock;">
                             <strong>
@@ -45,9 +49,9 @@
                     </div>
                 </div>
                 <div class="col-sm-5">
-                <div class="form-group">
+                    <div class="form-group">
                         <label><span style="color: red;"> </span>Descripcion Raza</label>
-                        <textarea  name="DET_RAZA"  id="DET_RAZA"  rows ="2" class="form-control border-dark "  type="text" value="{{$raza->DET_RAZA}}" >{{$raza->DET_RAZA}}</textarea>
+                        <textarea name="DET_RAZA" id="DET_RAZA" rows="2" class="form-control border-dark " type="text" value="{{$raza->DET_RAZA}}">{{$raza->DET_RAZA}}</textarea>
                         @if ($errors->has('DET_RAZA'))
                         <div id="DET_RAZA-error" class="error text-danger pl-3" for="DET_RAZA" style="display: bock;">
                             <strong>
@@ -59,16 +63,16 @@
                 </div>
                 <div class="col-sm-3">
 
-                        <div class="form-group">
-                            <label><span style="color: red;"></span> Status Raza</label>
+                    <div class="form-group">
+                        <label><span style="color: red;"></span> Status Raza</label>
 
-                            <select name="IND_RAZA" id="IND_RAZA" class="custom-select  border-dark" value="{{$raza->IND_RAZA}}">
-                                <option selected disabled> Seleccione un estado</option>
-                                <option value="ACTIVO" {{ $raza->IND_RAZA== "ACTIVO"  ? 'selected' : '' }}>ACTIVO</option>
-                                <option value="INACTIVO" {{ $raza->IND_RAZA== "INACTIVO"  ? 'selected' : '' }}>INACTIVO</option>
-                            </select>
-                        </div>
+                        <select name="IND_RAZA" id="IND_RAZA" class="custom-select  border-dark" value="{{$raza->IND_RAZA}}">
+                            <option selected disabled> Seleccione un estado</option>
+                            <option value="ACTIVO" {{ $raza->IND_RAZA== "ACTIVO"  ? 'selected' : '' }}>ACTIVO</option>
+                            <option value="INACTIVO" {{ $raza->IND_RAZA== "INACTIVO"  ? 'selected' : '' }}>INACTIVO</option>
+                        </select>
                     </div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-sm-6 col-xs-12 mb-2">

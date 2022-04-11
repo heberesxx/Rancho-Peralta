@@ -43,7 +43,7 @@
 
         }
 
-         #logo img {
+        #logo img {
             width: 90px;
             float: center;
         }
@@ -153,16 +153,18 @@
 
 <body>
     <header class="clearfix">
-       <div id="logo">
+        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Razas del Ganado</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado por:
+            <div>
+                <p>Generado por:
 
-      @foreach($usuarios as $usuario)
-                {{$usuario->name}}
-                @endforeach</p>
+                    @foreach($usuarios as $usuario)
+                    {{$usuario->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -173,31 +175,26 @@
 
     <main>
 
-        <table >
-            <thead >
+        <table>
+            <thead>
                 <tr>
-                    <th class="desc"  >Código</th>
-                    <th class="desc"  > Raza </th>
-                    <th class="desc"  > Detalle Raza </th>
-                    <th class="desc"  > Status Raza </th>
-                 
-
-
-
+                    <th class="desc">Código</th>
+                    <th class="desc"> Raza </th>
+                    <th class="desc"> Detalle Raza </th>
+                    <th class="desc"> Status Raza </th>
+                    <th class="desc"> Fecha Creación </th>
+                    <th class="desc"> Fecha Actualización </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($razas as $raza)
                 <tr>
-                    <td class="desc"  >{{ $raza->COD_RAZA }}</td>
-                    <td class="desc" >{{ $raza->NOM_RAZA }}</td>
-                    <td class="desc" >{{ $raza->DET_RAZA}}</td>
-                    <td class="desc" >{{ $raza->IND_RAZA}}</td>
-
-
-
-                    
-
+                    <td class="desc">{{ $raza->COD_RAZA }}</td>
+                    <td class="desc">{{ $raza->NOM_RAZA }}</td>
+                    <td class="desc">{{ $raza->DET_RAZA}}</td>
+                    <td class="desc">{{ $raza->IND_RAZA}}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $raza->created_at)->format('d-m-Y H:i:s') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $raza->updated_at)->format('d-m-Y H:i:s') }}</td>
                 </tr>
                 @endforeach
             </tbody>

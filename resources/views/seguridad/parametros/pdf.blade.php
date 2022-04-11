@@ -4,13 +4,13 @@
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>Parametros del Sistema</title>
+    <title>Parámetros del Sistema</title>
     <link rel="stylesheet" href="style.css" media="all" />
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <title>Parametros del Sistema</title>
+    <title>Parámetros del Sistema</title>
 
     <style type="text/css">
         .clearfix:after {
@@ -156,7 +156,7 @@
        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
-        <h1>Parametros del Sistema</h1>
+        <h1>Parámetros del Sistema</h1>
         <div id="project" class="clearfix">
             <div><p>Generado por:
 
@@ -177,8 +177,10 @@
             <thead >
                 <tr >
                     <th >N° </th>
-                    <th class="desc">Parametro</th>
+                    <th class="desc">Parámetro</th>
                     <th class="desc">Valor</th>
+                    <th class="desc"> Fecha Creación </th>
+                    <th class="desc"> Fecha Actualización </th>
                     
 
                 </tr>
@@ -194,6 +196,8 @@
                     </td>
                     <td class="desc">{{$objeto->parametro}}</td>
                     <td class="desc">{{$objeto->valor}}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $objeto->created_at)->format('d-m-Y H:i:s') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $objeto->updated_at)->format('d-m-Y H:i:s') }}</td>
                  
                     
 

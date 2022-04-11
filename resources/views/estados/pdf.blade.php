@@ -43,7 +43,7 @@
 
         }
 
-         #logo img {
+        #logo img {
             width: 90px;
             float: center;
         }
@@ -153,16 +153,18 @@
 
 <body>
     <header class="clearfix">
-       <div id="logo">
+        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Estados del Ganado</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado por:
+            <div>
+                <p>Generado por:
 
-      @foreach($usuarios as $usuario)
-                {{$usuario->name}}
-                @endforeach</p>
+                    @foreach($usuarios as $usuario)
+                    {{$usuario->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -174,13 +176,16 @@
     <main>
 
         <table>
-            <thead >
+            <thead>
                 <tr>
-                    <th  >Código</th>
-                    <th class="desc"  > Estado </th>
-                    <th class="desc" > Descripción </th>
-                    <th > Status </th>
-                    
+                
+                    <th class="desc"> Estado </th>
+                    <th class="desc"> Descripción </th>
+                    <th class="desc"> Status </th>
+                    <th class="desc"> Creado Por </th>
+                    <th class="desc">  Creación </th>
+                    <th class="desc"> Editado Por </th>
+                    <th class="desc">Actualización </th>
 
 
                 </tr>
@@ -189,11 +194,16 @@
             <tbody>
                 @foreach ($estados as $estado)
                 <tr>
-                    <td >{{ $estado->COD_ESTADO }}</td>
-                    <td class="desc" >{{ $estado->DET_ESTADO }}</td>
+
+                    <td class="desc">{{ $estado->DET_ESTADO }}</td>
                     <td class="desc">{{ $estado->DESCRIPCION_ESTADO}}</td>
-                    <td>{{ $estado->STATUS}}</td>
-                   
+                    <td class="desc">{{ $estado->STATUS}}</td>
+                    <td class="desc">{{ $estado->Creado_Por}}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $estado->created_at)->format('d-m-Y H:i:s') }}</td>
+                    <td class="desc">{{ $estado->Actualizado_Por}}</td>
+
+
+                    <td class="desc">{{\Carbon\Carbon::parse( $estado->updated_at)->format('d-m-Y H:i:s') }}</td>
 
                 </tr>
                 @endforeach

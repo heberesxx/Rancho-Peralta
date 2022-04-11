@@ -179,6 +179,8 @@
                 <tr >
                     <th class="desc">Código</th>
                     <th class="desc">Nombre de rol</th>
+                    <th class="desc">Fecha Creación</th>
+                    <th class="desc">Fecha Actualización</th>
 
                 </tr>
 
@@ -189,6 +191,8 @@
                 <tr >
                     <td class="desc">{{ $rol->id}}</td>
                     <td class="desc">{{ $rol->name }} </td>
+                    <td class="desc" >{{\Carbon\Carbon::parse( $rol->created_at)->format('d-m-Y H:i:s') }}</td>
+                    <td class="desc" >{{\Carbon\Carbon::parse( $rol->updated_at)->format('d-m-Y H:i:s') }}</td>
 
                 </tr>
 

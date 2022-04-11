@@ -23,8 +23,8 @@
 
         body {
             position: relative;
-            width: 21cm;
-            height: 29.7cm;
+            width: 25cm;
+            height: 40.7cm;
             margin: 0 auto;
             color: #001028;
             background: #FFFFFF;
@@ -161,7 +161,7 @@
             <div>
                 <p>Generado por:
 
-      @foreach($usuariosd as $usuariod)
+                    @foreach($usuariosd as $usuariod)
                     {{$usuariod->name}}
                     @endforeach
                 </p>
@@ -182,10 +182,10 @@
                     <th class="desc">Nombre</th>
                     <th class="desc">Usuario</th>
                     <th class="desc">Email</th>
-
                     <th class="desc">Estado</th>
                     <th class="desc">Rol</th>
-                    <th scope="col">Fecha de Creación</th>
+                    <th class="desc">Creación</th>
+                    <th class="desc">Actualización</th>
 
 
                 </tr>
@@ -207,7 +207,8 @@
                     <td class="text-info">BLOQUEADO</td>
                     @endif
                     <td class="desc">{{$usuario->rol}}</td>
-                    <td>{{\Carbon\Carbon::parse ($usuario->creacion)->format('d-m-Y') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse ($usuario->created_at)->format('d-m-Y H:i:s') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse ($usuario->updated_at)->format('d-m-Y H:i:s') }}</td>
 
                 </tr>
 

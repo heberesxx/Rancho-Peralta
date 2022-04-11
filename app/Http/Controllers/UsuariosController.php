@@ -60,7 +60,7 @@ class UsuariosController extends Controller
      */
     public function create()
     {
-        $roles = Role::all();
+        $roles = DB::select('select * from roles where STATUS="ACTIVO"');
         return view('seguridad.usuarios.create')->with('roles',$roles);
     }
 

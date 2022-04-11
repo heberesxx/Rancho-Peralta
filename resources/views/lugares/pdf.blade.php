@@ -43,7 +43,7 @@
 
         }
 
-         #logo img {
+        #logo img {
             width: 90px;
             float: center;
         }
@@ -153,16 +153,18 @@
 
 <body>
     <header class="clearfix">
-       <div id="logo">
+        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Lugares</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado por:
+            <div>
+                <p>Generado por:
 
-      @foreach($usuarios as $usuario)
-                {{$usuario->name}}
-                @endforeach</p>
+                    @foreach($usuarios as $usuario)
+                    {{$usuario->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -178,8 +180,10 @@
                 <tr>
                     <th>Código</th>
                     <th class="desc"> Lugar </th>
-                    <th class="desc"  > Dirección exacta </th>
-                    <th class="desc">  Status </th>
+                    <th class="desc"> Dirección exacta </th>
+                    <th class="desc"> Status </th>
+                    <th class="desc"> Fecha Creación </th>
+                    <th class="desc"> Fecha Actualización </th>
 
 
 
@@ -190,9 +194,11 @@
                 @foreach ($lugares as $lugar)
                 <tr>
                     <td>{{ $lugar->COD_LUGAR }}</td>
-                    <td class="desc" >{{ $lugar->DIR_LUGAR }}</td>
+                    <td class="desc">{{ $lugar->DIR_LUGAR }}</td>
                     <td class="desc">{{ $lugar->UBI_EXACTA}}</td>
                     <td class="desc">{{ $lugar->STATUS}}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $lugar->created_at)->format('d-m-Y H:i:s') }}</td>
+                    <td class="desc">{{\Carbon\Carbon::parse( $lugar->updated_at)->format('d-m-Y H:i:s') }}</td>
 
                 </tr>
                 @endforeach

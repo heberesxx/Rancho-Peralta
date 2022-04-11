@@ -62,7 +62,7 @@ class RazasController extends Controller
     public function store(Request $request)
     {
         $request->validate(rules: [
-            "NOM_RAZA" => ['required', 'alpha', 'max:30','min:3','unique:tbl_mg_raza', new Uppercase()],
+            "NOM_RAZA" => ['required', 'max:30','min:3','unique:tbl_mg_raza',new Uppercase()],
             "DET_RAZA" => 'nullable|max:150',
 
         ]);
@@ -124,7 +124,7 @@ class RazasController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate(rules: [
-            "NOM_RAZA" => 'required|min:2|max:30',
+            "NOM_RAZA" => ["required","min:2","max:30", new Uppercase()] ,
             "DET_RAZA" => 'max:150',
             "IND_RAZA"=>'required'
 

@@ -35,7 +35,7 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><span style="color: red;"> * </span>Estado</label>
-                        <input name="DET_ESTADO" placeholder="" style="text-transform: uppercase;" value="{{old('DET_ESTADO')}}" id="DET_ESTADO" maxlength="30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" pattern="[A-Z ]" class="form-control" type="text" value="{{ old('DET_ESTADO') }}">
+                        <input name="DET_ESTADO" placeholder=""  value="{{old('DET_ESTADO')}}" id="DET_ESTADO" maxlength="30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo"  class="form-control" type="text" value="{{ old('DET_ESTADO') }}" onkeydown="return /[A-Z, ]/i.test(event.key)">
                         @if ($errors->has('DET_ESTADO'))
                         <div id="DET_ESTADO-error" class="error text-danger pl-3" for="DET_ESTADO" style="display: bock;">
                             <strong>

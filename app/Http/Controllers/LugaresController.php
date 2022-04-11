@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Lugares;
 use Illuminate\Support\MessageBag;
 use  App\Http\Controller\BitacoraController;
+use App\Rules\Uppercase;
 use  Barryvdh\DomPDF\Facade as PDF;
 
 class LugaresController extends Controller
@@ -28,7 +29,7 @@ class LugaresController extends Controller
 
     public function pdf()
     {
-       $lugares = Lugares::all();
+       $lugares = DB::select('select* from lugares_ganado');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
         $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
         $pdf = PDF::loadView('lugares.pdf',['lugares'=>$lugares],['usuarios' =>$usuarios]);
@@ -58,7 +59,7 @@ class LugaresController extends Controller
     public function store(Request $request)
     {
         $request->validate(rules: [
-            "DIR_LUGAR" => 'required|min:2|max:30||unique:tbl_mg_lugar',
+            "DIR_LUGAR" => ["required","min:2","max:30","unique:tbl_mg_lugar", new Uppercase()] ,
             "ubicacion_exacta" => 'nullable|max:150',
             "status" =>'nullable'
 
@@ -119,7 +120,7 @@ class LugaresController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate(rules: [
-            "DIR_LUGAR" => 'required|min:2|max:30',
+            "DIR_LUGAR" => ["required","min:2","max:30", new Uppercase()] ,
             "UBI_EXACTA" => 'max:150',
             "STATUS" => 'required'
 
