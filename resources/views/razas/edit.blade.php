@@ -25,7 +25,7 @@
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Código Raza</label>
-                        <input name="COD_RAZA" placeholder="" id="COD_RAZA" class="form-control border-dark" disabled type="text" value="{{($raza->COD_RAZA)}}" onkeydown="return /[A-Z, ]/i.test(event.key)">
+                        <input name="COD_RAZA" placeholder="" id="COD_RAZA" class="form-control border-dark" disabled type="text" value="{{($raza->COD_RAZA)}}" onkeyup="javascript:this.value=this.value.toUpperCase();" onkeydown="return /[A-Z, ]/i.test(event.key)">
                         @if ($errors->has('COD_RAZA'))
                         <div id="COD_RAZA-error" class="error text-danger pl-3" for="COD_RAZA" style="display: bock;">
                             <strong>

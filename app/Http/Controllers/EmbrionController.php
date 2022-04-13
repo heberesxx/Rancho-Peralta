@@ -77,12 +77,12 @@ class EmbrionController extends Controller
     public function store(Request $request)
     {
         $request->validate(rules: [
-            "raza_esperada" => ["required","alpha_dash","max:40","min:3",new Uppercase()],
-            "raza_donadora" => ["required","alpha","max:30","min:3",new Uppercase()],
-            "raza_donador" => ["required","alpha","max:30","min:3",new Uppercase()],
+            "raza_esperada" => ["required","max:40","min:3",new Uppercase()],
+            "raza_donadora" => ["required","max:30","min:3",new Uppercase()],
+            "raza_donador" => ["required","max:30","min:3",new Uppercase()],
             "precio_embrion" => 'required|numeric|gt:0',
-            "vaca_donadora"=>'nullable|alpha|max:30',
-            "toro_donador"=>'nullable|alpha|max:30',
+            "vaca_donadora"=>'nullable|max:30',
+            "toro_donador"=>'nullable|max:30',
             "observacion_compra"=>'nullable|max:150'
 
         ]);

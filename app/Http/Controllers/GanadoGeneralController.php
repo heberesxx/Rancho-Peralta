@@ -86,12 +86,12 @@ class GanadoGeneralController extends Controller
     {
         $request->validate (  rules: [
             "NUM_ARETE" =>  'required|numeric|unique:tbl_mg_ganado|digits_between:1,3',
-            "nombre_ganado"  => 'required|alpha|min:2|max:30',
+            "nombre_ganado"  => 'required|min:2|max:30',
             "color" =>  'required|min:2|max:30',
             "status" =>  'required', 
             "lugar" => 'required',
             "sexo_ganado" =>  'required', 
-            "peso"=>'nullable|numeric',
+            "peso"=>'nullable|numeric|gt:0',
             "fierro"  => 'nullable|alpha|min:2|max:3',
             "COD_RAZA"  => 'required',
             "COD_ESTADO" => 'required',
@@ -156,9 +156,10 @@ class GanadoGeneralController extends Controller
     {
 
         $request->validate (  rules: [
-            "nombre_ganado"  => 'alpha|min:2|max:30',
+            "nombre_ganado"  => 'min:2|max:30',
             'NUM_ARETE' => "numeric|digits_between:1,3",
             "color" =>  'min:2|max:30',
+            "fierro"  => 'nullable|alpha|min:2|max:3',
            
             
  

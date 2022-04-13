@@ -229,7 +229,7 @@
                                         <div class="form-group">
 
                                             <label><span style="color: red;"> *</span>Raza Esperada:</label>
-                                            <input id="raza_esperada" style="text-transform: uppercase;" class="form-control border-dark" type="text" name="raza_esperada" value="{{old('raza_esperada')}}" autofocus>
+                                            <input id="raza_esperada"  class="form-control border-dark" type="text" name="raza_esperada" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{old('raza_esperada')}}" maxlength="40"   autofocus>
 
                                             @if ($errors->has('raza_esperada'))
                                             <div id="raza_esperada-error" class="error text-danger pl-3" for="raza_esperada" style="display: bock;">
@@ -258,7 +258,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label><span style="color: red;">*</span>Raza Donadora</label>
-                                            <input id="raza_donadora" style="text-transform: uppercase;" class="form-control border-dark" type="text" name="raza_donadora" value="{{old('raza_donadora')}}" autofocus>
+                                            <input id="raza_donadora" onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control border-dark" type="text" name="raza_donadora" value="{{old('raza_donadora')}}" autofocus>
 
                                             @if ($errors->has('raza_donadora'))
                                             <div id="raza_donadora-error" class="error text-danger pl-3" for="raza_donadora" style="display: bock;">
@@ -274,7 +274,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label><span style="color: red;">*</span>Raza Donador</label>
-                                            <input id="raza_donador" style="text-transform: uppercase;" class="form-control border-dark" type="text" name="raza_donador" value="{{old('raza_donador')}}" autofocus>
+                                            <input id="raza_donador" onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control border-dark" type="text" name="raza_donador" value="{{old('raza_donador')}}" autofocus>
 
                                             @if ($errors->has('raza_donador'))
                                             <div id="raza_donador-error" class="error text-danger pl-3" for="raza_donador" style="display: bock;">

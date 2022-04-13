@@ -1,16 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use GuzzleHttp\Client;
-use Illuminate\Http\Request;
-use  Barryvdh\DomPDF\Facade as PDF;
-use Illuminate\Support\Facades\DB;
 
-class ConfirmarLoteVenta extends Controller
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use  Barryvdh\DomPDF\Facade as PDF;
+class ReporteCompraController extends Controller
 {
-    public function __construct () {
-        $this->cliente = new Client(['base_uri' => 'http://localhost:3000/']);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +14,7 @@ class ConfirmarLoteVenta extends Controller
      */
     public function index()
     {
-        //
+        return view ('reportes_comprag.index');
     }
 
     /**
@@ -28,7 +24,7 @@ class ConfirmarLoteVenta extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -39,22 +35,25 @@ class ConfirmarLoteVenta extends Controller
      */
     public function store(Request $request)
     {
-        $this->cliente->post('confirmarlote_venta');
+        $request->validate(rules: [
+            "inicio" => 'required',
+            "final" => 'required'
 
-        $detalle = DB::select('select * from factura_venta');
-        
-        $cliente = DB::select('select * from factura_cliente');
-        
-        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
-       
-     
-         $pdf = PDF::loadView('lotesventa.factura',['detalles'=>$detalle],['clientes' =>$cliente]);
- 
-         return $pdf->stream();
+        ]);
 
+        $v_inicio = $request->input('inicio');
+        $v_final = $request->input('final');
 
-        return redirect()->route('lotesventa.index');
+        $compras = DB::select('select * from compra_ganado where FEC_COMPRA BETWEEN ? AND ?',[$v_inicio, $v_final]);
+        $parametros[0] = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+        $parametros [1] = $v_inicio;
+        $parametros [2] = $v_final;
+       return redirect()->view('reportes_comprag')->with('compras',$compras)->with('parametros',$parametros);
+      
     }
+
+    
+
 
     /**
      * Display the specified resource.

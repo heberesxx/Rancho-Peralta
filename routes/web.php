@@ -30,8 +30,7 @@ use App\Http\Controllers\VerBitacoraController;
 use  Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Controllers\LoteMedicamentoController;
 use App\Http\Controllers\BackupController;
-
-
+use App\Http\Controllers\ReporteCompraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +90,8 @@ Route::group(attributes:['middleware'=>'auth'], routes:function(){
     Route::get('restore/{id}', [App\Http\Controllers\RestoreController::class,'restore'])->name('restore.create');
     Route::get('exportar/ganado/', [GanadoGeneralController::class, 'export'])->name('exportar.ganado');
     Route::get('exportar/clientes/', [ClientesController::class, 'export'])->name('exportar.clientes');
+    Route::get('reportes_comprag/', [ReporteCompraController::class, 'store'])->name('reportes_comprasg');
+   // Route::get('reportes_comprag/store', [ReporteCompraController::class, 'store'])->name('reportes_comprasg.store');
 
     Route::get('lotesventa/pdf', [App\Http\Controllers\InsertarventaController::class,'pdf'])->name('lotesventa.pdf');
     Route::get('lotescompras/pdf', [App\Http\Controllers\LoteCompraController::class,'pdf'])->name('lotescompras.pdf');
@@ -150,6 +151,7 @@ Route::group(attributes:['middleware'=>'auth'], routes:function(){
     Route::resource('/reportesventas','App\Http\Controllers\VentasReportesController');
     Route::resource('/exportarventa','App\Http\Controllers\ExportarReporteVentaController');
     Route::resource('/verpreguntas','App\Http\Controllers\VerPreguntasController');
+    Route::resource('/anularlote','App\Http\Controllers\AnularLoteVentaController');
 
 
     Route::resource('usuarios', UsuariosController::class)->names('usuarios');

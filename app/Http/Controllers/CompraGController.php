@@ -98,7 +98,7 @@ class CompraGController extends Controller
         $request->validate (  rules: [
        
             "NOMBRE"  => 'required|min:2|max:50',
-            "COLOR" =>  'required|alpha|min:2|max:30',
+            "COLOR" =>  'required|min:2|max:30',
             "COD_ESTADO" =>  'required', 
             "LUGAR" => 'required',
             "SEXO" =>  'required', 

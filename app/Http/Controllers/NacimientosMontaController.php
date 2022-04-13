@@ -82,14 +82,14 @@ class NacimientosMontaController extends Controller
     {
         $request->validate (  rules: [
             "NUM_ARETE" =>  'nullable|numeric|unique:tbl_mg_ganado|digits_between:1,3',
-            "NOM_GANADO"  => 'required|alpha|min:2|max:30',
+            "NOM_GANADO"  => 'required|min:2|max:30',
             "CLR_GANADO" =>  'required|min:2|max:30',
             "COD_ESTADO" =>  'required', 
             "COD_LUGAR" => 'required',
             "COD_RAZA" => 'required',
             "status" => 'required',
             "SEX_GANADO" =>  'required', 
-            "PES_ACTUAL"=>'nullable|numeric',
+            "PES_ACTUAL"=>'nullable|numeric|gt:0',
             "FIE_GANADO"  => 'nullable|alpha|min:2|max:3',
             "RAZ_GANADO"  => 'nullable|alpha_dash|max:25',
             "COD_PRENADA_MONTA" =>  'required',

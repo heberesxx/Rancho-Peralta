@@ -1,14 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use GuzzleHttp\Client;
-use Illuminate\Http\Request;
-use  Barryvdh\DomPDF\Facade as PDF;
-use Illuminate\Support\Facades\DB;
 
-class ConfirmarLoteVenta extends Controller
+use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+
+class AnularLoteVentaController extends Controller
 {
-    public function __construct () {
+
+    private $cliente;
+
+    public function __construct()
+    {
         $this->cliente = new Client(['base_uri' => 'http://localhost:3000/']);
     }
     /**
@@ -39,21 +42,7 @@ class ConfirmarLoteVenta extends Controller
      */
     public function store(Request $request)
     {
-        $this->cliente->post('confirmarlote_venta');
-
-        $detalle = DB::select('select * from factura_venta');
-        
-        $cliente = DB::select('select * from factura_cliente');
-        
-        $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
-       
-     
-         $pdf = PDF::loadView('lotesventa.factura',['detalles'=>$detalle],['clientes' =>$cliente]);
- 
-         return $pdf->stream();
-
-
-        return redirect()->route('lotesventa.index');
+        //
     }
 
     /**
@@ -75,7 +64,9 @@ class ConfirmarLoteVenta extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->cliente->put('anular_loteventa/' . $id);
+
+        return redirect()->route('lotesventa.index')->with('edit', 'Lote Anulado');
     }
 
     /**

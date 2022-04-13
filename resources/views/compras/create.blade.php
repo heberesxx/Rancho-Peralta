@@ -228,7 +228,7 @@
 									<div class="col-lg-4">
 										<div class="form-group">
 											<label><span style="color: red;">*</span>Nombre:</label>
-											<input id="NOMBRE" class="form-control border-dark transformacion2" placeholder="Ingrese el Nombre" type="text" name="NOMBRE" value="{{ old('NOMBRE') }}" autofocus>
+											<input id="NOMBRE" class="form-control border-dark transformacion2" placeholder="Ingrese el Nombre" type="text" name="NOMBRE" value="{{ old('NOMBRE') }}"  minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios"autofocus>
 
 											@if ($errors->has('NOMBRE'))
 											<div id="nombre_ganado-error" class="error text-danger pl-3" for="NOMBRE" style="display: bock;">
@@ -242,7 +242,7 @@
 									<div class="col-lg-4">
 										<div class="form-group">
 											<label><span style="color: red;">*</span>Color:</label>
-											<input id="COLOR" class="form-control border-dark" placeholder="Ingrese el Color" type="text" name="COLOR" value="{{ old('COLOR') }}" autofocus>
+											<input id="COLOR" class="form-control border-dark" placeholder="Ingrese el Color" type="text" name="COLOR" value="{{ old('COLOR') }}"   minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios" autofocus>
 
 											@if ($errors->has('COLOR'))
 											<div id="COLOR-error" class="error text-danger pl-3" for="COLOR" style="display: bock;">
@@ -305,7 +305,7 @@
 									<div class="col-lg-2">
 										<div class="form-group">
 											<label><span style="color: red;"> </span>Fierro:</label>
-											<input id="FIERRO" class="form-control border-dark" placeholder="" type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="FIERRO" value="{{ old('FIERRO') }}" autofocus>
+											<input id="FIERRO" class="form-control border-dark" placeholder="" type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="FIERRO" value="{{ old('FIERRO') }}"  maxlength="2" pattern="[A-Za-zÀ-ÿ ]{2,50}" title="Este campo solo puede contener letras y espacios" autofocus>
 
 											@if ($errors->has('FIERRO'))
 											<div id="FIERRO-error" class="error text-danger pl-3" for="FIERRO" style="display: bock;">

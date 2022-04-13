@@ -68,7 +68,14 @@
                                 <div class="col-lg-6">
                                     <button type="button" class="btn btn-danger btn-block" data-dismiss="modal"><i class="fas fa-times-circle"></i> Cancelar</button>
                                 </div>
-        
+                                <div class="col-lg-2">
+
+                                    <form accion="{{url('reportesventas')}}" method="post">
+                                        @csrf()
+                                        <button type="submit" class="btn btn-block btn-danger btn-block" data-toggle="modal" data-target="">PDF
+                                        </button>
+                                    </form>
+                                </div>
 
                             </div> </br>
 
@@ -80,11 +87,17 @@
             </div>
         </div>
 
+        <div class="card-body">
 
+
+
+
+        </div></br>
 
         <table id="TB" class="table table-bordered table-hover US">
 
             <thead style="background-color: #e1e2f6;">
+
                 <tr>
 
                     <th class="text-center">Lote</th>
@@ -98,11 +111,11 @@
             </thead>
             <tbody>
 
-                @foreach($datos["ventas"] as $dato)
+                @foreach($venta[0] as $dato)
                 <tr>
 
                     <td class="text-center">{{ $dato->LOTE}}</td>
-                    <td class="text-center">{{ \Carbon\Carbon::parse($dato->FEC_VENTA)->format('d-m-Y')}}</td>
+                    <td class="text-center">{{ \Carbon\Carbon::parse($dato->FEC_VENTA)->format('d/m/Y')}}</td>
                     <td class="text-center">{{ $dato->CLIENTE}}</td>
                     <td class="text-center">{{ $dato->PRECIO}}</td>
                     <td class="text-center">{{ $dato->NOMBRE}}</td>
@@ -117,6 +130,7 @@
         </table>
     </div>
 
+</div>
 </div>
 
 @stop
@@ -154,22 +168,20 @@
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
-            "bSort": false,
             "autoWidth": false,
             "responsive": true,
-
             dom: '<"pt-2 row" <"col-xl mt-2"l><"col-xl text-center"B><"col-xl text-right mt-2 "f>> <"row"rti<"col"><p>>',
-            buttons: [
-
-             
+            buttons: [{
+                    extend: 'print',
+                    text: 'Imprimir',
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                },
                 {
                     extend: 'excel',
                     className: 'btn btn-success glyphicon glyphicon-duplicate'
                 }
-                
             ]
         });
     });
 </script>
 </script>
-@stop

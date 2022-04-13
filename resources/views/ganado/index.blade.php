@@ -64,8 +64,9 @@
                             <th class="text-center">Peso (kg)</th>
                             <th class="text-center">Raza</th>
                             <th class="text-center">Estado</th>
-                            <th class="text-center">Sexo</th>
                             <th class="text-center">Edad</th>
+                            <th class="text-center">Sexo</th>
+                            
                             @CAN('EDITAR_GANADO')
                             <th class="text-center" style="width: 10%">Editar</th>
                             @ENDCAN
@@ -83,7 +84,6 @@
                                 <td class="text-center">{{ $ganado->PES_ACTUAL }}</td>
                                 <td class="text-center">{{ $ganado->RAZ_GANADO }}</td>
                                 <td class="text-center">{{ $ganado->DET_ESTADO }}</td>
-                                <td class="text-center">{{ $ganado->SEX_GANADO }}</td>
                                 @if($ganado->MESES > 12)
                                 <td class="text-center">{{ $ganado->ANIOS.' años'}}</td>
                                 @elseif($ganado->DIAS > 31)
@@ -91,6 +91,8 @@
                                 @else
                                 <td class="text-center">{{ $ganado->DIAS.' días'}}</td>
                                 @endif
+                                <td class="text-center">{{ $ganado->SEX_GANADO }}</td>
+                               
                                 @CAN('EDITAR_GANADO')
                                 <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href=" {{ url('ganado/' .$ganado->COD_REGISTRO_GANADO . '/edit') }}">Editar</a></td>
                                 @ENDCAN

@@ -41,7 +41,7 @@
                     <div class="col-lg-1">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Arete:</label>
-                            <input id="NUM_ARETE" class="form-control border-dark"  type="text"  placeholder="# Arete"  name="NUM_ARETE" value="{{old('NUM_ARETE')}}" autofocus>
+                            <input id="NUM_ARETE" class="form-control border-dark"  type="text"  placeholder="# Arete"  name="NUM_ARETE" value="{{old('NUM_ARETE')}}" maxlength="3" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)"autofocus>
 
                             @if ($errors->has('NUM_ARETE'))
                             <div id="NUM_ARETE-error" class="error text-danger pl-3" for="NUM_ARETE" style="display: bock;">
@@ -55,7 +55,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Nombre:</label>
-                            <input id="nombre_ganado" class="form-control border-dark capitalize" placeholder="Nombre Ganado" type="text" name="nombre_ganado" value="{{old('nombre_ganado')}}" autofocus>
+                            <input id="nombre_ganado" class="form-control border-dark capitalize" placeholder="Nombre Ganado" type="text" name="nombre_ganado" value="{{old('nombre_ganado')}}" minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios" autofocus>
 
                             @if ($errors->has('nombre_ganado'))
                             <div id="nombre_ganado-error" class="error text-danger pl-3" for="nombre_ganado" style="display: bock;">
@@ -69,7 +69,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Color:</label>
-                            <input id="color" class="form-control border-dark" placeholder="Color del Ganado" type="text" name="color" value="{{old('color')}}" pattern="[[A-Za-z ]+" title="Este campo solo acepta letras" autofocus>
+                            <input id="color" class="form-control border-dark" placeholder="Color del Ganado" type="text" name="color" value="{{old('color')}}" pattern="[[A-Za-z ]+" title="Este campo solo acepta letras" minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios" autofocus>
 
                             @if ($errors->has('color'))
                             <div id="color-error" class="error text-danger pl-3" for="color" style="display: bock;">
@@ -101,7 +101,7 @@
                     <div class="col-lg-1">
                         <div class="form-group">
                             <label><span style="color: red;"></span>Peso (kg):</label>
-                            <input id="peso" class="form-control border-dark" placeholder="Peso" type="text" name="peso" value="{{old('peso')}}" autofocus>
+                            <input id="peso" class="form-control border-dark" placeholder="Peso"  type="number" step="0.01" name="peso" value="{{old('peso')}}" autofocus>
 
                             @if ($errors->has('peso'))
                             <div id="peso-error" class="error text-danger pl-3" for="peso" style="display: bock;">
@@ -115,7 +115,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"> </span>Fierro:</label>
-                            <input id="fierro" class="form-control border-dark " placeholder="Ingrese el fierro del ganado " style="text-transform: uppercase;" type="text" name="fierro" value="{{old('fierro')}}" autofocus>
+                            <input id="fierro" class="form-control border-dark " placeholder="Ingrese el fierro del ganado " onkeyup="javascript:this.value=this.value.toUpperCase();"  maxlength="2" type="text" name="fierro" value="{{old('fierro')}}" autofocus>
 
                             @if ($errors->has('fierro'))
                             <div id="fierro-error" class="error text-danger pl-3" for="fierro" style="display: bock;">

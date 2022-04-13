@@ -68,7 +68,7 @@ class LoteCompraEmbrionController extends Controller
         ];
         LoteCompraEmbrion::create($data);
 
-        return redirect()->route('embrion.create')->with('info','Lote de Esperma Generado');
+        return redirect()->route('embrion.create')->with('info','Lote de Embrión Generado');
     }
 
     /**

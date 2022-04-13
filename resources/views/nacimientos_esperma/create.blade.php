@@ -39,7 +39,7 @@
                 <div class="row">
                     <div class="col-lg-1">
                         <label><span style="color: red;"> </span> Arete:</label>
-                        <input id="NUM_ARETE" class="form-control border-dark" placeholder="Ingrese el número de arete" type="text" name="NUM_ARETE" value="{{old('NUM_ARETE')}}" autofocus>
+                        <input id="NUM_ARETE" class="form-control border-dark" placeholder="Ingrese el número de arete" type="text" name="NUM_ARETE" value="{{old('NUM_ARETE')}}"  maxlength="3" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autofocus>
 
                         @if ($errors->has('NUM_ARETE'))
                         <div id="NUM_ARETE-error" class="error text-danger pl-3" for="NUM_ARETE" style="display: bock;">
@@ -52,7 +52,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Nombre:</label>
-                            <input name="NOM_GANADO" placeholder="" id="NOM_GANADO" class="form-control border-dark" type="text" value="{{old('NOM_GANADO')}}">
+                            <input name="NOM_GANADO" placeholder="" id="NOM_GANADO" class="form-control border-dark" type="text" value="{{old('NOM_GANADO')}}"  minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios">
                             @if ($errors->has('NOM_GANADO'))
                             <div id="NOM_GANADO-error" class="error text-danger pl-3" for="NOM_GANADO" style="display: bock;">
                                 <strong>
@@ -65,7 +65,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Color:</label>
-                            <input name="CLR_GANADO" placeholder="" id="CLR_GANADO" class="form-control border-dark"   pattern="[[A-Za-z ]+" title="Este campo solo acepta letras" type="text" value="{{old('CLR_GANADO')}}">
+                            <input name="CLR_GANADO" placeholder="" id="CLR_GANADO" class="form-control border-dark"   pattern="[[A-Za-z ]+" title="Este campo solo acepta letras" type="text" value="{{old('CLR_GANADO')}}"  minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios">
                             @if ($errors->has('CLR_GANADO'))
                             <div id="CLR_GANADO-error" class="error text-danger pl-3" for="CLR_GANADO" style="display: bock;">
                                 <strong>
@@ -95,7 +95,7 @@
                     <div class="col-lg-1">
                         <div class="form-group">
                             <label><span style="color: red;"></span>Peso(kg):</label>
-                            <input name="PES_ACTUAL" placeholder="" id="PES_ACTUAL" class="form-control border-dark" type="text" value="{{old('PES_ACTUAL')}}">
+                            <input name="PES_ACTUAL" placeholder="" id="PES_ACTUAL" class="form-control border-dark" type="number" step="0.01" value="{{old('PES_ACTUAL')}}">
                             @if ($errors->has('PES_ACTUAL'))
                             <div id="PES_ACTUAL-error" class="error text-danger pl-3" for="PES_ACTUAL" style="display: bock;">
                                 <strong>
@@ -108,7 +108,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"> </span>Fierro:</label>
-                            <input name="FIE_GANADO" placeholder="" id="FIE_GANADO" class="form-control border-dark" type="text" value="{{old('FIE_GANADO')}}">
+                            <input name="FIE_GANADO" placeholder="" id="FIE_GANADO" class="form-control border-dark" type="text" value="{{old('FIE_GANADO')}}" onkeyup="javascript:this.value=this.value.toUpperCase();"  maxlength="2">
                             @if ($errors->has('FIE_GANADO'))
                             <div id="FIE_GANADO-error" class="error text-danger pl-3" for="FIE_GANADO" style="display: bock;">
                                 <strong>

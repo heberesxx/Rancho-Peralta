@@ -25,15 +25,8 @@ class VentasReportesController extends Controller
     {
         $respuesta = $this->cliente->get('venta_ganado');
         $cuerpo = $respuesta->getBody();
-
-        $respuesta2 = $this->cliente->get('compra_ganado');
-        $cuerpo2= $respuesta2->getBody();
-
-        $datos = array(
-            "ventas" => json_decode($cuerpo),
-           
-        );
-        return view('reportesventas.index',['datos' => $datos]);
+        $parametros[0] = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+        return view('reportesventas.index', ['venta' => json_decode($cuerpo)], ['parametros' => $parametros]);
     }
 
     /**
@@ -68,11 +61,15 @@ class VentasReportesController extends Controller
 
         $respuesta = $client->request('GET', 'http://localhost:3000/venta_ganado?inicio=' . $v_inicio . '&final=' . $v_final);
         $cuerpo = $respuesta->getbody();
-        $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+        $parametros[0] = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
+        $parametros[1] = $v_inicio;
+        $parametros[2] = $v_final;
         return view('reportesventas.index', ['venta' => json_decode($cuerpo)], ['parametros' => $parametros]);
         //$pdf = PDF::loadView('reporte.reporteventa', ['venta' => json_decode($cuerpo)], ['parametros' => $parametros]);
         //return $pdf->stream('reporte.pdf');
     }
+
+
 
     /**
      * Display the specified resource.

@@ -72,7 +72,9 @@
                                 <th class="text-center" >Precio Total (L)</th>
                                 <th class="text-center" >Estado Lote</th>
                                 <th class="text-center" >Ver detalle</th>
-                                
+                                @CAN('ELIMINAR_VENTAS')
+                                <th class="text-center" >Anular Lote</th>
+                                @ENDCAN
 
                             </tr>
                         </thead>
@@ -86,6 +88,9 @@
                                 <td  style="text-align: right;">{{ $lote->TOTAL_PRECIO }}</td>
                                 <td  class="text-center">{{ $lote->STATUS_LOTE }}</td>
                                 <td class="text-center"><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href="{{ url('ventas/' .$lote->COD_VENTA . '/edit') }}"></a></td>
+                                @CAN('ELIMINAR_VENTAS')
+                                <td class="text-center"><a type="submit" class=" btn btn-danger btn-sm  fa fa-times-circle" href="{{ url('anularlote/' .$lote->COD_VENTA . '/edit') }}"></a></td>
+                                @ENDCAN
                             </tr>
 
                             @endforeach

@@ -29,7 +29,7 @@
 
                     <div class="col-lg-2">
                         <div class="form-group">
-                            <label><span style="color: red;"> * </span>CCódigo Vaca Preñada</label>
+                            <label><span style="color: red;"> * </span>Código Vaca Preñada</label>
                             <input name="COD_VACA_PRENADA" value="{{$vacaprenadaembrion->COD_PRENADA_EMBRION}}" placeholder="" id="COD_VACA_PRENADA" class="form-control" type="text" disabled>
                         </div>
                     </div>

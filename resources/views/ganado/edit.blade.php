@@ -39,7 +39,7 @@
                     <div class="col-lg-1">
                         <div class="form-group">
                             <label><span style="color: red;"> </span>Arete</label>
-                            <input id="NUM_ARETE" class="form-control border-dark" placeholder="Ingrese el número de arete" type="text" value="{{ $ganado->NUM_ARETE }}" name="NUM_ARETE" :value="old('NUM_ARETE')" autofocus>
+                            <input id="NUM_ARETE" class="form-control border-dark" placeholder="Ingrese el número de arete" type="text" value="{{ $ganado->NUM_ARETE }}" maxlength="3" name="NUM_ARETE" :value="old('NUM_ARETE')"onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" autofocus>
 
                             @if (session('NUM_ARETE'))
                             <div id="NUM_ARETE-error" class="error text-danger pl-3" for="NUM_ARETE" style="display: bock;">
@@ -54,7 +54,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Nombre:</label>
-                            <input id="nombre_ganado" class="form-control border-dark capitalize" type="text" name="nombre_ganado" value="{{ $ganado->NOM_GANADO }}" autofocus>
+                            <input id="nombre_ganado" class="form-control border-dark capitalize" type="text" name="nombre_ganado" value="{{ $ganado->NOM_GANADO }}" minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios" autofocus>
 
                             @if ($errors->has('nombre_ganado'))
                             <div id="nombre_ganado-error" class="error text-danger pl-3" for="nombre_ganado" style="display: bock;">
@@ -68,7 +68,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Color:</label>
-                            <input id="color_ganado" class="form-control border-dark" placeholder="Ingrese el color_ganado del ganado..." type="text" name="color_ganado" value="{{ $ganado->CLR_GANADO }}" autofocus>
+                            <input id="color_ganado" class="form-control border-dark" placeholder="Ingrese el color_ganado del ganado..." type="text" name="color_ganado" value="{{ $ganado->CLR_GANADO }}" minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios" autofocus>
 
                             @if ($errors->has('color_ganado'))
                             <div id="color_ganado-error" class="error text-danger pl-3" for="color_ganado" style="display: bock;">
@@ -101,7 +101,7 @@
                         <div class="form-group">
 
                             <label><span style="color: red;"></span>PESO (kg):</label>
-                            <input id="peso" class="form-control border-dark" placeholder="Ingrese el peso actual del ganado en kg..." type="text" name="peso" value="{{ $ganado->PES_ACTUAL }}" :value="old('peso')" autofocus>
+                            <input id="peso" class="form-control border-dark" placeholder="Ingrese el peso actual del ganado en kg..."  type="number" step="0.01"  name="peso" value="{{ $ganado->PES_ACTUAL }}"  :value="old('peso')" autofocus>
                             @if ($errors->has('peso'))
                             <div id="peso-error" class="error text-danger pl-3" for="peso" style="display: bock;">
                                 <strong>
@@ -116,7 +116,7 @@
                         <div class="form-group">
 
                             <label><span style="color: red;"></span>FIERRO</label>
-                            <input id="fierro" class="form-control border-dark trasnformacion1" placeholder="Ingrese el fierro del ganado" type="text" name="fierro" :value="old('fierro')" autofocus value="{{ $ganado->FIE_GANADO }}">
+                            <input id="fierro" class="form-control border-dark" placeholder="Ingrese el fierro del ganado" type="text" name="fierro" :value="old('fierro')" autofocus value="{{ $ganado->FIE_GANADO }}" onkeyup="javascript:this.value=this.value.toUpperCase();"  maxlength="2" >
                             @if ($errors->has('fierro'))
                             <div id="fierro-error" class="error text-danger pl-3" for="fierro" style="display: bock;">
                                 <strong>

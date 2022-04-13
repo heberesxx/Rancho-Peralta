@@ -74,9 +74,9 @@ class espermaController extends Controller
     {
         $request->validate(rules: [
             "NUM_PAJILLA" => 'required|integer|gt:0|unique:tbl_mc_detalle_cesperma',
-            "RAZ_TORO_DONADOR" => ["required","alpha_dash","max:30",new Uppercase()],
+            "RAZ_TORO_DONADOR" => ["required","max:30",new Uppercase()],
             "PRE_ESPERMA" =>   'required|numeric|gt:0',
-            "NOM_TORO_DONADOR"=>'nullable|alpha|max:25',
+            "NOM_TORO_DONADOR"=>'nullable|max:30',
             "OBS_COMPRA_ESPERMA"=>'nullable|max:200',
             
             

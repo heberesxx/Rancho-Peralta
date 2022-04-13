@@ -243,7 +243,7 @@
                                                 }
                                             </style>
                                             <label><span style="color: red;">*</span>Raza del Donador</label>
-                                            <input id="RAZ_TORO_DONADOR" class="form-control border-dark" type="text" name="RAZ_TORO_DONADOR" style="text-transform: uppercase;" value="{{old('RAZ_TORO_DONADOR')}}" autofocus>
+                                            <input id="RAZ_TORO_DONADOR" class="form-control border-dark" type="text" name="RAZ_TORO_DONADOR" maxlength="30" value="{{old('RAZ_TORO_DONADOR')}}" onkeyup="javascript:this.value=this.value.toUpperCase();" onkeydown="return /[A-Z, ]/i.test(event.key)" autofocus>
 
                                             @if ($errors->has('RAZ_TORO_DONADOR'))
                                             <div id="RAZ_TORO_DONADOR-error" class="error text-danger pl-3" for="RAZ_TORO_DONADOR" style="display: bock;">
@@ -257,7 +257,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Nombre del Donador</label>
-                                            <input id="NOM_TORO_DONADOR" class="form-control border-dark" type="text" name="NOM_TORO_DONADOR" value="{{old('NOM_TORO_DONADOR')}}" autofocus>
+                                            <input id="NOM_TORO_DONADOR" class="form-control border-dark" type="text" name="NOM_TORO_DONADOR" value="{{old('NOM_TORO_DONADOR')}}"  minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios" autofocus>
 
                                             @if ($errors->has('NOM_TORO_DONADOR'))
                                             <div id="NOM_TORO_DONADOR-error" class="error text-danger pl-3" for="NOM_TORO_DONADOR" style="display: bock;">
