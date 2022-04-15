@@ -19,7 +19,7 @@
             clear: both;
         }
 
-        
+
 
         body {
             position: relative;
@@ -40,16 +40,16 @@
 
         #logo {
             text-align: center;
-          
+
         }
 
-         #logo img {
+        #logo img {
             width: 90px;
             float: center;
         }
 
         h1 {
-           
+
             color: #5D6975;
             font-size: 2.4em;
             line-height: 1.4em;
@@ -59,7 +59,7 @@
         }
 
         #project {
-         
+
             text-align: center;
             font-size: 1.5em;
         }
@@ -73,7 +73,7 @@
             font-size: 0.8em;
         }
 
-     
+
 
         #project div,
         #company div {
@@ -153,16 +153,18 @@
 
 <body>
     <header class="clearfix">
-       <div id="logo">
+        <div id="logo">
             <img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
         </div>
         <h1>Proveedores Registrados</h1>
         <div id="project" class="clearfix">
-            <div><p>Generado por:
+            <div>
+                <p>Generado por:
 
-      @foreach($usuarios as $usuario)
-                {{$usuario->name}}
-                @endforeach</p>
+                    @foreach($usuarios as $usuario)
+                    {{$usuario->name}}
+                    @endforeach
+                </p>
             </div>
             <div>{{'Fecha de consulta: '.date('d-m-Y');}}</div>
 
@@ -176,13 +178,13 @@
         <table>
             <thead>
                 <tr>
-                    <th class="desc"  >Código </th>
-                    <th  class="desc" >Nombre</th>
-                    <th  class="desc" >Apellido</th>
-                    <th class="desc" >Dirección</th>
-                    <th class="desc" > Área</th>
-                    <th class="desc" >Celular</th>
-                    <th class="desc"  >Status </th>
+                    <th class="desc">Código </th>
+                    <th class="desc">Nombre</th>
+                    <th class="desc">Apellido</th>
+                    <th class="desc">Dirección</th>
+
+                    <th class="desc">Celular</th>
+                    <th class="desc">Status </th>
 
                 </tr>
             </thead>
@@ -190,13 +192,12 @@
 
                 @foreach($proveedores as $proveedor)
                 <tr>
-                    <td class="desc"  > {{ $proveedor->COD_PROVEEDOR }}</td>
-                    <td class="desc"  >{{ $proveedor->PRI_NOMBRE }}</td>
-                    <td class="desc"  >{{ $proveedor->PRI_APELLIDO }}</td>
-                    <td class="desc"  >{{ $proveedor->DET_DIRECCION }}</td>
-                    <td class="desc"  >{{ $proveedor->NUM_AREA }}</td>
-                    <td class="desc"  >{{ $proveedor->NUM_CELULAR }}</td>
-                    <td class="desc"  >{{ $proveedor->IND_COMERCIAL }}</td>
+                    <td class="desc"> {{ $proveedor->COD_PROVEEDOR }}</td>
+                    <td class="desc">{{ $proveedor->PRI_NOMBRE }}</td>
+                    <td class="desc">{{ $proveedor->PRI_APELLIDO }}</td>
+                    <td class="desc">{{ $proveedor->DET_DIRECCION }}</td>
+                    <td class="desc">{{ '+'.$proveedor->NUM_AREA.' '.$proveedor->NUM_CELULAR }}</td>
+                    <td class="desc">{{ $proveedor->IND_COMERCIAL }}</td>
                 </tr>
 
                 @endforeach

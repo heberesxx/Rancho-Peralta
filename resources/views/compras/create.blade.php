@@ -105,10 +105,11 @@
 						<table id="TB" class="table table-bordered table-hover US">
 							<thead style="background-color: #e1e2f6;">
 								<tr>
-									<th>N°</th>
-									<th>Descripción </th>
-									<th>Precio </th>
-									<th style="width: auto;">Acción</th>
+								<th>N°</th>
+                                    <th style="width: auto;">Descripción </th>
+                                    <th style="width: auto;" class="text-center">Precio (L) </th>
+                                    <th style="width: auto;">Acción</th>
+
 
 
 								</tr>
@@ -120,7 +121,7 @@
 									<td>{{$i }}</td>
 									<td>{{'Nombre: '.$compras->NOM_GANADO.', Color: '.$compras->CLR_GANADO.', Raza: '.$compras->NOM_RAZA.', Sexo: '.$compras->SEX_GANADO.', Peso(kg): '.$compras->PES_ACTUAL.', Fierro: '.$compras->FIE_GANADO.
 										', Status: '.$compras->DET_ESTADO.', Lugar: '.$compras->DIR_LUGAR.', Status compra: '.$compras->STATUS}}</td>
-									<td>{{$compras->PRE_GANADO }}</td>
+										<td style="text-align: right;">{{number_format($compras->PRE_GANADO,2,'.',',') }}</td>
 
 
 
@@ -170,7 +171,7 @@
 										<th>Fecha </th>
 										<th>Proveedor </th>
 										<th>Cantidad</th>
-										<th>Total</th>
+										<th>Total(L)</th>
 										<th>Cancelar</th>
 
 
@@ -187,7 +188,7 @@
 										<td>{{\Carbon\Carbon::parse($lote->FECHA)->format('d-m-Y')}}</td>
 										<td>{{$lote->NOMBRE}}</td>
 										<td>{{$lote->CANTIDAD}}</td>
-										<td style="text-align: right;">{{$lote->TOTAL}}</td>
+										<td style="text-align: right;">{{number_format($lote->TOTAL,2,'.',',')}}</td>
 										<td>
 											<a type="submit" class=" btn btn-danger btn-sm  " href=" {{ url('lotescompras/' .$lote->COD_COMPRA_GANADO . '/edit') }}">Cancelar Lote
 
@@ -305,7 +306,7 @@
 									<div class="col-lg-2">
 										<div class="form-group">
 											<label><span style="color: red;"> </span>Fierro:</label>
-											<input id="FIERRO" class="form-control border-dark" placeholder="" type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="FIERRO" value="{{ old('FIERRO') }}"  maxlength="2" pattern="[A-Za-zÀ-ÿ ]{2,50}" title="Este campo solo puede contener letras y espacios" autofocus>
+											<input id="FIERRO" class="form-control border-dark" placeholder="" type="text"  onkeyup="javascript:this.value=this.value.toUpperCase();" name="FIERRO" value="{{ old('FIERRO') }}"  maxlength="2" pattern="[A-Za-zÀ-ÿ ]{2,50}" title="Este campo solo puede contener letras y espacios" autofocus>
 
 											@if ($errors->has('FIERRO'))
 											<div id="FIERRO-error" class="error text-danger pl-3" for="FIERRO" style="display: bock;">

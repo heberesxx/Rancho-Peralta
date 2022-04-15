@@ -67,7 +67,7 @@
                                     <th class="text-center">Reorden</th>
                                     <th class="text-center">Avisos</th>
                                     <th class="text-center"> Registro</th>
-                                    <th class="text-center">Acción</th>
+                                    <th class="text-center">Editar</th>
                                     <th class="text-center"> Salidas</th>
 
                                 </tr>

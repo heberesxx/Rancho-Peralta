@@ -70,9 +70,7 @@
                                     @can('EDITAR_PRENADAS ESPERMA')
                                     <th class="text-center" style="width: 10%">Editar</th>
                                     @ENDCAN
-                                    @can('ELIMINAR_PRENADAS ESPERMA')
-                                    <th class="text-center" style="width: 10%">Borrar</th>
-                                    @ENDCAN
+                                   
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,17 +86,10 @@
                                     <td class="text-center">{{$vacaprenadaesperma->FEC_PARIO}}</td>
                                  
                                     @can('EDITAR_PRENADAS ESPERMA')
-                                    <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('prenadas_esperma/' . $vacaprenadaesperma->COD_PRENADA_ESPERMA . '/edit')}}">Editar</a>
+                                    <td class="text-center" style="width: 10%;"><a class="btn btn-warning btn-sm fa fa-edit " href="{{url('prenadas_esperma/' . $vacaprenadaesperma->COD_PRENADA_ESPERMA . '/edit')}}"></a>
                                     </td>
                                     @ENDCAN
 
-                                    @can('ELIMINAR_PRENADAS ESPERMA')
-                                    <td class="text-center" style="width: 10%;">
-
-                                        <input class="btn btn-danger" type="submit" value="Eliminar" />
-
-                                    </td>
-                                    @ENDCAN
                                 </tr>
                                 @endforeach
                             </tbody>

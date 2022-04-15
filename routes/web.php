@@ -30,6 +30,7 @@ use App\Http\Controllers\VerBitacoraController;
 use  Barryvdh\DomPDF\Facade as PDF;
 use App\Http\Controllers\LoteMedicamentoController;
 use App\Http\Controllers\BackupController;
+use App\Http\Controllers\BitaController;
 use App\Http\Controllers\ReporteCompraController;
 
 /*
@@ -66,6 +67,7 @@ Route::group(attributes:['middleware'=>'auth'], routes:function(){
    
     Route::get('clientes/pdf', [App\Http\Controllers\ClientesController::class,'pdf'])->name('clientes.pdf');
     Route::get('bita/pdf', [App\Http\Controllers\BitaController::class,'pdf'])->name('bita.pdf');
+    Route::get('exportar/bitacora/', [BitaController::class, 'export'])->name('exportar.bitacora');
     Route::get('proveedores/pdf', [App\Http\Controllers\ProveedoresController::class,'pdf'])->name('proveedores.pdf');
     Route::get('ganado/pdf', [App\Http\Controllers\GanadoGeneralController::class,'pdf'])->name('ganado.pdf');
     Route::get('compra_medicamento/pdf', [App\Http\Controllers\CompraMedicamentoController::class,'pdf'])->name('compra_medicamento.pdf');

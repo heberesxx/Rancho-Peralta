@@ -77,7 +77,7 @@
 										<td class="text-center">{{ $embrion->RAZ_ESPERADA }}</td>
 										<td class="text-center">{{ $embrion->RAZ_VACA_DONADORA }}</td>
 										<td class="text-center">{{ $embrion->RAZ_TORO_DONADOR }}</td>
-										<td style="text-align: right;">{{ $embrion->PRE_EMBRION }}</td>
+										<td style="text-align: right;">{{ number_format($embrion->PRE_EMBRION, 2, '.',',') }}</td>
 										<td class="text-center">{{ $embrion->OBS_COMPRA_EMBRION }}</td>
 										<td class="text-center">{{ $embrion->IND_EMBRION }}</td>
 										

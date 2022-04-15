@@ -51,7 +51,7 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label><span style="color: red;"> *</span>Nombre</label>
-                            <input id="name" class="form-control border-dark transformacion2 " placeholder="Ingrese el Nombre..." type="text" name="name" value="{{old('name')}}" autofocus>
+                            <input id="name" class="form-control border-dark transformacion2 " placeholder="Ingrese el Nombre..." type="text" name="name" value="{{old('name')}}"  autofocus>
 
                             @if ($errors->has('name'))
                             <div id="name-error" class="error text-danger pl-3" for="name" style="display: bock;">
@@ -65,7 +65,7 @@
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label><span style="color: red;"> *</span>Usuario</label>
-                            <input id="username" class="form-control border-dark " placeholder="Ingrese el nombre de usuario..." type="text" name="username" value="{{old('username')}}"   pattern="[A-Z0-9]{3,30}"   title="Entre 3 y 30 carácteres en mayúsculas, sin espacios ni caracteres especiales" autofocus>
+                            <input id="username" class="form-control border-dark " placeholder="Ingrese el nombre de usuario..." type="text" name="username" value="{{old('username')}}"  onkeyup="javascript:this.value=this.value.toUpperCase();"  pattern="[A-Z0-9]{4,30}"   title="Entre 4 y 30 carácteres en mayúsculas, sin espacios ni caracteres especiales" maxlength="30" minlength="4" autofocus>
 
                             @if ($errors->has('username'))
                             <div id="username-error" class="error text-danger pl-3" for="username" style="display: bock;">
@@ -106,7 +106,16 @@
                         <div class="form-group">
                             <label><span style="color: red;">*</span> Fecha de Vencimiento</label>
                             <input name="fecha_vencimiento" placeholder="" id="fecha_vencimiento" class="form-control" type='date' min="{{date('Y-m-d');}}" max="">
+                            @if ($errors->has('fecha_vencimiento'))
+                            <div id="fecha_vencimiento-error" class="error text-danger pl-3" for="fecha_vencimiento" style="display: bock;">
+                                <strong>
+                                    {{$errors -> first('fecha_vencimiento')}}
+                                </strong>
+                            </div>
+                            @endif
+                            
                         </div>
+                        
                     </div>
                     <div class="col-lg-5">
                         <div class="form-group">
@@ -118,6 +127,13 @@
                                 <option value={{$rol->id}}>{{$rol->name}}</option>
                                 @endforeach
                             </select>
+                            @if ($errors->has('roles'))
+                            <div id="roles-error" class="error text-danger pl-3" for="roles" style="display: bock;">
+                                <strong>
+                                    {{$errors -> first('roles')}}
+                                </strong>
+                            </div>
+                            @endif
                         </div>
 
                     </div>

@@ -69,9 +69,7 @@
                                 <th class="text-center">Ganado Vendido</th>
                                 <th class="text-center">Precio (L)</th>
                                 
-                                @can('ELIMINAR_VENTAS')
-                                <th class="text-center">Eliminar </th>
-                                @ENDCAN
+                             
                             </tr>
                         </thead>
                         <tbody>
@@ -84,22 +82,6 @@
                                 <td class="text-center">{{ $ventas->NOM_GANADO}}</td>
                                 <td style="text-align: right;"> {{ $ventas->PRE_VENTA }}</td>
                                
-                                @can('ELIMINAR_VENTAS')
-                                <td>
-                                    <!-- boton de eliminar -->
-                                    <button type="submit" class="btn btn-danger" form="delete_{{$ventas->COD_DETALLE}}" onclick="return confirm('¿Desea eliminar el registro permanentemente?')">
-
-                                        Eliminar
-
-                                    </button>
-
-                                    <form action="{{route('ventas.destroy', $ventas->COD_DETALLE)}}" id="delete_{{$ventas->COD_DETALLE}}" method="post" enctype="multipart/form-data" hidden>
-                                        @csrf()
-                                        @method('DELETE')
-                                    </form>
-                                    <!-- ----- -->
-                                </td>
-                                @ENDCAN
                             </tr>
                             @endforeach
                         </tbody>

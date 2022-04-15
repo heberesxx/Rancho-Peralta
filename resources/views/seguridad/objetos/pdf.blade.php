@@ -178,7 +178,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>N° </th>
+                    <th>Id </th>
                     <th class="desc">Nombre</th>
                     <th class="desc">Descripción</th>
                     <th class="desc">Status</th>
@@ -194,7 +194,7 @@
                 @foreach($objetos as $objeto)
                 <tr >
                     <td>
-                        {{$i}}
+                        {{$objeto->id}}
                     </td>
                     <td class="desc">{{$objeto->objeto}}</td>
                     <td class="desc">{{$objeto->Descripcion}}</td>

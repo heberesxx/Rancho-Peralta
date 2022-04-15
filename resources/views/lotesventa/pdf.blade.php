@@ -191,7 +191,7 @@
                     <td class="desc" >{{ $lote->FEC_VENTA }}</td>
                     <td class="desc" >{{ $lote->CLIENTE }}</td>
                     <td class="text-center" >{{ $lote->CAN_TOTAL }}</td>
-                    <td class="desc" >{{ $lote->TOTAL_PRECIO }}</td>
+                    <td style="text-align: right;" >{{number_format( $lote->TOTAL_PRECIO, 2, '.', ',') }}</td>
 
                 </tr>
 

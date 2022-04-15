@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use  Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\DB;
+use App\Exports\BitacoraExport;
 use App\Models\Bitacora;
+use Maatwebsite\Excel\Facades\Excel;
+
+
+
 class BitaController extends Controller
 {
     /**
@@ -30,6 +35,11 @@ class BitaController extends Controller
         return $pdf->stream();
        
       // return view('clientes.pdf')->with('personas', $clientes);
+    }
+
+    public function export() 
+    {
+        return Excel::download(new BitacoraExport, 'bitacora.xlsx');
     }
 
     /**

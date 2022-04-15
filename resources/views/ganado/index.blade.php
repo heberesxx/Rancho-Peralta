@@ -68,7 +68,7 @@
                             <th class="text-center">Sexo</th>
                             
                             @CAN('EDITAR_GANADO')
-                            <th class="text-center" style="width: 10%">Editar</th>
+                            <th class="text-center" >Editar</th>
                             @ENDCAN
 
                         </tr>
@@ -94,7 +94,7 @@
                                 <td class="text-center">{{ $ganado->SEX_GANADO }}</td>
                                
                                 @CAN('EDITAR_GANADO')
-                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href=" {{ url('ganado/' .$ganado->COD_REGISTRO_GANADO . '/edit') }}">Editar</a></td>
+                                <td class="text-center" ><a class="btn btn-warning btn-sm fa fa-edit " href=" {{ url('ganado/' .$ganado->COD_REGISTRO_GANADO . '/edit') }}"></a></td>
                                 @ENDCAN
                                 </td>
 

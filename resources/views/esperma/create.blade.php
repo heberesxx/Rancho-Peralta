@@ -104,8 +104,8 @@
                             <thead style="background-color: #e1e2f6;">
                                 <tr>
                                     <th>N°</th>
-                                    <th>Descripción </th>
-                                    <th>Precio </th>
+                                    <th style="width: auto;">Descripción </th>
+                                    <th style="width: auto;" class="text-center">Precio (L) </th>
                                     <th style="width: auto;">Acción</th>
 
 
@@ -117,7 +117,7 @@
                                 <tr>
                                     <td>{{$i }}</td>
                                     <td>{{'Número de Pajilla: '.$compras->NUM_PAJILLA.', Raza Donador: '.$compras->RAZ_TORO_DONADOR.', Nombre Toro: '.$compras->NOM_TORO_DONADOR.', Observación: '.$compras->OBS_COMPRA_ESPERMA.', Estado esperma: '.$compras->IND_ESPERMA.', Status compra: '.$compras->STATUS}}</td>
-                                    <td>{{$compras->PRE_ESPERMA }}</td>
+                                    <td style="text-align: right;">{{number_format($compras->PRE_ESPERMA,2,'.',',') }}</td>
 
 
 
@@ -167,7 +167,7 @@
                                         <th>Fecha </th>
                                         <th>Proveedor </th>
                                         <th>Cantidad</th>
-                                        <th>Total</th>
+                                        <th>Total(L)</th>
                                         <th>Cancelar</th>
 
 
@@ -184,7 +184,7 @@
                                         <td>{{\Carbon\Carbon::parse($lote->FECHA)->format('d-m-Y')}}</td>
                                         <td>{{$lote->NOMBRE}}</td>
                                         <td>{{$lote->CANTIDAD}}</td>
-                                        <td style="text-align: right;">{{$lote->TOTAL}}</td>
+                                        <td style="text-align: right;">{{number_format($lote->TOTAL,2,'.',',')}}</td>
                                         <td>
                                             <a type="submit" class=" btn btn-danger btn-sm  " href=" {{ url('lotescompras_esperma/' .$lote->COD_COMPRA_ESPERMA . '/edit') }}">Cancelar Lote
 
@@ -257,7 +257,7 @@
                                     <div class="col-lg-4">
                                         <div class="form-group">
                                             <label>Nombre del Donador</label>
-                                            <input id="NOM_TORO_DONADOR" class="form-control border-dark" type="text" name="NOM_TORO_DONADOR" value="{{old('NOM_TORO_DONADOR')}}"  minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios" autofocus>
+                                            <input id="NOM_TORO_DONADOR" class="form-control border-dark" type="text" name="NOM_TORO_DONADOR" value="{{old('NOM_TORO_DONADOR')}}" minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios" autofocus>
 
                                             @if ($errors->has('NOM_TORO_DONADOR'))
                                             <div id="NOM_TORO_DONADOR-error" class="error text-danger pl-3" for="NOM_TORO_DONADOR" style="display: bock;">

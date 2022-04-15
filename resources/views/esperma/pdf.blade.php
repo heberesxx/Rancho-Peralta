@@ -23,8 +23,8 @@
 
         body {
             position: relative;
-            width: 21cm;
-            height: 29.7cm;
+            width: 21.5cm;
+            height: 35cm;
             margin: 0 auto;
             color: #001028;
             background: #FFFFFF;
@@ -185,7 +185,7 @@
                     <th class="desc">Proveedor</th>
                     <th class="desc"># Pajilla</th>
                     <th class="desc">Raza Donador</th>
-                    <th class="desc">Precio</th>
+                    <th class="desc">Precio (L)</th>
                     <th class="desc">Observación</th>
 
                     <th class="desc">Status</th>
@@ -200,7 +200,7 @@
                     <td class="desc">{{ $esperma->PROVEEDOR}}</td>
                     <td class="desc">{{ $esperma->NUM_PAJILLA}}</td>
                     <td class="desc">{{ $esperma->RAZ_TORO_DONADOR}}</td>
-                    <td class="desc">{{ $esperma->PRE_ESPERMA }}</td>
+                    <td style="text-align: center;">{{number_format($esperma->PRE_ESPERMA, 2, '.',',')}}</td>
                     <td class="desc">{{ $esperma->OBS_COMPRA_ESPERMA }}</td>
 
                     <td class="desc">{{ $esperma->IND_ESPERMA }}</td>

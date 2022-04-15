@@ -60,30 +60,29 @@
                     <table id="TB" class="table table-bordered table-hover US">
                         <thead style="background-color: #e1e2f6;">
                             <tr>
-                            <th class="" style="width:10px;">Código </th>
-                                <th class="text-center" style="position:center; width:auto;">Nombre</th>
-                                <th class="text-center" style="width:20%;">Apellido</th>
+                            <th class="text-center" >Código </th>
+                                <th class="text-center">Nombre</th>
+                                <th class="text-center" >Apellido</th>
                                 <th class="text-center">Dirección</th>
-                                <th class="text-center" style="width:15%;">Núm  Área</th>
-                                <th class="text-center" style="width:20%;">Celular</th>
-                                <th class="text-center" style="width:auto;">Status </th>
+                                <th class="text-center" >Celular</th>
+                                <th class="text-center" >Status </th>
                                 @can('EDITAR_PROVEEDORES')
-                                <th class="text-center" style="width:auto;">Editar</th>
+                                <th class="text-center" >Editar</th>
                                 @ENDCAN
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($proveedores as $proveedor)
                             <tr>
-                                <td class="text-center" style="position:center; width:10%;">{{ $proveedor->COD_PROVEEDOR }}</td>
-                                <td class="text-center" style="width:20%;">{{ $proveedor->PRI_NOMBRE }}</td>
-                                <td class="text-center" style="width:20%;">{{ $proveedor->PRI_APELLIDO }}</td>
+                                <td class="text-center" >{{ $proveedor->COD_PROVEEDOR }}</td>
+                                <td class="text-center" >{{ $proveedor->PRI_NOMBRE }}</td>
+                                <td class="text-center" >{{ $proveedor->PRI_APELLIDO }}</td>
                                 <td style="width: 20%">{{ $proveedor->DET_DIRECCION }}</td>
-                                <td class="text-center" style="width:auto;">{{ $proveedor->NUM_AREA }}</td>
-                                <td class="text-center" style="width:auto;">{{ $proveedor->NUM_CELULAR }}</td>
-                                <td class="text-center" style="width:auto;">{{ $proveedor->IND_COMERCIAL }}</td>
+                             
+                                <td class="text-center">{{ '+'.$proveedor->NUM_AREA.' '.$proveedor->NUM_CELULAR }}</td>
+                                <td class="text-center" >{{ $proveedor->IND_COMERCIAL }}</td>
                                 @can('EDITAR_PROVEEDORES')
-                                <td class="text-center" style="width:auto;"><a class="btn btn-warning" href="{{url('proveedores/' . $proveedor->COD_PROVEEDOR . '/edit')}}">Editar</a></td>
+                                <td class="text-center" ><a class="btn btn-warning btn-sm fa fa-edit " href="{{url('proveedores/' . $proveedor->COD_PROVEEDOR . '/edit')}}"></a></td>
                                 @ENDCAN
                             </tr>
                             @endforeach
@@ -161,117 +160,100 @@
         $('#TB').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-
             },
-            "bSort": false,
             "autoWidth": false,
             "responsive": true,
+
             dom: '<"pt-2 row" <"col-xl mt-2"l><"col-xl text-center"B><"col-xl text-right mt-2 "f>> <"row"rti<"col"><p>>',
-            buttons: {
-                dom: {
-                    button: {
-
-                        className: 'btn'
-
-                    }
+            buttons: [{
+                    extend: 'print',
+                    text: 'Imprimir',
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
                 },
-                buttons: [{
-
-                        extend: 'print',
-                        text: 'Imprimir',
-                        className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                {
+                    extend: "excel",
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5]
                     },
-                    {
-                        extend: "excel",
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5, 6]
-                        },
-                        text: 'Excel',
-                        className: 'btn btn-success',
+                    text: 'Excel',
+                    className: 'btn btn-success',
 
 
-                        // 1 - ejemplo básico - uso de templates pre-definidos
-                        //definimos los parametros al exportar a excel
+                    // 1 - ejemplo básico - uso de templates pre-definidos
+                    //definimos los parametros al exportar a excel
 
-                        excelStyles: {
-                            template: "header_blue", // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
-                        },
+                    excelStyles: {
+                        template: "header_blue", // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
+                    },
 
 
-                        // 2 - estilos a una fila   
+                    // 2 - estilos a una fila   
 
-                        excelStyles: { // Add an excelStyles definition
-                            cells: "2",
-                            // adonde se aplicaran los estilos (fila 2)
-                            style: { // The style block
-                                font: { // Style the font
-                                    name: "Arial", // Font name
-                                    size: "12", // Font size
-                                    color: "FFFFFF", // Font Color
-                                    b: true, // negrita SI
-                                },
-                                fill: { // Estilo de relleno (background)
-                                    pattern: { // tipo de rellero (pattern or gradient)
-                                        color: "ff7961", // color de fondo de la fila
-                                    }
+                    excelStyles: { // Add an excelStyles definition
+                        cells: "2",
+                        // adonde se aplicaran los estilos (fila 2)
+                        style: { // The style block
+                            font: { // Style the font
+                                name: "Arial", // Font name
+                                size: "12", // Font size
+                                color: "FFFFFF", // Font Color
+                                b: true, // negrita SI
+                            },
+                            fill: { // Estilo de relleno (background)
+                                pattern: { // tipo de rellero (pattern or gradient)
+                                    color: "ff7961", // color de fondo de la fila
                                 }
                             }
-                        },
-
-
-
-                        deleteCells: [ // Agregar una opción de configuración insertCells                   
-                            {
-                                cells: '11', // Inserta los datos en las filas 5 y 6 contando desde el encabezado
-
-                            },
-
-                        ],
-
-
-
-                        // ejemplo para IMPRIMIR
-
-                        pageStyle: {
-                            sheetPr: {
-                                pageSetUpPr: {
-                                    fitToPage: 1 // Fit the printing to the page
-                                }
-                            },
-                            printOptions: {
-                                horizontalCentered: true,
-                                verticalCentered: true,
-                            },
-                            pageSetup: {
-                                orientation: "landscape", // Orientacion
-                                paperSize: "9", // Tamaño del papel (1 = Legal, 9 = A4)
-                                fitToWidth: "1", // Ajustar al ancho de la página
-                                fitToHeight: "0", // Ajustar al alto de la página
-                            },
-                            pageMargins: {
-                                left: "0.2",
-                                right: "0.2",
-                                top: "0.4",
-                                bottom: "0.4",
-                                header: "0",
-                                footer: "0",
-                            },
-                            repeatHeading: true, // Repeat the heading row at the top of each page
-                            repeatCol: 'A:A', // Repeat column A (for pages wider than a single printed page)
-                        },
-                        excelStyles: {
-                            template: 'blue_gray_medium', // Add a template style as well if you like
                         }
+                    },
 
+
+
+                    deleteCells: [ // Agregar una opción de configuración insertCells                   
+                        {
+                            cells: '11', // Inserta los datos en las filas 5 y 6 contando desde el encabezado
+
+                        },
+
+                    ],
+
+
+
+                    // ejemplo para IMPRIMIR
+
+                    pageStyle: {
+                        sheetPr: {
+                            pageSetUpPr: {
+                                fitToPage: 1 // Fit the printing to the page
+                            }
+                        },
+                        printOptions: {
+                            horizontalCentered: true,
+                            verticalCentered: true,
+                        },
+                        pageSetup: {
+                            orientation: "landscape", // Orientacion
+                            paperSize: "9", // Tamaño del papel (1 = Legal, 9 = A4)
+                            fitToWidth: "1", // Ajustar al ancho de la página
+                            fitToHeight: "0", // Ajustar al alto de la página
+                        },
+                        pageMargins: {
+                            left: "0.2",
+                            right: "0.2",
+                            top: "0.4",
+                            bottom: "0.4",
+                            header: "0",
+                            footer: "0",
+                        },
+                        repeatHeading: true, // Repeat the heading row at the top of each page
+                        repeatCol: 'A:A', // Repeat column A (for pages wider than a single printed page)
+                    },
+                    excelStyles: {
+                        template: 'blue_gray_medium', // Add a template style as well if you like
                     }
-                ]
 
-            }
-
-
-
-
-
+                }
+            ]
         });
     });
 </script>

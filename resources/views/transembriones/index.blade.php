@@ -66,11 +66,9 @@
                                 <th class="text-center">Estado Embrión</th>
                                 <th class="text-center">Fecha de Fecundación</th>
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
-                                <th class="text-center" style="width: 10%">Editar</th>
+                                <th class="text-center" >Editar</th>
                                 @ENDCAN
-                                @can('ELIMINAR_TRANSFERENCIAS EMBRION')
-                                <th class="text-center" style="width: 10%">Borrar</th>
-                                @ENDCAN
+                             
                             </tr>
                         </thead>
                         <tbody>
@@ -81,18 +79,12 @@
                                 <td class="text-center">{{ $transembrion->RAZ_TORO_DONADOR }}</td>
                                 <td class="text-center">{{'Nombre: '. $transembrion->NOM_GANADO.', Raza: '.$transembrion->RAZA.', Arete: '.$transembrion->ARETE.', Color: '.$transembrion->COLOR.', Edad: '.$transembrion->EDAD_GANADO.' años'}}</td>
                                 <td class="text-center">{{ $transembrion->IND_FECUNDACION }}</td>
-                                <td class="text-center" style="width: 20%">{{\Carbon\Carbon::parse( $transembrion->FEC_REGISTRO)->format('d-m-Y') }}</td>
+                                <td class="text-center" >{{\Carbon\Carbon::parse( $transembrion->FEC_REGISTRO)->format('d-m-Y') }}</td>
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
-                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('transembriones/' . $transembrion->COD_TRANS_EMBRION . '/edit')}}">Editar</a>
+                                <td class="text-center" ><a class="btn btn-warning btn-sm fa fa-edit " href="{{url('transembriones/' . $transembrion->COD_TRANS_EMBRION . '/edit')}}"></a>
                                 </td>
                                 @ENDCAN
-                                @can('ELIMINAR_TRANSFERENCIAS EMBRION')
-                                <td style="width: 10%;">
-
-                                    <input class="btn btn-danger" type="submit" value="Eliminar" />
-
-                                </td>
-                                @ENDCAN
+                             
                             </tr>
                             @endforeach
                         </tbody>

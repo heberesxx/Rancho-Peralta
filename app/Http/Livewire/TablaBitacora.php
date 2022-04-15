@@ -26,7 +26,7 @@ class TablaBitacora extends Component
     //$bitacoras = Bitacora::orderby('id','desc');
     return view('livewire.tabla-bitacora', [
       'bitacoras' => Bitacora::search($this->search)
-        ->orderBy($this->orderBy, $this->orderAsc ? 'asc' : 'desc')
+        ->orderBy('id', 'desc')
         ->simplePaginate($this->perPage),
     ]);
   }

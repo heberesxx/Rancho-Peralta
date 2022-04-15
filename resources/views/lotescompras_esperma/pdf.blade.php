@@ -193,7 +193,7 @@
                     <td class="desc">{{ $lote->FEC_COMPRA }}</td>
                     <td class="desc">{{ $lote->PERSONA }}</td>
                     <td class="desc">{{ $lote->CAN_TOTAL }}</td>
-                    <td class="desc">{{ $lote->TOTAL_PRECIO }}</td>
+                    <td class="desc" style="text-align: right;">{{number_format( $lote->TOTAL_PRECIO, 2, '.', ',') }}</td>
                     <td class="desc">{{ $lote->STATUS }}</td>
 
 

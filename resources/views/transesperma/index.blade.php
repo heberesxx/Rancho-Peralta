@@ -65,9 +65,7 @@
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
                                 <th class="text-center" style="width: 10%">Editar</th>
                                 @ENDCAN
-                                @can('ELIMINAR_TRANSFERENCIAS EMBRION')
-                                <th class="text-center" style="width: 10%">Borrar</th>
-                                @ENDCAN
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -80,16 +78,10 @@
                                 <td class="text-center">{{ $transesperma->IND_FECUNDACION }}</td>
                                 <td class="text-center" style="width: 20%">{{\Carbon\Carbon::parse( $transesperma->FEC_REGISTRO)->format('d-m-Y') }}</td>
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
-                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('transesperma/' . $transesperma->COD_TRANS_ESPERMA . '/edit')}}">Editar</a>
+                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning btn-sm fa fa-edit " href="{{url('transesperma/' . $transesperma->COD_TRANS_ESPERMA . '/edit')}}"></a>
                                 </td>
                                 @ENDCAN
-                                @can('ELIMINAR_TRANSFERENCIAS EMBRION')
-                                <td class="text-center" style="width: 10%;">
-
-                                    <input class="btn btn-danger" type="submit" value="Eliminar" />
-
-                                </td>
-                                @ENDCAN
+                                
                             </tr>
                             @endforeach
                         </tbody>

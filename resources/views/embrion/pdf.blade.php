@@ -186,7 +186,7 @@
                     <th class="desc">Raza Esperada</th>
                     <th class="desc">Donadora</th>
                     <th class="desc"> Donador</th>
-                    <th class="desc">Precio</th>
+                    <th class="desc">Precio (L)</th>
                     
                     <th class="desc">Status</th>
 
@@ -202,7 +202,7 @@
                     <td class="desc">{{ $embrion->RAZ_ESPERADA }}</td>
                     <td class="desc">{{ $embrion->RAZ_VACA_DONADORA }}</td>
                     <td class="desc">{{ $embrion->RAZ_TORO_DONADOR }}</td>
-                    <td class="desc">{{ $embrion->PRE_EMBRION }}</td>
+                    <td class="desc" style="text-align: right;">{{ number_format($embrion->PRE_EMBRION, 2, '.',',') }}</td>
                    
                     <td class="desc">{{ $embrion->IND_EMBRION }}</td>
 

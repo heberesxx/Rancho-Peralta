@@ -176,13 +176,12 @@
         <table>
             <thead>
                 <tr>
-                    <th >Código </th>
-                    <th  >Nombre</th>
-                    <th >Apellido</th>
+                    <th class="desc" >Código </th>
+                    <th class="desc"  >Nombre</th>
+                    <th class="desc">Apellido</th>
                     <th class="desc" >Dirección</th>
-                    <th> Área</th>
-                    <th>Celular</th>
-                    <th >Status </th>
+                    <th class="desc">Celular</th>
+                    <th class="desc">Status </th>
 
                 </tr>
             </thead>
@@ -190,13 +189,13 @@
 
                 @foreach($personas as $persona)
                 <tr>
-                    <td > {{ $persona->COD_CLIENTE }}</td>
-                    <td >{{ $persona->PRI_NOMBRE }}</td>
-                    <td >{{ $persona->PRI_APELLIDO }}</td>
+                    <td class="desc" > {{ $persona->COD_CLIENTE }}</td>
+                    <td class="desc" >{{ $persona->PRI_NOMBRE }}</td>
+                    <td class="desc" >{{ $persona->PRI_APELLIDO }}</td>
                     <td class="desc">{{ $persona->DET_DIRECCION }}</td>
-                    <td >{{ $persona->NUM_AREA }}</td>
-                    <td >{{ $persona->NUM_CELULAR }}</td>
-                    <td >{{ $persona->IND_COMERCIAL }}</td>
+  
+                    <td class="desc">{{ '+'.$persona->NUM_AREA.' '.$persona->NUM_CELULAR }}</td>
+                    <td  class="desc">{{ $persona->IND_COMERCIAL }}</td>
                 </tr>
 
                 @endforeach

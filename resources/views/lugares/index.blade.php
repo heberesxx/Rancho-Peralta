@@ -44,10 +44,8 @@
                             <span class="mr-2">Agregar Lugar</span> <i class="fas fa-plus-square"></i>
                         </a>
 
-                        <a href="{{route('lugares.pdf')}}" class="btn btn-danger center" target="_blank"
-
-      style=" margin-left: 37.5%;">
-                            <span class="mr-2">PDF</span> 
+                        <a href="{{route('lugares.pdf')}}" class="btn btn-danger center" target="_blank" style=" margin-left: 37.5%;">
+                            <span class="mr-2">PDF</span>
                         </a>
 
                     </div>
@@ -62,11 +60,11 @@
                                 <th class="text-center"> Lugar </th>
                                 <th class="text-center"> Dirección Exacta </th>
                                 <th class="text-center"> Status </th>
-                              
+
                                 <th class="text-center"> Fecha Creación </th>
                                 <th class="text-center"> Fecha Actualización </th>
                                 @CAN('EDITAR_LUGARES')
-                                <th class="text-center" style="width: 10%">Editar</th>
+                                <th class="text-center">Editar</th>
                                 @ENDCAN
 
 
@@ -80,12 +78,12 @@
                                 <td class="text-center">{{ $lugar->DIR_LUGAR }}</td>
                                 <td class="text-center">{{ $lugar->UBI_EXACTA}}</td>
                                 <td class="text-center">{{ $lugar->STATUS}}</td>
-                             
-                                <td class="text-center" >{{\Carbon\Carbon::parse( $lugar->created_at)->format('d-m-Y H:i:s') }}</td>
-                                <td class="text-center" >{{\Carbon\Carbon::parse( $lugar->updated_at)->format('d-m-Y H:i:s') }}</td>
+
+                                <td class="text-center">{{\Carbon\Carbon::parse( $lugar->created_at)->format('d-m-Y H:i:s') }}</td>
+                                <td class="text-center">{{\Carbon\Carbon::parse( $lugar->updated_at)->format('d-m-Y H:i:s') }}</td>
                                 @CAN('EDITAR_LUGARES')
 
-                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{ route('lugares.edit', $lugar->COD_LUGAR) }}">Editar</a></td>
+                                <td class="text-center"><a class="btn btn-warning btn-sm fa fa-edit " href="{{ route('lugares.edit', $lugar->COD_LUGAR) }}"></a></td>
                                 @ENDCAN
 
                             </tr>
@@ -110,7 +108,7 @@
         <div class="error-content">
             <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
             <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
+                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
             </p>
 
         </div>
@@ -166,117 +164,100 @@
         $('#TB').DataTable({
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
-
             },
-            "bSort": false,
             "autoWidth": false,
             "responsive": true,
+
             dom: '<"pt-2 row" <"col-xl mt-2"l><"col-xl text-center"B><"col-xl text-right mt-2 "f>> <"row"rti<"col"><p>>',
-            buttons: {
-                dom: {
-                    button: {
-
-                        className: 'btn'
-
-                    }
+            buttons: [{
+                    extend: 'print',
+                    text: 'Imprimir',
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
                 },
-                buttons: [{
-
-                        extend: 'print',
-                        text: 'Imprimir',
-                        className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                {
+                    extend: "excel",
+                    exportOptions: {
+                        columns: [0, 1, 2, 3, 4, 5]
                     },
-                    {
-                        extend: "excel",
-                        exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
-                        },
-                        text: 'Excel',
-                        className: 'btn btn-success',
+                    text: 'Excel',
+                    className: 'btn btn-success',
 
 
-                        // 1 - ejemplo básico - uso de templates pre-definidos
-                        //definimos los parametros al exportar a excel
+                    // 1 - ejemplo básico - uso de templates pre-definidos
+                    //definimos los parametros al exportar a excel
 
-                        excelStyles: {
-                            template: "header_blue", // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
-                        },
+                    excelStyles: {
+                        template: "header_blue", // Apply the 'header_blue' template part (white font on a blue background in the header/footer)
+                    },
 
 
-                        // 2 - estilos a una fila   
+                    // 2 - estilos a una fila   
 
-                        excelStyles: { // Add an excelStyles definition
-                            cells: "2",
-                            // adonde se aplicaran los estilos (fila 2)
-                            style: { // The style block
-                                font: { // Style the font
-                                    name: "Arial", // Font name
-                                    size: "12", // Font size
-                                    color: "FFFFFF", // Font Color
-                                    b: true, // negrita SI
-                                },
-                                fill: { // Estilo de relleno (background)
-                                    pattern: { // tipo de rellero (pattern or gradient)
-                                        color: "ff7961", // color de fondo de la fila
-                                    }
+                    excelStyles: { // Add an excelStyles definition
+                        cells: "2",
+                        // adonde se aplicaran los estilos (fila 2)
+                        style: { // The style block
+                            font: { // Style the font
+                                name: "Arial", // Font name
+                                size: "12", // Font size
+                                color: "FFFFFF", // Font Color
+                                b: true, // negrita SI
+                            },
+                            fill: { // Estilo de relleno (background)
+                                pattern: { // tipo de rellero (pattern or gradient)
+                                    color: "ff7961", // color de fondo de la fila
                                 }
                             }
-                        },
-
-
-
-                        deleteCells: [ // Agregar una opción de configuración insertCells                   
-                            {
-                                cells: '11', // Inserta los datos en las filas 5 y 6 contando desde el encabezado
-
-                            },
-
-                        ],
-
-
-
-                        // ejemplo para IMPRIMIR
-
-                        pageStyle: {
-                            sheetPr: {
-                                pageSetUpPr: {
-                                    fitToPage: 1 // Fit the printing to the page
-                                }
-                            },
-                            printOptions: {
-                                horizontalCentered: true,
-                                verticalCentered: true,
-                            },
-                            pageSetup: {
-                                orientation: "landscape", // Orientacion
-                                paperSize: "9", // Tamaño del papel (1 = Legal, 9 = A4)
-                                fitToWidth: "1", // Ajustar al ancho de la página
-                                fitToHeight: "0", // Ajustar al alto de la página
-                            },
-                            pageMargins: {
-                                left: "0.2",
-                                right: "0.2",
-                                top: "0.4",
-                                bottom: "0.4",
-                                header: "0",
-                                footer: "0",
-                            },
-                            repeatHeading: true, // Repeat the heading row at the top of each page
-                            repeatCol: 'A:A', // Repeat column A (for pages wider than a single printed page)
-                        },
-                        excelStyles: {
-                            template: 'blue_gray_medium', // Add a template style as well if you like
                         }
+                    },
 
+
+
+                    deleteCells: [ // Agregar una opción de configuración insertCells                   
+                        {
+                            cells: '11', // Inserta los datos en las filas 5 y 6 contando desde el encabezado
+
+                        },
+
+                    ],
+
+
+
+                    // ejemplo para IMPRIMIR
+
+                    pageStyle: {
+                        sheetPr: {
+                            pageSetUpPr: {
+                                fitToPage: 1 // Fit the printing to the page
+                            }
+                        },
+                        printOptions: {
+                            horizontalCentered: true,
+                            verticalCentered: true,
+                        },
+                        pageSetup: {
+                            orientation: "landscape", // Orientacion
+                            paperSize: "9", // Tamaño del papel (1 = Legal, 9 = A4)
+                            fitToWidth: "1", // Ajustar al ancho de la página
+                            fitToHeight: "0", // Ajustar al alto de la página
+                        },
+                        pageMargins: {
+                            left: "0.2",
+                            right: "0.2",
+                            top: "0.4",
+                            bottom: "0.4",
+                            header: "0",
+                            footer: "0",
+                        },
+                        repeatHeading: true, // Repeat the heading row at the top of each page
+                        repeatCol: 'A:A', // Repeat column A (for pages wider than a single printed page)
+                    },
+                    excelStyles: {
+                        template: 'blue_gray_medium', // Add a template style as well if you like
                     }
-                ]
 
-            }
-
-
-
-
-
+                }
+            ]
         });
     });
 </script>

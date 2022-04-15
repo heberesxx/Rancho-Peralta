@@ -61,7 +61,7 @@
         <div class="input-group-prepend">
             <input id="COD_PROVEEDOR" class="form-control border-dark" hidden placeholder="Ingrese la cantidad comprada..." type="text" name="COD_PROVEEDOR" value="{{$selected_proveedor}}" autofocus>
            @php $vendedor = $nombre; @endphp
-            <input id="nombre_proveedor" class="form-control border-dark" placeholder="Busque en proveedor activo..." type="text" name="nombre_proveedor" value="{{$vendedor}}" value="{{old('$vendedor')}}" onkeypress="return false" autofocus>
+            <input id="nombre_proveedor" class="form-control border-dark" placeholder="Busque en proveedor activo..." type="text" name="nombre_proveedor" value="{{$vendedor}}" value="{{old('$vendedor')}}" onkeypress="return false" autofocus> &nbsp;
             <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalProveedor"> <i class="fas fa-search"></i></button>
         </div>
         @if ($errors->has('nombre_proveedor'))

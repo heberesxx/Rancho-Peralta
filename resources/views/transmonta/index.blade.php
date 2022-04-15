@@ -65,9 +65,7 @@
                                 @can('EDITAR_MONTAS')
                                 <th  class="text-center" style="width: 10%">Editar</th>
                                 @ENDCAN
-                                @can('ELIMINAR_MONTAS')
-                                <th  class="text-center" style="width: 10%">Borrar</th>
-                                @ENDCAN
+                               
                             </tr>
                         </thead>
                         <tbody>
@@ -79,16 +77,10 @@
                                 <td class="text-center">{{\Carbon\Carbon::parse( $transmonta->FEC_MONTA)->format('d-m-Y') }}</td>
                                 <td class="text-center">{{ $transmonta->IND_FECUNDACION}}</td>
                                 @can('EDITAR_MONTAS')
-                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('transmonta/' . $transmonta->COD_MONTA . '/edit')}}">Editar</a>
+                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning btn-sm fa fa-edit " href="{{url('transmonta/' . $transmonta->COD_MONTA . '/edit')}}"></a>
                                 </td>
                                 @ENDCAN
-                                @can('ELIMINAR_MONTAS')
-                                <td class="text-center" style="width: 10%;">
-
-                                    <input class="btn btn-danger" type="submit" value="Eliminar" />
-
-                                </td>
-                                @ENDCAN
+                               
                             </tr>
                             @endforeach
                         </tbody>

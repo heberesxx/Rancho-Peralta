@@ -81,7 +81,7 @@ class UsuariosController extends Controller
        
         $request->validate ([
             'name' => ['required', 'string', 'max:255','min:3'],
-            'username' => ['required', 'string', 'max:255','min:4','unique:users', new Uppercase()],
+            'username' => ['required', 'string', 'max:50','min:4','unique:users', new Uppercase()],
             'email' => ['required',  'max:255', 'email','unique:users'],
             'password' => [''],
             'fecha_vencimiento'=> ['required'] ,

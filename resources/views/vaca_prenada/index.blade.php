@@ -64,9 +64,7 @@
                                 @can('EDITAR_PRENADAS EMBRION')
                                 <th class="text-center" style="width: 10%">Editar</th>
                                 @ENDCAN
-                                @can('ELIMINAR_PRENADAS EMBRION')
-                                <th class="text-center" style="width: 10%">Borrar</th>
-                                @ENDCAN
+                             
                             </tr>
                         </thead>
                         <tbody>
@@ -80,16 +78,10 @@
                                 <td class="text-center">{{ $vacaprenadaembrion->IND_PRENADA }}</td>
                                 <td class="text-center">{{ $vacaprenadaembrion->FEC_PARIO}}</td>
                                 @can('EDITAR_PRENADAS EMBRION')
-                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning" href="{{url('vaca_prenada/' . $vacaprenadaembrion->COD_PRENADA_EMBRION . '/edit')}}">Editar</a>
+                                <td class="text-center" style="width: 10%;"><a class="btn btn-warning btn-sm fa fa-edit " href="{{url('vaca_prenada/' . $vacaprenadaembrion->COD_PRENADA_EMBRION . '/edit')}}"></a>
                                 </td>
                                 @ENDCAN
-                                @can('ELIMINAR_PRENADAS EMBRION')
-                                <td class="text-center" style="width: 10%;">
-
-                                    <input class="btn btn-danger" type="submit" value="Eliminar" />
-
-                                </td>
-                                @ENDCAN
+                             
                             </tr>
                             @endforeach
                         </tbody>

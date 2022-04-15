@@ -108,8 +108,8 @@
                             <thead style="background-color: #e1e2f6;">
                                 <tr>
                                     <th>N°</th>
-                                    <th>Descripción </th>
-                                    <th>Precio </th>
+                                    <th style="width: auto;">Descripción </th>
+                                    <th style="width: auto;" class="text-center">Precio (L) </th>
                                     <th style="width: auto;">Acción</th>
 
 
@@ -120,8 +120,8 @@
                                 @foreach($compras as $compras)
                                 <tr>
                                     <td>{{$i }}</td>
-                                    <td>{{'Raza Esperada: '.$compras->RAZ_ESPERADA.', Raza Donadora: '.$compras->RAZ_VACA_DONADORA.', Raza Donador: '.$compras->RAZ_TORO_DONADOR.', Observación: '.$compras->OBS_COMPRA_EMBRION.', Estado embrión: '.$compras->IND_EMBRION.', Status compra: '.$compras->STATUS}}</td>
-                                    <td>{{$compras->PRE_EMBRION }}</td>
+                                    <td style="width: auto;">{{'Raza Esperada: '.$compras->RAZ_ESPERADA.', Raza Donadora: '.$compras->RAZ_VACA_DONADORA.', Raza Donador: '.$compras->RAZ_TORO_DONADOR.', Observación: '.$compras->OBS_COMPRA_EMBRION.', Estado embrión: '.$compras->IND_EMBRION.', Status compra: '.$compras->STATUS}}</td>
+                                    <td style="text-align: right;">{{number_format($compras->PRE_EMBRION,2,'.',',') }}</td>
 
 
 
@@ -171,7 +171,7 @@
                                         <th>Fecha </th>
                                         <th>Proveedor </th>
                                         <th>Cantidad</th>
-                                        <th>Total</th>
+                                        <th>Total(L)</th>
                                         <th>Cancelar</th>
 
 
@@ -188,7 +188,7 @@
                                         <td>{{\Carbon\Carbon::parse($lote->FECHA)->format('d-m-Y')}}</td>
                                         <td>{{$lote->NOMBRE}}</td>
                                         <td>{{$lote->CANTIDAD}}</td>
-                                        <td style="text-align: right;">{{$lote->TOTAL}}</td>
+                                        <td style="text-align: right;">{{number_format($lote->TOTAL,2,'.',',')}}</td>
                                         <td>
                                             <a type="submit" class=" btn btn-danger btn-sm  " href=" {{ url('lotescompras_embrion/' .$lote->COD_COMPRA_EMBRION . '/edit') }}">Cancelar Lote
 
@@ -229,7 +229,7 @@
                                         <div class="form-group">
 
                                             <label><span style="color: red;"> *</span>Raza Esperada:</label>
-                                            <input id="raza_esperada"  class="form-control border-dark" type="text" name="raza_esperada" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{old('raza_esperada')}}" maxlength="40"   autofocus>
+                                            <input id="raza_esperada"  class="form-control border-dark" type="text" name="raza_esperada"  onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{old('raza_esperada')}}" maxlength="40"   autofocus>
 
                                             @if ($errors->has('raza_esperada'))
                                             <div id="raza_esperada-error" class="error text-danger pl-3" for="raza_esperada" style="display: bock;">

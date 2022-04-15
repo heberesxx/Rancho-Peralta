@@ -23,8 +23,8 @@
 
         body {
             position: relative;
-            width: 21cm;
-            height: 29.7cm;
+            width: 21.5cm;
+            height: 32cm;
             margin: 0 auto;
             color: #001028;
             background: #FFFFFF;
@@ -181,7 +181,7 @@
                     <th class="desc">Proveedor</th>
     
                     <th class="desc">Nombre</th>
-                    <th class="desc">Precio</th>
+                    <th class="desc">Precio(L)</th>
                     <th class="desc">Status</th>
                     <th class="desc">Lugar</th>
 
@@ -197,7 +197,7 @@
                     <td class="desc" >{{ $compras->PROVEEDOR}}</td>
             
                     <td class="desc" >{{ $compras->NOM_GANADO }}</td>
-                    <td class="desc" >{{ $compras->PRE_GANADO }}</td>
+                    <td style="text-align: right;">{{ number_format($compras->PRE_GANADO, 2, '.',',') }}</td>
                     <td class="desc" >{{ $compras->DET_ESTADO }}</td>
                     <td class="desc" >{{ $compras->DIR_LUGAR }}</td>
 
