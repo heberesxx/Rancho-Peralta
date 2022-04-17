@@ -1,3 +1,38 @@
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta
+Pantalla:          Preguntas de Seguridad
+Fecha:             25/02/2022
+Programador:       Heber Espinoza
+descripción:       Pantalla que permite vizualizar las Preguntas de Seguridad 
+
+
+
+-->
 @extends('adminlte::page')
 
 @section('title', 'Preguntas de Seguridad')
@@ -38,10 +73,8 @@
                         <a href="{{route('preguntas.create')}}" class="btn btn-info">
                             <span class="mr-2">Crear Pregunta </span> <i class="fas fa-plus-square"></i>
                         </a>
-                        <a href="{{route('seguridad.preguntas.pdf')}}" class="btn btn-danger center" target="_blank"
-
-      style=" margin-left: 37%;">
-                            <span class="mr-2">PDF</span> 
+                        <a href="{{route('seguridad.preguntas.pdf')}}" class="btn btn-danger center" target="_blank" style=" margin-left: 37%;">
+                            <span class="mr-2">PDF</span>
                         </a>
 
                     </div>
@@ -66,16 +99,16 @@
 
                         </thead>
                         <tbody>
-                          
+
                             @foreach ($preguntas as $pregunta)
                             <tr class="text-center">
                                 <td>{{ $pregunta->id }}</td>
                                 <td>{{ $pregunta->pregunta }} </td>
-                                <td class="text-center" >{{\Carbon\Carbon::parse( $pregunta->created_at)->format('d-m-Y H:i:s') }}</td>
-                                <td class="text-center" >{{\Carbon\Carbon::parse( $pregunta->updated_at)->format('d-m-Y H:i:s') }}</td>
+                                <td class="text-center">{{\Carbon\Carbon::parse( $pregunta->created_at)->format('d-m-Y H:i:s') }}</td>
+                                <td class="text-center">{{\Carbon\Carbon::parse( $pregunta->updated_at)->format('d-m-Y H:i:s') }}</td>
                                 @can('EDITAR_PREGUNTAS')
                                 <td width="50">
-                                        <a href="{{route('preguntas.edit', $pregunta->id)}}" class="btn btn-warning btn-sm fa fa-edit "></a>
+                                    <a href="{{route('preguntas.edit', $pregunta->id)}}" class="btn btn-warning btn-sm fa fa-edit "></a>
 
                                 </td>
                                 @ENDCAN
@@ -84,7 +117,7 @@
                                 <td width="50">
 
                                     <form action="{{route('preguntas.destroy', $pregunta->id)}}" method="POST">
-                                        
+
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class=" btn btn-danger btn-sm  fa fa-times-circle"></button>
@@ -94,7 +127,7 @@
                                 @ENDCAN
                             </tr>
 
-                         
+
                             @endforeach
 
 
@@ -113,18 +146,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
 @endcan
@@ -132,7 +163,7 @@
 @section('footer')
 <strong>Copyright &copy; 2022<a href="#">UNAH</a>.</strong> Todos los derechos reservados
 <div class="float-right d-none d-sm-inline-block">
-   
+
 </div>
 
 @stop
@@ -152,7 +183,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset ('vendors/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
- 
+
 @stop
 
 @section('js')

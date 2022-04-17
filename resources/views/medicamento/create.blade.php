@@ -38,7 +38,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"> *</span>Nombre</label>
-                            <input id="NOM_MEDICAMENTO" class="form-control border-dark transformacion2" placeholder="Ingrese el nombre del medicamento..." type="text" name="NOM_MEDICAMENTO" value="{{old('NOM_MEDICAMENTO')}}" require autofocus>
+                            <input id="NOM_MEDICAMENTO" class="form-control border-dark " placeholder="Ingrese el nombre del medicamento..." type="text" name="NOM_MEDICAMENTO" value="{{old('NOM_MEDICAMENTO')}}"  maxlength="30" minlength="2" onkeyup="javascript:this.value=this.value.toUpperCase();" require autofocus>
 
                             @if ($errors->has('NOM_MEDICAMENTO'))
                             <div id="NOM_MEDICAMENTO-error" class="error text-danger pl-3" for="NOM_MEDICAMENTO" style="display: bock;">
@@ -138,18 +138,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
 @endcan

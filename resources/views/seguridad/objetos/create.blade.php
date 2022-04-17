@@ -1,3 +1,38 @@
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta
+Pantalla:          Crear Objeto
+Fecha:             25/02/2022
+Programador:       Heber Espinoza
+descripción:       Pantalla que permite  crear un Objeto. 
+
+
+
+-->
 @extends('adminlte::page')
 
 @section('title', 'Crear Objeto')
@@ -30,7 +65,7 @@
             <div class="col-sm-6">
                 <div class="form-group has-primary">
                     <label for="objeto"><span style="color: red;"> *</span>Nombre del Objeto:</label>
-                    <input id="objeto" class="form-control border-dark" placeholder="Ingrese el nombre del objeto..." type="text" name="objeto" :value="old('objeto')" autofocus>
+                    <input id="objeto" class="form-control border-dark" placeholder="Ingrese el nombre del objeto..." type="text" name="objeto" :value="old('objeto')" maxlength="50" minlength="2" title="Este campo solo permite letras,50 carácteres como máximo y 2 como mínimo" onkeyup="javascript:this.value=this.value.toUpperCase();"  autofocus>
 
                     @if ($errors->has('objeto'))
                     <div id="objeto-error" class="error text-danger pl-3" for="objeto" style="display: bock;">
@@ -46,7 +81,7 @@
             <div class="col-sm-6">
                 <div class="form-group has-primary">
                     <label for="Descripcion">Descripción del Objeto:</label>
-                    <input id="Descripcion" class="form-control border-dark" placeholder="Ingrese el nombre del Descripcion..." type="text" name="Descripcion" :value="old('Descripcion')" autofocus>
+                    <textarea id="Descripcion" class="form-control border-dark" placeholder="Ingrese el nombre del Descripcion..." type="text"  rows="2" name="Descripcion" :value="old('Descripcion')" autofocus maxlength="255">{{old('Descripcion')}}</textarea>
 
                     @if ($errors->has('Descripcion'))
                     <div id="Descripcion-error" class="error text-danger pl-3" for="Descripcion" style="display: bock;">
@@ -83,18 +118,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
 @endcan

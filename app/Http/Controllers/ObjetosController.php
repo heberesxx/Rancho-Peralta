@@ -54,7 +54,7 @@ class ObjetosController extends Controller
     {
         $request->validate([
 
-            'objeto'        =>  "required|unique:objetos|min:1|max:255",
+            'objeto'        =>  "required|unique:objetos|min:1|max:50",
             'Descripcion'   =>  "required|max:255"
         ]);
 

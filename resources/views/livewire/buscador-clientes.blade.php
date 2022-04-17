@@ -61,7 +61,7 @@
         <div class="input-group-prepend">
             <input id="COD_CLIENTE" class="form-control border-dark" hidden placeholder="Ingrese la cantidad comprada..." type="text" name="COD_CLIENTE" value="{{$selected_cliente}}" autofocus>
  
-            <input id="nombre_cliente" class="form-control border-dark" placeholder="Busque en cliente activo..." type="text" name="nombre_cliente" value="{{$nombre}}" value="{{old('nombre_cliente')}}" onkeypress="return false" autofocus>
+            <input id="nombre_cliente" class="form-control border-dark" placeholder="Busque en cliente activo..." type="text" name="nombre_cliente" value="{{$nombre}}" value="{{old('nombre_cliente')}}" onkeypress="return false" autofocus>&nbsp;
             <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalCliente"> <i class="fas fa-search"></i></button>
         </div>
         @if ($errors->has('nombre_cliente'))

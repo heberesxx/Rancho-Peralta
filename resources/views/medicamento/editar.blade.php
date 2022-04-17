@@ -114,26 +114,24 @@
         </div>
 
       </div>
-      </form>
+    </form>
   </div>
- 
+
 </div>
 
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-  <div class="error-page">
-    <h2 class="headline text-warning"> 403</h2>
-    <div class="error-content">
-      <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-      <p>
-        No podemos mostrar esta página porque no tienes permisos, <a href="{{route('dashboard')}}">retorna a la pantalla principal</a> o pide permisos al administrador.
-      </p>
-
-    </div>
+<div class="error-page">
+  <h2 class="headline text-warning"> 403</h2>
+  <div class="error-content">
+    <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+    <p>
+      No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+    </p>
 
   </div>
+
 </div>
 @stop
 @endcan

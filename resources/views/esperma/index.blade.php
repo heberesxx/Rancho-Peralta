@@ -1,3 +1,38 @@
+
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta 
+Pantalla:          Compras Esperma
+Fecha:             24/03/2022
+Programador:       Jeffry Aguilar
+descripción:       Pantalla que permite visualizar el detalle de los lotes de compras de esperma.
+
+
+-->
 @extends('adminlte::page')
 
 @section('title', 'Compras Esperma')

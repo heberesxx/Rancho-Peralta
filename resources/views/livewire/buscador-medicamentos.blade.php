@@ -59,9 +59,9 @@
     <div class="form-group">
         <label><span style="color: red;">*</span>Medicamento:</label>
         <div class="input-group-prepend">
-            <input id="COD_MEDICAMENTO" class="form-control border-dark" hidden placeholder="Ingrese la cantidad comprada..." type="text" name="COD_MEDICAMENTO" value="{{$selected_medicamento}}" autofocus>
+            <input id="COD_MEDICAMENTO" class="form-control border-dark" hidden placeholder="Ingrese la cantidad comprada..." type="text" name="COD_MEDICAMENTO" value="{{$selected_medicamento}}" autofocus>&nbsp;
  
-            <input id="nombre_medicamento" class="form-control border-dark" placeholder="Busque un medicamento..." type="text" name="nombre_medicamento" value="{{$nombre}}" value="{{old('nombre_medicamento')}}" onkeypress="return false" autofocus>
+            <input id="nombre_medicamento" class="form-control border-dark" placeholder="Busque un medicamento..." type="text" name="nombre_medicamento" value="{{$nombre}}" value="{{old('nombre_medicamento')}}" onkeypress="return false" autofocus>&nbsp;
             <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalMedicamentos"> <i class="fas fa-search"></i></button>
         </div>
         @if ($errors->has('nombre_medicamento'))

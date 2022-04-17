@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('title', 'Lotes Registrados')
-
+@CAN('VER_INVENTARIO MEDICAMENTOS')
 @section('content_header')
 <section class="content-header">
     <div class="container-fluid">
@@ -40,7 +40,9 @@
                                 <th class="text-center" style="width:auto;">Fecha de Vencimiento</th>
                                 <th class="text-center" style="width:auto;">Cantidad Medicamentos</th>
                                 <th class="text-center" style="width:auto;">Día para Vencer</th>
+                                @CAN('VER_INVENTARIO MEDICAMENTOS')
                                 <th class="text-center" style="width:auto;">Ver detalle</th>
+                                @ENDCAN
                             </tr>
                         </thead>
                         <tbody>
@@ -55,8 +57,9 @@
                                 @else
                                 <td class="text-center text-success" style="width:auto;" > <strong>{{ ' Este lote vence en : '.$lote->DIAS_VENCIMIENTO.' días' }}</td>
                                 @endif
+                                @CAN('VER_INVENTARIO MEDICAMENTOS')
                                 <td class="text-center" style="width:auto;" ><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye"  href="{{ url('verlotes_medicamentos/' .$lote->COD_COMPRA_MEDICAMENTO . '/edit') }}"></a></td>
-
+                                @ENDCAN
 
 
                             </tr>
@@ -71,23 +74,21 @@
 </div>
 
 @stop
-
+@else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
-
+@endcan
 
 @section('footer')
 <strong>Copyright &copy; 2022<a href="#">UNAH</a>.</strong> Todos los derechos reservados

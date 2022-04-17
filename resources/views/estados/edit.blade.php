@@ -1,16 +1,60 @@
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta
+Pantalla:            Editar Estado
+Fecha:             01/03/2022
+Programador:       Heber Espinoza
+descripción:       Pantalla que permite  Editar  un estado 
+
+
+
+-->
 @extends('adminlte::page')
 
 @section('title', 'Editar Estado')
 @CAN('EDITAR_ESTADOS GANADO')
 @section('content_header')
+<div class="container-fluid">
+    <div class="row mb-2">
+        <div class="col-sm-6">
+            <h1 > Editar Estado</h1>
+        </div>
+        <div class="col-sm-6">
 
+        </div>
+    </div>
+</div>
 @stop
 
 @section('content')
 
 <div class="card card-info">
     <div class="card-header">
-        <h4 class="text-center">Editar Estado</h4>
+       
     </div>
     <style type="text/css">
         .transformacion1 {
@@ -25,7 +69,7 @@
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Código Estado</label>
-                        <input name="COD_ESTADO" placeholder="" id="COD_ESTADO" class="form-control border-dark" disabled type="text"  value="{{($estado->COD_ESTADO)}}">
+                        <input name="COD_ESTADO" placeholder="" id="COD_ESTADO" class="form-control border-dark" disabled type="text" value="{{($estado->COD_ESTADO)}}">
                         @if ($errors->has('COD_ESTADO'))
                         <div id="COD_ESTADO-error" class="error text-danger pl-3" for="COD_ESTADO" style="display: bock;">
                             <strong>
@@ -39,7 +83,7 @@
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Estado</label>
                         <input name="DET_ESTADO" style="text-transform: uppercase;" placeholder="" id="DET_ESTADO" class="form-control border-dark" type="text" maxlength="5
-                        30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" value="{{($estado->DET_ESTADO)}}"  onkeyup="javascript:this.value=this.value.toUpperCase();" onkeydown="return /[A-Z, ]/i.test(event.key)">
+                        30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" value="{{($estado->DET_ESTADO)}}" onkeyup="javascript:this.value=this.value.toUpperCase();" onkeydown="return /[A-Z, ]/i.test(event.key)">
                         @if ($errors->has('DET_ESTADO'))
                         <div id="DET_ESTADO-error" class="error text-danger pl-3" for="DET_ESTADO" style="display: bock;">
                             <strong>
@@ -52,7 +96,7 @@
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label><span style="color: red;"> </span>Descripción del Estado</label>
-                        <textarea id="descripcion_estado" class="form-control border-dark " rows="2" type="text" name="descripcion_estado" maxlength="150"  title="Este campo solo acepta 150 carácteres como máximo"  value="" autofocus>{{$estado->DESCRIPCION_ESTADO}}</textarea>
+                        <textarea id="descripcion_estado" class="form-control border-dark " rows="2" type="text" name="descripcion_estado" maxlength="150" title="Este campo solo acepta 150 carácteres como máximo" value="" autofocus>{{$estado->DESCRIPCION_ESTADO}}</textarea>
                         @if ($errors->has('descripcion_estado'))
                         <div id="descripcion_estado-error" class="error text-danger pl-3" for="descripcion_estado" style="display: bock;">
                             <strong>
@@ -101,18 +145,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-                No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
 @endcan

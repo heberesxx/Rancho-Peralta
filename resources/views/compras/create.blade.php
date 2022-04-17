@@ -1,6 +1,41 @@
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta 
+Pantalla:          Nueva Compra de Ganado
+Fecha:             20/03/2022
+Programador:       Jeffry Aguilar
+descripción:       Pantalla que permite realizar compras de ganado por lotes
+
+
+-->
+
 @extends('adminlte::page')
 
-@section('title', 'Compras Ganado')
+@section('title', 'Nueva Compra de Ganado')
 @can('INSERTAR_LOTES GANADO')
 @section('content_header')
 <div class="container-fluid">
@@ -361,7 +396,7 @@
 								</div>
 
 								<div class="col-sm-6 col-xs-12 mb-2">
-									<button type="submit" class="btn btn-success w-100">Agregar <i class="fa fa-plus" aria-hidden="true"></i>
+									<button type="submit" class="btn btn-success w-100">Agregar &nbsp;<i class="fa fa-plus" aria-hidden="true"></i>
 									</button>
 								</div>
 
@@ -394,20 +429,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-	<div class="error-page">
-		<h2 class="headline text-warning"> 403</h2>
-		<div class="error-content">
-			<h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-			<p>
-				No podemos mostrar esta página porque no tienes permisos, <a href="{{ route('dashboard') }}">retorna
-					a
-					la pantalla principal</a> o pide permisos al administrador.
-			</p>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
-		</div>
+    </div>
 
-	</div>
 </div>
 @stop
 @endcan

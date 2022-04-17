@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Orden de trabajo')
+@section('title', 'Orden de Trabajo')
 @can('INSERTAR_ORDEN TRABAJO')
 @section('content_header')
 <div class="container-fluid">
@@ -27,7 +27,7 @@
             @csrf()
 
             <div class="card-body">
-                <h6><span style="color: rgb(20, 20, 20);"> * Campos  obligatorios </span></h6>
+                <h6><span style="color: rgb(20, 20, 20);"> * Campos obligatorios </span></h6>
 
                 <div class="row">
 
@@ -87,30 +87,28 @@
 </div>
 
 
-    @stop
-    @else
-    @section('content')
-    <div class="content-wrapper">
-        <div class="error-page">
-            <h2 class="headline text-warning"> 403</h2>
-            <div class="error-content">
-                <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-                <p>
-                    No podemos mostrar esta página porque no tienes permisos, <a href="{{route('dashboard')}}">retorna a la pantalla principal</a> o pide permisos al administrador.
-                </p>
-
-            </div>
-
-        </div>
-    </div>
-    @stop
-    @endcan
-
-    @section('footer')
-    <strong>Copyright &copy; 2022<a href="#">UNAH</a>.</strong> Todos los derechos reservados
-    <div class="float-right d-none d-sm-inline-block">
+@stop
+@else
+@section('content')
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
 
-    @stop
-    @livewireScripts
+</div>
+@stop
+@endcan
+
+@section('footer')
+<strong>Copyright &copy; 2022<a href="#">UNAH</a>.</strong> Todos los derechos reservados
+<div class="float-right d-none d-sm-inline-block">
+
+</div>
+
+@stop
+@livewireScripts

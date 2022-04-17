@@ -32,10 +32,10 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                @can('INSERTAR_INVENTARIO MEDICAMENTOS')
+                
                 <div class="card-header">
                     <div class="box-header">
-
+                    @can('INSERTAR_INVENTARIO MEDICAMENTOS')
                         <a href="{{route('medicamento.create')}}" class="btn btn-info">
                             <span class="mr-2">Añadir Medicamento </span> <i class="fas fa-plus-square"></i>
                         </a>
@@ -43,15 +43,16 @@
                         <a href="{{route('lote_medicamento.create')}}" class="btn btn-info">
                             <span class="mr-2">Añadir Lote de Medicamento </span> <i class="fas fa-cart-plus"></i>
                         </a>
+                        @ENDCAN
                         <a href="{{route('verlotes_medicamentos.index')}}" class="btn btn-info">
                             <span class="mr-2">Ver Lotes Agregados </span> <i class="fas fa-eye"></i>
                         </a>
-                        <a href="{{route('medicamento.pdf')}}" class="btn btn-danger "  target="_blank"style=" margin-left: 4%;">
+                        <a href="{{route('medicamento.pdf')}}" class="btn btn-danger " target="_blank" style=" margin-left: 4%;">
                             <span class="mr-2">PDF</span>
                         </a>
                     </div>
                 </div>
-                @ENDCAN
+               
 
                 <div>
                     <div class="card-body">
@@ -66,9 +67,12 @@
                                     <th class="text-center">Cantidad</th>
                                     <th class="text-center">Reorden</th>
                                     <th class="text-center">Avisos</th>
-                                    <th class="text-center"> Registro</th>
+                                    <th class="text-center" style="width: 25px;"> Registro</th>
+                                    @CAN('EDITAR_INVENTARIO MEDICAMENTOS')
                                     <th class="text-center">Editar</th>
+
                                     <th class="text-center"> Salidas</th>
+                                    @ENDCAN
 
                                 </tr>
                             </thead>
@@ -90,10 +94,10 @@
                                         <td class="text-center text-success"><strong>{{'Normal'}}</td>
                                         @else
                                         <td class="text-center text-danger" style="width:auto;"></i><strong>{{ 'Adquirir más'}}</strong> </td>
-
                                         @endif
-                                        <td>{{ \Carbon\Carbon::parse($medicamento->FEC_REGISTRO)->format('d-m-Y')}}</td>
-                                        <td  class="text-center">
+                                        <td style="width: 25px;">{{ \Carbon\Carbon::parse($medicamento->FEC_REGISTRO)->format('d-m-Y')}}</td>
+                                        @CAN('EDITAR_INVENTARIO MEDICAMENTOS')
+                                        <td class="text-center">
 
                                             <a class="btn btn-warning btn-sm fa fa-edit" href=" {{ url('medicamento/' .$medicamento->COD_MEDICAMENTO . '/edit') }}"></a>
                                         </td>
@@ -101,6 +105,8 @@
 
                                             <a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href=" {{ url('orden_trabajo/' .$medicamento->COD_MEDICAMENTO . '/edit') }}"></a>
                                         </td>
+                                        @ENDCAN
+                                       
                                 </tr>
                                 @endforeach
 
@@ -116,18 +122,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
 @endcan
@@ -222,7 +226,7 @@
                                     size: "12", // Font size
                                     color: "FFFFFF", // Font Color
                                     b: true,
-                                   // negrita SI
+                                    // negrita SI
                                 },
                                 fill: { // Estilo de relleno (background)
                                     pattern: { // tipo de rellero (pattern or gradient)
@@ -234,7 +238,7 @@
 
 
 
-                     
+
 
 
                         // ejemplo para IMPRIMIR

@@ -1,18 +1,45 @@
-@extends('adminlte::page')
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta
+Pantalla:          Restore
+Fecha:             25/02/2022
+Programador:       Heber Espinoza
+descripción:       Pantalla que permite  crear Restore de la base de datos. 
+
+
+
+-->@extends('adminlte::page')
 
 @section('title', 'Restore')
 @CAN('VER_RESTORE')
 @section('content_header')
 <section class="content-header">
   <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-        <h1>Restaurar la Base de Datos</h1>
-      </div>
-      <div class="col-sm-6">
-
-      </div>
-    </div>
+  
   </div>
 </section>
 
@@ -27,6 +54,12 @@
 
 
         <div class="card-body">
+          <div class="row">
+            <div class="col-6">
+              <h4 class="text-blue h4">RESTAURAR BASE DE DATOS</h4>
+              
+            </div>
+          </div>
 
           <form method="" id="frmnuevo" name="frmnuevo" action="/restore/{id}" class="needs-validation" novalidate>
 
@@ -34,7 +67,7 @@
               <label>Seleccionar Archivo:</label>
               <select class="form-control select2bs4" style="width: 100%;" name="restore" id="restore" size="5">
                 <?php
-                $ruta = "C:\\xampp\\htdocs\\respaldos\\";
+                $ruta = "C:\\xampp\\htdocs\\Proyecto_RanchoPeralta\\respaldos\\";
                 if (is_dir($ruta)) {
                   if ($aux = opendir($ruta)) {
                     while (($archivo = readdir($aux)) !== false) {
@@ -77,18 +110,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-  <div class="error-page">
+<div class="error-page">
     <h2 class="headline text-warning"> 403</h2>
     <div class="error-content">
-      <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-      <p>
-        No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
-      </p>
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
 
-  </div>
 </div>
 @stop
 @endcan
@@ -97,7 +128,7 @@
 
 <strong>Copyright &copy; 2022 <a href="#">UNAH</a>.</strong> Todos los derechos reservados.
 <div class="float-right d-none d-sm-inline-block">
-    <b>Version</b> 1.0.0
+  <b>Version</b> 1.0.0
 </div>
 
 @stop

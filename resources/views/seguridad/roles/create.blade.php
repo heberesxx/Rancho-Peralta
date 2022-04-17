@@ -1,3 +1,38 @@
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta
+Pantalla:          Crear Rol
+Fecha:             25/02/2022
+Programador:       Heber Espinoza
+descripción:       Pantalla que permite  crear un rol y asiganrle permisos. 
+
+
+
+-->
 @extends('adminlte::page')
 
 @section('title', 'Crear Rol')
@@ -29,7 +64,7 @@
             <div class="col-sm-4">
                 <div class="form-group has-primary">
                     <label for="name">Nombre:</label>
-                    <input id="name" class="form-control border-dark" placeholder="Ingrese el nombre del rol..." type="text" name="name" :value="old('name')" autofocus>
+                    <input id="name" class="form-control border-dark" placeholder="Ingrese el nombre del rol..." type="text" name="name" :value="old('name')" maxlength="30" minlength="2" title="Este campo solo permite letras,30 carácteres como máximo y 2 como mínimo" onkeyup="javascript:this.value=this.value.toUpperCase();"  autofocus>
 
                     @if ($errors->has('name'))
                     <div id="name-error" class="error text-danger pl-3" for="name" style="display: bock;">
@@ -94,18 +129,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
 @endcan

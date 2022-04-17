@@ -40,7 +40,7 @@
                     </br>
                     <div>
                         <x-jet-label for="respuesta" value="{{ __('Respuesta') }}" />
-                        <x-jet-input id="respuesta" class="block mt-1 w-full" type="text" name="respuesta" :value="old('respuesta')"  style="text-transform: uppercase;"  required autofocus pattern="[A-Z ]{2,254}" title="Las respuestas solo pueden ser en Mayúsculas" />
+                        <x-jet-input id="respuesta" class="block mt-1 w-full" type="text" name="respuesta" :value="old('respuesta')"  onkeyup="javascript:this.value=this.value.toUpperCase();"  required autofocus pattern="[A-Z ]{2,254}" title="Las respuestas solo pueden ser en Mayúsculas" />
                         </br>
                        
 

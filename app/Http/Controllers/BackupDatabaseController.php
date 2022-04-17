@@ -42,7 +42,7 @@ class BackupDatabaseController extends Controller
         //$bd="all-tables"; // Nombre de la Base de Datos a exportar
 
         // Funciones para exportar la base de datos
-        $executa = "C:\\xampp\\mysql\bin\mysqldump.exe --skip-lock-tables --user=$usuario --password=$passwd -R --opt $bd > C:\\xampp\\htdocs\\respaldos\\$filename";
+        $executa = "C:\\xampp\\mysql\bin\mysqldump.exe --skip-lock-tables --user=$usuario --password=$passwd -R --opt $bd > C:\\xampp\\htdocs\\Proyecto_RanchoPeralta\\respaldos\\$filename";
         system($executa, $resultado);
        
         return redirect('/backup')->with('info', 'Backup Generado');

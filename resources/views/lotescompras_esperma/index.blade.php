@@ -1,7 +1,41 @@
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta 
+Pantalla:          Lotes de Esperma
+Fecha:             24/03/2022
+Programador:       Jeffry Aguilar
+descripción:       Pantalla que permite visualizar  los lotes de compras de esperma
+
+
+-->
 @extends('adminlte::page')
 
 @section('title', 'Lotes de Esperma')
-
+@CAN('VER_LOTES ESPERMA')
 @section('content_header')
 <section class="content-header">
     <div class="container-fluid">
@@ -44,20 +78,26 @@
 
 
                     <div class="box-header">
+                        @CAN('INSERTAR_LOTES ESPERMA')
 
                         <a href="{{route('esperma.create')}}" class="btn btn-info ">
                             <span class="mr-2">Comprar Esperma</span> <i class="fas fa-plus-square"></i>
                         </a>
+                        @ENDCAN
+                        @CAN('INSERTAR_PROVEEDORES')
                         <a href="{{route('proveedores.create')}}" class="btn btn-info ">
                             <span class="mr-2">Registrar proveedor </span> <i class="fas fa-plus-square"></i>
                         </a>
+                        @ENDCAN
 
+                        @CAN('VER_LOTES ESPERMA')
                         <a href="{{route('esperma.index')}}" class="btn btn-info ">
                             <span class="mr-2">Ver Detalles de Compras </span> <i class="fas fa-eye"></i>
                         </a>
                         <a href="{{route('lotescompras_esperma.pdf')}}" class="btn btn-danger" target="_blank" style=" margin-left: 8%;">
                             <span class="mr-2">PDF</span>
                         </a>
+                        @ENDCAN
 
 
 
@@ -71,26 +111,28 @@
                         <thead style="background-color: #e1e2f6;">
                             <tr>
                                 <th class="text-center">Lote </th>
-                                <th class="text-center" >Fecha de Compra</th>
-                                <th class="text-center" >Proveedor</th>
-                                <th class="text-center" >Cantidad Comprada</th>
-                                <th class="text-center" >Total Precio (L)</th>
-                                <th class="text-center" >Status Lote</th>
-                                <th class="text-center" >Ver detalle</th>
-
+                                <th class="text-center">Fecha de Compra</th>
+                                <th class="text-center">Proveedor</th>
+                                <th class="text-center">Cantidad Comprada</th>
+                                <th class="text-center">Total Precio (L)</th>
+                                <th class="text-center">Status Lote</th>
+                                @CAN('VER_LOTES ESPERMA')
+                                <th class="text-center">Ver detalle</th>
+                                @ENDCAN
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($lotes as $lote)
                             <tr>
-                                <td class="text-center" > {{ $lote->COD_COMPRA_ESPERMA }}</td>
-                                <td class="text-center" >{{ $lote->FEC_COMPRA }}</td>
-                                <td class="text-center" >{{ $lote->PERSONA }}</td>
-                                <td class="text-center" >{{ $lote->CAN_TOTAL }}</td>
+                                <td class="text-center"> {{ $lote->COD_COMPRA_ESPERMA }}</td>
+                                <td class="text-center">{{ $lote->FEC_COMPRA }}</td>
+                                <td class="text-center">{{ $lote->PERSONA }}</td>
+                                <td class="text-center">{{ $lote->CAN_TOTAL }}</td>
                                 <td style="width:auto; text-align: right;">{{number_format( $lote->TOTAL_PRECIO, 2, '.', ',') }}</td>
-                                <td class="text-center" >{{ $lote->STATUS }}</td>
+                                <td class="text-center">{{ $lote->STATUS }}</td>
+                                @CAN('VER_LOTES ESPERMA')
                                 <td class="text-center"><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href="{{ url('esperma/' .$lote->COD_COMPRA_ESPERMA . '/edit') }}"></a></td>
-
+                                @ENDCAN
                             </tr>
 
                             @endforeach
@@ -108,23 +150,21 @@
 
 
 @stop
-
+@else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
-
+@endcan
 
 @section('footer')
 <strong>Copyright &copy; 2022<a href="#">UNAH</a>.</strong> Todos los derechos reservados

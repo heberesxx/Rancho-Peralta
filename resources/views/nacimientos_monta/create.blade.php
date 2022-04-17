@@ -1,7 +1,35 @@
+<!-- Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta 
+Pantalla:          Registrar Nacimiento Monta
+Fecha:             03/02/2022
+Programador:       Jennifer Claros
+descripción:       Pantalla que permite crear un nuevo registro de nacimiento por medio de monta de toro.
+ -->
+
 @extends('adminlte::page')
 
-@section('title', 'Registrar Nacimiento')
-
+@section('title', 'Registrar Nacimiento Monta')
+@CAN('INSERTAR_NACIMIENTOS MONTA')
 @section('content_header')
 <div class="container-fluid">
     <div class="row">
@@ -35,7 +63,7 @@
         <form action="{{ route('nacimientos_monta.store') }}" method="post" role="form">
             @csrf()
             <div class="card-body">
-                <h6><span style="color: rgb(20, 20, 20);"> * Campos  obligatorios </span></h6>
+                <h6><span style="color: rgb(20, 20, 20);"> * Campos obligatorios </span></h6>
 
                 <div class="row">
                     <div class="col-lg-1">
@@ -53,7 +81,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;"> * </span>Nombre:</label>
-                            <input name="NOM_GANADO" placeholder="" id="NOM_GANADO" class="form-control border-dark" type="text" value="{{old('NOM_GANADO')}}"  minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios">
+                            <input name="NOM_GANADO" placeholder="" id="NOM_GANADO" class="form-control border-dark" type="text" value="{{old('NOM_GANADO')}}" minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios">
                             @if ($errors->has('NOM_GANADO'))
                             <div id="NOM_GANADO-error" class="error text-danger pl-3" for="NOM_GANADO" style="display: bock;">
                                 <strong>
@@ -66,7 +94,7 @@
                     <div class="col-lg-3">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Color:</label>
-                            <input name="CLR_GANADO" placeholder="" id="CLR_GANADO" class="form-control border-dark"  pattern="[[A-Za-z ]+" title="Este campo solo acepta letras" type="text" value="{{old('CLR_GANADO')}}"  minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios">
+                            <input name="CLR_GANADO" placeholder="" id="CLR_GANADO" class="form-control border-dark" pattern="[[A-Za-z ]+" title="Este campo solo acepta letras" type="text" value="{{old('CLR_GANADO')}}" minlength="2" maxlength="30" pattern="[A-Za-zÀ-ÿ ]{2,30}" title="Este campo solo puede contener letras y espacios">
                             @if ($errors->has('CLR_GANADO'))
                             <div id="CLR_GANADO-error" class="error text-danger pl-3" for="CLR_GANADO" style="display: bock;">
                                 <strong>
@@ -109,7 +137,7 @@
                     <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"> </span>Fierro:</label>
-                            <input name="FIE_GANADO" placeholder="" id="FIE_GANADO" class="form-control border-dark" type="text" value="{{old('FIE_GANADO')}}" onkeyup="javascript:this.value=this.value.toUpperCase();"  maxlength="2">
+                            <input name="FIE_GANADO" placeholder="" id="FIE_GANADO" class="form-control border-dark" type="text" value="{{old('FIE_GANADO')}}" onkeyup="javascript:this.value=this.value.toUpperCase();" maxlength="2">
                             @if ($errors->has('FIE_GANADO'))
                             <div id="FIE_GANADO-error" class="error text-danger pl-3" for="FIE_GANADO" style="display: bock;">
                                 <strong>
@@ -121,7 +149,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-lg-2">
+                    <div class="col-lg-2">
                         <div class="form-group">
                             <label><span style="color: red;"></span> Fecha de Nacimiento</label>
                             <input name="FEC_NACIMIENTO" placeholder="" id="FEC_NACIMIENTO" class="form-control border-dark" id="fecha" type='date' min="2015-01-01" max="{{date('Y-m-d');}}" value="{{old('FEC_NACIMIENTO')}}">
@@ -174,7 +202,7 @@
                             @livewire('buscador-prenadas-monta')
                         </div>
                     </div>
-                   
+
                 </div>
 
 
@@ -196,13 +224,27 @@
 </div>
 
 
+@stop
 
-
-    @stop
-    @section('footer')
-    <strong>Copyright &copy; 2022<a href="#">UNAH</a>.</strong> Todos los derechos reservados
-    <div class="float-right d-none d-sm-inline-block">
+@else
+@section('content')
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
 
-    @stop
+</div>
+@stop
+@endcan
+@section('footer')
+<strong>Copyright &copy; 2022<a href="#">UNAH</a>.</strong> Todos los derechos reservados
+<div class="float-right d-none d-sm-inline-block">
+
+</div>
+
+@stop

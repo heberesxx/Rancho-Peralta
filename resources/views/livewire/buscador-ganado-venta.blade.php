@@ -68,7 +68,7 @@
 
                     <input id="COD_REGISTRO_GANADO" class="form-control border-dark" hidden placeholder="Ingrese la cantidad comprada..." type="text" name="COD_REGISTRO_GANADO" value="{{$selected_ganadoventa}}" autofocus>
 
-                    <input id="nombre_ganado" class="form-control border-dark" placeholder="Busque el ganado a vender..." type="text" name="nombre_ganado" value="{{$nombre}}" value="{{old('nombre_ganado')}}" onkeypress="return false" autofocus>
+                    <input id="nombre_ganado" class="form-control border-dark" placeholder="Busque el ganado a vender..." type="text" name="nombre_ganado" value="{{$nombre}}" value="{{old('nombre_ganado')}}" onkeypress="return false" autofocus>&nbsp;
 
                     <button type="button" class="btn btn-info " data-toggle="modal" data-target="#modalVentaG"> <i class="fas fa-search"></i></button>
                 </div> </br>
@@ -98,7 +98,7 @@
         <div class="col-lg-6">
             <div class="form-group">
                 <label></span>Sexo:</label>
-                <input id="nombre_ganado" class="form-control border-dark" type="text" name="nombre_ganado" value="{{$sexo}}" value="{{old('nombre_ganado')}}" onkeypress="return false" disabled autofocus>
+                <input id="nombre_ganado" class="form-control border-dark" type="text" name="nombre_ganado" value="{{$sexo}}" value="{{old('nombre_ganado')}}" onkeypress="return false" disabled autofocus> 
             </div>
         </div>
 

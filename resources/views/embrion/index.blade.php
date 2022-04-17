@@ -1,20 +1,55 @@
+
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta 
+Pantalla:          Compras Embriones
+Fecha:             23/03/2022
+Programador:       Jeffry Aguilar
+descripción:       Pantalla que permite visualizar el detalle de los lotes de compras de embriones
+
+
+-->
 @extends('adminlte::page')
 
 @section('title', 'Compras Embriones')
-
+@CAN('VER_LOTES EMBRIONES')
 @section('content_header')
-@can('INSERTAR_LOTES EMBRIONES')
+
 <section class="content-header">
-	<div class="container-fluid">
-		<div class="row mb-2">
-			<div class="col-sm-6">
-				<h1>Compra de Embriones</h1>
-			</div>
-			<div class="col-sm-6">
-				
-			</div>
-		</div>
-	</div>
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Compra de Embriones</h1>
+            </div>
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+    </div>
 </section>
 @stop
 
@@ -22,104 +57,102 @@
 
 <!--------------------------------- Formulario con datos iniciales de compra --------------------------------------------------->
 <div class="container-fluid">
-@if (session('info'))
+    @if (session('info'))
     <div class="alert alert-success text-center" role="alert">
         <span type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></span>
         <strong>{{session('info')}}</strong>
     </div>
     @endif
-	<div class="row">
-		<div class="col-12">
-			<div class="card">
-			@can('INSERTAR_LOTES EMBRIONES')
-				<div class="card-header">
-					<div class="box-header">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                
+                <div class="card-header">
+                    <div class="box-header">
 
-					<a href="{{route('lotescompras_embrion.index')}}" class="btn btn-info "> <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;
-                            <span class="mr-2">Página Principal Compras de Embriones</span> 
+                        <a href="{{route('lotescompras_embrion.index')}}" class="btn btn-info "> <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>&nbsp;
+                            <span class="mr-2">Página Principal Compras de Embriones</span>
                         </a>
-						<a href="{{route('embrion.pdf')}}" class="btn btn-danger" target="_blank"  style=" margin-left: 25%;">
+                        <a href="{{route('embrion.pdf')}}" class="btn btn-danger" target="_blank" style=" margin-left: 25%;">
                             <span class="mr-2">PDF</span>
                         </a>
 
 
-					</div>
-				</div>
-				@ENDCAN
-				<div>
-					<div class="card-body">
-						<div class="box-header">
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="card-body">
+                        <div class="box-header">
 
-							<table id="TB" class="table table-bordered table-hover US">
-								<thead style="background-color: #e1e2f6;">
-									<tr>
-
-								
-										<th class="text-center">Lote </th>
-										<th class="text-center">Fecha Compra </th>
-										<th class="text-center">Proveedor </th>
-										<th class="text-center">Raza Esperada</th>
-										<th class="text-center">Raza  Donadora</th>
-										<th class="text-center">Raza  Donador</th>
-										<th class="text-center">Precio (L)</th>
-										<th class="text-center">Observación</th>
-										<th class="text-center">Estado Embrión</th>
-									
-									</tr>
-								</thead>
-								<tbody>
-									@foreach($embrion as $embrion)
-									<tr>
-									
-										<td class="text-center">{{ $embrion->COD_COMPRA_EMBRION}}</td>
-										<td class="text-center">{{\Carbon\Carbon::parse( $embrion->FEC_COMPRA)->format('d-m-Y') }}</td>
-										<td class="text-center">{{ $embrion->PROVEEDOR }}</td>
-										<td class="text-center">{{ $embrion->RAZ_ESPERADA }}</td>
-										<td class="text-center">{{ $embrion->RAZ_VACA_DONADORA }}</td>
-										<td class="text-center">{{ $embrion->RAZ_TORO_DONADOR }}</td>
-										<td style="text-align: right;">{{ number_format($embrion->PRE_EMBRION, 2, '.',',') }}</td>
-										<td class="text-center">{{ $embrion->OBS_COMPRA_EMBRION }}</td>
-										<td class="text-center">{{ $embrion->IND_EMBRION }}</td>
-										
-
-									</tr>
-									@endforeach
-								</tbody>
-							</table>
-						</div>
+                            <table id="TB" class="table table-bordered table-hover US">
+                                <thead style="background-color: #e1e2f6;">
+                                    <tr>
 
 
+                                        <th class="text-center">Lote </th>
+                                        <th class="text-center">Fecha Compra </th>
+                                        <th class="text-center">Proveedor </th>
+                                        <th class="text-center">Raza Esperada</th>
+                                        <th class="text-center">Raza Donadora</th>
+                                        <th class="text-center">Raza Donador</th>
+                                        <th class="text-center">Precio (L)</th>
+                                        <th class="text-center">Observación</th>
+                                        <th class="text-center">Estado Embrión</th>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($embrion as $embrion)
+                                    <tr>
+
+                                        <td class="text-center">{{ $embrion->COD_COMPRA_EMBRION}}</td>
+                                        <td class="text-center">{{\Carbon\Carbon::parse( $embrion->FEC_COMPRA)->format('d-m-Y') }}</td>
+                                        <td class="text-center">{{ $embrion->PROVEEDOR }}</td>
+                                        <td class="text-center">{{ $embrion->RAZ_ESPERADA }}</td>
+                                        <td class="text-center">{{ $embrion->RAZ_VACA_DONADORA }}</td>
+                                        <td class="text-center">{{ $embrion->RAZ_TORO_DONADOR }}</td>
+                                        <td style="text-align: right;">{{ number_format($embrion->PRE_EMBRION, 2, '.',',') }}</td>
+                                        <td class="text-center">{{ $embrion->OBS_COMPRA_EMBRION }}</td>
+                                        <td class="text-center">{{ $embrion->IND_EMBRION }}</td>
+
+
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
 @endcan
 @section('footer')
 
-    <strong>Copyright &copy; 2022<a href="#"> Rancho Peralta</a>.</strong> Todos los derechos reservados.
-    <div class="float-right d-none d-sm-inline-block">
-       
-    </div>
+<strong>Copyright &copy; 2022<a href="#"> Rancho Peralta</a>.</strong> Todos los derechos reservados.
+<div class="float-right d-none d-sm-inline-block">
+
+</div>
 
 @stop
 
@@ -134,7 +167,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset ('vendors/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
- 
+
 @stop
 
 @section('js')
@@ -207,7 +240,7 @@
                                     size: "12", // Font size
                                     color: "FFFFFF", // Font Color
                                     b: true,
-                                   // negrita SI
+                                    // negrita SI
                                 },
                                 fill: { // Estilo de relleno (background)
                                     pattern: { // tipo de rellero (pattern or gradient)
@@ -219,7 +252,7 @@
 
 
 
-                     
+
 
 
                         // ejemplo para IMPRIMIR

@@ -198,7 +198,7 @@ return [
     'password_reset_url' => '/reset-password',
     'password_email_url' => 'password/email',
     'profile_url' => 'perfil',
-    
+    'font_size' => '16px',
 
     /*
     |--------------------------------------------------------------------------
@@ -259,7 +259,7 @@ return [
                 [
                     'text' => 'Razas Ganado',
                     'url'  => 'razas',
-                    'icon' => 'fa fa-map',
+                    'icon' => 'fas fa-democrat nav-icon',
                     'can'  => 'VER_RAZAS'
                 ],
                 

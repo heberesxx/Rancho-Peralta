@@ -1,7 +1,43 @@
+
+<!--
+Universidad Nacional Autónoma de Honduras (UNAH)
+Facultad de Ciencias Económicas, Administrativas y Contables Departamento de Informática Administrativa
+Analisis, Programacion y Evaluacion de Sistemas
+Primer Período 2022
+
+Equipo:
+Jennifer Azucena Claros Flores..........(jeniclaros028@gmail.com)
+Nancy Gicela Dominguez Cruz.............(cruzgicela0503@gmail.com)			 
+Jeffry Joseph Aguilar Corrales..........(jeffryaguilaraguilarcorrales@gmail.com)			
+Carlos Ramón Funes Silva................(Carlosramon.funessilva@gmail.com)			
+Nisi Farid Sanchéz......................(farid.sanchez26@gmail.com)				
+Heber Noel Espinoza Alvarado............(ever2526v5@gmail.com)				
+					
+
+
+
+
+===============================================================================
+Catedrático:
+Lic. Lester Josué Fiallos Peralta 
+Lic. Lester Josué Fiallos Peralta 
+Lic. Karla Melisa Garcia Pineda
+
+
+===============================================================================
+Programa:          Rancho Peralta 
+Pantalla:          Lotes de Venta
+Fecha:             28/03/2022
+Programador:       Nancy Domínguez
+descripción:       Pantalla que permite visualizar los lotes de ganado vendido
+
+
+
+-->
 @extends('adminlte::page')
 
 @section('title', 'Lotes de Venta')
-@can('VER_OBJETOS')
+@can('VER_VENTAS')
 @section('content_header')
 <section class="content-header">
     <div class="container-fluid">
@@ -41,18 +77,26 @@
             <div class="card">
                 <div class="card-header">
                     <div class="box-header">
+                        @CAN('INSERTAR_VENTAS')
                         <a href="{{route('ventas.create')}}" class="btn btn-info">
                             <span class="mr-2">Nueva Venta </span> <i class="fas fa-plus-square"></i>
                         </a>
+                        @ENDCAN
+                        @CAN('INSERTAR_CLIENTES')
                         <a href="{{route('clientes.create')}}" class="btn btn-info">
                             <span class="mr-2">Agregar Cliente</span> <i class="fas fa-plus-square"></i>
                         </a>
+                        @ENDCAN
+                        @CAN('VER_VENTAS')
                         <a href="{{route('ventas.index')}}" class="btn btn-info">
                             <span class="mr-2">Ver Detalle de Ventas</span> <i class="fas fa-eye"></i>
                         </a>
+                        @ENDCAN
+                        @CAN('INSERTAR_VENTAS')
                         <a href="{{route('lotesventa.pdf')}}" class="btn btn-danger"  target="_blank" style=" margin-left: 14%;">
                             <span class="mr-2">PDF</span>
                         </a>
+                        @ENDCAN
 
 
 
@@ -71,7 +115,9 @@
                                 <th class="text-center" >Cantidad Vendida</th>
                                 <th class="text-center" >Precio Total (L)</th>
                                 <th class="text-center" >Estado Lote</th>
+                                @CAN('VER_VENTAS')
                                 <th class="text-center" >Ver detalle</th>
+                                @ENDCAN
                                 @CAN('ELIMINAR_VENTAS')
                                 <th class="text-center" >Anular Lote</th>
                                 @ENDCAN
@@ -87,7 +133,9 @@
                                 <td class="text-center">{{ $lote->CAN_TOTAL }}</td>
                                 <td  style="text-align: right;">{{number_format( $lote->TOTAL_PRECIO, 2, '.', ',') }}</td>
                                 <td  class="text-center">{{ $lote->STATUS_LOTE }}</td>
+                                @CAN('VER_VENTAS')
                                 <td class="text-center"><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href="{{ url('ventas/' .$lote->COD_VENTA . '/edit') }}"></a></td>
+                                @ENDCAN
                                 @CAN('ELIMINAR_VENTAS')
                                 <td class="text-center"><a type="submit" class=" btn btn-danger btn-sm  fa fa-times-circle" href="{{ url('anularlote/' .$lote->COD_VENTA . '/edit') }}"></a></td>
                                 @ENDCAN
@@ -108,18 +156,16 @@
 @stop
 @else
 @section('content')
-<div class="content-wrapper">
-    <div class="error-page">
-        <h2 class="headline text-warning"> 403</h2>
-        <div class="error-content">
-            <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
-            <p>
-               No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte  al administrador de seguridad.
-            </p>
-
-        </div>
+<div class="error-page">
+    <h2 class="headline text-warning"> 403</h2>
+    <div class="error-content">
+        <h3><i class="fas fa-exclamation-triangle text-warning"></i> Oops! página no encontrada.</h3>
+        <p>
+            No podemos mostrarle esta página porque no tiene permisos, si desea acceder consulte al administrador de seguridad.
+        </p>
 
     </div>
+
 </div>
 @stop
 @endcan

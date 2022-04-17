@@ -23,8 +23,8 @@
 
         body {
             position: relative;
-            width: 21cm;
-            height: 29.7cm;
+            width: 21.5cm;
+            height: 35cm;
             margin: 0 auto;
             color: #001028;
             background: #FFFFFF;
@@ -81,7 +81,7 @@
         }
 
         table {
-            width: 90%;
+            width: 80%;
             border-collapse: collapse;
             border-spacing: 0;
             margin-bottom: 20px;
