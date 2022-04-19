@@ -178,7 +178,10 @@ descripción:       Pantalla que permite visualizar el detalle de los lotes del 
                 {
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                    exportOptions: {
+                        columns: "th:not(:last-child)",
+                    },
                 },
                 {
                     extend: 'excel',

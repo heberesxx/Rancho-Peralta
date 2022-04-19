@@ -11,7 +11,7 @@ class NacimientosMontaController extends Controller
     private $cliente;
     public function __construct()
     {
-        $this->cliente = new Client(['base_uri' => 'http://localhost:3000/']);
+        $this->cliente = new Client(['base_uri' => 'http://localhost:3001/']);
     }
 
     /**

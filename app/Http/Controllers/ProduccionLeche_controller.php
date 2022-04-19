@@ -14,7 +14,7 @@ class ProduccionLeche_controller extends Controller
 
     public function __construct()
     {
-        $this->cliente = new Client(['base_uri' => 'http://localhost:3000/']);
+        $this->cliente = new Client(['base_uri' => 'http://localhost:3001/']);
     }
 
     /**
@@ -77,7 +77,8 @@ class ProduccionLeche_controller extends Controller
             "PRD_LITROS" => 'required|numeric|gt:0',
             "FEC_ORDEÑO" => "required|date",
             "DIA_LACTANCIA"=> "nullable|numeric",
-            "OBS_REGISTRO"=>'nullable|max:200'
+            "OBS_REGISTRO"=>'nullable|max:200',
+            'vaca-parida' =>'required'
 
         ]);
 

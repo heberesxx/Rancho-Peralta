@@ -12,7 +12,7 @@ class ExportarReporteVentaController extends Controller
     public function __construct()
     {
 
-        $this->cliente = new Client(['base_uri' => 'http://localhost:3000/']);
+        $this->cliente = new Client(['base_uri' => 'http://localhost:3001/']);
     }
     /**
      * Display a listing of the resource.
@@ -53,7 +53,7 @@ class ExportarReporteVentaController extends Controller
         $v_final = $request->input('final');
         $client = new Client();
         
-        $respuesta = $client->request('GET', 'http://localhost:3000/venta_ganado?inicio=' . $v_inicio . '&final=' . $v_final);
+        $respuesta = $client->request('GET', 'http://localhost:3001/venta_ganado?inicio=' . $v_inicio . '&final=' . $v_final);
         $cuerpo = $respuesta->getbody();
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
         $pdf = PDF::loadView('reporteventas.pfd', ['venta' => json_decode($cuerpo)], ['parametros' => $parametros]);

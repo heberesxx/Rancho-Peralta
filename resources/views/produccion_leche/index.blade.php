@@ -91,7 +91,7 @@ descripción:       Pantalla que permite visualizar la Producción de Leche regi
                                 <th class="text-center">Fecha de Ordeño</th>
                                 <th class="text-center">Vaca Ordeñada</th>
                                 
-                                <th class="text-center">Día de Lactancia </th>
+                                <th class="text-center">Días de Lactancia </th>
                                 <th class="text-center">Producción (lts) </th>
                                 <th class="text-center">Observaciones </th>
                                 @can('EDITAR_PRODUCCION LECHE')

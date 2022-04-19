@@ -51,7 +51,7 @@
 		h1 {
 
 			color: #5D6975;
-			font-size: 2.4em;
+			font-size: 2em;
 			line-height: 1.4em;
 			font-weight: normal;
 			text-align: center;
@@ -152,15 +152,25 @@
 
 
 <body>
-<header class="clearfix">
+	<header class="clearfix">
 		<div id="logo">
 			<img src="../public/vendor/adminlte/dist/img/logo.jpeg" style="width: 120px; height:120px; border-radius:50%;">
 		</div>
 		<h1>Compra de Embriones</h1>
 		<div id="project" class="clearfix">
+			<div>
+				<p style="font-size: 0.9em;">Generado por:
 
-			<div>{{'Desde: '.\Carbon\Carbon::parse($parametros[1] )->format('d-m-Y')}}</div>
-			<div>{{'Hasta: '.\Carbon\Carbon::parse($parametros[2] )->format('d-m-Y')}}</div>
+					@foreach($parametros[0] as $parametro)
+					{{$parametro->name.', fecha de consulta: '.date('d-m-Y');}}
+					@endforeach
+				</p>
+			</div>
+
+
+			<div style="font-size: 0.9em;">{{'Mostrando resultados desde: '.\Carbon\Carbon::parse($parametros[1] )->format('d-m-Y')}}</div>
+			<div style="font-size: 0.9em;">{{'Hasta: '.\Carbon\Carbon::parse($parametros[2] )->format('d-m-Y')}}</div>
+
 
 		</div>
 
@@ -172,33 +182,33 @@
 
 			<thead>
 				<tr>
-				
+
 					<th class="desc">Lote</th>
 					<th class="desc">Fecha Compra</th>
 					<th class="desc">Cliente</th>
-					<th class="desc">Precio</th>
+					<th class="desc">Precio (L)</th>
 					<th class="desc">Raza Esperada</th>
-                    <th class="desc">Raza Donador</th>
-                    <th class="desc">Raza Donadora</th>
+					<th class="desc">Raza Donador</th>
+					<th class="desc">Raza Donadora</th>
 
 				</tr>
 
 			</thead>
 			<tbody>
-				
+
 				@foreach($compras[0] as $dato)
 				<tr>
-				
+
 					<td class="desc">{{ $dato->LOTE}}</td>
 					<td class="desc">{{ \Carbon\Carbon::parse($dato->FEC_COMPRA)->format('d-m-Y')}}</td>
 					<td class="desc">{{ $dato->PROVEEDOR}}</td>
-					<td class="desc">{{ $dato->PRECIO}}</td>
+					<td class="desc" style="text-align: right;">{{ number_format($dato->PRECIO,2,'.',',')}}</td>
 					<td class="desc">{{ $dato->RAZA}}</td>
-                    <td class="desc">{{ $dato->DONADOR}}</td>
-                    <td class="desc">{{ $dato->DONADORA}}</td>
+					<td class="desc">{{ $dato->DONADOR}}</td>
+					<td class="desc">{{ $dato->DONADORA}}</td>
 
 				</tr>
-				
+
 
 				@endforeach
 

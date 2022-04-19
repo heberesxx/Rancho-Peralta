@@ -133,7 +133,11 @@ descripción:       Pantalla que permite visualizar  los lotes de compras de emb
                                 <td class="text-center">{{ $lote->CAN_TOTAL }}</td>
 
                                 <td style="text-align: right;">{{number_format( $lote->TOTAL_PRECIO, 2, '.', ',') }}</td>
-                                <td class="text-center">{{ $lote->STATUS }}</td>
+                                @if($lote->STATUS == 'CONFIRMADO')
+                                <td class="text-success text-center" style="width:auto;"><strong>{{ 'CONFIRMADO' }}</strong></td>
+                                @elseif($lote->STATUS == 'CANCELADO')
+                                <td class="text-danger text-center" style="width:auto;"><strong>{{ 'CANCELADO' }}</strong></td>
+                                @endif
                                 @CAN('VER_LOTES EMBRIONES')
                                 <td class="text-center"><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href="{{ url('embrion/' .$lote->COD_COMPRA_EMBRION . '/edit') }}"></a></td>
                                 @ENDCAN
@@ -221,7 +225,10 @@ descripción:       Pantalla que permite visualizar  los lotes de compras de emb
             buttons: [{
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                    exportOptions: {
+                        columns: "th:not(:last-child)",
+                    },
                 },
                 {
                     extend: "excel",

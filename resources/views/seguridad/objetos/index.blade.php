@@ -90,7 +90,7 @@ descripción:       Pantalla que permite vizualizar los Objetos del Sistema
                     <table id="TB" class="table table-bordered table-hover US">
                         <thead style="background-color: #e1e2f6;">
                             <tr class="text-center">
-                                <th scope="col" width="30">Código</th>
+                                <th scope="col" width="30">Id</th>
                                 <th scope="col">Nombre</th>
                                 <th scope="col">Descripción</th>
                                 <th scope="col">Status</th>
@@ -115,7 +115,11 @@ descripción:       Pantalla que permite vizualizar los Objetos del Sistema
                                 </td>
                                 <td>{{$objeto->objeto}}</td>
                                 <td>{{$objeto->Descripcion}}</td>
-                                <td>{{$objeto->status}}</td>
+                                @if($objeto->status == 'ACTIVO')
+                                <td class="text-success text-center" style="width:auto;"><strong>{{ 'ACTIVO' }}</strong></td>
+                                @elseif($objeto->status == 'INACTIVO')
+                                <td class="text-danger text-center" style="width:auto;"><strong>{{ 'INACTIVO' }}</strong></td>
+                                @endif
                                 <td class="text-center" >{{\Carbon\Carbon::parse( $objeto->created_at)->format('d-m-Y H:i:s') }}</td>
                                 <td class="text-center" >{{\Carbon\Carbon::parse( $objeto->updated_at)->format('d-m-Y H:i:s') }}</td>
                                 @can('EDITAR_OBJETOS')
@@ -217,7 +221,10 @@ descripción:       Pantalla que permite vizualizar los Objetos del Sistema
             buttons: [{
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                    exportOptions: {
+                        columns: "th:not(:last-child)",
+                    },
                 },
                 {
                     extend: "excel",

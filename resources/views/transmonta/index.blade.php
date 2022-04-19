@@ -174,7 +174,10 @@
 
                         extend: 'print',
                         text: 'Imprimir',
-                        className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                        className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4]
+                        },
                     },
                     {
                         extend: "excel",

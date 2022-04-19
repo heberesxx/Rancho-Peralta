@@ -96,7 +96,7 @@ descripción:       Pantalla que permite vizualizar el las Transferencias hechas
                                 <th class="text-center">Toro Donador</th>
                                 <th class="text-center">Detalles Vaca Receptora</th>
                                 <th class="text-center">Status Esperma</th>
-                                <th class="text-center">Fecha de fFecundación</th>
+                                <th class="text-center">Fecha de Fecundación</th>
                                 @can('EDITAR_TRANSFERENCIAS EMBRION')
                                 <th class="text-center" style="width: 10%">Editar</th>
                                 @ENDCAN
@@ -208,7 +208,10 @@ descripción:       Pantalla que permite vizualizar el las Transferencias hechas
 
                         extend: 'print',
                         text: 'Imprimir',
-                        className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                        className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5]
+                        },
                     },
                     {
                         extend: "excel",

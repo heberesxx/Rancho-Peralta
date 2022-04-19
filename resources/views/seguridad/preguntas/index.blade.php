@@ -42,7 +42,7 @@ descripción:       Pantalla que permite vizualizar las Preguntas de Seguridad
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Pregutas de Seguridad</h1>
+                <h1>Preguntas de Seguridad</h1>
             </div>
             <div class="col-sm-6">
 
@@ -217,8 +217,13 @@ descripción:       Pantalla que permite vizualizar las Preguntas de Seguridad
             buttons: [{
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+
+                    exportOptions: {
+                        columns: [0, 1, 2, 3]
+                    },
                 },
+                
                 {
                     extend: "excel",
                     exportOptions: {

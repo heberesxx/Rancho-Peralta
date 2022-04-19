@@ -120,11 +120,12 @@ descripción:       Pantalla que permite vizualizar los Usuarios  Registrados en
                                 <td>{{ $usuario->email }}</td>
 
                                 @if($usuario->estado == 1)
-                                <td class="text-success"> ACTIVO</td>
+                                <td class="text-success"><strong>ACTIVO</strong></td>
                                 @elseif($usuario->estado == 0)
-                                <td class="text-danger">INACTIVO</td>
-                                @else
-                                <td class="text-info">BLOQUEADO</td>
+                                <td class="text-danger"><strong>INACTIVO</strong></td>
+                                @elseif($usuario->estado == 2)
+                                <td class="text-dark"><strong>BLOQUEADO</strong></td>
+                                
                                 @endif
                                 <td>@if(!empty($usuario->getRoleNames()))
                                     @foreach($usuario->getRoleNames() as $rolNombre)
@@ -238,7 +239,10 @@ descripción:       Pantalla que permite vizualizar los Usuarios  Registrados en
             buttons: [{
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                    exportOptions: {
+                        columns: "th:not(:last-child)",
+                    },
                 },
                 {
                     extend: "excel",

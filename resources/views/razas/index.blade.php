@@ -113,7 +113,11 @@ descripción:       Pantalla que permite vizualizar las Razas del Ganado
                                 <td class="text-center">{{ $raza->COD_RAZA }}</td>
                                 <td class="text-center">{{ $raza->NOM_RAZA }}</td>
                                 <td class="text-center">{{ $raza->DET_RAZA}}</td>
-                                <td class="text-center">{{ $raza->IND_RAZA}}</td>
+                                @if($raza->IND_RAZA == 'ACTIVO')
+                                <td class="text-success text-center" style="width:auto;"><strong>{{ 'ACTIVO' }}</strong></td>
+                                @elseif($raza->IND_RAZA == 'INACTIVO')
+                                <td class="text-danger text-center" style="width:auto;"><strong>{{ 'INACTIVO' }}</strong></td>
+                                @endif
                                 <td class="text-center" >{{\Carbon\Carbon::parse( $raza->created_at)->format('d-m-Y H:i:s') }}</td>
                                 <td class="text-center" >{{\Carbon\Carbon::parse( $raza->updated_at)->format('d-m-Y H:i:s') }}</td>
                                
@@ -205,7 +209,10 @@ descripción:       Pantalla que permite vizualizar las Razas del Ganado
             buttons: [{
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                    exportOptions: {
+                        columns: "th:not(:last-child)",
+                    },
                 },
                 {
                     extend: "excel",

@@ -14,7 +14,7 @@ class VentasReportesController extends Controller
     public function __construct()
     {
 
-        $this->cliente = new Client(['base_uri' => 'http://localhost:3000/']);
+        $this->cliente = new Client(['base_uri' => 'http://localhost:3001/']);
     }
     /**
      * Display a listing of the resource.
@@ -59,7 +59,7 @@ class VentasReportesController extends Controller
         $client = new Client();
 
 
-        $respuesta = $client->request('GET', 'http://localhost:3000/venta_ganado?inicio=' . $v_inicio . '&final=' . $v_final);
+        $respuesta = $client->request('GET', 'http://localhost:3001/venta_ganado?inicio=' . $v_inicio . '&final=' . $v_final);
         $cuerpo = $respuesta->getbody();
         $parametros[0] = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
         $parametros[1] = $v_inicio;

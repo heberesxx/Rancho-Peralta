@@ -114,7 +114,11 @@ descripción:       Pantalla que permite vizualizar los Estados del Ganado
                                 <td class="text-center" class="text-center">{{ $estado->COD_ESTADO }}</td>
                                 <td class="text-center">{{ $estado->DET_ESTADO }}</td>
                                 <td class="text-center">{{ $estado->DESCRIPCION_ESTADO}}</td>
-                                <td class="text-center">{{ $estado->STATUS}}</td>
+                                @if($estado->STATUS == 'ACTIVO')
+                                <td class="text-success text-center" style="width:auto;"><strong>{{ 'ACTIVO' }}</strong></td>
+                                @elseif($estado->STATUS == 'INACTIVO')
+                                <td class="text-danger text-center" style="width:auto;"><strong>{{ 'INACTIVO' }}</strong></td>
+                                @endif
 
                                 <td class="text-center">{{\Carbon\Carbon::parse( $estado->created_at)->format('d-m-Y H:i:s') }}</td>
 
@@ -213,7 +217,10 @@ descripción:       Pantalla que permite vizualizar los Estados del Ganado
             buttons: [{
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                    exportOptions: {
+                        columns: "th:not(:last-child)",
+                    },
                 },
                 {
                     extend: "excel",

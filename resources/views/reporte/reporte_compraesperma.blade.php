@@ -50,7 +50,7 @@
 		h1 {
 
 			color: #5D6975;
-			font-size: 2.4em;
+			font-size: 2em;
 			line-height: 1.4em;
 			font-weight: normal;
 			text-align: center;
@@ -157,9 +157,19 @@
 		</div>
 		<h1>Compra de Esperma</h1>
 		<div id="project" class="clearfix">
+			<div>
+				<p style="font-size: 0.9em;">Generado por:
 
-			<div>{{'Desde: '.\Carbon\Carbon::parse($parametros[1] )->format('d-m-Y')}}</div>
-			<div>{{'Hasta: '.\Carbon\Carbon::parse($parametros[2] )->format('d-m-Y')}}</div>
+					@foreach($parametros[0] as $parametro)
+					{{$parametro->name.', fecha de consulta: '.date('d-m-Y');}}
+					@endforeach
+				</p>
+			</div>
+
+
+			<div style="font-size: 0.9em;">{{'Mostrando resultados desde: '.\Carbon\Carbon::parse($parametros[1] )->format('d-m-Y')}}</div>
+			<div style="font-size: 0.9em;">{{'Hasta: '.\Carbon\Carbon::parse($parametros[2] )->format('d-m-Y')}}</div>
+
 
 		</div>
 
@@ -176,7 +186,7 @@
 					<th class="desc">Lote</th>
 					<th class="desc">Fecha Compra</th>
 					<th class="desc">Cliente</th>
-					<th class="desc">Precio</th>
+					<th class="desc">Precio (L)</th>
 					<th class="desc">Pajilla</th>
                     <th class="desc">Raza Donador</th>
  
@@ -192,7 +202,7 @@
 					<td class="desc">{{ $dato->LOTE}}</td>
 					<td class="desc">{{ \Carbon\Carbon::parse($dato->FEC_COMPRA)->format('d-m-Y')}}</td>
 					<td class="desc">{{ $dato->PROVEEDOR}}</td>
-					<td class="desc">{{ $dato->PRECIO}}</td>
+					<td class="desc" style="text-align: right;">{{ number_format($dato->PRECIO,2,'.',',')}}</td>
 					<td class="desc">{{ $dato->PAJILLA}}</td>
                     <td class="desc">{{ $dato->DONADOR}}</td>
 

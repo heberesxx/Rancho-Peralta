@@ -104,7 +104,7 @@ descripción:       Pantalla que permite vizualizar los clientes registrados
                                 <th class="text-center" style="position:center; width:auto;">Nombre</th>
                                 <th class="text-center" style="width:20%;">Apellido</th>
                                 <th class="text-center">Dirección</th>
-                             
+
                                 <th class="text-center" style="width:20%;">Celular</th>
                                 <th class="text-center" style="width:auto;">Status </th>
                                 @can('EDITAR_CLIENTES')
@@ -120,10 +120,13 @@ descripción:       Pantalla que permite vizualizar los clientes registrados
                                 <td class="text-center" style="width:20%;">{{ $persona->PRI_APELLIDO }}</td>
                                 <td style="width: 20%;">{{ $persona->DET_DIRECCION }}</td>
                                 <td class="text-center" style="width:auto;">{{'+'.$persona->NUM_AREA.' '.$persona->NUM_CELULAR }}</td>
-                                
-                                <td class="text-center" style="width:auto;">{{ $persona->IND_COMERCIAL }}</td>
+                                @if($persona->IND_COMERCIAL == 'ACTIVO')
+                                <td class="text-success" style="width:auto;">{{ 'ACTIVO' }}</td>
+                                @elseif($persona->IND_COMERCIAL == 'INACTIVO')
+                                <td class="text-danger" style="width:auto;">{{ 'INACTIVO' }}</td>
+                                @endif
                                 @can('EDITAR_CLIENTES')
-                                <td class="text-center" style="width:auto;"><a class="btn btn-warning" href="{{url('clientes/' . $persona->COD_CLIENTE . '/edit')}}">Editar</a></td>
+                                <td class="text-center" style="width:auto;"><a class="btn btn-warning btn-sm fa fa-edit "href="{{url('clientes/' . $persona->COD_CLIENTE . '/edit')}}"></a></td>
                                 @ENDCAN
                             </tr>
 
@@ -205,8 +208,14 @@ descripción:       Pantalla que permite vizualizar los clientes registrados
             buttons: [{
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+
+                    exportOptions: {
+                        columns: "th:not(:last-child)",
+                    },
                 },
+             
+
                 {
                     extend: "excel",
                     exportOptions: {

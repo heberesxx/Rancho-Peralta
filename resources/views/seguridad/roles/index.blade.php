@@ -111,7 +111,11 @@ descripción:       Pantalla que permite vizualizar los Roles y Permisos
                             <tr class="text-center">
                                 <td>{{ $rol->id }}</td>
                                 <td>{{ $rol->name }} </td>
-                                <td>{{ $rol->STATUS }} </td>
+                                @if($rol->STATUS == 'ACTIVO')
+                                <td class="text-success text-center" style="width:auto;"><strong>{{ 'ACTIVO' }}</strong></td>
+                                @elseif($rol->STATUS == 'INACTIVO')
+                                <td class="text-danger text-center" style="width:auto;"><strong>{{ 'INACTIVO' }}</strong></td>
+                                @endif
                                 <td class="text-center" >{{\Carbon\Carbon::parse( $rol->created_at)->format('d-m-Y H:i:s') }}</td>
                                 <td class="text-center" >{{\Carbon\Carbon::parse( $rol->updated_at)->format('d-m-Y H:i:s') }}</td>
                                 @can('EDITAR_ROLES')
@@ -221,7 +225,10 @@ descripción:       Pantalla que permite vizualizar los Roles y Permisos
             buttons: [{
                     extend: 'print',
                     text: 'Imprimir',
-                    className: 'btn btn-secondary glyphicon glyphicon-duplicate'
+                    className: 'btn btn-secondary glyphicon glyphicon-duplicate',
+                    exportOptions: {
+                        columns: "th:not(:last-child)",
+                    },
                 },
                 {
                     extend: "excel",

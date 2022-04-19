@@ -174,7 +174,7 @@ swal(
 )
 ```
 
-[Read more about integrating with React](http://localhost:3000/guides#using-react)
+[Read more about integrating with React](http://localhost:3001/guides#using-react)
 
 ## Contributing
 

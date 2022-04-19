@@ -114,7 +114,7 @@ descripción:       Pantalla que permite visualizar el detalle de los lotes del 
                                 <td class="text-center">{{ $ventas->CLIENTE}}</td>
                                
                                 <td class="text-center">{{ $ventas->NOM_GANADO}}</td>
-                                <td style="text-align: right;"> {{ $ventas->PRE_VENTA }}</td>
+                                <td style="text-align: right;"> {{ number_format($ventas->PRE_VENTA,2,'.',',') }}</td>
                                
                             </tr>
                             @endforeach

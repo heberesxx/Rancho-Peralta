@@ -51,7 +51,7 @@
 		h1 {
 
 			color: #5D6975;
-			font-size: 2.4em;
+			font-size: 2em;
 			line-height: 1.4em;
 			font-weight: normal;
 			text-align: center;
@@ -158,9 +158,18 @@
 		</div>
 		<h1>Compra de Ganado</h1>
 		<div id="project" class="clearfix">
+			<div>
+				<p style="font-size: 0.9em;">Generado por:
 
-			<div>{{'Desde: '.\Carbon\Carbon::parse($parametros[1] )->format('d-m-Y')}}</div>
-			<div>{{'Hasta: '.\Carbon\Carbon::parse($parametros[2] )->format('d-m-Y')}}</div>
+					@foreach($parametros[0] as $parametro)
+					{{$parametro->name.', fecha de consulta: '.date('d-m-Y');}}
+					@endforeach
+				</p>
+			</div>
+
+
+			<div style="font-size: 0.9em;">{{'Mostrando resultados desde: '.\Carbon\Carbon::parse($parametros[1] )->format('d-m-Y')}}</div>
+			<div style="font-size: 0.9em;">{{'Hasta: '.\Carbon\Carbon::parse($parametros[2] )->format('d-m-Y')}}</div>
 
 		</div>
 
@@ -173,13 +182,13 @@
 
 			<thead>
 				<tr>
-					<th class="desc">#</th>
+					<th class="desc">N°</th>
 					<th class="desc">Lote</th>
 					<th class="desc">Fecha Compra</th>
 					<th class="desc">Proveedor</th>
-					<th class="desc">Precio de Compra</th>
+					<th class="desc">Precio de Compra (L)</th>
 
-					<th class="desc">Nom. Ganado</th>
+					<th class="desc">Detalle Ganado Comprado</th>
 
 				</tr>
 
@@ -192,8 +201,8 @@
 					<td class="desc">{{ $dato->COD_COMPRA_GANADO}}</td>
 					<td class="desc">{{ \Carbon\Carbon::parse($dato->FEC_COMPRA)->format('d-m-Y')}}</td>
 					<td class="desc">{{ $dato->PERSONA}}</td>
-					<td class="desc">{{ $dato->PRECIO}}</td>
-					<td class="desc">{{ $dato->NOM_GANADO}}</td>
+					<td class="desc" style="text-align: right;">{{ number_format($dato->PRECIO,2,'.',',')}}</td>
+					<td class="desc">{{'Nombre: '.$dato->NOM_GANADO.', Raza: '.$dato->RAZA.', Estado: '.$dato->ESTADO}}</td>
 
 				</tr>
 				@php $i++;@endphp

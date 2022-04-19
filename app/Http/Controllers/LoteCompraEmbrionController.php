@@ -11,7 +11,7 @@ use  Barryvdh\DomPDF\Facade as PDF;
 class LoteCompraEmbrionController extends Controller
 {
     public function __construct () {
-        $this->cliente = new Client(['base_uri' => 'http://localhost:3000/']);
+        $this->cliente = new Client(['base_uri' => 'http://localhost:3001/']);
     }
     /**
      * Display a listing of the resource.

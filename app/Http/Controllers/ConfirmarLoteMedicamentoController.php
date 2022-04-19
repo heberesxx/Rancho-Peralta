@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ConfirmarLoteMedicamentoController extends Controller
 {
     public function __construct () {
-        $this->cliente = new Client(['base_uri' => 'http://localhost:3000/']);
+        $this->cliente = new Client(['base_uri' => 'http://localhost:3001/']);
     }
 
     /**

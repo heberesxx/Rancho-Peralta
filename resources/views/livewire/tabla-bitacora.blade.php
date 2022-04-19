@@ -43,10 +43,10 @@
             </div>
         </div>
         <div class="w-1/6 relative mx-1">
-            <a href="{{route('bita.pdf')}}" class="block appearance-none w-full bg-red  text-white py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 text-center">EXPORTAR A PDF</a>
+            <a href="{{route('bita.pdf')}}" target="_blank" class="block appearance-none w-full bg-red  text-white py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 text-center">EXPORTAR A PDF</a>
         </div>
         <div class="w-1/6 relative mx-1">
-            <a href="{{route('exportar.bitacora')}}" class="block appearance-none w-full bg-green  text-white py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 text-center">EXPORTAR A EXCEL</a>
+            <a href="{{route('exportar.bitacora')}}" target="_blank" class="block appearance-none w-full bg-green  text-white py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500 text-center">EXPORTAR A EXCEL</a>
         </div>
     </div> </br>
     @if($bitacoras->isNotEmpty())
