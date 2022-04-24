@@ -32,7 +32,7 @@ class UsuariosController extends Controller
     {
 
         $usuarios = User::all();
-        
+       // dd($usuarios);
         return view('seguridad.usuarios.index')->with('usuarios', $usuarios);
         
     }

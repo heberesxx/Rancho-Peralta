@@ -83,7 +83,7 @@
         </div>
         <div class="col-lg-4">
             <div class="form-group">
-                <label></span>Peso:</label>
+                <label></span>Peso (kg):</label>
                 <input id="nombre_ganado" class="form-control border-dark" type="text" name="nombre_ganado" value="{{$peso}}" value="{{old('nombre_ganado')}}" onkeypress="return false" disabled autofocus>
             </div>
         </div>

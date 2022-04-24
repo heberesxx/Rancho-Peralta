@@ -101,7 +101,7 @@ descripción:       Pantalla que permite vizualizar los Usuarios  Registrados en
                                 <th scope="col">Estado</th>
                                 <th scope="col">Rol</th>
                                 <th scope="col">Creación</th>
-                                <th scope="col">Actualización</th>
+                                <th scope="col">Vencimiento</th>
                                 @can('EDITAR_USUARIOS')
                                 <th scope="col" width="50">Editar</th>
                                 @ENDCAN
@@ -119,13 +119,16 @@ descripción:       Pantalla que permite vizualizar los Usuarios  Registrados en
                                 <td>{{ $usuario->username }}</td>
                                 <td>{{ $usuario->email }}</td>
 
-                                @if($usuario->estado == 1)
-                                <td class="text-success"><strong>ACTIVO</strong></td>
+                                @if($usuario->estado == 1 and $usuario->fecha_vencimiento <= date('Y-m-d'))
+                                <td class="text-primary"><strong>VENCIDO</strong></td>
+                                @elseif($usuario->estado == 1 and $usuario->fecha_vencimiento <= date('Y-m-d'))
+                                <td class="text-success"><strong>VENCIDO</strong></td>
                                 @elseif($usuario->estado == 0)
                                 <td class="text-danger"><strong>INACTIVO</strong></td>
                                 @elseif($usuario->estado == 2)
                                 <td class="text-dark"><strong>BLOQUEADO</strong></td>
-                                
+                                @elseif($usuario->estado == 1)
+                                <td class="text-success"><strong>ACTIVO</strong></td>
                                 @endif
                                 <td>@if(!empty($usuario->getRoleNames()))
                                     @foreach($usuario->getRoleNames() as $rolNombre)
@@ -134,7 +137,7 @@ descripción:       Pantalla que permite vizualizar los Usuarios  Registrados en
                                     @endif
                                 </td>
                                 <td>{{\Carbon\Carbon::parse ($usuario->created_at)->format('d-m-Y H:i:s') }}</td>
-                                <td>{{\Carbon\Carbon::parse ($usuario->updated_at)->format('d-m-Y H:i:s') }}</td>
+                                <td>{{\Carbon\Carbon::parse ($usuario->fecha_vencimiento)->format('d-m-Y') }}</td>
                                 @can('EDITAR_USUARIOS')
                                 <td width="50"><a href="{{route('usuarios.edit', $usuario->id)}}" class="btn btn-warning btn-sm fa fa-edit "></a>
                                 </td>

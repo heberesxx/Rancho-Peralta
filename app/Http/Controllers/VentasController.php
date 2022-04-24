@@ -38,12 +38,12 @@ class VentasController extends Controller
         $ventas = DB::select('select * from detalle_de_ventas');
         $parametros = DB::select('select *  from parametros where parametro = "Nombre de la empresa"');
         $usuarios = DB::select('select * from users where id = ?', [Auth()->user()->id]);
-        $pdf = PDF::loadView('ventas.pdf',['ventas'=>$ventas],['usuarios' =>$usuarios]);
+        $pdf = PDF::loadView('ventas.pdf', ['ventas' => $ventas], ['usuarios' => $usuarios]);
 
-      
+
         return $pdf->stream();
-       
-      // return view('clientes.pdf')->with('personas', $clientes);
+
+        // return view('clientes.pdf')->with('personas', $clientes);
     }
 
 
@@ -58,17 +58,18 @@ class VentasController extends Controller
         $respuesta8 = $this->cliente->get('detalle_clientes');
         $cuerpo8 = $respuesta8->getBody();
 
-    
-       $ventas = DB::select('select * from venta_actual');
+
+        $ventas = DB::select('select * from venta_actual');
         $datos = array(
             "lotes" => json_decode($cuerpo8),
-    
-  
+
+
         );
 
-        return view('ventas.create', ['datos' => $datos],['ventas'=>$ventas]);
+        return view('ventas.create', ['datos' => $datos], ['ventas' => $ventas]);
     }
 
+  
     /**
      * Store a newly created resource in storage.
      *
@@ -78,10 +79,10 @@ class VentasController extends Controller
     public function store(Request $request)
     {
         $request->validate(rules: [
-            
+
             "PRE_VENTA" => "required|numeric|digits_between:3,8",
             "COD_REGISTRO_GANADO" =>  "required",
-           
+
             "nombre_ganado" => "required"
 
         ]);
@@ -90,7 +91,7 @@ class VentasController extends Controller
             'json' => $request->all()
         ]);
 
-        return redirect()->route('ventas.create') ->with('info', 'Venta Registrada.');
+        return redirect()->route('ventas.create')->with('info', 'Venta Registrada.');
     }
 
     /**

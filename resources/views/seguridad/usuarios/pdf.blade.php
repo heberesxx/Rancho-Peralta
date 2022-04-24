@@ -199,13 +199,17 @@
                     <td class="desc">{{ $usuario->username }}</td>
                     <td class="desc">{{ $usuario->email }}</td>
 
-                    @if($usuario->estado == 1)
-                    <td class="text-success"> ACTIVO</td>
-                    @elseif($usuario->estado == 0)
-                    <td class="text-danger">INACTIVO</td>
-                    @else
-                    <td class="text-info">BLOQUEADO</td>
-                    @endif
+                    @if($usuario->estado == 1 and $usuario->fecha_vencimiento <= date('Y-m-d'))
+                                <td class="text-primary"><strong>VENCIDO</strong></td>
+                                @elseif($usuario->estado == 1 and $usuario->fecha_vencimiento <= date('Y-m-d'))
+                                <td class="text-success"><strong>VENCIDO</strong></td>
+                                @elseif($usuario->estado == 0)
+                                <td class="text-danger"><strong>INACTIVO</strong></td>
+                                @elseif($usuario->estado == 2)
+                                <td class="text-dark"><strong>BLOQUEADO</strong></td>
+                                @elseif($usuario->estado == 1)
+                                <td class="text-success"><strong>ACTIVO</strong></td>
+                                @endif
                     <td class="desc">{{$usuario->rol}}</td>
                     <td class="desc">{{\Carbon\Carbon::parse ($usuario->created_at)->format('d-m-Y H:i:s') }}</td>
                     <td class="desc">{{\Carbon\Carbon::parse ($usuario->updated_at)->format('d-m-Y H:i:s') }}</td>

@@ -137,7 +137,10 @@ descripción:       Pantalla que permite visualizar  los lotes de compras de emb
                                 <td class="text-success text-center" style="width:auto;"><strong>{{ 'CONFIRMADO' }}</strong></td>
                                 @elseif($lote->STATUS == 'CANCELADO')
                                 <td class="text-danger text-center" style="width:auto;"><strong>{{ 'CANCELADO' }}</strong></td>
+                                @elseif($lote->STATUS == 'EN PROCESO')
+                                <td class="text-primary text-center" style="width:auto;"><strong>{{ 'EN PROCESO' }}</strong></td>
                                 @endif
+                                
                                 @CAN('VER_LOTES EMBRIONES')
                                 <td class="text-center"><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href="{{ url('embrion/' .$lote->COD_COMPRA_EMBRION . '/edit') }}"></a></td>
                                 @ENDCAN

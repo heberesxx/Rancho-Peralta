@@ -32,6 +32,7 @@ use App\Http\Controllers\LoteMedicamentoController;
 use App\Http\Controllers\BackupController;
 use App\Http\Controllers\BitaController;
 use App\Http\Controllers\ReporteCompraController;
+use App\Http\Controllers\VentasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -93,6 +94,7 @@ Route::group(attributes:['middleware'=>'auth'], routes:function(){
     Route::get('exportar/ganado/', [GanadoGeneralController::class, 'export'])->name('exportar.ganado');
     Route::get('exportar/clientes/', [ClientesController::class, 'export'])->name('exportar.clientes');
     Route::get('reportes_comprag/', [ReporteCompraController::class, 'store'])->name('reportes_comprasg');
+    Route::get('view_factura/', [VentasController::class, 'viewfactura'])->name('view_factura');
    // Route::get('reportes_comprag/store', [ReporteCompraController::class, 'store'])->name('reportes_comprasg.store');
 
     Route::get('lotesventa/pdf', [App\Http\Controllers\InsertarventaController::class,'pdf'])->name('lotesventa.pdf');
@@ -154,7 +156,7 @@ Route::group(attributes:['middleware'=>'auth'], routes:function(){
     Route::resource('/exportarventa','App\Http\Controllers\ExportarReporteVentaController');
     Route::resource('/verpreguntas','App\Http\Controllers\VerPreguntasController');
     Route::resource('/anularlote','App\Http\Controllers\AnularLoteVentaController');
-
+    Route::resource('/verfactura','App\Http\Controllers\VerFacturasController');
 
     Route::resource('usuarios', UsuariosController::class)->names('usuarios');
     Route::resource('roles',RolesController::class)->names('roles');

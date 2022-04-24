@@ -81,7 +81,7 @@ descripción:       Pantalla que permite  Editar  un Objeto.
                     <div class="col-lg-4">
                         <div class="form-group">
                             <label for="Descripcion">Descripción del Objeto:</label>
-                            <input id="Descripcion" class="form-control border-dark" placeholder="Ingrese el nombre del Descripcion..." type="text" name="Descripcion" value="{{$objeto->Descripcion}}" autofocus>
+                            <textarea id="Descripcion" class="form-control border-dark"  rows="2" placeholder="Ingrese el nombre del Descripcion..." type="text" name="Descripcion" value="" autofocus>{{$objeto->Descripcion}}</textarea>
 
                             @if ($errors->has('Descripcion'))
                             <div id="Descripcion-error" class="error text-danger pl-3" for="Descripcion" style="display: bock;">

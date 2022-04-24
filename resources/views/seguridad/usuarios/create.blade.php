@@ -81,7 +81,7 @@ descripción:       Pantalla que permite  crear un Usuario.
             @csrf()
 
             <div class="card-body">
-                <h6><span style="color: rgb(20, 20, 20);"> *  </span>Campos  obligatorios</h6>
+                <h6><span style="color: RED;"> *  </span>Campos  obligatorios</h6>
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="form-group">
@@ -152,7 +152,7 @@ descripción:       Pantalla que permite  crear un Usuario.
                         </div>
                         
                     </div>
-                    <div class="col-lg-5">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <label><span style="color: red;">*</span>Rol</label> <i class="fa fa-chalkboard-user" style="margin-left: 10px;"></i>
                             <select name="roles" id="roles" class="custom-select">

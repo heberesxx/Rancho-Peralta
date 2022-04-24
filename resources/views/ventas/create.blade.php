@@ -124,7 +124,7 @@ descripción:       Pantalla que permite realizar ventas del ganado por lotes
                                 <tr>
                                     <th>N°</th>
                                     <th>Descripción </th>
-                                    <th>Precio </th>
+                                    <th>Precio (L)</th>
                                     <th style="width: auto;">Acción</th>
 
 
@@ -138,11 +138,11 @@ descripción:       Pantalla que permite realizar ventas del ganado por lotes
                                     <td>{{'Nombre: '.$ventas->NOMBRE.
                                         ', Arete: '.$ventas->ARETE.
                                     ', Color: '.$ventas->COLOR.
-                                ', Peso'.$ventas->PESO.
+                                ', Peso'.$ventas->PESO.' kg'.
                             ', Estado: '.$ventas->ESTADO.
                         ', Lugar: '.$ventas->LUGAR.
                     ', Raza: '.$ventas->RAZA}}</td>
-                                    <td>{{$ventas->PRECIO}}</td>
+                                    <td>{{ number_format($ventas->PRECIO,2,'.',',')}}</td>
                                     <td style="width: auto;">
                                         <!-- boton de eliminar -->
                                         <button type="submit" class=" btn btn-danger btn-sm  fa fa-times-circle" form="delete_{{$ventas->COD_DETALLE_VENTA}}" onclick="return confirm('¿Desea eliminar el registro permanentemente?')">
@@ -187,7 +187,7 @@ descripción:       Pantalla que permite realizar ventas del ganado por lotes
                                         <th>Fecha </th>
                                         <th>Cliente </th>
                                         <th>Cantidad</th>
-                                        <th>Total</th>
+                                        <th>Total (L)</th>
                                         <th>Cancelar</th>
 
 
@@ -204,7 +204,7 @@ descripción:       Pantalla que permite realizar ventas del ganado por lotes
                                         <td>{{\Carbon\Carbon::parse($lote->FECHA)->format('d-m-Y')}}</td>
                                         <td>{{$lote->NOMBRE}}</td>
                                         <td>{{$lote->CANTIDAD}}</td>
-                                        <td style="text-align: right;">{{$lote->TOTAL}}</td>
+                                        <td style="text-align: right;">{{number_format($lote->TOTAL,2,'.',',')}}</td>
                                         <td>
                                             <a type="submit" class=" btn btn-danger btn-sm  " href=" {{ url('lotesventa/' .$lote->COD_VENTA. '/edit') }}">Cancelar Lote
 
@@ -249,7 +249,7 @@ descripción:       Pantalla que permite realizar ventas del ganado por lotes
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label><span style="color: red;"> * </span>Precio de Venta</label>
+                                            <label><span style="color: red;"> * </span>Precio de Venta (L)</label>
                                             <input name="PRE_VENTA" placeholder="" «nbsp» class="form-control"  style="text-align: right;" type="number" min="3" step="0.01" requerid value="{{ old('PRE_VENTA') }}">
                                             @if ($errors->has('PRE_VENTA'))
                                             <div id="PRE_VENTA-error" class="error text-danger pl-3" for="PRE_VENTA" style="display: bock;">

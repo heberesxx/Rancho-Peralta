@@ -116,10 +116,13 @@ descripción:       Pantalla que permite visualizar los lotes de ganado vendido
                                 <th class="text-center" >Precio Total (L)</th>
                                 <th class="text-center" >Estado Lote</th>
                                 @CAN('VER_VENTAS')
-                                <th class="text-center" >Ver detalle</th>
+                                <th class="text-center" style="width: 7%;">Ver detalle</th>
                                 @ENDCAN
                                 @CAN('ELIMINAR_VENTAS')
-                                <th class="text-center" >Anular Lote</th>
+                                <th class="text-center" style="width: 8%;" >Anular Lote</th>
+                                @ENDCAN
+                                @CAN('VER_VENTAS')
+                                <th class="text-center" style="width: 8%;" >Ver Factura</th>
                                 @ENDCAN
 
                             </tr>
@@ -134,10 +137,13 @@ descripción:       Pantalla que permite visualizar los lotes de ganado vendido
                                 <td  style="text-align: right;">{{number_format( $lote->TOTAL_PRECIO, 2, '.', ',') }}</td>
                                 <td  class="text-center">{{ $lote->STATUS_LOTE }}</td>
                                 @CAN('VER_VENTAS')
-                                <td class="text-center"><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href="{{ url('ventas/' .$lote->COD_VENTA . '/edit') }}"></a></td>
+                                <td class="text-center" style="width: 7%;"><a type="submit" class=" btn btn-primary btn-sm  fa fa-eye" href="{{ url('ventas/' .$lote->COD_VENTA . '/edit') }}"></a></td>
                                 @ENDCAN
                                 @CAN('ELIMINAR_VENTAS')
-                                <td class="text-center"><a type="submit" class=" btn btn-danger btn-sm  fa fa-times-circle" href="{{ url('anularlote/' .$lote->COD_VENTA . '/edit') }}"></a></td>
+                                <td class="text-center" style="width: 8%;"><a type="submit" class=" btn btn-danger btn-sm  fa fa-times-circle" href="{{ url('anularlote/' .$lote->COD_VENTA . '/edit') }}"></a></td>
+                                @ENDCAN
+                                @CAN('VER_VENTAS')
+                                <td class="text-center" style="width: 7%;"><a type="submit" target="_blank" class=" btn btn-info btn-sm  fa fa-eye" href="{{ url('verfactura/' .$lote->COD_VENTA . '/edit') }}"></a></td>
                                 @ENDCAN
                             </tr>
 

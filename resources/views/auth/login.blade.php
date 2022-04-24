@@ -1,3 +1,4 @@
+
 <x-guest-layout>
     <x-jet-authentication-card>
 
@@ -13,11 +14,6 @@
 
             <x-jet-validation-errors class="mb-3 rounded-0" />
 
-            @if (session('status'))
-            <div class="alert alert-danger mb-3 rounded-0" role="alert">
-                {{ session('status') }}
-            </div>
-            @endif
 
             <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -26,9 +22,9 @@
                         <x-jet-label value="{{ __('Usuario') }}" />
                     </strong>
 
-                    <x-jet-input class="{{ $errors->has('username') ? 'is-invalid' : '' }}" type="text" name="username" :value="old('username')" onkeyup="javascript:this.value=this.value.toUpperCase();"  pattern="[A-Z0-9]{4,30}"   title="Entre 4 y 30 carácteres en mayúsculas, sin espacios ni caracteres especiales" maxlength="30" minlength="4" required />
+                    <x-jet-input class="{{ $errors->has('username') ? 'is-invalid' : '' }}" type="text" name="username" :value="old('username')" onkeyup="javascript:this.value=this.value.toUpperCase();" pattern="[A-Z0-9]{4,30}" title="Entre 4 y 30 carácteres en mayúsculas, sin espacios ni caracteres especiales" maxlength="30" minlength="4" required />
 
-                    <x-jet-input-error for="username"></x-jet-input-error>
+                    
                 </div>
 
                 <div class="mb-3" x-data="{show: false}">

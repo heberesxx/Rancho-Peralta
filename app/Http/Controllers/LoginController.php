@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Actions\Fortify\PasswordValidationRules;
 use App\Models\Ganado;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class LoginController extends Controller
 {
@@ -35,20 +37,23 @@ class LoginController extends Controller
 
                 $ganado_hembra = DB::select('select * from ganado_general where SEX_GANADO = "HEMBRA"');
                 $ganado_macho = DB::select('select * from ganado_general where SEX_GANADO = "MACHO"');
-                $vacas_paridas = Ganado::where('COD_ESTADO','=','2')->get();
-                $vacas_prenadas = Ganado::where('COD_ESTADO','=','1')->get();
-                $vacas_sincronizadas = Ganado::where('COD_ESTADO','=','4')->get();
-                $vacas_recienparidas = Ganado::where('COD_ESTADO','=','12')->get();
-    
+                $vacas_paridas = Ganado::where('COD_ESTADO', '=', '2')->get();
+                $vacas_prenadas = Ganado::where('COD_ESTADO', '=', '1')->get();
+                $vacas_sincronizadas = Ganado::where('COD_ESTADO', '=', '4')->get();
+                $vacas_recienparidas = Ganado::where('COD_ESTADO', '=', '12')->get();
 
-              //  dd(count($ganado_hembra));
 
-                return view('dashboard')->with('hembras',json_encode(count($ganado_hembra), JSON_NUMERIC_CHECK))->with('machos',json_encode(count($ganado_macho), JSON_NUMERIC_CHECK))
-                ->with('vacas_paridas',json_encode(count($vacas_paridas), JSON_NUMERIC_CHECK))
-                ->with('vacas_prenadas',json_encode(count($vacas_prenadas), JSON_NUMERIC_CHECK))
-                ->with('vacas_sincronizadas',json_encode(count($vacas_sincronizadas), JSON_NUMERIC_CHECK))
-                ->with('vacas_recienparidas',json_encode(count($vacas_recienparidas), JSON_NUMERIC_CHECK));
+                //  dd(count($ganado_hembra));
 
+                Alert::success('Bienvenido');
+                return view('dashboard')
+
+                    ->with('hembras', json_encode(count($ganado_hembra), JSON_NUMERIC_CHECK))
+                    ->with('machos', json_encode(count($ganado_macho), JSON_NUMERIC_CHECK))
+                    ->with('vacas_paridas', json_encode(count($vacas_paridas), JSON_NUMERIC_CHECK))
+                    ->with('vacas_prenadas', json_encode(count($vacas_prenadas), JSON_NUMERIC_CHECK))
+                    ->with('vacas_sincronizadas', json_encode(count($vacas_sincronizadas), JSON_NUMERIC_CHECK))
+                    ->with('vacas_recienparidas', json_encode(count($vacas_recienparidas), JSON_NUMERIC_CHECK));
             } else if (Auth()->user()->estado == 0) {
                 Auth::guard('web')->logout();
                 return redirect('')->with('status', 'El usuario no se encuentra activo, contactar al administrador del sistema.');
@@ -181,6 +186,4 @@ class LoginController extends Controller
 
         return back()->with('mensaje', 'Las contraseñas no coinciden');
     }
-
-    
 }
